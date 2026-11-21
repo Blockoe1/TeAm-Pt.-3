@@ -16,13 +16,10 @@ using Random = UnityEngine.Random;
 public class GeneController : Manager
 {
     //COLOR
-    [SerializeField]
-    private Dictionary<SO_ColorGene, ColorGenotype> _colorGenotype;
-
     private ColorRegionHandler colorRegHan;
 
     #region GS
-    public Dictionary<SO_ColorGene, ColorGenotype> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
+
 
     #endregion
 
@@ -32,49 +29,44 @@ public class GeneController : Manager
 
         colorRegHan = GetComponent<ColorRegionHandler>();
 
-        InitializeGenotypes();
+        //InitializeGenotypes();
 
     }
 
-    public void InitializeGenotypes()
+    public void InitializeGenotypes(Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
     {
-        VisualizeColorGenotype();
-    }
-
-    //Randomizes all genotypes.
-    [Button]
-    public void RandomizeGenotype()
-    {
-        RandmizeColorGenotype();
+        VisualizeColorGenotype(colorGenotype);
     }
 
     //Randomize color genotype.
-    private void RandmizeColorGenotype()
+    public Dictionary<SO_ColorGene, ColorGenotype> RandomizeColorGenotype(Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
     {
         Dictionary<SO_ColorGene, ColorGenotype> newColorGenotype = new Dictionary<SO_ColorGene, ColorGenotype>();
-        foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in _colorGenotype)
+        foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in colorGenotype)
             newColorGenotype.TryAdd(kvp.Key, new ColorGenotype(kvp.Key.GetRandomAllele(), kvp.Key.GetRandomAllele()));
-        _colorGenotype = newColorGenotype;
-        VisualizeColorGenotype();
+
+        VisualizeColorGenotype(colorGenotype);
+
+        return newColorGenotype;
     }
 
     [Button]
-    private void VisualizeColorGenotype()
+    public void VisualizeColorGenotype(Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
     {
-        foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in _colorGenotype)
-            colorRegHan.VisualizeColor(kvp.Key.MatColorID, GetDominantAllele(kvp.Key).Color);
+        foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in colorGenotype)
+            colorRegHan.VisualizeColor(kvp.Key.MatColorID, GetDominantAllele(kvp.Key, colorGenotype).Color);
     }
 
     #region Get Allele
     //Returns the dominant allele.
-    private SO_ColorAllele GetDominantAllele(SO_ColorGene gene)
-        => (gene.FindIndex(_colorGenotype[gene].AlleleA) < gene.FindIndex(_colorGenotype[gene].AlleleB)) ? _colorGenotype[gene].AlleleA : _colorGenotype[gene].AlleleB;
+    private SO_ColorAllele GetDominantAllele(SO_ColorGene gene, Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
+        => (gene.FindIndex(colorGenotype[gene].AlleleA) < gene.FindIndex(colorGenotype[gene].AlleleB)) ? colorGenotype[gene].AlleleA : colorGenotype[gene].AlleleB;
 
     //Returns a random allele.
-    public SO_ColorAllele GetRandomAlleleFromGenotype(SO_ColorGene gene)
+    public SO_ColorAllele GetRandomAlleleFromGenotype(SO_ColorGene gene, Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
     {
         int ran = Random.Range(0, 2);
-        return (ran == 0) ? _colorGenotype[gene].AlleleA : _colorGenotype[gene].AlleleB;
+        return (ran == 0) ? colorGenotype[gene].AlleleA : colorGenotype[gene].AlleleB;
     }
     #endregion
 }
