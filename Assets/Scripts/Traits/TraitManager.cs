@@ -38,6 +38,12 @@ public class TraitManager : Manager
         return Array.FindIndex(instance._traitDatabase, x => x.GetType() == typeof(T));
     }
 
+    public static Trait GetRandomTrait()
+    {
+        if (instance == null) { return null; }
+        return instance._traitDatabase[UnityEngine.Random.Range(0, instance._traitDatabase.Length)];
+    }
+
     /// <summary>
     /// Notifies all relevant deer that an event for a given trait has been triggered.
     /// </summary>

@@ -119,6 +119,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1102728518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1102728520}
+  - component: {fileID: 1102728519}
+  m_Layer: 0
+  m_Name: RandomDeer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1102728519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102728518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be17056a52806094489634cf7ae74d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomDeerTester
+  randomDeer:
+    <Name>k__BackingField: Corporate Showstopper
+    <Speed>k__BackingField: 18
+    <Acceleration>k__BackingField: 8
+    <Stamina>k__BackingField: 17
+    <Balance>k__BackingField: 11
+    <Discipline>k__BackingField: 16
+    <Charisma>k__BackingField: 17
+    <Age>k__BackingField: 1
+    <Traits>k__BackingField:
+    - rid: -2
+    - rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!4 &1102728520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102728518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.50654, y: -0.36642, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2000370046
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,16 +360,11 @@ MonoBehaviour:
     <Discipline>k__BackingField: 1
     <Charisma>k__BackingField: 1
     <Age>k__BackingField: 0
-    <Trait1>k__BackingField:
-      rid: -2
-    <Trait2>k__BackingField:
-      rid: -2
+    <Traits>k__BackingField: []
   _simBreedingPartner: {fileID: 0}
   references:
     version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    RefIds: []
 --- !u!114 &2035530219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,3 +477,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 2000370049}
   - {fileID: 2035530222}
+  - {fileID: 1102728520}
