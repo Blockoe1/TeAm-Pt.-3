@@ -42,13 +42,18 @@ public class TraitManager : Manager
     public static Trait GetRandomTrait()
     {
         if (instance == null) { return null; }
+        Trait[] filteredTraits = instance._traitDatabase.Where(x => x.RandomlySelectable).ToArray();
+        if (filteredTraits.Length == 0)
+        {
+            return null;
+        }
         return instance._traitDatabase[UnityEngine.Random.Range(0, instance._traitDatabase.Length)];
     }
 
     public static Trait GetRandomTrait(Trait.TraitAlignment alignment)
     {
         if (instance == null) { return null; }
-        Trait[] filteredTraits = instance._traitDatabase.Where(x => x.Alignment == alignment).ToArray();
+        Trait[] filteredTraits = instance._traitDatabase.Where(x => x.RandomlySelectable && x.Alignment == alignment).ToArray();
         if (filteredTraits.Length == 0)
         {
             return null;

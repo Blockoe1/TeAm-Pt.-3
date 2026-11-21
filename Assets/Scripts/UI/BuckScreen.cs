@@ -14,7 +14,7 @@ public class BuckScreen : MonoBehaviour
     protected virtual void Start()
     {
         _buckTemplate.gameObject.SetActive(false);
-        _blankTemplate.SetActive(false);
+        if (_blankTemplate != null) _blankTemplate.SetActive(false);
     }
 
     public virtual void BuckSelected(DeerController buck, BuckUI ui) { }

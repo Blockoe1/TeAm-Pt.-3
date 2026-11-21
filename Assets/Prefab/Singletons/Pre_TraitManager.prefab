@@ -55,7 +55,8 @@ MonoBehaviour:
       type: {class: TestTrait, ns: , asm: Assembly-CSharp}
       data:
         _name: Test Trait
-        _description: This is a cool trait that has effects.
+        _description: Increases acceleration by +5.
         _priority: 0
+        _randomlySelectable: 1
         _traitAlignment: 0
         _triggerFlags: 1
