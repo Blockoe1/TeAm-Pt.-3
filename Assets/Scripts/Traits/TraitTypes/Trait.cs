@@ -6,6 +6,7 @@
 //
 // Brief Description : Base script for custom deer traits.
 *****************************************************************************/
+using AriUtils;
 using UnityEngine;
 
 [System.Serializable]

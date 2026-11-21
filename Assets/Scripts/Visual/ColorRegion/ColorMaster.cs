@@ -5,11 +5,12 @@
  * 
  * Controls the color region material on a sprite renderer.
  */
+using MarUtility.ExecutionManagement;
 using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorMaster : MonoBehaviour
+public class ColorMaster : Manager
 {
     private static ColorMaster inst;
 
@@ -24,13 +25,9 @@ public class ColorMaster : MonoBehaviour
 
     public static ColorMaster INST { get => inst; }
 
-    private void Awake()
+    public override void Initialize()
     {
-        Initialize();
-    }
-
-    private void Initialize()
-    {
+        //Set instance.
         if (inst == null)
             inst = this;
         else
@@ -38,6 +35,8 @@ public class ColorMaster : MonoBehaviour
             Debug.LogError("Multiple copies of ColorMaster exists, please delete one.");
             Destroy(this);
         }
+
+        base.Initialize();
     }
 
     public SO_Color Combine(SO_Color colorA, SO_Color colorB)
