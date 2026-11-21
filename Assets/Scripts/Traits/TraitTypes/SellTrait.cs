@@ -9,8 +9,7 @@
 using AriUtils;
 using UnityEngine;
 
-[DropdownGroup("SellTrait")]
-public abstract class SellTrait : Trait
+public abstract class SellTrait : TraitTrigger
 {
-    public abstract void ModifySellPrice(ref int sellPrice);
+    public int SellPrice { get; set; }
 }

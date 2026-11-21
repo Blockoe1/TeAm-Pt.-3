@@ -24,8 +24,8 @@ public class DeerData
 
     [field: SerializeField, Min(0)] public int Age { get; set; }
 
-    [field: SerializeReference, ClassDropdown] public Trait Trait1 { get; private set; }
-    [field: SerializeReference, ClassDropdown] public Trait Trait2 { get; private set; }
+    [field: SerializeReference, ClassDropdown] public TraitBase Trait1 { get; private set; }
+    [field: SerializeReference, ClassDropdown] public TraitBase Trait2 { get; private set; }
 
 
 
