@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using NUnit.Framework;
 using System;
 using System.Collections;
 using Unity.Cinemachine;
@@ -15,13 +16,18 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private CinemachineCamera camFollow;
 
     public static DeerData[] DeerInRace = null;
+
     [SerializeField] private bool debugMode = false;
-    [SerializeField, ShowIf("debugMode")] private DeerData[] debugDeerData = new DeerData[5];
+    [SerializeField, ShowIf("debugMode")] private DeerData[] debugDeerData;
     public static int DeerBetOn = 0;
 
     public static Action Broadcast_StartRace;
+
+    public static RaceManager Instance = null;
+    public static DeerData WinningDeer = null;
     private void Start()
     {
+        Instance = this;
         if (debugMode)
         {
             DeerInRace = debugDeerData;
@@ -54,8 +60,15 @@ public class RaceManager : MonoBehaviour
         Broadcast_StartRace?.Invoke();
     }
 
+    public void DeerCrossedLine(DeerData deer)
+    {
+        //Deer Has Crossed
+        WinningDeer = deer;
+    }
+
     private void OnDestroy()
     {
         DeerInRace = null;
+        Instance = null;
     }
 }
