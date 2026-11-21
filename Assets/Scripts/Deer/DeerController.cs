@@ -7,12 +7,15 @@
  */
 using MarUtility.ExecutionManagement;
 using NaughtyAttributes;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(GeneController))]
 public class DeerController : Manager
 {
     [SerializeField] private DeerData data;
+
+    private int[] statModifiers;
 
     private GeneController geneCon;
     private ColorRegionHandler colorRegHan;
@@ -31,7 +34,35 @@ public class DeerController : Manager
 
         geneCon = GetComponent<GeneController>();
         geneCon.VisualizeColorGenotype(data.ColorGenotype);
+
+        statModifiers = new int[Enum.GetValues(typeof(StatType)).Length];
     }
+
+    #region Stats
+    public void ApplyStatModifier(StatType stat, int modifier)
+    {
+        statModifiers[(int)stat] += modifier;
+    }
+
+    public void ResetStatModifiers()
+    {
+        for(int i = 0; i < statModifiers.Length; i++)
+        {
+            statModifiers[i] = 0;
+        }
+    }
+
+    public int GetStat(StatType stat)
+    {
+        int value = data.GetStat(stat);
+        // Apply temporary stat modifiers.
+        value += statModifiers[(int)stat];
+        // Apply apply traits from the data.
+        value = data.ApplyTraits(stat, value);
+
+        return value;
+    }
+    #endregion
 
     #region Inspector
     [Button]

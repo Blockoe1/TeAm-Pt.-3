@@ -40,7 +40,7 @@ public class DeerTooltip : DeerViewer
         string statString = "";
         foreach (StatType type in Enum.GetValues(typeof(StatType)))
         {
-            statString += type.ToString() + "\t\t" + GetStatDescription(deerData.GetStatModified(type)) + "\n";
+            statString += type.ToString() + "\t\t" + GetStatDescription(deerData.ApplyTraits(type, deerData.GetStat(type))) + "\n";
         }
 
         return statString.Substring(0, statString.Length - 1); // Remove last newline.
