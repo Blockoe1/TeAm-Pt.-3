@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name : BetManager.cs
+// Author : Alex Lindsey
+// Creation Date : 11/020/2026
+// Last Modified : 11/021/2026
+//
+// Brief Description : Calculates the value of a deer based on its stats, traits, and age for buying and selling purposes.
+*****************************************************************************/
 using UnityEngine;
 
 public static class DeerValueCalculator

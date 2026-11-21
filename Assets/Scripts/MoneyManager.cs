@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name : MoneyManager.cs
+// Author : Alex Lindsey
+// Creation Date : 11/020/2026
+// Last Modified : 11/021/2026
+//
+// Brief Description : Handles the player's money, loans, and interest rates.
+*****************************************************************************/
 using System;
 using UnityEngine;
 
