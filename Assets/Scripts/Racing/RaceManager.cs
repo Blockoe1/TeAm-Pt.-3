@@ -15,11 +15,17 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private CinemachineCamera camFollow;
 
     public static DeerData[] DeerInRace = null;
+    [SerializeField] private bool debugMode = false;
+    [SerializeField, ShowIf("debugMode")] private DeerData[] debugDeerData = new DeerData[5];
     public static int DeerBetOn = 0;
 
     public static Action Broadcast_StartRace;
     private void Start()
     {
+        if (debugMode)
+        {
+            DeerInRace = debugDeerData;
+        }
         //Spawn Deer w/ Stats
         for(int i = 0; i < deerStartPositions.Length; i++)
         {
