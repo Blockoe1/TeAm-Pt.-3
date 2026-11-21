@@ -541,7 +541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: data.<Balance>k__BackingField
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: data.<Stamina>k__BackingField
@@ -627,7 +627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: data.<Balance>k__BackingField
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: data.<Stamina>k__BackingField
@@ -966,7 +966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: data.<Balance>k__BackingField
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: data.<Stamina>k__BackingField
@@ -1138,7 +1138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: data.<Balance>k__BackingField
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: data.<Stamina>k__BackingField
