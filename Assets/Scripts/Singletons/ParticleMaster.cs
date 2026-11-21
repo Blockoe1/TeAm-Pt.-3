@@ -1,3 +1,10 @@
+/*
+ * Marlow Greenan
+ * Created: 11/21/2026
+ * Last Updated: 11/21/2026 by Marlow Greenan
+ * 
+ * Holds the particle library.
+ */
 using MarUtility.ExecutionManagement;
 using System.Collections.Generic;
 using UnityEngine;
