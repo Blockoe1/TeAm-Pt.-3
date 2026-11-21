@@ -84,7 +84,8 @@ public class RacingDeer : MonoBehaviour
 
     private void Running()
     {
-        rigidbody.linearVelocity = Vector2.MoveTowards(rigidbody.linearVelocity, Vector2.right * DeerSpeed, DeerAccel);
+        float maxSpeed = DeerSpeed > 1 ? DeerSpeed : 1;
+        rigidbody.linearVelocity = Vector2.MoveTowards(rigidbody.linearVelocity, Vector2.right * maxSpeed, DeerAccel);
     }
 
     private void Tripped()
@@ -123,7 +124,7 @@ public class RacingDeer : MonoBehaviour
 
     private IEnumerator UnStopCoroutine()
     {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(3, 6f));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(1, 3f));
         if (UnityEngine.Random.Range(0, 101) > DeerReverseChance)
         {
             currentState = STATES.REVERSED;
@@ -137,7 +138,7 @@ public class RacingDeer : MonoBehaviour
 
     private IEnumerator UnReverseCoroutine()
     {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(2, 5f));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(1, 3f));
         currentState = STATES.RUNNING;
         StartCoroutine(TripCoroutine());
     }
@@ -161,7 +162,7 @@ public class RacingDeer : MonoBehaviour
 
     private IEnumerator UnTripCoroutine()
     {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(5, 10f));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(2, 4f));
         currentState = STATES.RUNNING;
         StartCoroutine(TripCoroutine());
     }
@@ -171,6 +172,10 @@ public class RacingDeer : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(5f);
+            while(currentState == STATES.NONE || currentState == STATES.REVERSED)
+            {
+                yield return null;
+            }
             speedMod += DeerStamina * DeerSpeed;
         }
     }
