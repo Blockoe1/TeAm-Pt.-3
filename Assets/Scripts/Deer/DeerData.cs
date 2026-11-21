@@ -126,7 +126,7 @@ public class DeerData
     }
     #endregion
 
-    public static DeerData NewRandomDeer()
+    public static DeerData NewRandomDeer(params Trait.TraitAlignment[] requireddTraits)
     {
         DeerData data = new DeerData();
 
@@ -139,7 +139,14 @@ public class DeerData
         data.Traits = new Trait[BASE_TRAIT_NUM];
         for(int i = 0; i < BASE_TRAIT_NUM; i++)
         {
-            data.Traits[i] = TraitManager.GetRandomTrait();
+            if (requireddTraits != null && requireddTraits.Length > i)
+            {
+                data.Traits[i] = TraitManager.GetRandomTrait(requireddTraits[i]);
+            }
+            else
+            {
+                data.Traits[i] = TraitManager.GetRandomTrait();
+            }
         }
 
         data.ColorGenotype = NewRandomColorGenotype();
@@ -158,92 +165,3 @@ public class DeerData
         return newColorGenotype;
     }
 }
-
-/*****************************************************************************
-// File Name : DeerData.cs
-// Author : Arcadia Koederitz
-// Creation Date : 10/04/2026
-// Last Modified : 10/04/2026
-//
-// Brief Description : Holds data related to a deer.
-*****************************************************************************/
-using AriUtils;
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-
-[System.Serializable]
-public class DeerData
-{
-    private const int BASE_TRAIT_NUM = 2;
-
-    private const int STAT_MIN = 1;
-    private const int STAT_MAX = 20;
-
-    [field: SerializeField] public string Name { get; set; }
-    #region Stats
-    [field: SerializeField, Range(STAT_MIN, STAT_MAX)] public int Speed { get; set; } = 1;
-    [field: SerializeField, Range(STAT_MIN, STAT_MAX)] public int Acceleration { get; set; } = 1;
-    [field: SerializeField, Range(STAT_MIN, STAT_MAX)] public int Stamina { get; set; } = 1;
-    [field: SerializeField, Range(STAT_MIN, STAT_MAX)] public int Balance { get; set; } = 1;
-    [field: SerializeField, Range(STAT_MIN, STAT_MAX)] public int Discipline { get; set; } = 1;
-    [field: SerializeField, Range(STAT_MIN, STAT_MAX)] public int Charisma { get; set; } = 1;
-    #endregion
-
-    [field: SerializeField, Min(1)] public int Age { get; set; } = 1;
-
-    [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; private set; }
-
-    [SerializeField]
-    private Dictionary<SO_ColorGene, ColorGenotype> _colorGenotype;
-
-
-    public int Wins { get; private set; }
-    public int Races { get; private set; }
-
-
-    #region GS
-    public Dictionary<SO_ColorGene, ColorGenotype> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
-    #endregion
-
-    public void LogRace(bool wasWin)
-    {
-        Races++;
-        if (wasWin)
-        {
-            Wins++;
-        }
-    }
-
-
-
-    public static DeerData NewRandomDeer(params Trait.TraitAlignment[] requireddTraits)
-    {
-        DeerData data = new DeerData();
-
-        data.Name = DeerNames.GetRandomName();
-        foreach (StatType type in Enum.GetValues(typeof(StatType)))
-        {
-            data.SetStat(type, UnityEngine.Random.Range(STAT_MIN, STAT_MAX));
-        }
-
-        data.Traits = new Trait[BASE_TRAIT_NUM];
-        for (int i = 0; i < BASE_TRAIT_NUM; i++)
-        {
-            if (requireddTraits != null && requireddTraits.Length > i)
-            {
-                data.Traits[i] = TraitManager.GetRandomTrait(requireddTraits[i]);
-            }
-            else
-            {
-                data.Traits[i] = TraitManager.GetRandomTrait();
-            }
-
-        }
-
-
-
-        return data;
-    }
-}
-
