@@ -31,6 +31,7 @@ public class ColorMaster : MonoBehaviour
 
     private void Initialize()
     {
+        //Set instance.
         if (inst == null)
             inst = this;
         else

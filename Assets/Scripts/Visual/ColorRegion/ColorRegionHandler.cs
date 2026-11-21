@@ -28,7 +28,7 @@ public class ColorRegionHandler : MonoBehaviour
         Initialize();
     }
 
-    private void Initialize()
+    public void Initialize()
     {
         spriteRen = GetComponent<SpriteRenderer>();
     }
