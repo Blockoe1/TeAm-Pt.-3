@@ -16,8 +16,8 @@ public class DeerData
 {
     private const int BASE_TRAIT_NUM = 2;
 
-    private const int STAT_MIN = 1;
-    private const int STAT_MAX = 20;
+    public const int STAT_MIN = 1;
+    public const int STAT_MAX = 20;
 
     [field: SerializeField] public string Name { get; set; }
     #region Stats
