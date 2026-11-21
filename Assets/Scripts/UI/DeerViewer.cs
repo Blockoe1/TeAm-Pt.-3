@@ -18,12 +18,14 @@ public abstract class DeerViewer : MonoBehaviour
 
     private DeerData loadedData;
 
-    public void SetDeer(DeerData deerData)
+    public virtual void SetDeer(DeerData deerData)
     {
         loadedData = deerData;
 
         _nameText.text = deerData.Name;
         _winLossText.text = deerData.Wins.ToString() + " / " + deerData.Races.ToString();
-
+        _statsText.text = ProcessStats(deerData);
     }
+
+    public abstract string ProcessStats(DeerData deerData);
 }
