@@ -7,4 +7,13 @@ public class TestTrait : Trait, ITraitTrigger<TripTrait>
     {
         Debug.Log("Trait called for " + deer.name);
     }
+
+    public override int ModifyStat(StatType stat, int currentValue)
+    {
+        if (stat == StatType.Acceleration)
+        {
+            return currentValue + 5;
+        }
+        return currentValue;
+    }
 }

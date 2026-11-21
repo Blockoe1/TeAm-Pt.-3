@@ -9,6 +9,7 @@
 using AriUtils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -113,6 +114,17 @@ public class DeerData
             default:
                 return 0;
         }
+    }
+
+    public int GetStatModified(StatType stat)
+    {
+        int statValue = GetStat(stat);
+        Trait[] statTraits = Traits.OrderBy(x => x.Priority).ToArray();
+        foreach(Trait trait in statTraits)
+        {
+            statValue = trait.ModifyStat(stat, statValue);
+        }
+        return statValue;
     }
 
     public int GetTotalStats()
