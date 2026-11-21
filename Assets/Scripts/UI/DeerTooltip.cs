@@ -35,10 +35,14 @@ public class DeerTooltip : DeerViewer
 
     public override string ProcessStats(DeerData deerData)
     {
+        string statString = "";
         foreach (StatType type in Enum.GetValues(typeof(StatType)))
         {
-            data.SetStat(type, UnityEngine.Random.Range(STAT_MIN, STAT_MAX));
+            statString += type.ToString();
+
+            //data.SetStat(type, UnityEngine.Random.Range(STAT_MIN, STAT_MAX));
         }
+        return statString;
     }
 
 }
