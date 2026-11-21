@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2221218825461917310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3083798199685520328}
+  - component: {fileID: 4557593576271409210}
+  - component: {fileID: 1453911781306170521}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3083798199685520328
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2221218825461917310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3391148860585044764}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1200.2931, y: 800}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4557593576271409210
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2221218825461917310}
+  m_CullTransparentMesh: 1
+--- !u!114 &1453911781306170521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2221218825461917310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 2100000, guid: ebfc66a4a73956d448a1aa1da44b4e30, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -214173521630241165, guid: dd54f96684a40474599859deff9c9067, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8925991716084878897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3391148860585044764}
+  - component: {fileID: 8037314390915513628}
+  - component: {fileID: 3694867305683402691}
+  - component: {fileID: 4789448880563507374}
+  m_Layer: 5
+  m_Name: Pre_UIDeer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3391148860585044764
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925991716084878897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3083798199685520328}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8037314390915513628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925991716084878897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5249e107710a2de428e9ccff16d86178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeerController
+  _initializeTime: 100
+  _subManagers:
+  - {fileID: 3694867305683402691}
+  - {fileID: 4789448880563507374}
+  data:
+    <Name>k__BackingField: Demo Deer
+    <Speed>k__BackingField: 10
+    <Acceleration>k__BackingField: 10
+    <Stamina>k__BackingField: 10
+    <Balance>k__BackingField: 10
+    <Discipline>k__BackingField: 10
+    <Charisma>k__BackingField: 10
+    <Age>k__BackingField: 1
+    <Traits>k__BackingField: []
+    _colorGenotype:
+    - key: {fileID: 11400000, guid: f31f71ea7b96bc3408e5271abe613d9a, type: 2}
+      value:
+        _alleleA: {fileID: 11400000, guid: 46ced1b299c00154e8ad970252a16a1c, type: 2}
+        _alleleB: {fileID: 11400000, guid: 46ced1b299c00154e8ad970252a16a1c, type: 2}
+    - key: {fileID: 11400000, guid: 3d15a8c2682c8784e88e27b422d8ae9c, type: 2}
+      value:
+        _alleleA: {fileID: 11400000, guid: ffd95f83cd0637f4b98a80f3c7e6b28a, type: 2}
+        _alleleB: {fileID: 11400000, guid: ffd95f83cd0637f4b98a80f3c7e6b28a, type: 2}
+  _simBreedingPartner: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &3694867305683402691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925991716084878897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c64ed265f4d2354f9542acb8ab7a35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GeneController
+  _initializeTime: 0
+  _subManagers: []
+--- !u!114 &4789448880563507374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925991716084878897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338c8f4de7a10e44fadc679c3d30efb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorRegionHandler
+  _initializeTime: 0
+  _subManagers: []
+  _colorIDs: []
+  _simColors: []
+  _renderType: 100
+  _spriteRen: {fileID: 0}
+  _imageRen: {fileID: 1453911781306170521}

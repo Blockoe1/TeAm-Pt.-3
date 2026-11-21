@@ -6,11 +6,11 @@
  * Controls the color region material on a sprite renderer.
  */
 
-using UnityEngine;
-using NaughtyAttributes;
 using MarUtility.ExecutionManagement;
+using NaughtyAttributes;
+using UnityEngine;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class ColorRegionHandler : Manager
 {
     [SerializeField, Tooltip("CASE SENSITIVE\n The IDs for the colors in the color region material.")]
@@ -21,17 +21,34 @@ public class ColorRegionHandler : Manager
     private SO_Color[] _simColors;
 
     //DATA
-    private SpriteRenderer spriteRen;
+    [SerializeField, BoxGroup("Renderer")]
+    private ERendererType _renderType;
+
+    [SerializeField, ShowIf("_renderType", ERendererType.SPRITE), BoxGroup("Renderer")]
+    private SpriteRenderer _spriteRen;
+
+    [SerializeField, ShowIf("_renderType", ERendererType.IMAGE), BoxGroup("Renderer")]
+    private Image _imageRen;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        spriteRen = GetComponent<SpriteRenderer>();
+        switch (_renderType)
+        {
+            case ERendererType.SPRITE: _spriteRen.material = new Material(_spriteRen.material); break;
+            case ERendererType.IMAGE: _imageRen.material = new Material(_imageRen.material); break;
+        }
     }
 
     public void VisualizeColor(string colorID, SO_Color color)
-        => spriteRen.material.SetColor("_" + colorID, color.Color);
+    {
+        switch (_renderType)
+        {
+            case ERendererType.SPRITE: _spriteRen.material.SetColor("_" + colorID, color.Color); break;
+            case ERendererType.IMAGE: _imageRen.material.SetColor("_" + colorID, color.Color); break;
+        }
+    }
 
     private void VisualizeColors(SO_Color[] colors)
     {
@@ -44,4 +61,11 @@ public class ColorRegionHandler : Manager
     private void VisualizeColors()
         => VisualizeColors(_simColors);
     #endregion
+}
+
+public enum ERendererType
+{
+    SPRITE = 000,
+    IMAGE = 100,
+    MESH = 200
 }
