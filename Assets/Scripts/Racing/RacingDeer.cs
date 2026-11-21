@@ -97,13 +97,11 @@ public class RacingDeer : MonoBehaviour
         rigidbody.linearVelocity = Vector2.zero;
 
         currentState = STATES.NONE;
-        Debug.Log("I Twibbed");
     }
 
     private void Reversed()
     {
         rigidbody.linearVelocity = Vector2.MoveTowards(rigidbody.linearVelocity, Vector2.left * DeerSpeed, DeerAccel);
-        Debug.Log("Backwarding It");
     }
 
     private IEnumerator DisciplineCoroutine()
@@ -174,7 +172,6 @@ public class RacingDeer : MonoBehaviour
         {
             yield return new WaitForSeconds(5f);
             speedMod += DeerStamina * DeerSpeed;
-            Debug.Log(speedMod);
         }
     }
     private IEnumerator SpeedRandom()
