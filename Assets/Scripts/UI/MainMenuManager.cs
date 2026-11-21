@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name : MoneyManager.cs
+// Author : Alex Lindsey
+// Creation Date : 11/21/2026
+// Last Modified : 11/21/2026
+//
+// Brief Description : Implements the main menu functionality, including starting the game, toggling credits, and quitting the application.
+*****************************************************************************/
 using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
