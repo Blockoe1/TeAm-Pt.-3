@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 1479489281}
   - component: {fileID: 1479489280}
   - component: {fileID: 1479489282}
+  - component: {fileID: 1479489283}
   m_Layer: 0
   m_Name: ColorRegionTest
   m_TagString: Untagged
@@ -375,7 +376,28 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b9fb961ad517de74093fe6edfc3ec826, type: 2}
   - {fileID: 11400000, guid: 98c6e432c430ca947875efc57d8af491, type: 2}
   - {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
-  spriteRen: {fileID: 0}
+--- !u!114 &1479489283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479489279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c64ed265f4d2354f9542acb8ab7a35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GeneController
+  _colorGenotype:
+  - key: {fileID: 11400000, guid: f31f71ea7b96bc3408e5271abe613d9a, type: 2}
+    value:
+      _alleleA: {fileID: 11400000, guid: 46ced1b299c00154e8ad970252a16a1c, type: 2}
+      _alleleB: {fileID: 11400000, guid: 967cfcdb286dbe74d9f03427f0bf1068, type: 2}
+  - key: {fileID: 11400000, guid: 3d15a8c2682c8784e88e27b422d8ae9c, type: 2}
+    value:
+      _alleleA: {fileID: 11400000, guid: dca397d5ea696f84da7fc377a8c166b2, type: 2}
+      _alleleB: {fileID: 11400000, guid: ffd95f83cd0637f4b98a80f3c7e6b28a, type: 2}
+  _statGenotype: []
 --- !u!1001 &2198484764572777235
 PrefabInstance:
   m_ObjectHideFlags: 0
