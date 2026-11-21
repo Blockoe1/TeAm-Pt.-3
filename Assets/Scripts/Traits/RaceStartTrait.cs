@@ -6,8 +6,10 @@
 //
 // Brief Description : Trait that triggers when a race starts.
 *****************************************************************************/
+using AriUtils;
 using UnityEngine;
 
+[DropdownGroup("RaceStartTrait")]
 public abstract class RaceStartTrait : Trait
 {
     public abstract void OnRaceStart();   
