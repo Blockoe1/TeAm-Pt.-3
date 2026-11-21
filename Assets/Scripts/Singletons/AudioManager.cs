@@ -16,8 +16,6 @@ public class AudioManager : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
-            PlayOneShot("TestSFX");
-            PlayOneShot("TestMusic");
             return;
         }
 
