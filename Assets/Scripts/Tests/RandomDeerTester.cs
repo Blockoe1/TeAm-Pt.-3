@@ -9,6 +9,6 @@ public class RandomDeerTester : MonoBehaviour
     private void RandomizeDeer()
     {
         randomDeer = DeerData.NewRandomDeer();
-        FindAnyObjectByType<DeerTooltip>().SetDeer(randomDeer);
+        FindAnyObjectByType<DeerViewer>().SetDeer(randomDeer);
     }
 }
