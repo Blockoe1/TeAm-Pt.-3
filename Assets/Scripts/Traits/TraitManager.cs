@@ -6,6 +6,7 @@
 //
 // Brief Description : Handles ordering traits and calling traits.
 *****************************************************************************/
+using AriUtils;
 using MarUtility.ExecutionManagement;
 using System;
 using System.Collections.Generic;
@@ -16,29 +17,34 @@ using UnityEngine;
 public class TraitManager : Manager
 {
     private Dictionary<Type, int> eventTypeLookup = new();
-    private List<TraitBase>[] ActiveTraits;
+    private List<Trait>[] ActiveTraits;
+
+    private static TraitManager instance;
 
     public override void Initialize()
     {
+        SingletonUtil.SetSingleton(ref instance, this);
         // Setup the event trigger trait indicies.
         Type[] triggerTypes = Assembly.GetAssembly(typeof(TraitTrigger)).GetTypes().Where(x => !x.IsAbstract && !x.IsInterface).ToArray();
-        ActiveTraits = new List<TraitBase>[triggerTypes.Length];
+        ActiveTraits = new List<Trait>[triggerTypes.Length];
         for(int i = 0; i < triggerTypes.Length; i++)
         {
             eventTypeLookup.Add(triggerTypes[i], i);
         }
     }
 
-    public void AddTrait<T>(Trait<T> trait) where T : TraitTrigger
+    public static void AddTrait(Trait trait)
     {
-        List<TraitBase> typedTraits = GetTraitList(typeof(T));
+        if (instance == null) { Debug.LogError("No TraitManager exists."); return; }
+        List<Trait> typedTraits = instance.GetTraitList(trait.GetType());
         typedTraits.Add(trait);
         typedTraits = typedTraits.OrderBy(x => x.Priority).ToList();
     }
 
-    public void RemoveTrait<T>(Trait<T> trait) where T : TraitTrigger
+    public static void RemoveTrait(Trait trait)
     {
-        List<TraitBase> typedTraits = GetTraitList(typeof(T));
+        if (instance == null) { Debug.LogError("No TraitManager exists."); return; }
+        List<Trait> typedTraits = instance.GetTraitList(trait.GetType());
         typedTraits.Remove(trait);
         typedTraits = typedTraits.OrderBy(x => x.Priority).ToList();
     }
@@ -49,20 +55,21 @@ public class TraitManager : Manager
     /// <typeparam name="T"></typeparam>
     /// <param name="eventData"></param>
     /// <param name="triggeredDeer"></param>
-    public void TraitEvent<T>(T eventData, DeerController triggeredDeer) where T : TraitTrigger // TODO: Needs to take in the relevant DeerController.
+    public static void TraitEvent<T>(T eventData, DeerController triggeredDeer) where T : TraitTrigger // TODO: Needs to take in the relevant DeerController.
     {
-        List<TraitBase> typedTraits = GetTraitList(typeof(T));
-        foreach(TraitBase tb in typedTraits)
+        if (instance == null) { Debug.LogError("No TraitManager exists."); return; }
+        List<Trait> typedTraits = instance.GetTraitList(typeof(T));
+        foreach(Trait tb in typedTraits)
         {
-            if (!tb.IsGlobal && tb.AppliedDeer != triggeredDeer) { continue; }
-            if(tb is Trait<T> t)
+            //if (!tb.IsGlobal && tb.AppliedDeer != triggeredDeer) { continue; }
+            if(tb is ITraitTrigger<T> t)
             {
                 t.TriggerTrait(eventData, triggeredDeer);
             }
         }
     }
 
-    private List<TraitBase> GetTraitList(Type type)
+    private List<Trait> GetTraitList(Type type)
     {
         int index = eventTypeLookup[type];
         return ActiveTraits[index];

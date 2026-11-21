@@ -1,13 +1,25 @@
 /*****************************************************************************
-// File Name : Trait.cs
+// File Name : TraitBase.cs
 // Author : Arcadia Koederitz
 // Creation Date : 10/04/2026
 // Last Modified : 10/04/2026
 //
-// Brief Description : Adds generic support for traits
+// Brief Description : Base script for custom deer traits.
 *****************************************************************************/
+using UnityEngine;
+
 [System.Serializable]
-public abstract class Trait<T> : TraitBase where T: TraitTrigger
+public abstract class Trait
 {
-    public abstract void TriggerTrait(T trait, DeerController deer);
+    [SerializeField] private string _name;
+    [SerializeField, TextArea] private string _description;
+    [SerializeField] private int _priority;
+    [SerializeField] private bool _isGlobal;
+
+    public string Name => _name;
+    public string Description => _description;
+    public int Priority => _priority;
+    public bool IsGlobal => _isGlobal;
+
+    
 }
