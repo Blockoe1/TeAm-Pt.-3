@@ -32,7 +32,7 @@ public class GeneticsMaster : Manager
             inst = this;
         else
         {
-            Debug.LogError("Multiple copies of ColorMaster exists, please delete one.");
+            Debug.LogError("Multiple copies of GeneticsMaster exists, please delete one.");
             Destroy(this);
         }
 

@@ -251,6 +251,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8925991716084878897, guid: b3d81412139968940a4925b12316e929, type: 3}
     - target: {fileID: 2018845845240094091, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
+      propertyPath: _initializeTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2018845845240094091, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
       propertyPath: _colorGenes.Array.size
       value: 2
       objectReference: {fileID: 0}
