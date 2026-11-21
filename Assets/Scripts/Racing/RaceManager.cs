@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RaceManager : MonoBehaviour
 {
@@ -64,6 +65,7 @@ public class RaceManager : MonoBehaviour
     {
         //Deer Has Crossed
         WinningDeer = deer;
+        SceneManager.LoadScene("PostRaceScene");
     }
 
     private void OnDestroy()
