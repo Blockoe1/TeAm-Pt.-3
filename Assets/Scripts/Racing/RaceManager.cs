@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class RaceManager : MonoBehaviour
@@ -11,7 +12,10 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private GameObject[] deerStartPositions;
     [SerializeField, ReadOnly] private GameObject[] deerInRaceGO = new GameObject[5];
 
+    [SerializeField] private CinemachineCamera camFollow;
+
     public static DeerData[] DeerInRace = null;
+    public static int DeerBetOn = 0;
 
     public static Action Broadcast_StartRace;
     private void Start()
@@ -27,6 +31,8 @@ public class RaceManager : MonoBehaviour
                 deerInRaceGO[i].GetComponent<DeerController>().Data = DeerInRace[i];
             }
         }
+
+        camFollow.Follow = deerInRaceGO[DeerBetOn].transform;
         //Race Countdown
         StartCoroutine(StartRace());
     }
