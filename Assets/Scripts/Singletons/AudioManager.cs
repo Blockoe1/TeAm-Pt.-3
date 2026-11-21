@@ -16,14 +16,13 @@ public class AudioManager : Manager
     {
         if (Instance == null)
         {
+            base.Initialize();
             Instance = this;
             return;
         }
 
         Debug.LogError("How did we get here?\nWe have an extra copy of AudioManager, deleting the copy...");
         Destroy(gameObject);
-
-        base.Initialize();
     }
     
     /// <summary>
