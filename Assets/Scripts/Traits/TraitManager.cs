@@ -9,6 +9,7 @@
 using AriUtils;
 using MarUtility.ExecutionManagement;
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem.Utilities;
 
@@ -42,6 +43,13 @@ public class TraitManager : Manager
     {
         if (instance == null) { return null; }
         return instance._traitDatabase[UnityEngine.Random.Range(0, instance._traitDatabase.Length)];
+    }
+
+    public static Trait GetRandomTrait(Trait.TraitAlignment alignment)
+    {
+        if (instance == null) { return null; }
+        Trait[] filteredTraits = instance._traitDatabase.Where(x => x.Alignment == alignment).ToArray();
+        return filteredTraits[UnityEngine.Random.Range(0, instance._traitDatabase.Length)];
     }
 
     /// <summary>

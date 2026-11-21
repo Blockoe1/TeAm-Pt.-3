@@ -5,8 +5,8 @@ using UnityEngine;
 public class RacingDeer : MonoBehaviour
 {
     const float SPEED_MULT = 4;
-    const float ACCEL_MULT = 0.025f;
-    const float STAMINA_MULT = 0.05f;
+    const float ACCEL_MULT = 0.01f;
+    const float STAMINA_MULT = 0.0075f;
 
     const float TRIP_SPEED = 2f;
 
@@ -27,12 +27,14 @@ public class RacingDeer : MonoBehaviour
 
     //Change these to use modified data instead of direct data
     private float speedMod = 0;
-    private float DeerSpeed => (((30f + deerController.Data.Speed) / 50f) * SPEED_MULT) - speedMod;
-    private float DeerAccel => ((30f + deerController.Data.Acceleration) / 50f) * ACCEL_MULT;
+    private float speedModMult = 1f;
+    private float accelModMult = 1f;
+    private float DeerSpeed => (((30f + deerController.Data.Speed) / 50f * SPEED_MULT) - speedMod) * speedModMult;
+    private float DeerAccel => ((30f + deerController.Data.Acceleration) / 50f * ACCEL_MULT) * accelModMult;
     private int DeerBalance => deerController.Data.Balance + 75;
-    private int DeerStopChance => deerController.Data.Discipline + 58;
-    private int DeerReverseChance => deerController.Data.Discipline + 79;
-    private float DeerStamina => (30 - deerController.Data.Stamina) * 0.05f * STAMINA_MULT;
+    private float DeerStopChance => deerController.Data.Discipline * 1.5f + 65;
+    private int DeerReverseChance => deerController.Data.Discipline + 50;
+    private float DeerStamina => (30 - deerController.Data.Stamina) * STAMINA_MULT;
 
     /// <summary>
     /// Will start when the deer gets started
@@ -49,6 +51,8 @@ public class RacingDeer : MonoBehaviour
         StartCoroutine(TripCoroutine());
         StartCoroutine(DisciplineCoroutine());
         StartCoroutine(SpeedLower());
+        StartCoroutine(SpeedRandom());
+        StartCoroutine(AccelRandom());
     }
 
     /// <summary>
@@ -145,7 +149,7 @@ public class RacingDeer : MonoBehaviour
         bool isTripped = false;
         while (!isTripped)
         {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(7, 14f));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(4, 6f));
             while(currentState == STATES.NONE || currentState == STATES.REVERSED)
             {
                 yield return null;
@@ -173,6 +177,24 @@ public class RacingDeer : MonoBehaviour
             Debug.Log(speedMod);
         }
     }
+    private IEnumerator SpeedRandom()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3f);
+            speedModMult *= UnityEngine.Random.Range(0.95f, 1.05f);
+        }
+    }
+
+    private IEnumerator AccelRandom()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f);
+            accelModMult *= UnityEngine.Random.Range(0.95f, 1.05f);
+        }
+    }
+
     private void OnDestroy()
     {
         RaceManager.Broadcast_StartRace -= StartRace;
