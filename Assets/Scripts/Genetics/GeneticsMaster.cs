@@ -42,6 +42,7 @@ public class GeneticsMaster : MonoBehaviour
         }
     }
 
+    //Spawns an offspring with the combined genotypes of parentA and parentB.
     public void Breed(GeneController parentA, GeneController parentB)
     {
         GameObject osGO = Instantiate(_racerPrefab);
@@ -58,6 +59,7 @@ public class GeneticsMaster : MonoBehaviour
         osGenCon.Initialize();
     }
 
+    //Combines parentA and parentB color genotypes.
     private Dictionary<SO_ColorGene, ColorGenotype> CombineColorGenotypes(GeneController parentA, GeneController parentB)
     {
         if (parentA.ColorGenotype.Count != parentB.ColorGenotype.Count)
