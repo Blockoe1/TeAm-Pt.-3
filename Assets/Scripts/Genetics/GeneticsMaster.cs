@@ -56,23 +56,21 @@ public class GeneticsMaster : Manager
 
     private DeerData CombineStats(DeerData parentA, DeerData parentB)
     {
+        DeerData combinedData = new DeerData();
+
         List<StatType> pool = new List<StatType>{ StatType.Acceleration, StatType.Balance, StatType.Speed, StatType.Stamina, StatType.Discipline, StatType.Charisma };
 
         //Set stats received from parentA.
-        for (int i = pool.Count / 2; i >= 0; i--)
+        for (int i = 0; i < 3; i++)
         {
             int ran = Random.Range(0, pool.Count);
-            
+            combinedData.SetStat(pool[ran], CalculateBredStat(pool[ran], parentA));
             pool.RemoveAt(ran);
         }
 
         //Set stats received from parentB.
-        StatType[] poolB = new StatType[3];
-        for (int i = 0; i < poolB.Length; i++)
-            poolB[i] = pool[i];
-
-        DeerData combinedData = new DeerData();
-        //combinedData.SetStat()
+        for (int i = 0; i < pool.Count; i++)
+            combinedData.SetStat(pool[i], CalculateBredStat(pool[i], parentB));
 
         return combinedData;
     }
