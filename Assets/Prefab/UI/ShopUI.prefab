@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 1666160368862915917}
   - component: {fileID: 7155890479536461370}
   - component: {fileID: 2922200550102544307}
+  - component: {fileID: 7551430013378976267}
   m_Layer: 5
   m_Name: BuckBuyWidget
   m_TagString: Untagged
@@ -295,6 +296,20 @@ MonoBehaviour:
   _buckAppearance: {fileID: 0}
   _selectButton: {fileID: 6458476500908253909}
   _background: {fileID: 7155890479536461370}
+--- !u!114 &7551430013378976267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5382069437115795294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966919d4ae5c3fa4daa3e31148ca975f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverTooltip
+  offset: {x: 0, y: 100}
+  ui: {fileID: 2922200550102544307}
 --- !u!1 &6979116044851743741
 GameObject:
   m_ObjectHideFlags: 0

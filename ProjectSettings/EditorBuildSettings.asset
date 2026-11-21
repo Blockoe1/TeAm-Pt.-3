@@ -15,4 +15,4 @@ EditorBuildSettings:
     path: Assets/Scenes/BuildScenes/PreRaceScene.unity
     guid: 6945a6b2ea875464cbf125dbcc098b3b
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: ffec85a5228d4484db9d62e2d48a2c81, type: 3}
