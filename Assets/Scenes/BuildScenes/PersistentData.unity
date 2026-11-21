@@ -454,7 +454,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MarUtility.ExecutionManagement.Manager
   _initializeTime: 100
   _subManagers:
-  - {fileID: 86007713}
   - {fileID: 573933320}
   - {fileID: 587150665}
   - {fileID: 294358423}
@@ -462,6 +461,7 @@ MonoBehaviour:
   - {fileID: 966128650}
   - {fileID: 2007568643}
   - {fileID: 866703774}
+  - {fileID: 86007713}
 --- !u!4 &1711746011
 Transform:
   m_ObjectHideFlags: 0
