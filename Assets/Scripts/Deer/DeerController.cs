@@ -29,7 +29,7 @@ public class DeerController : Manager
         base.Initialize();
 
         geneCon = GetComponent<GeneController>();
-
+        geneCon.VisualizeColorGenotype(data.ColorGenotype);
 
     }
 
@@ -37,5 +37,13 @@ public class DeerController : Manager
     [Button]
     private void Breed()
         => GeneticsMaster.INST.Breed(this, _simBreedingPartner);
+
+    //Randomizes all genotypes.
+    [Button]
+    public void RandomizeGenotype()
+    {
+        data.ColorGenotype = geneCon.RandomizeColorGenotype(data.ColorGenotype);
+        geneCon.VisualizeColorGenotype(data.ColorGenotype);
+    }
     #endregion
 }

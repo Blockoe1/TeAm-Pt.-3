@@ -50,9 +50,10 @@ public class GeneticsMaster : Manager
         }
 
         osDeerCon.Data = BreedStats(parentA.Data, parentB.Data);
-        osGenCon.ColorGenotype = CombineColorGenotypes(parentA.GeneCon, parentB.GeneCon);
+        osDeerCon.Data.ColorGenotype = CombineColorGenotypes(parentA, parentB);
 
         osGenCon.Initialize();
+        osGenCon.VisualizeColorGenotype(osDeerCon.Data.ColorGenotype);
     }
 
     //Combines the stats of the parents with the breeding stat formula.
@@ -82,25 +83,25 @@ public class GeneticsMaster : Manager
         => parent.GetStats(stat) + Random.Range(-3, 4);
 
     //Combines parentA and parentB color genotypes.
-    private Dictionary<SO_ColorGene, ColorGenotype> CombineColorGenotypes(GeneController parentA, GeneController parentB)
+    private Dictionary<SO_ColorGene, ColorGenotype> CombineColorGenotypes(DeerController parentA, DeerController parentB)
     {
-        if (parentA.ColorGenotype.Count != parentB.ColorGenotype.Count)
+        if (parentA.Data.ColorGenotype.Count != parentB.Data.ColorGenotype.Count)
         {
-            Debug.LogError($"{parentA.gameObject.name} does not have the same amount of genes in the color genotype as {parentB}.\nCheck for missing genotypes.");
+            Debug.LogError($"{parentA.Data.Name} does not have the same amount of genes in the color genotype as {parentB.Data.Name}.\nCheck for missing genotypes.");
             return null;
         }
 
         Dictionary<SO_ColorGene, ColorGenotype> combinedGenotype = new Dictionary<SO_ColorGene, ColorGenotype>();
 
-        foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in parentA.ColorGenotype)
+        foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in parentA.Data.ColorGenotype)
             combinedGenotype.TryAdd(kvp.Key, CombineColorGenotype(parentA, parentB, kvp.Key));
 
         return combinedGenotype;
     }
 
     //Creates a genotype with 1 random allele from both parents.
-    private ColorGenotype CombineColorGenotype(GeneController parentA, GeneController parentB, SO_ColorGene gene)
-        => new ColorGenotype(parentA.GetRandomAlleleFromGenotype(gene), parentB.GetRandomAlleleFromGenotype(gene));
+    private ColorGenotype CombineColorGenotype(DeerController parentA, DeerController parentB, SO_ColorGene gene)
+        => new ColorGenotype(parentA.GeneCon.GetRandomAlleleFromGenotype(gene, parentA.Data.ColorGenotype), parentB.GeneCon.GetRandomAlleleFromGenotype(gene, parentB.Data.ColorGenotype));
     #endregion
 
 }
