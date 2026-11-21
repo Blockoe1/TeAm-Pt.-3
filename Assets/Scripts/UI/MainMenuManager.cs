@@ -14,7 +14,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private int mainGameSceneIndex = 1;
     public void StartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainGameScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("PreRaceScene");
     }
     public void ToggleCredits()
     {

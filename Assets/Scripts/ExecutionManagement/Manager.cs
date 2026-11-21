@@ -17,6 +17,8 @@ namespace MarUtility.ExecutionManagement
         [SerializeField]
         private Manager[] _subManagers;
 
+        [SerializeField] private bool dontDestroyMePlease = false;
+
         #region GS
         public InitializeTime InitializeTime { get => _initializeTime; set => _initializeTime = value; }
         public Manager[] SubManagers { get => _subManagers; }
@@ -25,7 +27,13 @@ namespace MarUtility.ExecutionManagement
         private void Awake()
         {
             if (_initializeTime == InitializeTime.AWAKE)
+            {
                 Initialize();
+                if (dontDestroyMePlease)
+                {
+                    DontDestroyOnLoad(gameObject);
+                }
+            }
         }
         private void Start()
         {
