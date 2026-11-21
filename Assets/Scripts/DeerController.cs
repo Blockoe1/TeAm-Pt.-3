@@ -26,9 +26,11 @@ public class DeerController : Manager
 
     public override void Initialize()
     {
+        base.Initialize();
+
         geneCon = GetComponent<GeneController>();
 
-        base.Initialize();
+
     }
 
     #region Inspector

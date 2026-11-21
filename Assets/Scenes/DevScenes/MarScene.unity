@@ -268,6 +268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre_Racer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: _simBreedingPartner
+      value: 
+      objectReference: {fileID: 2091987972}
     - target: {fileID: 8405653114225147813, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.18
@@ -355,6 +359,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c64ed265f4d2354f9542acb8ab7a35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeneController
+--- !u!114 &2091987972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+  m_PrefabInstance: {fileID: 6519780460798061243}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5249e107710a2de428e9ccff16d86178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeerManager
 --- !u!1001 &6519780460798061243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -367,6 +382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre_Racer
       objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: _simBreedingPartner
+      value: 
+      objectReference: {fileID: 2091987972}
     - target: {fileID: 8405653114225147813, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.78
