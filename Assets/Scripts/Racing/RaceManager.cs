@@ -6,6 +6,8 @@ public class RaceManager : MonoBehaviour
 {
     [SerializeField] private int countdownSeconds;
 
+    public static DeerData[] DeerInRace => null;
+
     public static Action Broadcast_StartRace;
     private void Start()
     {

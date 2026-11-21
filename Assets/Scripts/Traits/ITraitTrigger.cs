@@ -1,15 +1,12 @@
 /*****************************************************************************
-// File Name : SellTrait.cs
+// File Name : ITraitTrigger.cs
 // Author : Arcadia Koederitz
 // Creation Date : 10/04/2026
 // Last Modified : 10/04/2026
 //
-// Brief Description : Trait that modifies sell price of horses.
+// Brief Description : Adds generic support for trait triggers
 *****************************************************************************/
-using AriUtils;
-using UnityEngine;
-
-public abstract class SellTrait : TraitTrigger
+public interface ITraitTrigger<T> where T: TraitTrigger
 {
-    public int SellPrice { get; set; }
+    public abstract void TriggerTrait(T trait, DeerController deer);
 }

@@ -46,3 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TraitManager
   _initializeTime: 0
   _subManagers: []
+  _traitDatabase:
+  - rid: 7479278803429884011
+  references:
+    version: 2
+    RefIds:
+    - rid: 7479278803429884011
+      type: {class: TestTrait, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Test Trait
+        _description: This is a cool trait that has effects.
+        _priority: 0
+        _traitAlignment: 0
+        _triggerFlags: 1

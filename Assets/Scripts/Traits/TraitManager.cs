@@ -1,70 +1,84 @@
 /*****************************************************************************
-// File Name : TraitManager.cs
+// File Name : TraitDatabase.cs
 // Author : Arcadia Koederitz
 // Creation Date : 10/04/2026
 // Last Modified : 10/04/2026
 //
-// Brief Description : Handles ordering traits and calling traits.
+// Brief Description : Handles modifying design data of traits.
 *****************************************************************************/
+using AriUtils;
 using MarUtility.ExecutionManagement;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using UnityEngine;
+using UnityEngine.InputSystem.Utilities;
 
 public class TraitManager : Manager
 {
-    private Dictionary<Type, int> eventTypeLookup = new();
-    private List<TraitBase>[] ActiveTraits;
+    [Header("Trait Database")]
+    [SerializeReference, ClassDropdown] private Trait[] _traitDatabase;
+
+    private static TraitManager instance;
+
+    public static ReadOnlyArray<Trait> TraitDatabase => instance == null ? null : instance._traitDatabase;
 
     public override void Initialize()
     {
-        // Setup the event trigger trait indicies.
-        Type[] triggerTypes = Assembly.GetAssembly(typeof(TraitTrigger)).GetTypes().Where(x => !x.IsAbstract && !x.IsInterface).ToArray();
-        ActiveTraits = new List<TraitBase>[triggerTypes.Length];
-        for(int i = 0; i < triggerTypes.Length; i++)
+        SingletonUtil.SetSingleton(ref instance, this);
+        for(int i = 0; i < _traitDatabase.Length; i++)
         {
-            eventTypeLookup.Add(triggerTypes[i], i);
+            _traitDatabase[i].TraitIndex = i;
         }
+
+        // Subscribe to relevant events.
     }
 
-    public void AddTrait<T>(Trait<T> trait) where T : TraitTrigger
+    public static int GetTraitIndex<T>()
     {
-        List<TraitBase> typedTraits = GetTraitList(typeof(T));
-        typedTraits.Add(trait);
-        typedTraits = typedTraits.OrderBy(x => x.Priority).ToList();
-    }
-
-    public void RemoveTrait<T>(Trait<T> trait) where T : TraitTrigger
-    {
-        List<TraitBase> typedTraits = GetTraitList(typeof(T));
-        typedTraits.Remove(trait);
-        typedTraits = typedTraits.OrderBy(x => x.Priority).ToList();
+        if (instance == null) { return -1; }
+        return Array.FindIndex(instance._traitDatabase, x => x.GetType() == typeof(T));
     }
 
     /// <summary>
-    /// Notifies all deer traits that an event has occured.
+    /// Notifies all relevant deer that an event for a given trait has been triggered.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="eventData"></param>
     /// <param name="triggeredDeer"></param>
-    public void TraitEvent<T>(T eventData, DeerController triggeredDeer) where T : TraitTrigger // TODO: Needs to take in the relevant DeerController.
+    public static void TraitEvent<T>(T eventData, DeerController triggeredDeer) where T : TraitTrigger
     {
-        List<TraitBase> typedTraits = GetTraitList(typeof(T));
-        foreach(TraitBase tb in typedTraits)
+        // Loop through deer in current race.
+        foreach (DeerData deer in RaceManager.DeerInRace)
         {
-            if (!tb.IsGlobal && tb.AppliedDeer != triggeredDeer) { continue; }
-            if(tb is Trait<T> t)
+            // Trigger each trait in those deer.
+            foreach (Trait trait in deer.Traits)
             {
-                t.TriggerTrait(eventData, triggeredDeer);
+                if (trait is ITraitTrigger<T> triggered
+                    && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Race)
+                    && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer)) // Global traits trigger even when the event was not on this deer.
+                {
+                    triggered.TriggerTrait(eventData, triggeredDeer);
+                }
+            }
+        }
+
+        // Loop through deer owned.
+        foreach (DeerData deer in PlayerManager.Instance.OwnedDeer)
+        {
+            // Trigger each trait in those deer.
+            foreach(Trait trait in deer.Traits)
+            {
+                if (trait is ITraitTrigger<T> triggered
+                    && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Owned)
+                    && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer))
+                {
+                    triggered.TriggerTrait(eventData, triggeredDeer);
+                }
             }
         }
     }
 
-    private List<TraitBase> GetTraitList(Type type)
+    private void OnDestroy()
     {
-        int index = eventTypeLookup[type];
-        return ActiveTraits[index];
+        // Unsubscribe event references.
     }
 }
