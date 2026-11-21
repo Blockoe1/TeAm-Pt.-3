@@ -16,6 +16,8 @@ using UnityEngine;
 public class DeerData
 {
     private const int BASE_TRAIT_NUM = 2;
+    private const int BREEDING_AGE = 5;
+    private const int RETIRED_AGE = 8;
 
     public const int STAT_MIN = 1;
     public const int STAT_MAX = 20;
@@ -139,6 +141,56 @@ public class DeerData
             total += GetStat(type);
         }
         return total;
+    }
+    #endregion
+
+    #region Purchasing
+    public float CalculateBaseValue()
+    {
+        int goodTraitCount = Traits.Count(x => x.Alignment == Trait.TraitAlignment.Good);
+        return GetTotalStats() * ((goodTraitCount + 1f) / 2f);
+    }
+
+    public int CalculatePrice()
+    {
+        float value = CalculateBaseValue();
+
+        if (Age >= RETIRED_AGE)
+        {
+            value *= 0.5f;
+        }
+        else if (Age >= BREEDING_AGE)
+        {
+            value *= 1.25f;
+        }
+            
+
+        return Mathf.RoundToInt(value);
+    }
+
+    public int CalculateSellPrice()
+    {
+        float value = CalculateBaseValue();
+
+        if (Age >= RETIRED_AGE)
+        {
+            value *= 0.5f;
+        }
+        else if (Age >= BREEDING_AGE)
+        {
+            value *= 1.25f;
+        } 
+
+        if (Traits != null && Traits.Length > 0)
+        {
+            Trait[] sellTraits = Traits.Where(x => x != null).OrderBy(x => x.Priority).ToArray();
+            foreach (Trait trait in sellTraits)
+            {
+                value = trait.ModifySellPrice(value);
+            }
+        }
+
+        return Mathf.RoundToInt(value);
     }
     #endregion
 

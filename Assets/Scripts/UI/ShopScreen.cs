@@ -33,4 +33,9 @@ public class ShopScreen : BuckScreen
         // TODO: add deer to stables
         ReplaceWithBlank(ui);
     }
+
+    public override void Continue()
+    {
+        
+    }
 }
