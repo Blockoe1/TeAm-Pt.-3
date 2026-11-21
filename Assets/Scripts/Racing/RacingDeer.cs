@@ -78,6 +78,10 @@ public class RacingDeer : MonoBehaviour
                     Reversed();
                     break;
             }
+            if (transform.position.x > 40)
+            {
+                RaceManager.Instance.DeerCrossedLine(deerController.Data);
+            }
             yield return new WaitForFixedUpdate();
         }
     }
