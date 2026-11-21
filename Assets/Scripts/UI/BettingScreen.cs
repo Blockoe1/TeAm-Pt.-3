@@ -8,10 +8,16 @@ public class BettingScreen : MonoBehaviour
 
     private void Start()
     {
-        InitializeBetting(new List<string>() { "A", "B", "C", "D", "E" });
+        var test = new List<DeerData>();
+        for (int i = 0; i < 5; i++)
+        {
+            test.Add(new DeerData());
+            test[^1].Name = (i + 1).ToString();
+        }
+        InitializeBetting(test);
     }
 
-    public void InitializeBetting(List<string> bucks)
+    public void InitializeBetting(List<DeerData> bucks)
     {
         while (_buckParent.childCount > 1)
         {
@@ -22,7 +28,7 @@ public class BettingScreen : MonoBehaviour
         {
             var entry = Instantiate(_buckTemplate, _buckParent).GetComponent<BuckUI>();
             entry.gameObject.SetActive(true);
-            entry.BuckName.text = buck;
+            entry.BuckName.text = buck.Name;
         }
     }
 }
