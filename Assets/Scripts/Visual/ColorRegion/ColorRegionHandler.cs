@@ -8,9 +8,10 @@
 
 using UnityEngine;
 using NaughtyAttributes;
+using MarUtility.ExecutionManagement;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class ColorRegionHandler : MonoBehaviour
+public class ColorRegionHandler : Manager
 {
     [SerializeField, Tooltip("CASE SENSITIVE\n The IDs for the colors in the color region material.")]
     private string[] _colorIDs;
@@ -22,14 +23,10 @@ public class ColorRegionHandler : MonoBehaviour
     //DATA
     private SpriteRenderer spriteRen;
 
-
-    private void Start()
+    public override void Initialize()
     {
-        Initialize();
-    }
+        base.Initialize();
 
-    public void Initialize()
-    {
         spriteRen = GetComponent<SpriteRenderer>();
     }
 
