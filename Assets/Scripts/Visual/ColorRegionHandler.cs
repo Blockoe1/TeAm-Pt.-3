@@ -16,7 +16,7 @@ public class ColorRegionHandler : MonoBehaviour
     private string[] _colorIDs;
 
     //SIMULATION
-    [SerializeField]
+    [SerializeField, BoxGroup("Simulation")]
     private SO_Color[] _simColors;
 
     //DATA
@@ -36,9 +36,7 @@ public class ColorRegionHandler : MonoBehaviour
     private void VisualizeColors(SO_Color[] colors)
     {
         for (int i = 0; i < colors.Length; i++)
-        {
             spriteRen.material.SetColor("_" + _colorIDs[i], colors[i].Color);
-        }
     }
 
     #region Inspector

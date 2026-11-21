@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f2b75a893fdab44a204e0dee9f478f, type: 3}
   m_Name: C_Yellow
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
-  _name: 
-  _color: {r: 1, g: 1, b: 1, a: 1}
-  _colorMixes: []
+  _name: Yellow
+  _color: {r: 0.70440245, g: 0.63170683, b: 0.12626074, a: 1}

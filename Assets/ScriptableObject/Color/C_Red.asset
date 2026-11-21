@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f2b75a893fdab44a204e0dee9f478f, type: 3}
   m_Name: C_Red
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
-  _name: 
-  _color: {r: 1, g: 1, b: 1, a: 1}
-  _colorMixes: []
+  _name: Red
+  _color: {r: 0.5345911, g: 0.17315362, b: 0.17315362, a: 1}

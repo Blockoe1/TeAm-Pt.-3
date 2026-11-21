@@ -256,75 +256,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!1 &1240740484
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1240740486}
-  - component: {fileID: 1240740485}
-  m_Layer: 0
-  m_Name: Pre_ColorMaster
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1240740485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240740484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fd8c80b23c41614d97fa2bc1572bd29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ColorMaster
-  _colorCombos:
-  - key: {fileID: 11400000, guid: 79bc987439171864dad99920e902e923, type: 2}
-    value:
-      _colorA: {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
-      _colorB: {fileID: 11400000, guid: 925f26bcf32e7004eb9edc5aefee514b, type: 2}
-  - key: {fileID: 11400000, guid: 98c6e432c430ca947875efc57d8af491, type: 2}
-    value:
-      _colorA: {fileID: 11400000, guid: fabe5d8628d20c046a9111b01ee4db7f, type: 2}
-      _colorB: {fileID: 11400000, guid: 925f26bcf32e7004eb9edc5aefee514b, type: 2}
-  - key: {fileID: 11400000, guid: b9fb961ad517de74093fe6edfc3ec826, type: 2}
-    value:
-      _colorA: {fileID: 11400000, guid: fabe5d8628d20c046a9111b01ee4db7f, type: 2}
-      _colorB: {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
-  - key: {fileID: 11400000, guid: fabe5d8628d20c046a9111b01ee4db7f, type: 2}
-    value:
-      _colorA: {fileID: 11400000, guid: fabe5d8628d20c046a9111b01ee4db7f, type: 2}
-      _colorB: {fileID: 11400000, guid: fabe5d8628d20c046a9111b01ee4db7f, type: 2}
-  - key: {fileID: 11400000, guid: 925f26bcf32e7004eb9edc5aefee514b, type: 2}
-    value:
-      _colorA: {fileID: 11400000, guid: 925f26bcf32e7004eb9edc5aefee514b, type: 2}
-      _colorB: {fileID: 11400000, guid: 925f26bcf32e7004eb9edc5aefee514b, type: 2}
-  - key: {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
-    value:
-      _colorA: {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
-      _colorB: {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
---- !u!4 &1240740486
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240740484}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1479489279
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +367,7 @@ MonoBehaviour:
   - Color2
   - Color3
   - Color4
-  - Colo5
+  - Color5
   _simColors:
   - {fileID: 11400000, guid: 79bc987439171864dad99920e902e923, type: 2}
   - {fileID: 11400000, guid: 925f26bcf32e7004eb9edc5aefee514b, type: 2}
@@ -444,10 +375,68 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b9fb961ad517de74093fe6edfc3ec826, type: 2}
   - {fileID: 11400000, guid: 98c6e432c430ca947875efc57d8af491, type: 2}
   - {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
+  spriteRen: {fileID: 0}
+--- !u!1001 &2198484764572777235
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376392688196980214, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
+      propertyPath: m_Name
+      value: Pre_ColorMaster
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1208800478}
   - {fileID: 1479489281}
-  - {fileID: 1240740486}
+  - {fileID: 2198484764572777235}

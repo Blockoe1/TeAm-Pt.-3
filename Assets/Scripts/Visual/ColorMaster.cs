@@ -5,6 +5,7 @@
  * 
  * Controls the color region material on a sprite renderer.
  */
+using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,12 @@ public class ColorMaster : MonoBehaviour
 
     [SerializeField, Tooltip("Key is resulting color.\nValue is combination to get color.")]
     private Dictionary<SO_Color, ColorCombo> _colorCombos;
+
+    //SIMULATION
+    [SerializeField, BoxGroup("Simulation")]
+    private SO_Color _simColorA;
+    [SerializeField, BoxGroup("Simulation")]
+    private SO_Color _simColorB;
 
     public static ColorMaster INST { get => inst; }
 
@@ -33,7 +40,7 @@ public class ColorMaster : MonoBehaviour
         }
     }
 
-    public SO_Color FindResultingColor(SO_Color colorA, SO_Color colorB)
+    public SO_Color Combine(SO_Color colorA, SO_Color colorB)
     {
         foreach (KeyValuePair<SO_Color, ColorCombo> kvp in _colorCombos)
         {
@@ -45,6 +52,12 @@ public class ColorMaster : MonoBehaviour
         Debug.LogError($"Color combination {colorA.name} + {colorB.name} does not exist in color master.");
         return null;
     }
+
+    #region Inspector
+    [Button]
+    private void Combine()
+        => Debug.Log(Combine(_simColorA, _simColorB).Name);
+    #endregion
 
     [System.Serializable]
     private struct ColorCombo
