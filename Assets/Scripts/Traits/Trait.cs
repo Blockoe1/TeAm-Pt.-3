@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name : Trait.cs
+// Author : Arcadia Koederitz
+// Creation Date : 10/04/2026
+// Last Modified : 10/04/2026
+//
+// Brief Description : Base script for custom deer traits.
+*****************************************************************************/
 using UnityEngine;
 
 [System.Serializable]
@@ -13,9 +21,4 @@ public abstract class Trait
     public string Description => _description;
     public int Priority => _priority;
     public bool IsGlobal => _isGlobal;
-
-    public virtual int ProcessStat(StatType stat, int value)
-    {
-        return value;
-    }
 }

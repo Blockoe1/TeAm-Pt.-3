@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SellTrait
+public abstract class SellTrait : Trait
 {
     
 }

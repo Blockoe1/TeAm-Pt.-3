@@ -11,8 +11,7 @@ using UnityEngine;
 [RequireComponent(typeof(GeneController))]
 public class Racer : MonoBehaviour
 {
-    [SerializeField, ReadOnly]
-    private RacerStats _temperaryStats;
+    [SerializeField] private DeerData data;
 
 
     [SerializeField, ReadOnly]
