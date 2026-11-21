@@ -1,8 +1,8 @@
 /*****************************************************************************
 // File Name : TraitDatabase.cs
 // Author : Arcadia Koederitz
-// Creation Date : 10/04/2026
-// Last Modified : 10/04/2026
+// Creation Date : 10/21/2026
+// Last Modified : 10/21/2026
 //
 // Brief Description : Handles modifying design data of traits.
 *****************************************************************************/
