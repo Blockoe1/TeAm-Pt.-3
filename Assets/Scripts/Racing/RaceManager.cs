@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -5,13 +6,27 @@ using UnityEngine;
 public class RaceManager : MonoBehaviour
 {
     [SerializeField] private int countdownSeconds;
+    [SerializeField] private GameObject deerPrefab;
 
-    public static DeerData[] DeerInRace => null;
+    [SerializeField] private GameObject[] deerStartPositions;
+    [SerializeField, ReadOnly] private GameObject[] deerInRaceGO = new GameObject[5];
+
+    public static DeerData[] DeerInRace = null;
 
     public static Action Broadcast_StartRace;
     private void Start()
     {
         //Spawn Deer w/ Stats
+        for(int i = 0; i < deerStartPositions.Length; i++)
+        {
+            deerInRaceGO[i] = Instantiate(deerPrefab, deerStartPositions[i].transform.position, Quaternion.identity, 
+                deerStartPositions[i].transform.parent);
+
+            if(DeerInRace != null && DeerInRace[i] != null)
+            {
+                deerInRaceGO[i].GetComponent<DeerController>().Data = DeerInRace[i];
+            }
+        }
         //Race Countdown
         StartCoroutine(StartRace());
     }
@@ -25,5 +40,10 @@ public class RaceManager : MonoBehaviour
         }
 
         Broadcast_StartRace?.Invoke();
+    }
+
+    private void OnDestroy()
+    {
+        DeerInRace = null;
     }
 }
