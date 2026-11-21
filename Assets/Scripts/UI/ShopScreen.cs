@@ -32,5 +32,6 @@ public class ShopScreen : BuckScreen
     {
         // TODO: add deer to stables
         ReplaceWithBlank(ui);
+        PlayerManager.Instance.AddDeer(buck.Data);
     }
 }
