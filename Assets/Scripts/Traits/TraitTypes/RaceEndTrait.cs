@@ -10,7 +10,6 @@ using AriUtils;
 using UnityEngine;
 
 [DropdownGroup("RaceEndTrait")]
-public abstract class RaceEndTrait : Trait
+public abstract class RaceEndTrait : TraitTrigger
 {
-    public abstract void OnRaceEnd();
 }

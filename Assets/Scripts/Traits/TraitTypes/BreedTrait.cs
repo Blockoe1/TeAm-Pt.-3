@@ -9,8 +9,6 @@
 using AriUtils;
 using UnityEngine;
 
-[DropdownGroup("BreedTrait")]
-public abstract class BreedTrait : Trait
+public abstract class BreedTrait : TraitTrigger
 {
-    public abstract void OnBreed();
 }

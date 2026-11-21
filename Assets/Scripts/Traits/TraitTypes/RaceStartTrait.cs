@@ -10,7 +10,6 @@ using AriUtils;
 using UnityEngine;
 
 [DropdownGroup("RaceStartTrait")]
-public abstract class RaceStartTrait : Trait
+public abstract class RaceStartTrait : TraitTrigger
 {
-    public abstract void OnRaceStart();   
 }

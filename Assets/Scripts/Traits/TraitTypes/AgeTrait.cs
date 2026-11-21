@@ -6,11 +6,7 @@
 //
 // Brief Description : Trait that triggers when a deer ages.
 *****************************************************************************/
-using AriUtils;
-using UnityEngine;
-
-[DropdownGroup("AgeTrait")]
-public abstract class AgeTrait : Trait
+public abstract class AgeTrait : TraitTrigger
 {
-    public abstract void OnAge(ref int age);
+    public int Age { get; set; }
 }

@@ -9,8 +9,6 @@
 using AriUtils;
 using UnityEngine;
 
-[DropdownGroup("MisbehaveTrait")]
-public abstract class MisbehaveTrait : Trait
+public abstract class MisbehaveTrait : TraitTrigger
 {
-    public abstract void OnMisbehave();
 }
