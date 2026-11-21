@@ -12,6 +12,8 @@ public class SO_ColorGene : SO_Gene
     public override int FindIndex(SO_Allele allele)
         => FindIndex(allele, _alleles);
 
+    public SO_ColorAllele GetRandomAllele()
+        => _alleles[Random.Range(0, _alleles.Length)];
     #region GS
     public string MatColorID { get => _matColorID; }
     #endregion

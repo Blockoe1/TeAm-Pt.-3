@@ -1,7 +1,7 @@
 /*
  * Marlow Greenan
  * Created: 11/20/2026
- * Last Updated: 11/20/2026 by Marlow Greenan
+ * Last Updated: 11/21/2026 by Marlow Greenan
  * 
  * Holds data for genetics.
  */
@@ -35,6 +35,7 @@ public class GeneticsMaster : Manager
         base.Initialize();
     }
 
+    #region Breeding
     //Spawns an offspring with the combined genotypes of parentA and parentB.
     public void Breed(DeerController parentA, DeerController parentB)
     {
@@ -48,13 +49,14 @@ public class GeneticsMaster : Manager
             return;
         }
 
-        osDeerCon.Data = CombineStats(parentA.Data, parentB.Data);
+        osDeerCon.Data = BreedStats(parentA.Data, parentB.Data);
         osGenCon.ColorGenotype = CombineColorGenotypes(parentA.GeneCon, parentB.GeneCon);
 
         osGenCon.Initialize();
     }
 
-    private DeerData CombineStats(DeerData parentA, DeerData parentB)
+    //Combines the stats of the parents with the breeding stat formula.
+    private DeerData BreedStats(DeerData parentA, DeerData parentB)
     {
         DeerData combinedData = new DeerData();
 
@@ -75,6 +77,7 @@ public class GeneticsMaster : Manager
         return combinedData;
     }
 
+    //Calculates a possible bred stat for a deer.
     private int CalculateBredStat(StatType stat, DeerData parent)
         => parent.GetStats(stat) + Random.Range(-3, 4);
 
@@ -97,5 +100,7 @@ public class GeneticsMaster : Manager
 
     //Creates a genotype with 1 random allele from both parents.
     private ColorGenotype CombineColorGenotype(GeneController parentA, GeneController parentB, SO_ColorGene gene)
-        => new ColorGenotype(parentA.GetRandomAllele(gene), parentB.GetRandomAllele(gene));
+        => new ColorGenotype(parentA.GetRandomAlleleFromGenotype(gene), parentB.GetRandomAlleleFromGenotype(gene));
+    #endregion
+
 }
