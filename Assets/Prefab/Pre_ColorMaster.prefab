@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2376392688196980214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2335219712896828809}
+  - component: {fileID: 2783116459021408820}
+  m_Layer: 0
+  m_Name: Pre_ColorMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2335219712896828809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376392688196980214}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2783116459021408820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376392688196980214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd8c80b23c41614d97fa2bc1572bd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorMaster
+  _colorCombos:
+  - key: {fileID: 11400000, guid: 79bc987439171864dad99920e902e923, type: 2}
+    value:
+      _colorA: {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
+      _colorB: {fileID: 11400000, guid: 925f26bcf32e7004eb9edc5aefee514b, type: 2}
+  - key: {fileID: 11400000, guid: 98c6e432c430ca947875efc57d8af491, type: 2}
+    value:
+      _colorA: {fileID: 11400000, guid: fabe5d8628d20c046a9111b01ee4db7f, type: 2}
+      _colorB: {fileID: 11400000, guid: 925f26bcf32e7004eb9edc5aefee514b, type: 2}
+  - key: {fileID: 11400000, guid: b9fb961ad517de74093fe6edfc3ec826, type: 2}
+    value:
+      _colorA: {fileID: 11400000, guid: fabe5d8628d20c046a9111b01ee4db7f, type: 2}
+      _colorB: {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
+  - key: {fileID: 11400000, guid: fabe5d8628d20c046a9111b01ee4db7f, type: 2}
+    value:
+      _colorA: {fileID: 11400000, guid: fabe5d8628d20c046a9111b01ee4db7f, type: 2}
+      _colorB: {fileID: 11400000, guid: fabe5d8628d20c046a9111b01ee4db7f, type: 2}
+  - key: {fileID: 11400000, guid: 925f26bcf32e7004eb9edc5aefee514b, type: 2}
+    value:
+      _colorA: {fileID: 11400000, guid: 925f26bcf32e7004eb9edc5aefee514b, type: 2}
+      _colorB: {fileID: 11400000, guid: 925f26bcf32e7004eb9edc5aefee514b, type: 2}
+  - key: {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
+    value:
+      _colorA: {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
+      _colorB: {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
+  _simColorA: {fileID: 11400000, guid: 98c6e432c430ca947875efc57d8af491, type: 2}
+  _simColorB: {fileID: 11400000, guid: fabe5d8628d20c046a9111b01ee4db7f, type: 2}
