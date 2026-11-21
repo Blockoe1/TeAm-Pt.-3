@@ -116,11 +116,11 @@ public class DeerData
         }
     }
 
-    public int GetStatModified(StatType stat)
+    public int ApplyTraits(StatType stat, int type)
     {
-        int statValue = GetStat(stat);
+        int statValue = type;
         Trait[] statTraits = Traits.OrderBy(x => x.Priority).ToArray();
-        foreach(Trait trait in statTraits)
+        foreach (Trait trait in statTraits)
         {
             statValue = trait.ModifyStat(stat, statValue);
         }
