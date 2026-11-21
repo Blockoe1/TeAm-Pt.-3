@@ -38,19 +38,6 @@ public class GeneController : Manager
         VisualizeColorGenotype(colorGenotype);
     }
 
-    //Randomize color genotype.
-    public Dictionary<SO_ColorGene, ColorGenotype> RandomizeColorGenotype(Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
-    {
-        Dictionary<SO_ColorGene, ColorGenotype> newColorGenotype = new Dictionary<SO_ColorGene, ColorGenotype>();
-        foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in colorGenotype)
-            newColorGenotype.TryAdd(kvp.Key, new ColorGenotype(kvp.Key.GetRandomAllele(), kvp.Key.GetRandomAllele()));
-
-        VisualizeColorGenotype(colorGenotype);
-
-        return newColorGenotype;
-    }
-
-    [Button]
     public void VisualizeColorGenotype(Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
     {
         foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in colorGenotype)

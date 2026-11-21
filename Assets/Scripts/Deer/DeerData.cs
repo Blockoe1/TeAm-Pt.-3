@@ -110,6 +110,19 @@ public class DeerData
             data.Traits[i] = TraitManager.GetRandomTrait();
         }
 
+        data.ColorGenotype = NewRandomColorGenotype();
+
         return data;
+    }
+
+    //Randomize color genotype.
+    public static Dictionary<SO_ColorGene, ColorGenotype> NewRandomColorGenotype()
+    {
+        Dictionary<SO_ColorGene, ColorGenotype> newColorGenotype = new Dictionary<SO_ColorGene, ColorGenotype>();
+
+        foreach (SO_ColorGene gene in GeneticsMaster.INST.ColorGenes)
+            newColorGenotype.TryAdd(gene, new ColorGenotype(gene.GetRandomAllele(), gene.GetRandomAllele()));
+
+        return newColorGenotype;
     }
 }
