@@ -13,6 +13,8 @@ using UnityEngine;
 
 public class DeerTooltip : DeerViewer
 {
+    [SerializeField] private int _statDescSpacing;
+    [SerializeField] private string[] _statDescriptions;
     [SerializeField, BoxGroup("References")] protected TMP_Text _traitsText;
 
     public override void SetDeer(DeerData deerData)
@@ -39,6 +41,11 @@ public class DeerTooltip : DeerViewer
         foreach (StatType type in Enum.GetValues(typeof(StatType)))
         {
             statString += type.ToString();
+            for(int i = statString.Length; i < _statDescSpacing; i++)
+            {
+                statString += " ";
+            }
+
 
             //data.SetStat(type, UnityEngine.Random.Range(STAT_MIN, STAT_MAX));
         }
