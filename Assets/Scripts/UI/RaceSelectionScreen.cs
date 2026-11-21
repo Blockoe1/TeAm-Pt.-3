@@ -22,7 +22,7 @@ public class RaceSelectionScreen : BuckScreen
         for (int i = 0; i < 8; i++)
         {
             bucks.Add(new DeerController());
-            bucks[^1].Data = new DeerData();
+            bucks[^1].Data = DeerData.NewRandomDeer();
             bucks[^1].Data.Name = (i + 1).ToString();
         }
 

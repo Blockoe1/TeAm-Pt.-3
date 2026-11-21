@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 4061521465756041083}
   - component: {fileID: 3105821600348184460}
   - component: {fileID: 1162683149141141184}
+  - component: {fileID: 132210256982401954}
   m_Layer: 5
   m_Name: DeerTooltip
   m_TagString: Untagged
@@ -478,6 +479,7 @@ MonoBehaviour:
   - Good
   - Very Good
   _traitsText: {fileID: 2725141604994243498}
+  cg: {fileID: 132210256982401954}
 --- !u!222 &4870781522428863677
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -556,6 +558,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!225 &132210256982401954
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7229435096205220361}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &7714780299341391994
 GameObject:
   m_ObjectHideFlags: 0

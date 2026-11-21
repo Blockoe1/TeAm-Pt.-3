@@ -41,18 +41,16 @@ public class TraitManager : Manager
 
     public static Trait GetRandomTrait()
     {
-        if (instance == null) { return null; }
         Trait[] filteredTraits = instance._traitDatabase.Where(x => x.RandomlySelectable).ToArray();
         if (filteredTraits.Length == 0)
         {
             return null;
         }
-        return instance._traitDatabase[UnityEngine.Random.Range(0, instance._traitDatabase.Length)];
+        return filteredTraits[UnityEngine.Random.Range(0, filteredTraits.Length)];
     }
 
     public static Trait GetRandomTrait(Trait.TraitAlignment alignment)
     {
-        if (instance == null) { return null; }
         Trait[] filteredTraits = instance._traitDatabase.Where(x => x.RandomlySelectable && x.Alignment == alignment).ToArray();
         if (filteredTraits.Length == 0)
         {
@@ -70,16 +68,19 @@ public class TraitManager : Manager
     public static void TraitEvent<T>(T eventData, DeerController triggeredDeer) where T : TraitTrigger
     {
         // Loop through deer in current race.
-        foreach (DeerData deer in RaceManager.DeerInRace)
+        if (RaceManager.DeerInRace != null)
         {
-            // Trigger each trait in those deer.
-            foreach (Trait trait in deer.Traits)
+            foreach (DeerData deer in RaceManager.DeerInRace)
             {
-                if (trait is ITraitTrigger<T> triggered
-                    && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Race)
-                    && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer)) // Global traits trigger even when the event was not on this deer.
+                // Trigger each trait in those deer.
+                foreach (Trait trait in deer.Traits)
                 {
-                    triggered.TriggerTrait(eventData, triggeredDeer);
+                    if (trait is ITraitTrigger<T> triggered
+                        && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Race)
+                        && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer)) // Global traits trigger even when the event was not on this deer.
+                    {
+                        triggered.TriggerTrait(eventData, triggeredDeer);
+                    }
                 }
             }
         }
