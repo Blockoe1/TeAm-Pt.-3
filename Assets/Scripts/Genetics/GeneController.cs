@@ -21,13 +21,6 @@ public class GeneController : Manager
 
     private ColorRegionHandler colorRegHan;
 
-    //STAT
-    [SerializeField]
-    private Dictionary<SO_Gene, StatGenotype> _statGenotype;
-
-    [SerializeField, BoxGroup("Simulation")]
-    private GeneController _simBreedingPartner;
-
     #region GS
     public Dictionary<SO_ColorGene, ColorGenotype> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
 
@@ -66,12 +59,6 @@ public class GeneController : Manager
         return (ran == 0) ? _colorGenotype[gene].AlleleA : _colorGenotype[gene].AlleleB;
     }
 
-    #region Inspector
-    [Button]
-    private void Breed()
-        => GeneticsMaster.INST.Breed(this, _simBreedingPartner);
-    #endregion
-
 }
 
 [Serializable]
@@ -92,10 +79,4 @@ public class ColorGenotype
         _alleleA = alleleA;
         _alleleB = alleleB;
     }
-}
-
-[Serializable]
-public class StatGenotype
-{
-
 }
