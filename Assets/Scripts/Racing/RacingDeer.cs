@@ -29,8 +29,8 @@ public class RacingDeer : MonoBehaviour
     private float speedMod = 0;
     private float speedModMult = 1f;
     private float accelModMult = 1f;
-    private float DeerSpeed => (((30f + deerController.GetStat(StatType.Speed) / 50f * SPEED_MULT) - speedMod) * speedModMult;
-    private float DeerAccel => ((30f + deerController.GetStat(StatType.Acceleration) / 50f * ACCEL_MULT) * accelModMult;
+    private float DeerSpeed => ((30f + deerController.GetStat(StatType.Speed) / 50f * SPEED_MULT) - speedMod) * speedModMult;
+    private float DeerAccel => (30f + deerController.GetStat(StatType.Acceleration) / 50f * ACCEL_MULT) * accelModMult;
     private int DeerBalance => deerController.GetStat(StatType.Balance) + 75;
     private float DeerStopChance => deerController.GetStat(StatType.Discipline) * 1.5f + 65;
     private int DeerReverseChance => deerController.GetStat(StatType.Discipline) + 50;
