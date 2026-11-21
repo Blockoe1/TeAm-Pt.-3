@@ -1,7 +1,7 @@
 /*
  * Marlow Greenan
  * Created: 11/20/2026
- * Last Updated: 11/20/2026 by Marlow Greenan
+ * Last Updated: 11/21/2026 by Marlow Greenan
  * 
  * Controls genotypes and phenotypes.
  */
@@ -41,6 +41,23 @@ public class GeneController : Manager
         VisualizeColorGenotype();
     }
 
+    //Randomizes all genotypes.
+    [Button]
+    public void RandomizeGenotype()
+    {
+        RandmizeColorGenotype();
+    }
+
+    //Randomize color genotype.
+    private void RandmizeColorGenotype()
+    {
+        Dictionary<SO_ColorGene, ColorGenotype> newColorGenotype = new Dictionary<SO_ColorGene, ColorGenotype>();
+        foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in _colorGenotype)
+            newColorGenotype.TryAdd(kvp.Key, new ColorGenotype(kvp.Key.GetRandomAllele(), kvp.Key.GetRandomAllele()));
+        _colorGenotype = newColorGenotype;
+        VisualizeColorGenotype();
+    }
+
     [Button]
     private void VisualizeColorGenotype()
     {
@@ -48,17 +65,18 @@ public class GeneController : Manager
             colorRegHan.VisualizeColor(kvp.Key.MatColorID, GetDominantAllele(kvp.Key).Color);
     }
 
+    #region Get Allele
     //Returns the dominant allele.
     private SO_ColorAllele GetDominantAllele(SO_ColorGene gene)
         => (gene.FindIndex(_colorGenotype[gene].AlleleA) < gene.FindIndex(_colorGenotype[gene].AlleleB)) ? _colorGenotype[gene].AlleleA : _colorGenotype[gene].AlleleB;
 
     //Returns a random allele.
-    public SO_ColorAllele GetRandomAllele(SO_ColorGene gene)
+    public SO_ColorAllele GetRandomAlleleFromGenotype(SO_ColorGene gene)
     {
         int ran = Random.Range(0, 2);
         return (ran == 0) ? _colorGenotype[gene].AlleleA : _colorGenotype[gene].AlleleB;
     }
-
+    #endregion
 }
 
 [Serializable]
