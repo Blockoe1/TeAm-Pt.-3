@@ -5,7 +5,9 @@
  * 
  * Controls the color region material on a sprite renderer.
  */
+
 using UnityEngine;
+using NaughtyAttributes;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class ColorRegionHandler : MonoBehaviour
@@ -13,26 +15,35 @@ public class ColorRegionHandler : MonoBehaviour
     [SerializeField, Tooltip("CASE SENSITIVE\n The IDs for the colors in the color region material.")]
     private string[] _colorIDs;
 
+    //SIMULATION
+    [SerializeField]
+    private SO_Color[] _simColors;
+
+    //DATA
+    [SerializeField, ReadOnly]
     private SpriteRenderer spriteRen;
 
+    private void Start()
+    {
+        Initialize();
+    }
 
     private void Initialize()
     {
         spriteRen = GetComponent<SpriteRenderer>();
     }
 
-    private void VisualizeColors(Color[] colors)
+    private void VisualizeColors(SO_Color[] colors)
     {
         for (int i = 0; i < colors.Length; i++)
         {
-            //Skip id that is not present in color region material.
-            if (!spriteRen.material.HasColor(_colorIDs[i]))
-            {
-                Debug.LogError($"Material {spriteRen.material.name} on {gameObject.name} does not have a color variable \"{_colorIDs[i]}\".");
-                continue;
-            }
-
-            spriteRen.material.SetColor(_colorIDs[i], colors[i]);
+            spriteRen.material.SetColor("_" + _colorIDs[i], colors[i].Color);
         }
     }
+
+    #region Inspector
+    [Button]
+    private void VisualizeColors()
+        => VisualizeColors(_simColors);
+    #endregion
 }
