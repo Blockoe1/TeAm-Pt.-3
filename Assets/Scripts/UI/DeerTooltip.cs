@@ -40,16 +40,19 @@ public class DeerTooltip : DeerViewer
         string statString = "";
         foreach (StatType type in Enum.GetValues(typeof(StatType)))
         {
-            statString += type.ToString();
-            for(int i = statString.Length; i < _statDescSpacing; i++)
-            {
-                statString += " ";
-            }
+            string selfString = type.ToString() + "\t\t";
 
-
-            //data.SetStat(type, UnityEngine.Random.Range(STAT_MIN, STAT_MAX));
+            selfString += GetStatDescription(deerData.GetStat(type)) + "\n";
+            statString += selfString;
         }
-        return statString;
+
+        return statString.Substring(0, statString.Length - 1); // Remove last newline.
     }
 
+
+    private string GetStatDescription(int statValue)
+    {
+        int index = (statValue - 1) / (DeerData.STAT_MAX / _statDescriptions.Length);
+        return _statDescriptions[index];
+    }
 }
