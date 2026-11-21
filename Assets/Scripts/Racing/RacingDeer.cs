@@ -6,6 +6,7 @@ public class RacingDeer : MonoBehaviour
 {
     const float SPEED_MULT = 4;
     const float ACCEL_MULT = 0.025f;
+    const float STAMINA_MULT = 0.05f;
 
     const float TRIP_SPEED = 2f;
 
@@ -25,12 +26,13 @@ public class RacingDeer : MonoBehaviour
     [SerializeField] private DeerController deerController;
 
     //Change these to use modified data instead of direct data
-    private float DeerSpeed => ((30f + deerController.Data.Speed) / 50f) * SPEED_MULT;
+    private float speedMod = 0;
+    private float DeerSpeed => (((30f + deerController.Data.Speed) / 50f) * SPEED_MULT) - speedMod;
     private float DeerAccel => ((30f + deerController.Data.Acceleration) / 50f) * ACCEL_MULT;
     private int DeerBalance => deerController.Data.Balance + 75;
     private int DeerStopChance => deerController.Data.Discipline + 58;
     private int DeerReverseChance => deerController.Data.Discipline + 79;
-    private float DeerStamina => (30 - deerController.Data.Stamina) * 0.05f;
+    private float DeerStamina => (30 - deerController.Data.Stamina) * 0.05f * STAMINA_MULT;
 
     /// <summary>
     /// Will start when the deer gets started
@@ -46,6 +48,7 @@ public class RacingDeer : MonoBehaviour
         StartCoroutine(Movement());
         StartCoroutine(TripCoroutine());
         StartCoroutine(DisciplineCoroutine());
+        StartCoroutine(SpeedLower());
     }
 
     /// <summary>
@@ -159,6 +162,16 @@ public class RacingDeer : MonoBehaviour
         yield return new WaitForSeconds(UnityEngine.Random.Range(5, 10f));
         currentState = STATES.RUNNING;
         StartCoroutine(TripCoroutine());
+    }
+
+    private IEnumerator SpeedLower()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+            speedMod += DeerStamina * DeerSpeed;
+            Debug.Log(speedMod);
+        }
     }
     private void OnDestroy()
     {

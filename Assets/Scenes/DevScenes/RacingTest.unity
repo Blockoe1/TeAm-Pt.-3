@@ -597,6 +597,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deer (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Stamina>k__BackingField
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8405653114225147813, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -912,6 +916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deer (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Stamina>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8405653114225147813, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -974,6 +982,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deer
       objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Stamina>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8405653114225147813, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -1035,6 +1047,10 @@ PrefabInstance:
     - target: {fileID: 1499996538223426227, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: m_Name
       value: Deer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Stamina>k__BackingField
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8405653114225147813, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: m_LocalPosition.x
