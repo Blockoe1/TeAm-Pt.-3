@@ -1,3 +1,11 @@
+/*****************************************************************************
+// File Name : BetManager.cs
+// Author : Alex Lindsey
+// Creation Date : 11/020/2026
+// Last Modified : 11/021/2026
+//
+// Brief Description : Calculates betting odds and payouts for deer races.
+*****************************************************************************/
 using UnityEngine;
 
 public class BetManager : MonoBehaviour
