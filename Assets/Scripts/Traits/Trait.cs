@@ -9,5 +9,5 @@
 [System.Serializable]
 public abstract class Trait<T> : TraitBase where T: TraitTrigger
 {
-    public abstract void TriggerTrait(T trait);
+    public abstract void TriggerTrait(T trait, DeerController deer);
 }

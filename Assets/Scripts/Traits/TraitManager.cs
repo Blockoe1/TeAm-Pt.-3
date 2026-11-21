@@ -6,20 +6,19 @@
 //
 // Brief Description : Handles ordering traits and calling traits.
 *****************************************************************************/
+using MarUtility.ExecutionManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class TraitManager : MonoBehaviour
+public class TraitManager : Manager
 {
     private Dictionary<Type, int> eventTypeLookup = new();
     private List<TraitBase>[] ActiveTraits;
 
-    public void Initialize()
+    public override void Initialize()
     {
         // Setup the event trigger trait indicies.
         Type[] triggerTypes = Assembly.GetAssembly(typeof(TraitTrigger)).GetTypes().Where(x => !x.IsAbstract && !x.IsInterface).ToArray();
@@ -34,23 +33,31 @@ public class TraitManager : MonoBehaviour
     {
         List<TraitBase> typedTraits = GetTraitList(typeof(T));
         typedTraits.Add(trait);
-
+        typedTraits = typedTraits.OrderBy(x => x.Priority).ToList();
     }
 
     public void RemoveTrait<T>(Trait<T> trait) where T : TraitTrigger
     {
         List<TraitBase> typedTraits = GetTraitList(typeof(T));
         typedTraits.Remove(trait);
+        typedTraits = typedTraits.OrderBy(x => x.Priority).ToList();
     }
 
-    public void TraitEvent<T>(T eventData) where T : TraitTrigger // TODO: Needs to take in the 
+    /// <summary>
+    /// Notifies all deer traits that an event has occured.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="eventData"></param>
+    /// <param name="triggeredDeer"></param>
+    public void TraitEvent<T>(T eventData, DeerController triggeredDeer) where T : TraitTrigger // TODO: Needs to take in the relevant DeerController.
     {
         List<TraitBase> typedTraits = GetTraitList(typeof(T));
-        foreach(TraitBase t in typedTraits)
+        foreach(TraitBase tb in typedTraits)
         {
-            if(t is Trait<T>)
+            if (!tb.IsGlobal && tb.AppliedDeer != triggeredDeer) { continue; }
+            if(tb is Trait<T> t)
             {
-                
+                t.TriggerTrait(eventData, triggeredDeer);
             }
         }
     }

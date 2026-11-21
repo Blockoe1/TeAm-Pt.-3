@@ -16,6 +16,8 @@ public class TraitBase
     [SerializeField] private int _priority;
     [SerializeField] private bool _isGlobal;
 
+    public DeerController AppliedDeer { get; set; }
+
 
     public string Name => _name;
     public string Description => _description;

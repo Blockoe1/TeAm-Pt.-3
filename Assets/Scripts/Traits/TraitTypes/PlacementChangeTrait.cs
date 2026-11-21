@@ -6,9 +6,6 @@
 //
 // Brief Description : Trait that triggers when a deer's placement in a race changes.
 *****************************************************************************/
-using AriUtils;
-using UnityEngine;
-
 public abstract class PlacementChangeTrait : TraitTrigger
 {
 }

@@ -6,10 +6,6 @@
 //
 // Brief Description : Trait that triggers when a race ends.
 *****************************************************************************/
-using AriUtils;
-using UnityEngine;
-
-[DropdownGroup("RaceEndTrait")]
 public abstract class RaceEndTrait : TraitTrigger
 {
 }
