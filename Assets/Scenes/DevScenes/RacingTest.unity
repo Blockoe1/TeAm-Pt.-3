@@ -535,6 +535,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deer (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Speed>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Balance>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Stamina>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Charisma>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Discipline>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Acceleration>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8405653114225147813, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -598,8 +622,28 @@ PrefabInstance:
       value: Deer (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Speed>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Balance>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: data.<Stamina>k__BackingField
-      value: 15
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Charisma>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Discipline>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Acceleration>k__BackingField
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8405653114225147813, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: m_LocalPosition.x
@@ -676,7 +720,7 @@ Transform:
   m_GameObject: {fileID: 667749134}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -917,7 +961,27 @@ PrefabInstance:
       value: Deer (4)
       objectReference: {fileID: 0}
     - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Speed>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Balance>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: data.<Stamina>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Charisma>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Discipline>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Acceleration>k__BackingField
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8405653114225147813, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
@@ -983,8 +1047,28 @@ PrefabInstance:
       value: Deer
       objectReference: {fileID: 0}
     - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Speed>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Balance>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: data.<Stamina>k__BackingField
-      value: 1
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Charisma>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Discipline>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Acceleration>k__BackingField
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8405653114225147813, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1049,8 +1133,28 @@ PrefabInstance:
       value: Deer (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Speed>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Balance>k__BackingField
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: data.<Stamina>k__BackingField
-      value: 5
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Charisma>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Discipline>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221163196402487758, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+      propertyPath: data.<Acceleration>k__BackingField
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8405653114225147813, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
       propertyPath: m_LocalPosition.x
