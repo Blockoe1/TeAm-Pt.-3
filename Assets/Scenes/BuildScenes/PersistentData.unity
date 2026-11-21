@@ -255,6 +255,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9773cc8bfd517c4db8d6dee3de2676c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeneticsMaster
+--- !u!1001 &587150664
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.7305
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25711
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037703902533826019, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_Name
+      value: Pre_TraitManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+--- !u!114 &587150665 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7120138188675688930, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+  m_PrefabInstance: {fileID: 587150664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 170dd44969dbc394295a7ad4b62b45d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TraitManager
 --- !u!1 &866703773
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,9 +401,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MarUtility.ExecutionManagement.Manager
   _initializeTime: 100
   _subManagers:
-  - {fileID: 866703774}
+  - {fileID: 587150665}
   - {fileID: 294358423}
   - {fileID: 464655204}
+  - {fileID: 866703774}
 --- !u!4 &1711746011
 Transform:
   m_ObjectHideFlags: 0
@@ -359,3 +428,4 @@ SceneRoots:
   - {fileID: 866703775}
   - {fileID: 464655203}
   - {fileID: 294358422}
+  - {fileID: 587150664}

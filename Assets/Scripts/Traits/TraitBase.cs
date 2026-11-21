@@ -1,21 +1,22 @@
 /*****************************************************************************
-// File Name : Trait.cs
+// File Name : TraitBase.cs
 // Author : Arcadia Koederitz
 // Creation Date : 10/04/2026
 // Last Modified : 10/04/2026
 //
 // Brief Description : Base script for custom deer traits.
 *****************************************************************************/
-using AriUtils;
 using UnityEngine;
 
 [System.Serializable]
-public abstract class Trait
+public class TraitBase
 {
     [SerializeField] private string _name;
     [SerializeField, TextArea] private string _description;
     [SerializeField] private int _priority;
     [SerializeField] private bool _isGlobal;
+
+    public DeerController AppliedDeer { get; set; }
 
 
     public string Name => _name;

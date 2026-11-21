@@ -6,11 +6,9 @@
 //
 // Brief Description : Trait that modifies the actual used value of a stat.
 *****************************************************************************/
-using AriUtils;
-using UnityEngine;
 
-[DropdownGroup("StatModifyingTrait")]
-public abstract class StatModifyingTrait : Trait
+public abstract class StatModifyingTrait : TraitTrigger
 {
-    public abstract int GetModifiedStat(StatType stat, int baseStat);
+    public StatType Stat { get; private set; }
+    public int Value { get; set; }
 }

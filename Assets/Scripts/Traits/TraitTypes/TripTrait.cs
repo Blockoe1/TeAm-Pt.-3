@@ -9,8 +9,6 @@
 using AriUtils;
 using UnityEngine;
 
-[DropdownGroup("TripTrait")]
-public abstract class TripTrait : Trait
+public abstract class TripTrait : TraitTrigger
 {
-    public abstract void OnTrip();
 }

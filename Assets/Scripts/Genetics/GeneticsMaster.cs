@@ -7,6 +7,7 @@
  */
 using MarUtility.ExecutionManagement;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GeneticsMaster : Manager
@@ -35,9 +36,10 @@ public class GeneticsMaster : Manager
     }
 
     //Spawns an offspring with the combined genotypes of parentA and parentB.
-    public void Breed(GeneController parentA, GeneController parentB)
+    public void Breed(DeerController parentA, DeerController parentB)
     {
         GameObject osGO = Instantiate(_racerPrefab);
+        DeerController osDeerCon = osGO.GetComponent<DeerController>();
         GeneController osGenCon = osGO.GetComponent<GeneController>();
 
         if (osGenCon == null)
@@ -46,10 +48,35 @@ public class GeneticsMaster : Manager
             return;
         }
 
-        osGenCon.ColorGenotype = CombineColorGenotypes(parentA, parentB);
+        osDeerCon.Data = CombineStats(parentA.Data, parentB.Data);
+        osGenCon.ColorGenotype = CombineColorGenotypes(parentA.GeneCon, parentB.GeneCon);
 
         osGenCon.Initialize();
     }
+
+    private DeerData CombineStats(DeerData parentA, DeerData parentB)
+    {
+        DeerData combinedData = new DeerData();
+
+        List<StatType> pool = new List<StatType>{ StatType.Acceleration, StatType.Balance, StatType.Speed, StatType.Stamina, StatType.Discipline, StatType.Charisma };
+
+        //Set stats received from parentA.
+        for (int i = 0; i < 3; i++)
+        {
+            int ran = Random.Range(0, pool.Count);
+            combinedData.SetStat(pool[ran], CalculateBredStat(pool[ran], parentA));
+            pool.RemoveAt(ran);
+        }
+
+        //Set stats received from parentB.
+        for (int i = 0; i < pool.Count; i++)
+            combinedData.SetStat(pool[i], CalculateBredStat(pool[i], parentB));
+
+        return combinedData;
+    }
+
+    private int CalculateBredStat(StatType stat, DeerData parent)
+        => parent.GetStats(stat) + Random.Range(-3, 4);
 
     //Combines parentA and parentB color genotypes.
     private Dictionary<SO_ColorGene, ColorGenotype> CombineColorGenotypes(GeneController parentA, GeneController parentB)
