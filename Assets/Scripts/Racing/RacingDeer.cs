@@ -29,12 +29,12 @@ public class RacingDeer : MonoBehaviour
     private float speedMod = 0;
     private float speedModMult = 1f;
     private float accelModMult = 1f;
-    private float DeerSpeed => (((30f + deerController.Data.Speed) / 50f * SPEED_MULT) - speedMod) * speedModMult;
-    private float DeerAccel => ((30f + deerController.Data.Acceleration) / 50f * ACCEL_MULT) * accelModMult;
-    private int DeerBalance => deerController.Data.Balance + 75;
-    private float DeerStopChance => deerController.Data.Discipline * 1.5f + 65;
-    private int DeerReverseChance => deerController.Data.Discipline + 50;
-    private float DeerStamina => (30 - deerController.Data.Stamina) * STAMINA_MULT;
+    private float DeerSpeed => (((30f + deerController.GetStat(StatType.Speed) / 50f * SPEED_MULT) - speedMod) * speedModMult;
+    private float DeerAccel => ((30f + deerController.GetStat(StatType.Acceleration) / 50f * ACCEL_MULT) * accelModMult;
+    private int DeerBalance => deerController.GetStat(StatType.Balance) + 75;
+    private float DeerStopChance => deerController.GetStat(StatType.Discipline) * 1.5f + 65;
+    private int DeerReverseChance => deerController.GetStat(StatType.Discipline) + 50;
+    private float DeerStamina => (30 - deerController.GetStat(StatType.Stamina)) * STAMINA_MULT;
 
     /// <summary>
     /// Will start when the deer gets started
