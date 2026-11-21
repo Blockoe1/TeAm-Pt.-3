@@ -49,7 +49,7 @@ public class TraitManager : Manager
     {
         if (instance == null) { return null; }
         Trait[] filteredTraits = instance._traitDatabase.Where(x => x.Alignment == alignment).ToArray();
-        return filteredTraits[UnityEngine.Random.Range(0, instance._traitDatabase.Length)];
+        return filteredTraits[UnityEngine.Random.Range(0, filteredTraits.Length)];
     }
 
     /// <summary>
