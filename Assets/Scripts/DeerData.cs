@@ -4,7 +4,7 @@
 // Creation Date : 10/04/2026
 // Last Modified : 10/04/2026
 //
-// Brief Description : Holds data related to a horse.
+// Brief Description : Holds data related to a deer.
 *****************************************************************************/
 using AriUtils;
 using UnityEngine;
@@ -14,18 +14,18 @@ public class DeerData
 {
     [field: SerializeField] public string Name { get; set; }
     #region Stats
-    [field: SerializeField, Range(1, 20)] public int Speed { get; set; }
-    [field: SerializeField, Range(1, 20)] public int Acceleration { get; set; }
-    [field: SerializeField, Range(1, 20)] public int Stamina { get; set; }
-    [field: SerializeField, Range(1, 20)] public int Balance { get; set; }
-    [field: SerializeField, Range(1, 20)] public int Discipline { get; set; }
-    [field: SerializeField, Range(1, 20)] public int Charisma { get; set; }
+    [field: SerializeField, Range(1, 20)] public int Speed { get; set; } = 1;
+    [field: SerializeField, Range(1, 20)] public int Acceleration { get; set; } = 1;
+    [field: SerializeField, Range(1, 20)] public int Stamina { get; set; } = 1;
+    [field: SerializeField, Range(1, 20)] public int Balance { get; set; } = 1;
+    [field: SerializeField, Range(1, 20)] public int Discipline { get; set; } = 1;
+    [field: SerializeField, Range(1, 20)] public int Charisma { get; set; } = 1;
     #endregion
 
-    [field: SerializeField] public int Age { get; set; }
+    [field: SerializeField, Min(0)] public int Age { get; set; }
 
-    [field: SerializeField, ClassDropdown] public Trait Trait1 { get; private set; }
-    [field: SerializeField, ClassDropdown] public Trait Trait2 { get; private set; }
+    [field: SerializeReference, ClassDropdown] public Trait Trait1 { get; private set; }
+    [field: SerializeReference, ClassDropdown] public Trait Trait2 { get; private set; }
 
 
 
