@@ -246,6 +246,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2018845845240094091, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
+      propertyPath: _racerPrefab
+      value: 
+      objectReference: {fileID: 8925991716084878897, guid: b3d81412139968940a4925b12316e929, type: 3}
+    - target: {fileID: 2018845845240094091, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
+      propertyPath: _colorGenes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2018845845240094091, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
+      propertyPath: '_colorGenes.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f31f71ea7b96bc3408e5271abe613d9a, type: 2}
+    - target: {fileID: 2018845845240094091, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
+      propertyPath: '_colorGenes.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d15a8c2682c8784e88e27b422d8ae9c, type: 2}
     - target: {fileID: 5449676904265897279, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
       propertyPath: m_Name
       value: Pre_GeneticsMaster

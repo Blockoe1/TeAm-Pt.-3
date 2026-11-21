@@ -54,10 +54,8 @@ public class DeerData
         }
     }
 
-    #region Stats
     public void SetStat(StatType stat, int value)
     {
-        value = Mathf.Clamp(value, STAT_MIN, STAT_MAX);
         switch (stat)
         {
             case StatType.Speed:
@@ -75,26 +73,7 @@ public class DeerData
         }
     }
 
-    public void ModifyStat(StatType stat, int value)
-    {
-        switch (stat)
-        {
-            case StatType.Speed:
-                Speed = Mathf.Clamp(Speed + value, STAT_MIN, STAT_MAX); break;
-            case StatType.Acceleration:
-                Acceleration = Mathf.Clamp(Acceleration + value, STAT_MIN, STAT_MAX); break;
-            case StatType.Stamina:
-                Stamina = Mathf.Clamp(Stamina + value, STAT_MIN, STAT_MAX); break;
-            case StatType.Balance:
-                Balance = Mathf.Clamp(Balance + value, STAT_MIN, STAT_MAX); break;
-            case StatType.Discipline:
-                Discipline = Mathf.Clamp(Discipline + value, STAT_MIN, STAT_MAX); break;
-            case StatType.Charisma:
-                Charisma = Mathf.Clamp(Charisma + value, STAT_MIN, STAT_MAX); break;
-        }
-    }
-
-    public int GetStat(StatType stat)
+    public int GetStats(StatType stat)
     {
         switch(stat)
         {
@@ -115,18 +94,7 @@ public class DeerData
         }
     }
 
-    public int GetTotalStats()
-    {
-        int total = 0;
-        foreach (StatType type in Enum.GetValues(typeof(StatType)))
-        {
-            total += GetStat(type);
-        }
-        return total;
-    }
-    #endregion
-
-    public static DeerData NewRandomDeer(params Trait.TraitAlignment[] requireddTraits)
+    public static DeerData NewRandomDeer()
     {
         DeerData data = new DeerData();
 
@@ -139,19 +107,22 @@ public class DeerData
         data.Traits = new Trait[BASE_TRAIT_NUM];
         for(int i = 0; i < BASE_TRAIT_NUM; i++)
         {
-            if (requireddTraits != null && requireddTraits.Length > i)
-            {
-                data.Traits[i] = TraitManager.GetRandomTrait(requireddTraits[i]);
-            }
-            else
-            {
-                data.Traits[i] = TraitManager.GetRandomTrait();
-            }
-            
+            data.Traits[i] = TraitManager.GetRandomTrait();
         }
 
-        
+        data.ColorGenotype = NewRandomColorGenotype();
 
         return data;
+    }
+
+    //Randomize color genotype.
+    public static Dictionary<SO_ColorGene, ColorGenotype> NewRandomColorGenotype()
+    {
+        Dictionary<SO_ColorGene, ColorGenotype> newColorGenotype = new Dictionary<SO_ColorGene, ColorGenotype>();
+
+        foreach (SO_ColorGene gene in GeneticsMaster.INST.ColorGenes)
+            newColorGenotype.TryAdd(gene, new ColorGenotype(gene.GetRandomAllele(), gene.GetRandomAllele()));
+
+        return newColorGenotype;
     }
 }
