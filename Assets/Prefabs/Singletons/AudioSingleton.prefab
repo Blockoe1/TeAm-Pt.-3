@@ -59,4 +59,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e83f996b6828da438f9202d88da6199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  audioLookup: []
+  audioLookup:
+  - key: TestSFX
+    value:
+      Guid:
+        Data1: -1958527708
+        Data2: 1219195753
+        Data3: 237296258
+        Data4: 64672340
+      Path: event:/Damage
+  - key: TestMusic
+    value:
+      Guid:
+        Data1: -1264830364
+        Data2: 1217960730
+        Data3: -1886475896
+        Data4: -1820853610
+      Path: event:/SlimeFight
