@@ -42,4 +42,44 @@ public class DeerData
             Wins++;
         }
     }
+
+    public void SetStat(StatType stat, int value)
+    {
+        switch (stat)
+        {
+            case StatType.Speed:
+                Speed = value; break;
+            case StatType.Acceleration:
+                Acceleration = value; break;
+            case StatType.Stamina:
+                Stamina = value; break;
+            case StatType.Balance:
+                Balance = value; break;
+            case StatType.Discipline:
+                Discipline = value; break;
+            case StatType.Charisma:
+                Charisma = value; break;
+        }
+    }
+
+    public int GetStats(StatType stat)
+    {
+        switch(stat)
+        {
+            case StatType.Speed:
+                return Speed;
+            case StatType.Acceleration:
+                return Acceleration;
+            case StatType.Stamina:
+                return Stamina;
+            case StatType.Balance:
+                return Balance;
+            case StatType.Discipline:
+                return Discipline;
+            case StatType.Charisma:
+                return Charisma;
+            default:
+                return 0;
+        }
+    }
 }
