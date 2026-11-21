@@ -8,6 +8,7 @@
 *****************************************************************************/
 using AriUtils;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -32,12 +33,17 @@ public class DeerData
 
     [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; private set; }
 
+    [SerializeField]
+    private Dictionary<SO_ColorGene, ColorGenotype> _colorGenotype;
 
 
     public int Wins { get; private set; }
     public int Races { get; private set; }
 
 
+    #region GS
+    public Dictionary<SO_ColorGene, ColorGenotype> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
+    #endregion
 
     public void LogRace(bool wasWin)
     {
