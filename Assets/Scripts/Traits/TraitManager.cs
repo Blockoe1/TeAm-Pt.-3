@@ -14,6 +14,7 @@ using UnityEngine.InputSystem.Utilities;
 
 public class TraitManager : Manager
 {
+    [Header("Trait Database")]
     [SerializeReference, ClassDropdown] private Trait[] _traitDatabase;
 
     private static TraitManager instance;
