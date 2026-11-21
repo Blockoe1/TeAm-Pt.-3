@@ -6,11 +6,8 @@
 //
 // Brief Description : Trait that triggers when a deer is obtained.
 *****************************************************************************/
-using AriUtils;
-using UnityEngine;
 
-[DropdownGroup("ObtainTrait")]
-public abstract class ObtainTrait : Trait
+
+public abstract class ObtainTrait : TraitTrigger
 {
-    public abstract void OnObtain();
 }

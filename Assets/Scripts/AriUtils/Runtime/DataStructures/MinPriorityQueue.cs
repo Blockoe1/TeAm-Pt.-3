@@ -24,6 +24,13 @@ namespace AriUtils
             return node.Data;
         }
 
+        public void RemoveAll(Predicate<T> pred)
+        {
+            for(int i = 0; i < list.Count; i++)
+            {
+
+            }
+        }
     }
 
     public class PriorityQueueNode<T> : IComparable<PriorityQueueNode<T>>

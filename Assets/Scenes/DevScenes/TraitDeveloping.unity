@@ -243,6 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5249e107710a2de428e9ccff16d86178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Racer
+  _initializeTime: 0
+  _subManagers: []
   data:
     <Name>k__BackingField: 
     <Speed>k__BackingField: 1
@@ -256,13 +258,7 @@ MonoBehaviour:
       rid: -2
     <Trait2>k__BackingField:
       rid: -2
-  _geneticStats:
-    _speed: 1
-    _acceleration: 1
-    _stamina: 1
-    _balance: 1
-    _discipline: 1
-    _charisma: 1
+  _simBreedingPartner: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -280,8 +276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c64ed265f4d2354f9542acb8ab7a35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeneController
+  _initializeTime: 0
+  _subManagers: []
   _colorGenotype: []
-  _statGenotype: []
 --- !u!114 &2035530220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338c8f4de7a10e44fadc679c3d30efb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorRegionHandler
+  _initializeTime: 0
+  _subManagers: []
   _colorIDs: []
   _simColors: []
 --- !u!212 &2035530221
@@ -371,9 +370,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1713445299991747423
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.7305
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25711
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037703902533826019, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+      propertyPath: m_Name
+      value: TraitManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0d2b87749a524a34d940de694542603c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2000370049}
   - {fileID: 2035530222}
+  - {fileID: 1713445299991747423}
