@@ -842,10 +842,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3536871055353727802, guid: 8e12ed0d4b33ec14a9010dbfba6fdbb0, type: 3}
-      propertyPath: m_text
-      value: "Speed:\t\t5\nAcceleration:\t5 <color=#999999>(+5)</color>\nStamina:\t\t5\nBalance:\t\t5\nDiscipline:\t\t5 (-2)\nCharisma\t\t5"
-      objectReference: {fileID: 0}
     - target: {fileID: 4361721233179582315, guid: 8e12ed0d4b33ec14a9010dbfba6fdbb0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -869,10 +865,6 @@ PrefabInstance:
     - target: {fileID: 4361721233179582315, guid: 8e12ed0d4b33ec14a9010dbfba6fdbb0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4858708481542293606, guid: 8e12ed0d4b33ec14a9010dbfba6fdbb0, type: 3}
-      propertyPath: m_ChildControlHeight
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5771191155086332699, guid: 8e12ed0d4b33ec14a9010dbfba6fdbb0, type: 3}
       propertyPath: m_AnchorMax.y
