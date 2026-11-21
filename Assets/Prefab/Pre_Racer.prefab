@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4221163196402487758}
   - component: {fileID: 9152939593008742870}
   - component: {fileID: 3970921312135314484}
+  - component: {fileID: 5331172042761468525}
+  - component: {fileID: 296943839613641483}
   m_Layer: 0
   m_Name: Pre_Racer
   m_TagString: Untagged
@@ -181,3 +183,44 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b9fb961ad517de74093fe6edfc3ec826, type: 2}
   - {fileID: 11400000, guid: 98c6e432c430ca947875efc57d8af491, type: 2}
   - {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
+--- !u!50 &5331172042761468525
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499996538223426227}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &296943839613641483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499996538223426227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646607b97e46b1443b99db7a761a59f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RacingDeer
+  rigidbody: {fileID: 5331172042761468525}
+  deerController: {fileID: 4221163196402487758}
