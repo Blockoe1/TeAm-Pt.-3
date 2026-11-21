@@ -1,8 +1,8 @@
 /*****************************************************************************
 // File Name : TraitDatabase.cs
 // Author : Arcadia Koederitz
-// Creation Date : 10/04/2026
-// Last Modified : 10/04/2026
+// Creation Date : 10/21/2026
+// Last Modified : 10/21/2026
 //
 // Brief Description : Handles modifying design data of traits.
 *****************************************************************************/
@@ -49,7 +49,11 @@ public class TraitManager : Manager
     {
         if (instance == null) { return null; }
         Trait[] filteredTraits = instance._traitDatabase.Where(x => x.Alignment == alignment).ToArray();
-        return filteredTraits[UnityEngine.Random.Range(0, instance._traitDatabase.Length)];
+        if (filteredTraits.Length == 0)
+        {
+            return null;
+        }
+        return filteredTraits[UnityEngine.Random.Range(0, filteredTraits.Length)];
     }
 
     /// <summary>

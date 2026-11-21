@@ -15,6 +15,7 @@ public class DeerController : Manager
     [SerializeField] private DeerData data;
 
     private GeneController geneCon;
+    private ColorRegionHandler colorRegHan;
 
     [SerializeField, BoxGroup("Simulation")]
     private DeerController _simBreedingPartner;
@@ -30,7 +31,6 @@ public class DeerController : Manager
 
         geneCon = GetComponent<GeneController>();
         geneCon.VisualizeColorGenotype(data.ColorGenotype);
-
     }
 
     #region Inspector
@@ -40,9 +40,9 @@ public class DeerController : Manager
 
     //Randomizes all genotypes.
     [Button]
-    public void RandomizeGenotype()
+    public void Randomize()
     {
-        data.ColorGenotype = geneCon.RandomizeColorGenotype(data.ColorGenotype);
+        data = DeerData.NewRandomDeer();
         geneCon.VisualizeColorGenotype(data.ColorGenotype);
     }
     #endregion

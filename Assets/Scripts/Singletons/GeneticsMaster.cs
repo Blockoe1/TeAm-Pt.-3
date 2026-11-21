@@ -17,8 +17,12 @@ public class GeneticsMaster : Manager
     [SerializeField]
     private GameObject _racerPrefab;
 
+    [SerializeField]
+    private SO_ColorGene[] _colorGenes;
+ 
     #region GS
     public static GeneticsMaster INST { get => inst; }
+    public SO_ColorGene[] ColorGenes { get => _colorGenes; }
     #endregion
 
     public override void Initialize()
@@ -28,7 +32,7 @@ public class GeneticsMaster : Manager
             inst = this;
         else
         {
-            Debug.LogError("Multiple copies of ColorMaster exists, please delete one.");
+            Debug.LogError("Multiple copies of GeneticsMaster exists, please delete one.");
             Destroy(this);
         }
 
@@ -39,7 +43,7 @@ public class GeneticsMaster : Manager
     //Spawns an offspring with the combined genotypes of parentA and parentB.
     public void Breed(DeerController parentA, DeerController parentB)
     {
-        GameObject osGO = Instantiate(_racerPrefab);
+        GameObject osGO = Instantiate(_racerPrefab, parentA.transform.parent);
         DeerController osDeerCon = osGO.GetComponent<DeerController>();
         GeneController osGenCon = osGO.GetComponent<GeneController>();
 
