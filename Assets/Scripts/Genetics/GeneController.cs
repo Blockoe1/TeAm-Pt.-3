@@ -1,10 +1,11 @@
 /*
  * Marlow Greenan
  * Created: 11/20/2026
- * Last Updated: 11/20/2026 by Marlow Greenan
+ * Last Updated: 11/21/2026 by Marlow Greenan
  * 
  * Controls genotypes and phenotypes.
  */
+using MarUtility.ExecutionManagement;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
@@ -12,60 +13,49 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(ColorRegionHandler))]
-public class GeneController : MonoBehaviour
+public class GeneController : Manager
 {
     //COLOR
-    [SerializeField]
-    private Dictionary<SO_ColorGene, ColorGenotype> _colorGenotype;
-
     private ColorRegionHandler colorRegHan;
 
-    //STAT
-    [SerializeField]
-    private Dictionary<SO_Gene, StatGenotype> _statGenotype;
-
-
     #region GS
-    public Dictionary<SO_ColorGene, ColorGenotype> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
+
 
     #endregion
 
-    private void Start()
+    public override void Initialize()
     {
-        Initialize();
-    }
+        base.Initialize();
 
-    public void Initialize()
-    {
         colorRegHan = GetComponent<ColorRegionHandler>();
-        colorRegHan.Initialize();
 
-        InitializeGenotypes();
+        //InitializeGenotypes();
+
     }
 
-    public void InitializeGenotypes()
+    public void InitializeGenotypes(Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
     {
-        VisualizeColorGenotype();
+        VisualizeColorGenotype(colorGenotype);
     }
 
-    [Button]
-    private void VisualizeColorGenotype()
+    public void VisualizeColorGenotype(Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
     {
-        foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in _colorGenotype)
-            colorRegHan.VisualizeColor(kvp.Key.MatColorID, GetDominantAllele(kvp.Key).Color);
+        foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in colorGenotype)
+            colorRegHan.VisualizeColor(kvp.Key.MatColorID, GetDominantAllele(kvp.Key, colorGenotype).Color);
     }
 
+    #region Get Allele
     //Returns the dominant allele.
-    private SO_ColorAllele GetDominantAllele(SO_ColorGene gene)
-        => (gene.FindIndex(_colorGenotype[gene].AlleleA) < gene.FindIndex(_colorGenotype[gene].AlleleB)) ? _colorGenotype[gene].AlleleA : _colorGenotype[gene].AlleleB;
+    private SO_ColorAllele GetDominantAllele(SO_ColorGene gene, Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
+        => (gene.FindIndex(colorGenotype[gene].AlleleA) < gene.FindIndex(colorGenotype[gene].AlleleB)) ? colorGenotype[gene].AlleleA : colorGenotype[gene].AlleleB;
 
     //Returns a random allele.
-    public SO_ColorAllele GetRandomAllele(SO_ColorGene gene)
+    public SO_ColorAllele GetRandomAlleleFromGenotype(SO_ColorGene gene, Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
     {
         int ran = Random.Range(0, 2);
-        return (ran == 0) ? _colorGenotype[gene].AlleleA : _colorGenotype[gene].AlleleB;
+        return (ran == 0) ? colorGenotype[gene].AlleleA : colorGenotype[gene].AlleleB;
     }
-    
+    #endregion
 }
 
 [Serializable]
@@ -86,10 +76,4 @@ public class ColorGenotype
         _alleleA = alleleA;
         _alleleB = alleleB;
     }
-}
-
-[Serializable]
-public class StatGenotype
-{
-
 }

@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "name": "MainActions",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "32edc89f-f919-4e93-bcbb-5df3cd3ad39c",
+            "actions": [
+                {
+                    "name": "MousePos",
+                    "type": "Value",
+                    "id": "245ac66c-9568-4343-b284-601f0e1bb649",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a582ce0c-1554-4906-a518-c31a1f6b2659",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePos",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

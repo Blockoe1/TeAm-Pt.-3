@@ -2,8 +2,9 @@ using UnityEngine;
 using FMODUnity;
 using System.Collections.Generic;
 using FMOD.Studio;
+using MarUtility.ExecutionManagement;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Manager
 {
     [SerializeField] private Dictionary<string, EventReference> audioLookup;
 
@@ -11,10 +12,11 @@ public class AudioManager : MonoBehaviour
 
     private EventInstance bgMusic;
 
-    private void Start()
+    public override void Initialize()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
+            base.Initialize();
             Instance = this;
             return;
         }
