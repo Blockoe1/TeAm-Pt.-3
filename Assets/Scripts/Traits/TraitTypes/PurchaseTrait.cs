@@ -6,11 +6,7 @@
 //
 // Brief Description : Trait that modifies horse purchase price.
 *****************************************************************************/
-using AriUtils;
-using UnityEngine;
-
-[DropdownGroup("PurchaseTrait")]
-public abstract class PurchaseTrait : Trait
+public abstract class PurchaseTrait : TraitTrigger
 {
-    public abstract void ModifyPurchasePrice(ref int purchasePrice);
+    public int PurchasePrice { get; set; }
 }
