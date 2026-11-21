@@ -20,23 +20,26 @@ public class ColorRegionHandler : MonoBehaviour
     private SO_Color[] _simColors;
 
     //DATA
-    [SerializeField, ReadOnly]
     private SpriteRenderer spriteRen;
+
 
     private void Start()
     {
         Initialize();
     }
 
-    private void Initialize()
+    public void Initialize()
     {
         spriteRen = GetComponent<SpriteRenderer>();
     }
 
+    public void VisualizeColor(string colorID, SO_Color color)
+        => spriteRen.material.SetColor("_" + colorID, color.Color);
+
     private void VisualizeColors(SO_Color[] colors)
     {
         for (int i = 0; i < colors.Length; i++)
-            spriteRen.material.SetColor("_" + _colorIDs[i], colors[i].Color);
+            VisualizeColor("_" + _colorIDs[i], colors[i]);
     }
 
     #region Inspector

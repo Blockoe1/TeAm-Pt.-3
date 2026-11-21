@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0579bdd8a2e705d429e4e728d284bf3e, type: 3}
+  m_Name: GeneC_PrimaryColor
+  m_EditorClassIdentifier: Assembly-CSharp::SO_ColorGene
+  _name: Primary Color
+  _alleles:
+  - {fileID: 11400000, guid: 729e9e3ec7dd0d14ab84565fc567c311, type: 2}
+  - {fileID: 11400000, guid: 967cfcdb286dbe74d9f03427f0bf1068, type: 2}
+  - {fileID: 11400000, guid: 46ced1b299c00154e8ad970252a16a1c, type: 2}
+  _matColorID: Color0
