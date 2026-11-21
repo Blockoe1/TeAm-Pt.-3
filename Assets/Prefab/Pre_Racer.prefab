@@ -113,13 +113,13 @@ MonoBehaviour:
   _subManagers:
   - {fileID: 9152939593008742870}
   data:
-    <Name>k__BackingField: 
-    <Speed>k__BackingField: 1
-    <Acceleration>k__BackingField: 1
-    <Stamina>k__BackingField: 1
-    <Balance>k__BackingField: 1
-    <Discipline>k__BackingField: 1
-    <Charisma>k__BackingField: 1
+    <Name>k__BackingField: Frank
+    <Speed>k__BackingField: 10
+    <Acceleration>k__BackingField: 10
+    <Stamina>k__BackingField: 10
+    <Balance>k__BackingField: 10
+    <Discipline>k__BackingField: 10
+    <Charisma>k__BackingField: 10
     <Age>k__BackingField: 0
     <Trait1>k__BackingField:
       rid: -2
