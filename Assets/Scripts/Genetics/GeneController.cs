@@ -11,7 +11,6 @@ public class GeneController : MonoBehaviour
     private Dictionary<SO_ColorGene, ColorGenotype> _colorGenotype;
 
     private ColorRegionHandler colorRegHan;
-    private SpriteRenderer spriteRen;
 
     //STAT
     [SerializeField]
@@ -25,8 +24,8 @@ public class GeneController : MonoBehaviour
 
     private void Initialize()
     {
-        spriteRen = GetComponent<SpriteRenderer>();
         colorRegHan = GetComponent<ColorRegionHandler>();
+        VisualizeColorGenotype();
     }
 
     [Button]
