@@ -5,32 +5,22 @@
  * 
  * Holds data for genetics.
  */
-using NaughtyAttributes;
+using MarUtility.ExecutionManagement;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GeneticsMaster : MonoBehaviour
+public class GeneticsMaster : Manager
 {
     private static GeneticsMaster inst;
 
     [SerializeField]
     private GameObject _racerPrefab;
 
-    [SerializeField, BoxGroup("Simulation")]
-    private GameObject _simRacerA;
-    [SerializeField, BoxGroup("Simulation")]
-    private GameObject _simRacerB;
-
     #region GS
     public static GeneticsMaster INST { get => inst; }
     #endregion
 
-    private void Awake()
-    {
-        Initialize();
-    }
-
-    private void Initialize()
+    public override void Initialize()
     {
         //Set instance.
         if (inst == null)
@@ -40,6 +30,8 @@ public class GeneticsMaster : MonoBehaviour
             Debug.LogError("Multiple copies of ColorMaster exists, please delete one.");
             Destroy(this);
         }
+
+        base.Initialize();
     }
 
     //Spawns an offspring with the combined genotypes of parentA and parentB.
@@ -79,10 +71,4 @@ public class GeneticsMaster : MonoBehaviour
     //Creates a genotype with 1 random allele from both parents.
     private ColorGenotype CombineColorGenotype(GeneController parentA, GeneController parentB, SO_ColorGene gene)
         => new ColorGenotype(parentA.GetRandomAllele(gene), parentB.GetRandomAllele(gene));
-
-    #region Inspector
-    [Button]
-    private void Breed()
-        => Breed(_simRacerA.GetComponent<GeneController>(), _simRacerB.GetComponent<GeneController>());
-    #endregion
 }

@@ -5,6 +5,7 @@
  * 
  * Controls genotypes and phenotypes.
  */
+using MarUtility.ExecutionManagement;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(ColorRegionHandler))]
-public class GeneController : MonoBehaviour
+public class GeneController : Manager
 {
     //COLOR
     [SerializeField]
@@ -24,23 +25,22 @@ public class GeneController : MonoBehaviour
     [SerializeField]
     private Dictionary<SO_Gene, StatGenotype> _statGenotype;
 
+    [SerializeField, BoxGroup("Simulation")]
+    private GeneController _simBreedingPartner;
 
     #region GS
     public Dictionary<SO_ColorGene, ColorGenotype> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
 
     #endregion
 
-    private void Start()
+    public override void Initialize()
     {
-        Initialize();
-    }
+        base.Initialize();
 
-    public void Initialize()
-    {
         colorRegHan = GetComponent<ColorRegionHandler>();
-        colorRegHan.Initialize();
 
         InitializeGenotypes();
+
     }
 
     public void InitializeGenotypes()
@@ -65,7 +65,13 @@ public class GeneController : MonoBehaviour
         int ran = Random.Range(0, 2);
         return (ran == 0) ? _colorGenotype[gene].AlleleA : _colorGenotype[gene].AlleleB;
     }
-    
+
+    #region Inspector
+    [Button]
+    private void Breed()
+        => GeneticsMaster.INST.Breed(this, _simBreedingPartner);
+    #endregion
+
 }
 
 [Serializable]
