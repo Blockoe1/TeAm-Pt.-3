@@ -18,19 +18,11 @@ public class GeneController : Manager
     //COLOR
     private ColorRegionHandler colorRegHan;
 
-    #region GS
-
-
-    #endregion
-
     public override void Initialize()
     {
         base.Initialize();
 
         colorRegHan = GetComponent<ColorRegionHandler>();
-
-        //InitializeGenotypes();
-
     }
 
     public void InitializeGenotypes(Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 091cc359405d68943a446b83d60a2cb6, type: 3}
-  m_Name: ColorA_SecondaryColor_Green
+  m_Name: AlleleC_SecondaryColor_Green
   m_EditorClassIdentifier: Assembly-CSharp::SO_ColorAllele
   _name: Green
   _color: {fileID: 11400000, guid: 79bc987439171864dad99920e902e923, type: 2}
