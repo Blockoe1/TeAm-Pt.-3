@@ -7,6 +7,7 @@
 // Brief Description : Holds data related to a deer.
 *****************************************************************************/
 using AriUtils;
+using System;
 using UnityEngine;
 
 [System.Serializable]
@@ -14,17 +15,20 @@ public class DeerData
 {
     private const int BASE_TRAIT_NUM = 2;
 
+    private const int STAT_MIN = 1;
+    private const int STAT_MAX = 20;
+
     [field: SerializeField] public string Name { get; set; }
     #region Stats
-    [field: SerializeField, Range(1, 20)] public int Speed { get; set; } = 1;
-    [field: SerializeField, Range(1, 20)] public int Acceleration { get; set; } = 1;
-    [field: SerializeField, Range(1, 20)] public int Stamina { get; set; } = 1;
-    [field: SerializeField, Range(1, 20)] public int Balance { get; set; } = 1;
-    [field: SerializeField, Range(1, 20)] public int Discipline { get; set; } = 1;
-    [field: SerializeField, Range(1, 20)] public int Charisma { get; set; } = 1;
+    [field: SerializeField, Range(STAT_MIN, STAT_MAX)] public int Speed { get; set; } = 1;
+    [field: SerializeField, Range(STAT_MIN, STAT_MAX)] public int Acceleration { get; set; } = 1;
+    [field: SerializeField, Range(STAT_MIN, STAT_MAX)] public int Stamina { get; set; } = 1;
+    [field: SerializeField, Range(STAT_MIN, STAT_MAX)] public int Balance { get; set; } = 1;
+    [field: SerializeField, Range(STAT_MIN, STAT_MAX)] public int Discipline { get; set; } = 1;
+    [field: SerializeField, Range(STAT_MIN, STAT_MAX)] public int Charisma { get; set; } = 1;
     #endregion
 
-    [field: SerializeField, Min(0)] public int Age { get; set; }
+    [field: SerializeField, Min(1)] public int Age { get; set; } = 1;
 
     [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; private set; }
 
@@ -82,5 +86,24 @@ public class DeerData
             default:
                 return 0;
         }
+    }
+
+    public static DeerData NewRandomDeer()
+    {
+        DeerData data = new DeerData();
+
+        data.Name = DeerNames.GetRandomName();
+        foreach(StatType type in Enum.GetValues(typeof(StatType)))
+        {
+            data.SetStat(type, UnityEngine.Random.Range(STAT_MIN, STAT_MAX));
+        }
+
+        data.Traits = new Trait[BASE_TRAIT_NUM];
+        for(int i = 0; i < BASE_TRAIT_NUM; i++)
+        {
+            data.Traits[i] = TraitManager.GetRandomTrait();
+        }
+
+        return data;
     }
 }
