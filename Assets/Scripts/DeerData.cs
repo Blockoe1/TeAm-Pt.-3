@@ -12,6 +12,8 @@ using UnityEngine;
 [System.Serializable]
 public class DeerData
 {
+    private const int BASE_TRAIT_NUM = 2;
+
     [field: SerializeField] public string Name { get; set; }
     #region Stats
     [field: SerializeField, Range(1, 20)] public int Speed { get; set; } = 1;
@@ -24,8 +26,7 @@ public class DeerData
 
     [field: SerializeField, Min(0)] public int Age { get; set; }
 
-    [field: SerializeReference, ClassDropdown] public Trait Trait1 { get; private set; }
-    [field: SerializeReference, ClassDropdown] public Trait Trait2 { get; private set; }
+    [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; private set; }
 
 
 
