@@ -5,8 +5,8 @@ using UnityEngine;
 public class RacingDeer : MonoBehaviour
 {
     const float SPEED_MULT = 4;
-    const float ACCEL_MULT = 0.025f;
-    const float STAMINA_MULT = 0.05f;
+    const float ACCEL_MULT = 0.01f;
+    const float STAMINA_MULT = 0.0075f;
 
     const float TRIP_SPEED = 2f;
 
@@ -30,9 +30,9 @@ public class RacingDeer : MonoBehaviour
     private float DeerSpeed => (((30f + deerController.Data.Speed) / 50f) * SPEED_MULT) - speedMod;
     private float DeerAccel => ((30f + deerController.Data.Acceleration) / 50f) * ACCEL_MULT;
     private int DeerBalance => deerController.Data.Balance + 75;
-    private int DeerStopChance => deerController.Data.Discipline + 58;
-    private int DeerReverseChance => deerController.Data.Discipline + 79;
-    private float DeerStamina => (30 - deerController.Data.Stamina) * 0.05f * STAMINA_MULT;
+    private float DeerStopChance => deerController.Data.Discipline * 1.5f + 65;
+    private int DeerReverseChance => deerController.Data.Discipline + 50;
+    private float DeerStamina => (30 - deerController.Data.Stamina) * STAMINA_MULT;
 
     /// <summary>
     /// Will start when the deer gets started
@@ -145,7 +145,7 @@ public class RacingDeer : MonoBehaviour
         bool isTripped = false;
         while (!isTripped)
         {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(7, 14f));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(4, 6f));
             while(currentState == STATES.NONE || currentState == STATES.REVERSED)
             {
                 yield return null;
