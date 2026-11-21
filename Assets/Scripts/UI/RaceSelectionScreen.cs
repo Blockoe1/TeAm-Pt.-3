@@ -13,16 +13,17 @@ public class RaceSelectionScreen : BuckScreen
     }
 
     /// <summary>
-    /// Run during post-race set-up and when exiting betting screen
+    /// Run during post-race set-up and when exiting betting screen or deer inventory changing
     /// </summary>
     public void InitializeSelection()
     {
         // Fetch stable data
-        List<DeerData> bucks = new List<DeerData>();
+        List<DeerController> bucks = new List<DeerController>();
         for (int i = 0; i < 8; i++)
         {
-            bucks.Add(new DeerData());
-            bucks[^1].Name = (i + 1).ToString();
+            bucks.Add(new DeerController());
+            bucks[^1].Data = new DeerData();
+            bucks[^1].Data.Name = (i + 1).ToString();
         }
 
         selected = default;
@@ -38,7 +39,7 @@ public class RaceSelectionScreen : BuckScreen
         _bettingScreen.InitializeBetting();
     }
 
-    public override void BuckSelected(DeerData buck, BuckUI ui)
+    public override void BuckSelected(DeerController buck, BuckUI ui)
     {
         if (selected != default)
         {

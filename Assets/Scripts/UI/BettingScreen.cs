@@ -22,11 +22,12 @@ public class BettingScreen : BuckScreen
     public void InitializeBetting()
     {
         // Fetch relevant deer for the race
-        List<DeerData> bucks = new List<DeerData>();
+        List<DeerController> bucks = new List<DeerController>();
         for (int i = 0; i < 5; i++)
         {
-            bucks.Add(new DeerData());
-            bucks[^1].Name = (i + 1).ToString();
+            bucks.Add(new DeerController());
+            bucks[^1].Data = new DeerData();
+            bucks[^1].Data.Name = (i + 1).ToString();
         }
 
         selected = default;
@@ -36,7 +37,7 @@ public class BettingScreen : BuckScreen
         _betText.text = FormatDoe(bet);
     }
 
-    public override void BuckSelected(DeerData buck, BuckUI ui)
+    public override void BuckSelected(DeerController buck, BuckUI ui)
     {
         if (selected != default)
         {
@@ -66,15 +67,6 @@ public class BettingScreen : BuckScreen
         if (bet - _betIncrement <= 0) return;
         bet -= _betIncrement;
         _betText.text = FormatDoe(bet);
-    }
-
-    public string FormatDoe(int doe)
-    {
-        string s = doe.ToString();
-        if (s.Length == 1) s = "00" + s;
-        if (s.Length == 2) s = "0" + s;
-        s = s.Substring(0, s.Length - 2) + "." + s.Substring(s.Length - 2);
-        return "$" + s;
     }
 
     public void Back()
