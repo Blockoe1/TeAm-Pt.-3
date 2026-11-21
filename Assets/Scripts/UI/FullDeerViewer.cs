@@ -46,7 +46,7 @@ public class FullDeerViewer : DeerViewer
         {
             int baseStat = deerData.GetStat(type);
             statString += type.ToString() + "\t\t" + baseStat;
-            int modifiedStat = deerData.GetStatModified(type);
+            int modifiedStat = deerData.ApplyTraits(type, deerData.GetStat(type));
             if (modifiedStat != baseStat)
             {
                 string colorString = modifiedStat > baseStat ? boostedStatColor.ToHexString() : nerfedStatColor.ToHexString();
