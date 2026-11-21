@@ -10,28 +10,31 @@ using AriUtils;
 using MarUtility.ExecutionManagement;
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem.Utilities;
 
 public class TraitManager : Manager
 {
     [SerializeReference, ClassDropdown] private Trait[] _traitDatabase;
 
+    private static TraitManager instance;
+
+    public static ReadOnlyArray<Trait> TraitDatabase => instance == null ? null : instance._traitDatabase;
 
     public override void Initialize()
     {
+        SingletonUtil.SetSingleton(ref instance, this);
         for(int i = 0; i < _traitDatabase.Length; i++)
         {
             _traitDatabase[i].TraitIndex = i;
         }
+
+        // Subscribe to relevant events.
     }
 
-    public Trait GetTrait(int index)
+    public static int GetTraitIndex<T>()
     {
-        return _traitDatabase[index];
-    }
-
-    public int GetTraitIndex<T>()
-    {
-        return Array.FindIndex(_traitDatabase, x => x.GetType() == typeof(T));
+        if (instance == null) { return -1; }
+        return Array.FindIndex(instance._traitDatabase, x => x.GetType() == typeof(T));
     }
 
     /// <summary>
@@ -40,10 +43,41 @@ public class TraitManager : Manager
     /// <typeparam name="T"></typeparam>
     /// <param name="eventData"></param>
     /// <param name="triggeredDeer"></param>
-    public static void TraitEvent<T>(T eventData, DeerController triggeredDeer) where T : TraitTrigger // TODO: Needs to take in the relevant DeerController.
+    public static void TraitEvent<T>(T eventData, DeerController triggeredDeer) where T : TraitTrigger
     {
-        // Loop through deer in race.
+        // Loop through deer in current race.
+        foreach (DeerData deer in RaceManager.DeerInRace)
+        {
+            // Trigger each trait in those deer.
+            foreach (Trait trait in deer.Traits)
+            {
+                if (trait is ITraitTrigger<T> triggered
+                    && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Race)
+                    && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer)) // Global traits trigger even when the event was not on this deer.
+                {
+                    triggered.TriggerTrait(eventData, triggeredDeer);
+                }
+            }
+        }
 
         // Loop through deer owned.
+        foreach (DeerData deer in PlayerManager.Instance.OwnedDeer)
+        {
+            // Trigger each trait in those deer.
+            foreach(Trait trait in deer.Traits)
+            {
+                if (trait is ITraitTrigger<T> triggered
+                    && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Owned)
+                    && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer))
+                {
+                    triggered.TriggerTrait(eventData, triggeredDeer);
+                }
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe event references.
     }
 }
