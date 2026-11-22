@@ -13,6 +13,7 @@ using UnityEngine.EventSystems;
 public class HoverTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Vector2 offset;
+    [SerializeField] private bool buying;
     [SerializeField, ComponentReference] private BuckUI ui; 
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -34,7 +35,14 @@ public class HoverTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (DeerTooltip.Instance != null)
         {
-            DeerTooltip.Instance.SetDeer(data, CostParams.Buy);
+            if (buying)
+            {
+                DeerTooltip.Instance.SetDeer(data, CostParams.Buy);
+            }
+            else
+            {
+                DeerTooltip.Instance.SetDeer(data, 0);
+            }
             DeerTooltip.Instance.MoveTo((Vector2)transform.position + offset);
         }
     }

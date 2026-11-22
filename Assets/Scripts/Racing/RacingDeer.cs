@@ -13,7 +13,7 @@ public class RacingDeer : MonoBehaviour
     const float TRIP_SPEED = 2f;
 
     //I apologize in advance
-    private enum STATES
+    public enum STATES
     {
         NONE,
         RUNNING,
@@ -37,6 +37,8 @@ public class RacingDeer : MonoBehaviour
     private float DeerStopChance => deerController.GetStat(StatType.Discipline) * 1.5f + 65;
     private int DeerReverseChance => deerController.GetStat(StatType.Discipline) + 50;
     private float DeerStamina => (30 - deerController.GetStat(StatType.Stamina)) * STAMINA_MULT;
+
+    public STATES CurrentState { get { return currentState; } set { currentState = value; }  }
 
     private int placementIndex;
     private float[] placements;
