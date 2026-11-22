@@ -589,7 +589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EndScreenBehavior
   _moneyText: {fileID: 2101414453}
   _winLosetext: {fileID: 1101694653}
-  _roundsToEnd: 3
+  _roundsToEnd: 10
   _centsToWin: 500
   _winMessage: You earned $5 BUCKS!
   _loseMessage: You're broke.
