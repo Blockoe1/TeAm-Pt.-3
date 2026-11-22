@@ -23,7 +23,7 @@ public class FullDeerViewer : DeerViewer
     public override void SetDeer(DeerData deerData, CostParams costParams)
     {
         base.SetDeer(deerData, costParams);
-        _ageText.text = "Age: " + deerData.Age.ToString();
+        _ageText.text = "<u>Age:</u> " + deerData.Age.ToString();
 
         // Process Traits
         for (int i = 0; i < deerData.Traits.Length; i++)
@@ -31,7 +31,7 @@ public class FullDeerViewer : DeerViewer
             if (deerData.Traits[i] == null) { continue; }
             if (_traitNamesText.Length > i)
             {
-                _traitNamesText[i].text = deerData.Traits[i].Name;
+                _traitNamesText[i].text = "<u>" + deerData.Traits[i].Name + "</u>";
             }
             if (_traitDescriptionsText.Length > i)
             {
@@ -46,7 +46,8 @@ public class FullDeerViewer : DeerViewer
         foreach (StatType type in Enum.GetValues(typeof(StatType)))
         {
             int baseStat = deerData.GetStat(type);
-            statString += type.ToString() + "\t\t" + baseStat;
+            statString += "<u>" + type.ToString() + (type == StatType.Speed || type == StatType.Balance ? "\t" : "");
+            statString += "</u>\t\t" + baseStat;
             int modifiedStat = deerData.ApplyTraits(type, deerData.GetStat(type));
             if (modifiedStat != baseStat)
             {
