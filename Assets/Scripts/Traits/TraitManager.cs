@@ -9,7 +9,9 @@
 using AriUtils;
 using MarUtility.ExecutionManagement;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.InputSystem.Utilities;
 
@@ -37,24 +39,40 @@ public class TraitManager : Manager
         return Array.FindIndex(instance._traitDatabase, x => x.GetType() == typeof(T));
     }
 
-    public static Trait GetRandomTrait()
+    public static Trait[] GetRandomTraits(int traitNum)
     {
-        Trait[] filteredTraits = instance._traitDatabase.Where(x => x.RandomlySelectable).ToArray();
-        if (filteredTraits.Length == 0)
+        List<Trait> filteredTraits = instance._traitDatabase.Where(x => x.RandomlySelectable).ToList();
+        if (filteredTraits.Count == 0)
         {
             return null;
         }
-        return filteredTraits[UnityEngine.Random.Range(0, filteredTraits.Length)];
+
+        Trait[] traits = new Trait[traitNum];
+        for (int i = 0; i < traits.Length; i++)
+        {
+            int index = UnityEngine.Random.Range(0, filteredTraits.Count);
+            traits[i] = filteredTraits[index];
+            filteredTraits.RemoveAt(i);
+        }
+        return traits;
     }
 
-    public static Trait GetRandomTrait(Trait.TraitAlignment alignment)
+    public static Trait[] GetRandomTraits(Trait.TraitAlignment[] alignment, int traitNum)
     {
-        Trait[] filteredTraits = instance._traitDatabase.Where(x => x.RandomlySelectable && x.Alignment == alignment).ToArray();
-        if (filteredTraits.Length == 0)
+        List<Trait> filteredTraits = instance._traitDatabase.Where(x => x.RandomlySelectable && alignment.Contains(x.Alignment)).ToList();
+        if (filteredTraits.Count == 0)
         {
             return null;
         }
-        return filteredTraits[UnityEngine.Random.Range(0, filteredTraits.Length)];
+
+        Trait[] traits = new Trait[traitNum];
+        for(int i = 0; i < traits.Length; i++)
+        {
+            int index = UnityEngine.Random.Range(0, filteredTraits.Count);
+            traits[i] = filteredTraits[index];
+            filteredTraits.RemoveAt(i);
+        }
+        return traits;
     }
 
     /// <summary>

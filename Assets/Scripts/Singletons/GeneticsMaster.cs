@@ -5,9 +5,11 @@
  * 
  * Holds data for genetics.
  */
+using AriUtils;
 using MarUtility.ExecutionManagement;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -80,7 +82,14 @@ public class GeneticsMaster : Manager
             // Assumes that only 2 traits are used.
             DeerData inheritedParent = i % 2 == 0 ? parentA : parentB;
             int index = Random.Range(0, inheritedParent.Traits.Length);
-            traits[i] = TraitManager.TraitDatabase[inheritedParent.Traits[index].GetInheritedTraitIndex()];
+            Trait inheritedTrait = TraitManager.TraitDatabase[inheritedParent.Traits[index].GetInheritedTraitIndex()];
+            while (traits.Contains(inheritedTrait))
+            {
+                index++;
+                CollectionUtil.LoopIndex(inheritedParent.Traits, ref index);
+                inheritedTrait = TraitManager.TraitDatabase[inheritedParent.Traits[index].GetInheritedTraitIndex()];
+            }
+            traits[i] = inheritedTrait;
         }
         return traits;
     }
