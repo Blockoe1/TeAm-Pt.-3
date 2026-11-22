@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Timid
   _parts:
   - key: Head
-    value: {fileID: 21300000, guid: 46c0492044dec3046845a36228b59a9f, type: 3}
+    value: {fileID: 21300000, guid: 8a981fe51d544614abfa2012be790f0f, type: 3}
