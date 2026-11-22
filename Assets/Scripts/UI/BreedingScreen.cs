@@ -13,12 +13,10 @@ public class BreedingScreen : BuckScreen
     public void InitializeBreeding()
     {
         // Fetch new baby data
-        List<DeerController> bucks = new List<DeerController>();
+        List<DeerData> bucks = new List<DeerData>();
         for (int i = 0; i < 3; i++)
         {
-            bucks.Add(new DeerController());
-            bucks[^1].Data = new DeerData();
-            bucks[^1].Data.Name = (i + 1).ToString();
+            bucks.Add(DeerData.NewRandomDeer());
         }
 
         selected = default;
@@ -27,7 +25,7 @@ public class BreedingScreen : BuckScreen
         // TODO: disable screen navigation
     }
 
-    public override void BuckSelected(DeerController buck, BuckUI ui)
+    public override void BuckSelected(DeerData buck, BuckUI ui)
     {
         // TODO: add deer to stables
         _stablesScreen.InitializeStables();
