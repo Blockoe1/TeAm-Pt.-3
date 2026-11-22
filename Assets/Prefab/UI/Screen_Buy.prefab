@@ -92,7 +92,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6273242167412084563
 RectTransform:
   m_ObjectHideFlags: 0
@@ -382,6 +382,22 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4517787893256067552, guid: 34ce7eb7acd9f9541afa9aea9f4cedd4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 84fa5b9ed35190747b0de4771ce31aba, type: 2}
+    - target: {fileID: 4517787893256067552, guid: 34ce7eb7acd9f9541afa9aea9f4cedd4, type: 3}
+      propertyPath: m_fontStyle
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4517787893256067552, guid: 34ce7eb7acd9f9541afa9aea9f4cedd4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8546471492613727954, guid: 84fa5b9ed35190747b0de4771ce31aba, type: 2}
+    - target: {fileID: 4517787893256067552, guid: 34ce7eb7acd9f9541afa9aea9f4cedd4, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5018741060237395435, guid: 34ce7eb7acd9f9541afa9aea9f4cedd4, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -424,7 +440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6133092668558230525, guid: 34ce7eb7acd9f9541afa9aea9f4cedd4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6939438801324584835, guid: 34ce7eb7acd9f9541afa9aea9f4cedd4, type: 3}
       propertyPath: m_fontAsset
@@ -516,6 +532,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7130183176957406162, guid: 34ce7eb7acd9f9541afa9aea9f4cedd4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155890479536461370, guid: 34ce7eb7acd9f9541afa9aea9f4cedd4, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8237843659447067772, guid: 34ce7eb7acd9f9541afa9aea9f4cedd4, type: 3}

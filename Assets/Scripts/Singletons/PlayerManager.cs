@@ -34,11 +34,12 @@ public class PlayerManager : Manager
         SingletonUtil.SetSingleton(ref instance, this);
     }
 
-    public bool PurchaseDeer(DeerController toAdd)
+    public bool PurchaseDeer(DeerController toAdd, bool justChecking = false)
     {
         int price = toAdd.Data.CalculatePrice();
         if (_ownedDeer.Count < MAX_OWNED_DEER && MoneyManager.Instance.CanAfford(price))
         {
+            if (justChecking) return true;
             _ownedDeer?.Add(toAdd.Data, toAdd);
             DeerPool.Instance.RemoveDeer(toAdd.Data);
             MoneyManager.Instance.SpendMoney(price);

@@ -7,6 +7,7 @@ using System.Linq;
 public class ShopScreen : BuckScreen
 {
     [SerializeField] private GameObject purchaseConfirm;
+    [SerializeField] private Button purchaseButton;
     [SerializeField] private GameObject background;
     [SerializeField] private FullDeerViewer fullDeerViewer;
     private BuckUI UI;
@@ -42,6 +43,7 @@ public class ShopScreen : BuckScreen
 
         UI = ui;
         purchaseConfirm.SetActive(true);
+        purchaseButton.interactable = PlayerManager.Instance.PurchaseDeer(selected.Item1.Controller, true);
         background.SetActive(true);
         fullDeerViewer.SetDeer(buck, CostParams.Buy);
         fullDeerViewer.ProcessStats(buck);
