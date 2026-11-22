@@ -17,6 +17,7 @@ public class BreedingScreen : BuckScreen
         for (int i = 0; i < 3; i++)
         {
             bucks.Add(GeneticsMaster.INST.Breed(mom.Controller, dad.Controller).Data);
+            PlayerManager.Instance.GenerateControllerForNewDeer(bucks[^1]);
         }
 
         selected = default;

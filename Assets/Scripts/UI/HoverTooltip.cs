@@ -34,7 +34,7 @@ public class HoverTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (DeerTooltip.Instance != null)
         {
-            DeerTooltip.Instance.SetDeer(data);
+            DeerTooltip.Instance.SetDeer(data, CostParams.Buy);
             DeerTooltip.Instance.MoveTo((Vector2)transform.position + offset);
         }
     }

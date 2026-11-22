@@ -20,9 +20,9 @@ public class FullDeerViewer : DeerViewer
     [SerializeField] private Color boostedStatColor;
     [SerializeField] private Color nerfedStatColor;
 
-    public override void SetDeer(DeerData deerData)
+    public override void SetDeer(DeerData deerData, CostParams costParams)
     {
-        base.SetDeer(deerData);
+        base.SetDeer(deerData, costParams);
         _ageText.text = "Age: " + deerData.Age.ToString();
 
         // Process Traits
