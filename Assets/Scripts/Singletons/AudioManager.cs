@@ -6,7 +6,15 @@ using MarUtility.ExecutionManagement;
 
 public class AudioManager : Manager
 {
-    [SerializeField] private Dictionary<string, EventReference> audioLookup;
+    public enum AudioID
+    {
+        NONE = 0,
+        IDLEMUSIC = 1,
+        RACEMUSIC = 2,
+        SFX1 = 3,
+        SFX2 = 4
+    }
+    [SerializeField] private EventReference[] audioLookup;
 
     public static AudioManager Instance = null;
 
@@ -18,6 +26,8 @@ public class AudioManager : Manager
         {
             base.Initialize();
             Instance = this;
+
+
             return;
         }
 
@@ -29,20 +39,20 @@ public class AudioManager : Manager
     /// Plays a 1shot FMOD sound. Don't make this a piece of music we can't stop it
     /// </summary>
     /// <param name="audioID">The audio to be played</param>
-    public void PlayOneShot(string audioID)
+    public void PlayOneShot(AudioID audioID)
     {
-        RuntimeManager.PlayOneShot(audioLookup[audioID]);
+        RuntimeManager.PlayOneShot(audioLookup[(int)audioID]);
     }
 
     /// <summary>
     /// Plays a looped sound for the background music. Please do not input a sound effect I will find you and make very upset Lucas noises if you do :(
     /// </summary>
     /// <param name="audioID">The passed Audio. Please don't make this a sound effect</param>
-    public void PlayLoopedEvent(string audioID)
+    public void PlayLoopedEvent(AudioID audioID)
     {
         bgMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
-        bgMusic = RuntimeManager.CreateInstance(audioLookup[audioID]);
+        bgMusic = RuntimeManager.CreateInstance(audioLookup[(int)audioID]);
 
         bgMusic.start();
     }
