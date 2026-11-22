@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 
 public class ShopScreen : BuckScreen
 {
@@ -17,9 +14,9 @@ public class ShopScreen : BuckScreen
     public void InitializeShop()
     {
         // Fetch shop data
-        List<DeerData> bucks = new List<DeerData>();
-
-
+        List<DeerData> bucks = DeerPool.Instance.GetDeerFromPools(DeerPool.PoolType.Good, 
+            DeerPool.PoolType.Bad, DeerPool.PoolType.Mid, DeerPool.PoolType.Mid, DeerPool.PoolType.Mid);
+    
         selected = default;
         widgetsToKeep = 2;
         InitializeWidgets(bucks);
