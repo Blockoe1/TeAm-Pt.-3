@@ -56,6 +56,7 @@ public class DeerPool : Manager
         /*for (int i = 0; i < 8; i++)
         {
             var deer = DeerData.NewRandomDeer();
+            deer.Age = 5;
             PlayerManager.Instance.GenerateControllerForNewDeer(deer);
             PlayerManager.Instance.OwnedDeer.Add(deer, deer.Controller);
         }*/

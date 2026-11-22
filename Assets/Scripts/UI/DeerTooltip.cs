@@ -59,6 +59,8 @@ public class DeerTooltip : DeerViewer
 
     public void MoveTo(Vector2 screenPosition)
     {
+        screenPosition.y = Mathf.Clamp(screenPosition.y, Screen.height / 10, Screen.height - 500);
+        print(Screen.height / 100);
         transform.position = screenPosition;
     }
 
