@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Pecan
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Pecan
-  _color: {r: 0.2901961, g: 0.14509805, b: 0.06666667, a: 100}
-  _shadedColor: {r: 0.23899364, g: 0.13215452, b: 0.07440366, a: 100}
+  _color: {r: 0.7735849, g: 0.54583716, b: 0.17271857, a: 100}
+  _shadedColor: {r: 0.4528302, g: 0.33570662, b: 0.14382339, a: 100}

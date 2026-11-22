@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Tortilla
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Tortilla
-  _color: {r: 0.6039216, g: 0.48235294, b: 0.30980393, a: 100}
-  _shadedColor: {r: 0.47798735, g: 0.39411408, b: 0.27506816, a: 100}
+  _color: {r: 0.9433962, g: 0.79976916, b: 0.5962975, a: 100}
+  _shadedColor: {r: 0.735849, g: 0.6199899, b: 0.4558561, a: 100}
