@@ -194,7 +194,7 @@ MonoBehaviour:
       type: {class: Wildcard, ns: , asm: Assembly-CSharp}
       data:
         _name: Wildcard
-        _description: Random -3 to +3 to every stat at the beginning of each race.
+        _description: Random permanent -3 to +3 to every stat at the beginning of each race.
         _priority: 2
         _randomlySelectable: 1
         _traitAlignment: 2
