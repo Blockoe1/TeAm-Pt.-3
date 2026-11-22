@@ -69,7 +69,7 @@ public class GeneticsMaster : Manager
         osDeerCon.Data.Traits = BreedTraits(parentA.Data, parentB.Data);
 
         osGenCon.Initialize();
-        osGenCon.VisualizeGenotypes(osDeerCon.Data.PartGenotype, osDeerCon.Data.ColorGenotype);//VisualizeColorGenotype(osDeerCon.Data.ColorGenotype);
+        osGenCon.VisualizeGenotypes(osDeerCon.Data);//VisualizeColorGenotype(osDeerCon.Data.ColorGenotype);
 
         // Change to use TraitManager if we have things that trigger when other deer breed.
         parentA.Data.TriggerTraits(new BreedTrigger(osDeerCon.Data, inheritedA), parentA, parentA.Data, parentA.Data, Trait.TriggerFlags.None);

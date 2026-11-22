@@ -14,6 +14,7 @@ public class HoverTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 {
     [SerializeField] private Vector2 offset;
     [SerializeField] private bool buying;
+    [SerializeField] private Canvas canvas;
     [SerializeField, ComponentReference] private BuckUI ui; 
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -43,7 +44,7 @@ public class HoverTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             {
                 DeerTooltip.Instance.SetDeer(data, 0);
             }
-            DeerTooltip.Instance.MoveTo((Vector2)transform.position + offset);
+            DeerTooltip.Instance.MoveTo((Vector2)transform.position + offset * canvas.scaleFactor);
         }
     }
 }

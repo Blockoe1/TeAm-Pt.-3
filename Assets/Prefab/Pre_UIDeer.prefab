@@ -806,12 +806,12 @@ MonoBehaviour:
     _colorGenotype:
     - key: {fileID: 11400000, guid: f31f71ea7b96bc3408e5271abe613d9a, type: 2}
       value:
-        _alleleA: {fileID: 11400000, guid: 46ced1b299c00154e8ad970252a16a1c, type: 2}
-        _alleleB: {fileID: 11400000, guid: 46ced1b299c00154e8ad970252a16a1c, type: 2}
+        _alleleA: {fileID: 11400000, guid: 7b9890cf6a90f4d4fb4c1e756bb24e2b, type: 2}
+        _alleleB: {fileID: 11400000, guid: e34a93c80b38a8641868316ff56d24b4, type: 2}
     - key: {fileID: 11400000, guid: 3d15a8c2682c8784e88e27b422d8ae9c, type: 2}
       value:
-        _alleleA: {fileID: 11400000, guid: ffd95f83cd0637f4b98a80f3c7e6b28a, type: 2}
-        _alleleB: {fileID: 11400000, guid: ffd95f83cd0637f4b98a80f3c7e6b28a, type: 2}
+        _alleleA: {fileID: 11400000, guid: 25931d300b13bef45bb08c554d3bb93b, type: 2}
+        _alleleB: {fileID: 11400000, guid: bac9b4338b491c44898692cfc1357c21, type: 2}
     _partGenotype:
     - key: {fileID: 11400000, guid: 9b973cff93eb64440b551b4d5b1cea57, type: 2}
       value:
