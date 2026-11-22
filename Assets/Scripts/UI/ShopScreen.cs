@@ -15,12 +15,24 @@ public class ShopScreen : BuckScreen
     public void InitializeShop()
     {
         // Fetch shop data
-        List<DeerController> bucks = new List<DeerController>();
+        List<DeerData> bucks = new List<DeerData>();
+        List<int> goodBadDecider = new List<int>() { 2, 1, 0, 0, 0 };
         for (int i = 0; i < 5; i++)
         {
-            bucks.Add(new DeerController());
-            bucks[^1].Data = new DeerData();
-            bucks[^1].Data.Name = (i + 1).ToString();
+            int randomGoodBad = UnityEngine.Random.Range(0, goodBadDecider.Count);
+            if (goodBadDecider[randomGoodBad] == 2)
+            {
+                bucks.Add(DeerPool.Instance.GetRandomGoodDeer());
+            }
+            else if (goodBadDecider[randomGoodBad] == 1)
+            {
+                bucks.Add(DeerPool.Instance.GetRandomBadDeer());
+            }
+            else
+            {
+                bucks.Add(DeerPool.Instance.GetRandomMidDeer());
+            }
+            goodBadDecider.RemoveAt(randomGoodBad);
         }
 
         selected = default;
@@ -28,9 +40,14 @@ public class ShopScreen : BuckScreen
         InitializeWidgets(bucks);
     }
 
-    public override void BuckSelected(DeerController buck, BuckUI ui)
+    public override void BuckSelected(DeerData buck, BuckUI ui)
     {
         // TODO: add deer to stables
         ReplaceWithBlank(ui);
+    }
+
+    public override void Continue()
+    {
+        
     }
 }
