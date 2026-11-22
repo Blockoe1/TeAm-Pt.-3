@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Penny
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Penny
-  _color: {r: 0.76729554, g: 0.40577257, b: 0.23404916, a: 100}
+  _color: {r: 0.6415094, g: 0.3112408, b: 0.16037735, a: 100}
   _shadedColor: {r: 0.509434, g: 0.2792101, b: 0.16820928, a: 100}

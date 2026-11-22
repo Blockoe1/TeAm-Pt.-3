@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Brown
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Brown
-  _color: {r: 0.44025147, g: 0.3198053, b: 0.17028591, a: 100}
-  _shadedColor: {r: 0.2830189, g: 0.21294336, b: 0.116589524, a: 100}
+  _color: {r: 0.5294118, g: 0.3922712, b: 0.31764707, a: 100}
+  _shadedColor: {r: 0.3679245, g: 0.31569222, b: 0.2759434, a: 100}

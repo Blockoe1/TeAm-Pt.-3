@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Cinammon
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Cinammon
-  _color: {r: 0.6226415, g: 0.29931894, b: 0.15076533, a: 100}
-  _shadedColor: {r: 0.45911938, g: 0.20059511, b: 0.0851825, a: 100}
+  _color: {r: 0.6886792, g: 0.31655297, b: 0.14618193, a: 100}
+  _shadedColor: {r: 0.5188679, g: 0.27429584, b: 0.16887683, a: 100}
