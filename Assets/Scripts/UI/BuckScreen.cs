@@ -58,6 +58,7 @@ public class BuckScreen : MonoBehaviour
         var entry = Instantiate(_buckTemplate, _buckParent).GetComponent<BuckUI>();
         entry.gameObject.SetActive(true);
         if (entry.BuckName != null) entry.BuckName.text = buck.Name;
+        if (entry.BuckAppearance != null) entry.BuckAppearance.texture = buck.Controller.Rt;
         entry.SelectButton.onClick.AddListener(() => BuckSelected(buck, entry));
         entry.Data = buck;
 
