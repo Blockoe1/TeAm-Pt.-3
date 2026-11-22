@@ -11,25 +11,40 @@ public class BettingScreen : BuckScreen
     [SerializeField] private int _betIncrement;
     private int bet;
 
+    private List<DeerData> deerGoingToRace;
+
     protected override void Start()
     {
         base.Start();
         _screen.SetActive(false);
+        deerGoingToRace = new();
+
+        deerGoingToRace = DeerPool.Instance.GetDeerFromPools(DeerPool.PoolType.Mid, DeerPool.PoolType.Mid, DeerPool.PoolType.Bad, DeerPool.PoolType.Good);
     }
 
     /// <summary>
     /// Run when you hit continue on selection screen
     /// </summary>
-    public void InitializeBetting()
+    public void InitializeBetting(DeerData deer)
     {
         // Fetch relevant deer for the race
         List<DeerData> bucks = new List<DeerData>();
-        for (int i = 0; i < 5; i++)
+        //for (int i = 0; i < 5; i++)
+        //{
+        //    bucks.Add(DeerData.NewRandomDeer());
+        //    //bucks[^1].Data = new DeerData();
+        //    //bucks[^1].Data.Name = (i + 1).ToString();
+        //}
+        int playerPos = Random.Range(0, 5);
+        foreach (DeerData enemyDeer in deerGoingToRace)
         {
-            bucks.Add(DeerData.NewRandomDeer());
-            //bucks[^1].Data = new DeerData();
-            //bucks[^1].Data.Name = (i + 1).ToString();
+            bucks.Add(enemyDeer);
         }
+
+        bucks.Insert(playerPos, deer);
+
+        RaceManager.DeerInRace = bucks.ToArray();
+
 
         selected = default;
         InitializeWidgets(bucks);
