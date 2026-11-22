@@ -62,7 +62,7 @@ public class StablesScreen : BuckScreen
         selected = (buck, ui);
         ui.Background.color = Color.orange;
         _adjacentViewer.gameObject.SetActive(true);
-        _adjacentViewer.SetDeer(buck, CostParams.None);
+        _adjacentViewer.SetDeer(buck, CostParams.Sell);
 
         _selectedButtons.SetActive(true);
     }
@@ -112,5 +112,10 @@ public class StablesScreen : BuckScreen
             _breedModeButtons.SetActive(false);
             _otherStableScreen.CancelBreeding();
         }
+    }
+
+    public void Sell()
+    {
+        PlayerManager.Instance.SellDeer(selected.Item1);
     }
 }
