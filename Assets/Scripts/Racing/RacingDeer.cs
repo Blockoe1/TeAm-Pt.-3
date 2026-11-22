@@ -132,7 +132,7 @@ public class RacingDeer : MonoBehaviour
 
     private void UpdatePlacement()
     {
-        float distance = END - transform.position.x;
+        float distance = ENDING_POSITION - transform.position.x;
         placements[placementIndex] = distance;
         int newPlacement = 1;
         for(int i = 0; i < placements.Length; i++)
