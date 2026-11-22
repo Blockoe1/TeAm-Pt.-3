@@ -324,7 +324,7 @@ public class DeerData
         }
     }
 
-    public static DeerData NewRandomDeer(params Trait.TraitAlignment[] requireddTraits)
+    public static DeerData NewRandomDeer(params Trait.TraitAlignment[] allowedTraits)
     {
         DeerData data = new DeerData();
 
@@ -334,17 +334,13 @@ public class DeerData
             data.SetStat(type, UnityEngine.Random.Range(STAT_MIN, STAT_MAX));
         }
 
-        data.Traits = new Trait[BASE_TRAIT_NUM];
-        for(int i = 0; i < BASE_TRAIT_NUM; i++)
+        if (allowedTraits != null && allowedTraits.Length > 0)
         {
-            if (requireddTraits != null && requireddTraits.Length > i)
-            {
-                data.Traits[i] = TraitManager.GetRandomTrait(requireddTraits[i]);
-            }
-            else
-            {
-                data.Traits[i] = TraitManager.GetRandomTrait();          
-            }
+            data.Traits = TraitManager.GetRandomTraits(allowedTraits, BASE_TRAIT_NUM);
+        }
+        else
+        {
+            data.Traits = TraitManager.GetRandomTraits(BASE_TRAIT_NUM);
         }
 
         data.ColorGenotype = NewRandomColorGenotype();

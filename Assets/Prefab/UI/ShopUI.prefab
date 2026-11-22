@@ -210,8 +210,8 @@ MonoBehaviour:
   _traitDescriptionsText:
   - {fileID: 6939438801324584835}
   - {fileID: 8510874345212058583}
-  boostedStatColor: {r: 0, g: 0, b: 0, a: 0}
-  nerfedStatColor: {r: 0, g: 0, b: 0, a: 0}
+  boostedStatColor: {r: 0.26666266, g: 0.61006284, b: 0.29285425, a: 1}
+  nerfedStatColor: {r: 0.55345905, g: 0.20363109, b: 0.20363109, a: 1}
 --- !u!1 &2297694466511382496
 GameObject:
   m_ObjectHideFlags: 0
