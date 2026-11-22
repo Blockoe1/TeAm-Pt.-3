@@ -61,7 +61,7 @@ public class GeneController : Manager
                             break;
                         }
                         sr.sprite = kvp.Value;
-                        sr.material.SetTexture(kvp.Key, kvp.Value.texture);
+                        sr.material.SetTexture("_" + genome.Key.MatTextureID, kvp.Value.texture);
                         break;
                     case ERendererType.IMAGE:
                         Image i = conPt.GetComponent<Image>();
