@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static UnityEngine.CullingGroup;
 
 [System.Serializable]
 public class Learner : Trait, ITriggeredTrait<EndRaceTrigger>
@@ -22,6 +23,7 @@ public class Learner : Trait, ITriggeredTrait<EndRaceTrigger>
             }
 
             data.ModifyStat(lowestStatType, statBoost);
+            NotificationLog.QueueNotification($"{(statBoost < 0 ? "" : '+')}{statBoost} {lowestStatType.ToString()}", data);
         }
     }
 }

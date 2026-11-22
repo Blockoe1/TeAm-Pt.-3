@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class RacingDeer : MonoBehaviour
@@ -229,6 +230,13 @@ public class RacingDeer : MonoBehaviour
         TraitManager.TraitEvent(trigger, deerController);
         StartCoroutine(UnTripCoroutine(trigger.TripTime));
         currentState = STATES.TRIPPED;
+    }
+
+    public void Trip()
+    {
+        StopCoroutine(TripCoroutine());
+        CurrentState = RacingDeer.STATES.TRIPPED;
+        StartCoroutine(UnTripCoroutine(UnityEngine.Random.Range(2, 4f)));
     }
 
     private IEnumerator UnTripCoroutine(float time)

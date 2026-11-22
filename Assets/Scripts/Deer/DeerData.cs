@@ -165,6 +165,7 @@ public class DeerData
         AgeTrigger trigger = new AgeTrigger(Age + 1);
         TriggerTraits(trigger, null, this, this, Trait.TriggerFlags.None);
         Age = trigger.Age;
+        Debug.Log(Name + ": " + Age);
     }
 
     #region Stats
@@ -257,7 +258,7 @@ public class DeerData
     #region Purchasing
     public float CalculateBaseValue()
     {
-        int goodTraitCount = Traits.Count(x => x != null && x.Alignment == Trait.TraitAlignment.Good);
+        int goodTraitCount = Traits.Count(x => x != null && (x.Alignment == Trait.TraitAlignment.Good || x.Alignment == Trait.TraitAlignment.Special));
         return GetTotalStats() * ((goodTraitCount + 1f) / 2f);
     }
 
