@@ -19,7 +19,7 @@ public class BettingScreen : BuckScreen
         _screen.SetActive(false);
         deerGoingToRace = new();
 
-        deerGoingToRace = DeerPool.Instance.GetDeerFromPools(DeerPool.PoolType.Mid, DeerPool.PoolType.Mid, DeerPool.PoolType.Bad, DeerPool.PoolType.Good);
+        
     }
 
     /// <summary>
@@ -27,6 +27,7 @@ public class BettingScreen : BuckScreen
     /// </summary>
     public void InitializeBetting(DeerData deer)
     {
+        deerGoingToRace = DeerPool.Instance.GetDeerFromPools(DeerPool.PoolType.Mid, DeerPool.PoolType.Mid, DeerPool.PoolType.Bad, DeerPool.PoolType.Good);
         // Fetch relevant deer for the race
         List<DeerData> bucks = new List<DeerData>();
         //for (int i = 0; i < 5; i++)
