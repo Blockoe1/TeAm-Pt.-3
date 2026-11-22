@@ -136,7 +136,7 @@ public class DeerPool : Manager
         foreach (PoolType pool in Enum.GetValues(typeof(PoolType)))
         {
             List<DeerData> poolCopy = GetPool(pool).ToList();
-            for (int i = 0; i < (pool == PoolType.Mid ? 3 : 1); i++)
+            for (int i = 0; i < pools.Where(x => x == pool).Count(); i++)
             {
                 int index = UnityEngine.Random.Range(0, poolCopy.Count);
                 deer.Add(poolCopy[index]);

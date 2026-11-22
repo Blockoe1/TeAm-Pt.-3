@@ -19,10 +19,10 @@ public class PlayerManager : Manager
 
     private static PlayerManager instance;
 
-    public IReadOnlyList<DeerData> OwnedDeer => _ownedDeer;
+    public List<DeerData> OwnedDeer => _ownedDeer;
     public static PlayerManager Instance => instance;
 
-    public static event Action<DeerData> OnDeerChanged;
+    public static event Action<DeerData, bool> OnDeerChanged;
 
     public override void Initialize()
     {
@@ -32,11 +32,12 @@ public class PlayerManager : Manager
     public void PurchaseDeer(DeerData toAdd)
     {
         int price = toAdd.CalculatePrice();
-        if (_ownedDeer.Count <  MAX_OWNED_DEER && MoneyManager.Instance.CanAfford(price))
+        if (_ownedDeer.Count < MAX_OWNED_DEER && MoneyManager.Instance.CanAfford(price))
         {
             _ownedDeer?.Add(toAdd);
             DeerPool.Instance.RemoveDeer(toAdd);
             MoneyManager.Instance.SpendMoney(price);
+            OnDeerChanged?.Invoke(toAdd, true);
         }
     }
 
@@ -45,7 +46,7 @@ public class PlayerManager : Manager
         if (_ownedDeer.Contains(toSell))
         {
             _ownedDeer?.Remove(toSell);
-
+            OnDeerChanged?.Invoke(toSell, false);
             MoneyManager.Instance.EarnMoney(toSell.CalculateSellPrice());
             if (!(toSell.GetAgeBracket() == DeerAge.Retired))
             {
