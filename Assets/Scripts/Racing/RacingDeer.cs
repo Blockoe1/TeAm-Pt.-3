@@ -53,6 +53,12 @@ public class RacingDeer : MonoBehaviour
         RaceManager.Broadcast_StartRace += StartRace;
     }
 
+    private void FixedUpdate()
+    {
+        deerController.Anim.SetSpeed(rigidbody.linearVelocityX);
+        Debug.Log(deerController.Data.Name + ": " + rigidbody.linearVelocityX);
+    }
+
     private void EditStats()
     {
         name = deerController.Data.Name;
@@ -161,6 +167,7 @@ public class RacingDeer : MonoBehaviour
             return;
         }
         rigidbody.linearVelocity = Vector2.zero;
+        deerController.Anim.TriggerTrip();
 
         currentState = STATES.NONE;
     }

@@ -16,6 +16,8 @@ MonoBehaviour:
   _alleles:
   - {fileID: 11400000, guid: 76792dd4a93679d46aed4bcc8fed1c90, type: 2}
   - {fileID: 11400000, guid: bac9b4338b491c44898692cfc1357c21, type: 2}
+  - {fileID: 11400000, guid: f969a44d83fd6a1448dddf53975c1804, type: 2}
+  - {fileID: 11400000, guid: e29fe3b51f6a8824ca92c71bcc1431de, type: 2}
   - {fileID: 11400000, guid: a6ff42ce847f91442b29a4db69314748, type: 2}
   - {fileID: 11400000, guid: 426602305de5ae946898693cc5e8e4ac, type: 2}
   - {fileID: 11400000, guid: b25aff2b28dd35841956f7c4199fc409, type: 2}
@@ -28,10 +30,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 650d8ae4f9d0bdd4f8ca72bafd8bbd6a, type: 2}
   - {fileID: 11400000, guid: 266e3a78962c6f7408a561b676566612, type: 2}
   - {fileID: 11400000, guid: 7b9890cf6a90f4d4fb4c1e756bb24e2b, type: 2}
-  - {fileID: 11400000, guid: e29fe3b51f6a8824ca92c71bcc1431de, type: 2}
   - {fileID: 11400000, guid: 09203ee0705ee9248ab31a63da51d643, type: 2}
   - {fileID: 11400000, guid: 8985cf6003badc94aa1ce8e9522d2073, type: 2}
-  - {fileID: 11400000, guid: f969a44d83fd6a1448dddf53975c1804, type: 2}
   - {fileID: 11400000, guid: ca2ac448cac01f5468f145fd138df310, type: 2}
   - {fileID: 11400000, guid: d93d81735c6499e4fad5d59afa9966f7, type: 2}
   _matColorID: Color4

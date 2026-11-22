@@ -16,20 +16,20 @@ MonoBehaviour:
   _alleles:
   - {fileID: 11400000, guid: 976747068f38c5d4886c4aa7109d67d9, type: 2}
   - {fileID: 11400000, guid: 5ecc4433d9a2a474683a96d7fffc61d3, type: 2}
+  - {fileID: 11400000, guid: 315655b3a844d1a4185c55640ecedbc7, type: 2}
   - {fileID: 11400000, guid: fbb466a39540a924eb4cbe97fef4ae27, type: 2}
   - {fileID: 11400000, guid: 93d5d520b187719498e78aae611de210, type: 2}
   - {fileID: 11400000, guid: c4859fe45e4c3e1419c1d7a2b1166426, type: 2}
-  - {fileID: 11400000, guid: c671e76c613ad2a4a94eec480a480131, type: 2}
   - {fileID: 11400000, guid: fe5ca2dc862b4d14fbfcc306e4a02435, type: 2}
   - {fileID: 11400000, guid: 3b046720bf144ad4d9534c94c537206f, type: 2}
-  - {fileID: 11400000, guid: 166bb387feba98243989e75d809a0f4f, type: 2}
-  - {fileID: 11400000, guid: 3d002a4ea7e5ad24199895946ed3d2b8, type: 2}
-  - {fileID: 11400000, guid: 052747442cfa14e478d0aec7a8f5f27f, type: 2}
-  - {fileID: 11400000, guid: 535194a1d7abdec45bac6eac9d13985a, type: 2}
   - {fileID: 11400000, guid: c7598cb0d2b149e4fb8c37b99654a552, type: 2}
+  - {fileID: 11400000, guid: 3d002a4ea7e5ad24199895946ed3d2b8, type: 2}
+  - {fileID: 11400000, guid: 166bb387feba98243989e75d809a0f4f, type: 2}
+  - {fileID: 11400000, guid: c671e76c613ad2a4a94eec480a480131, type: 2}
+  - {fileID: 11400000, guid: 052747442cfa14e478d0aec7a8f5f27f, type: 2}
   - {fileID: 11400000, guid: a77841670df140a4fbab5066ef72fe77, type: 2}
+  - {fileID: 11400000, guid: 535194a1d7abdec45bac6eac9d13985a, type: 2}
   - {fileID: 11400000, guid: a757bab6b8b3f8c4db13adf023518bc5, type: 2}
   - {fileID: 11400000, guid: 0df9378da92d0d9409e318770408316a, type: 2}
-  - {fileID: 11400000, guid: 315655b3a844d1a4185c55640ecedbc7, type: 2}
   - {fileID: 11400000, guid: fca73635df2eb9341ac32e95007a01b3, type: 2}
   _matTextureID: MainTexture
