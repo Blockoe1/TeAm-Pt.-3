@@ -27,6 +27,7 @@ public class PlayerManager : Manager
 
     [SerializeField] private GameObject _deerPrefab;
     private int newDeerHeight = 500;
+    public int Round = 1;
 
     public override void Initialize()
     {
