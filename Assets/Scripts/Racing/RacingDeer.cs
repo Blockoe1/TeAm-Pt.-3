@@ -43,6 +43,7 @@ public class RacingDeer : MonoBehaviour
     private int placementIndex;
     private float[] placements;
     [SerializeField] private int placement;
+    private bool inRace;
 
 
     /// <summary>
@@ -63,17 +64,22 @@ public class RacingDeer : MonoBehaviour
     {
         this.placementIndex = placementIndex;
         this.placements = placements;
+        inRace = true;
     }
 
     private void StartRace()
     {
-        currentState = STATES.RUNNING;
-        StartCoroutine(Movement());
-        StartCoroutine(TripCoroutine());
-        StartCoroutine(DisciplineCoroutine());
-        StartCoroutine(SpeedLower());
-        StartCoroutine(SpeedRandom());
-        StartCoroutine(AccelRandom());
+        if (inRace)
+        {
+            currentState = STATES.RUNNING;
+            StartCoroutine(Movement());
+            StartCoroutine(TripCoroutine());
+            StartCoroutine(DisciplineCoroutine());
+            StartCoroutine(SpeedLower());
+            StartCoroutine(SpeedRandom());
+            StartCoroutine(AccelRandom());
+            inRace = false;
+        }
     }
 
     /// <summary>
