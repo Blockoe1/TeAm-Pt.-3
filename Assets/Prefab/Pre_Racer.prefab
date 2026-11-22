@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 9152939593008742870}
   - component: {fileID: 5331172042761468525}
   - component: {fileID: 296943839613641483}
-  - component: {fileID: 4653172186294980002}
-  - component: {fileID: 4049111162058906818}
   m_Layer: 0
   m_Name: Pre_Racer
   m_TagString: Untagged
@@ -53,7 +51,7 @@ MonoBehaviour:
   _initializeTime: 100
   _subManagers:
   - {fileID: 9152939593008742870}
-  - {fileID: 4049111162058906818}
+  - {fileID: 4431391525621602576}
   dontDestroyMePlease: 0
   data:
     <Name>k__BackingField: Frank
@@ -107,6 +105,7 @@ MonoBehaviour:
       value:
         _alleleA: {fileID: 11400000, guid: be608dc385f329b4b92117a738b64ad0, type: 2}
         _alleleB: {fileID: 11400000, guid: 07b9b9e212c9bad4f9044ca79ac5ed8d, type: 2}
+  anim: {fileID: 4431391525621602576}
   _simBreedingPartner: {fileID: 0}
   references:
     version: 2
@@ -170,46 +169,6 @@ MonoBehaviour:
   rigidbody: {fileID: 5331172042761468525}
   deerController: {fileID: 4221163196402487758}
   placement: 0
---- !u!95 &4653172186294980002
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499996538223426227}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c0b2fe853642d80479d39276f0f6b463, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4049111162058906818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499996538223426227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d23c144ee1d1543aa44f9e7dd7a0ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeerAnimator
-  _initializeTime: 0
-  _subManagers: []
-  dontDestroyMePlease: 0
-  _fDeerSpeedID: F_DeerSpeed
-  _tTripID: T_Trip
-  _tDieID: T_Die
 --- !u!1001 &8892043514200803549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -244,11 +203,11 @@ PrefabInstance:
       objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
     - target: {fileID: 1890057512999077969, guid: d369e9727360dc34b943642267c1b46f, type: 3}
       propertyPath: m_Name
-      value: FLLeg
+      value: BackLeg2
       objectReference: {fileID: 0}
     - target: {fileID: 2373712696924937118, guid: d369e9727360dc34b943642267c1b46f, type: 3}
       propertyPath: m_Name
-      value: FRLeg
+      value: FrontLeg2
       objectReference: {fileID: 0}
     - target: {fileID: 2573471293293319200, guid: d369e9727360dc34b943642267c1b46f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -304,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3621229115141026012, guid: d369e9727360dc34b943642267c1b46f, type: 3}
       propertyPath: m_Name
-      value: BLLeg
+      value: BackLeg1
       objectReference: {fileID: 0}
     - target: {fileID: 3880272486102722990, guid: d369e9727360dc34b943642267c1b46f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -312,7 +271,7 @@ PrefabInstance:
       objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
     - target: {fileID: 5371694674641495776, guid: d369e9727360dc34b943642267c1b46f, type: 3}
       propertyPath: m_Name
-      value: BRLeg
+      value: FrontLeg1
       objectReference: {fileID: 0}
     - target: {fileID: 6730814732129111174, guid: d369e9727360dc34b943642267c1b46f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -326,6 +285,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
+    - target: {fileID: 8880406987369447667, guid: d369e9727360dc34b943642267c1b46f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c0b2fe853642d80479d39276f0f6b463, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -333,6 +296,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7141308458872642882, guid: d369e9727360dc34b943642267c1b46f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2784977204173462262}
+    - targetCorrespondingSourceObject: {fileID: 2303666211764615174, guid: d369e9727360dc34b943642267c1b46f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4431391525621602576}
   m_SourcePrefab: {fileID: 100100000, guid: d369e9727360dc34b943642267c1b46f, type: 3}
 --- !u!1 &1764817608866649503 stripped
 GameObject:
@@ -374,3 +340,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2573471293293319200, guid: d369e9727360dc34b943642267c1b46f, type: 3}
   m_PrefabInstance: {fileID: 8892043514200803549}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7250415244291207387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2303666211764615174, guid: d369e9727360dc34b943642267c1b46f, type: 3}
+  m_PrefabInstance: {fileID: 8892043514200803549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4431391525621602576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7250415244291207387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d23c144ee1d1543aa44f9e7dd7a0ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeerAnimator
+  _initializeTime: 0
+  _subManagers: []
+  dontDestroyMePlease: 0
+  _fDeerSpeedID: F_DeerSpeed
+  _tTripID: T_Trip
+  _tDieID: T_Die
