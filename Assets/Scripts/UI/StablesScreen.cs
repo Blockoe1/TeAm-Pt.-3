@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NaughtyAttributes;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -66,12 +67,12 @@ public class StablesScreen : BuckScreen
     {
         if (selected != default)
         {
-            selected.Item2.Background.color = Color.wheat;
+            selected.Item2.BuckName.fontStyle = FontStyles.Normal;
             if (!_secondStableScreen) CancelBreeding();
         }
 
         selected = (buck, ui);
-        ui.Background.color = Color.orange;
+        selected.Item2.BuckName.fontStyle = FontStyles.Underline;
         _adjacentViewer.gameObject.SetActive(true);
         _adjacentViewer.SetDeer(buck, CostParams.Sell);
 
