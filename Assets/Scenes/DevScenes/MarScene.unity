@@ -340,208 +340,11 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!1 &1257636381
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1257636382}
-  - component: {fileID: 1257636384}
-  - component: {fileID: 1257636383}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1257636382
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257636381}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2084180538}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200.2931, y: 800}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1257636383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257636381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 2100000, guid: ebfc66a4a73956d448a1aa1da44b4e30, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -214173521630241165, guid: dd54f96684a40474599859deff9c9067, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1257636384
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257636381}
-  m_CullTransparentMesh: 1
 --- !u!224 &1887460231 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6821697741431491106, guid: b8218b428486d194fbab97650979894f, type: 3}
   m_PrefabInstance: {fileID: 30741193862180500}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2008668563 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8037314390915513628, guid: b3d81412139968940a4925b12316e929, type: 3}
-  m_PrefabInstance: {fileID: 6448840040905273924}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5249e107710a2de428e9ccff16d86178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeerController
---- !u!1 &2084180537
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2084180538}
-  - component: {fileID: 2084180541}
-  - component: {fileID: 2084180540}
-  - component: {fileID: 2084180539}
-  m_Layer: 5
-  m_Name: Pre_UIDeer (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2084180538
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084180537}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1257636382}
-  m_Father: {fileID: 1887460231}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 500, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2084180539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084180537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 338c8f4de7a10e44fadc679c3d30efb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ColorRegionHandler
-  _initializeTime: 0
-  _subManagers: []
-  _colorIDs: []
-  _simColors: []
-  _renderType: 100
-  _spriteRen: {fileID: 0}
-  _imageRen: {fileID: 1257636383}
---- !u!114 &2084180540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084180537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c64ed265f4d2354f9542acb8ab7a35b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeneController
-  _initializeTime: 0
-  _subManagers: []
---- !u!114 &2084180541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084180537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5249e107710a2de428e9ccff16d86178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeerController
-  _initializeTime: 100
-  _subManagers:
-  - {fileID: 2084180540}
-  - {fileID: 2084180539}
-  data:
-    <Name>k__BackingField: Demo Deer
-    <Speed>k__BackingField: 10
-    <Acceleration>k__BackingField: 10
-    <Stamina>k__BackingField: 10
-    <Balance>k__BackingField: 10
-    <Discipline>k__BackingField: 10
-    <Charisma>k__BackingField: 10
-    <Age>k__BackingField: 1
-    <Traits>k__BackingField: []
-    _colorGenotype:
-    - key: {fileID: 11400000, guid: f31f71ea7b96bc3408e5271abe613d9a, type: 2}
-      value:
-        _alleleA: {fileID: 11400000, guid: 46ced1b299c00154e8ad970252a16a1c, type: 2}
-        _alleleB: {fileID: 11400000, guid: 46ced1b299c00154e8ad970252a16a1c, type: 2}
-    - key: {fileID: 11400000, guid: 3d15a8c2682c8784e88e27b422d8ae9c, type: 2}
-      value:
-        _alleleA: {fileID: 11400000, guid: ffd95f83cd0637f4b98a80f3c7e6b28a, type: 2}
-        _alleleB: {fileID: 11400000, guid: ffd95f83cd0637f4b98a80f3c7e6b28a, type: 2}
-  _simBreedingPartner: {fileID: 2008668563}
-  references:
-    version: 2
-    RefIds: []
 --- !u!1001 &30741193862180500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -550,6 +353,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2348249652431907169, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348249652431907169, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348249652431907169, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348249652431907169, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2634350419684133236, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -640,9 +459,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6821697741431491106, guid: b8218b428486d194fbab97650979894f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 239446457}
-    - targetCorrespondingSourceObject: {fileID: 6821697741431491106, guid: b8218b428486d194fbab97650979894f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2084180538}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8218b428486d194fbab97650979894f, type: 3}
 --- !u!1001 &6448840040905273924
@@ -653,6 +469,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1887460231}
     m_Modifications:
+    - target: {fileID: 1104598234701028151, guid: b3d81412139968940a4925b12316e929, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
     - target: {fileID: 3391148860585044764, guid: b3d81412139968940a4925b12316e929, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -733,10 +553,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5538763216389055303, guid: b3d81412139968940a4925b12316e929, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
+    - target: {fileID: 5558775700814823031, guid: b3d81412139968940a4925b12316e929, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
+    - target: {fileID: 6103771035830936107, guid: b3d81412139968940a4925b12316e929, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
+    - target: {fileID: 6193007503158489835, guid: b3d81412139968940a4925b12316e929, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
+    - target: {fileID: 7049068738555085806, guid: b3d81412139968940a4925b12316e929, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
     - target: {fileID: 8037314390915513628, guid: b3d81412139968940a4925b12316e929, type: 3}
       propertyPath: _simBreedingPartner
       value: 
-      objectReference: {fileID: 2084180541}
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674647247998053992, guid: b3d81412139968940a4925b12316e929, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
+    - target: {fileID: 8687197458681909702, guid: b3d81412139968940a4925b12316e929, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
     - target: {fileID: 8925991716084878897, guid: b3d81412139968940a4925b12316e929, type: 3}
       propertyPath: m_Name
       value: Pre_UIDeer

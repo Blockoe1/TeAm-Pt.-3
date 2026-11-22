@@ -6,6 +6,13 @@ public class SO_PartGene : SO_Gene
     [SerializeField, Tooltip("Index determines dominance, the lower the index, the higher the dominance.\nIndex 2 is more dominant than index 5.")]
     private SO_PartAllele[] _alleles;
 
+    [SerializeField]
+    private string _matTextureID;
+
+    #region GS
+    public string MatTextureID { get => _matTextureID; }
+    #endregion
+
     public override int FindIndex(SO_Allele allele)
         => FindIndex(allele, _alleles);
 

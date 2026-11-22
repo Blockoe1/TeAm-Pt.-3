@@ -6,23 +6,20 @@
  * Controls genotypes and phenotypes.
  */
 using MarUtility.ExecutionManagement;
-using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(ColorRegionHandler))]
 public class GeneController : Manager
 {
     //COLOR
-    private ColorRegionHandler colorRegHan;
+    [SerializeField]
+    private ColorRegionHandler _colorRegHan;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        colorRegHan = GetComponent<ColorRegionHandler>();
     }
 
     public void InitializeGenotypes(Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
@@ -33,7 +30,7 @@ public class GeneController : Manager
     public void VisualizeColorGenotype(Dictionary<SO_ColorGene, ColorGenotype> colorGenotype)
     {
         foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in colorGenotype)
-            colorRegHan.VisualizeColor(kvp.Key.MatColorID, GetDominantAllele(kvp.Key, colorGenotype).Color);
+            _colorRegHan.VisualizeColor(kvp.Key.MatColorID, GetDominantAllele(kvp.Key, colorGenotype).Color);
     }
 
     #region Get Allele
