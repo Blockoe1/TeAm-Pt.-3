@@ -75,7 +75,7 @@ public class RaceManager : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
         AudioManager.Instance.PlayOneShot(AudioManager.AudioID.SFX2);
-        AudioManager.Instance.PlayOneShot(AudioManager.AudioID.RACEMUSIC);
+        AudioManager.Instance.PlayLoopedEvent(AudioManager.AudioID.RACEMUSIC);
 
 
 
