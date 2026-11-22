@@ -55,6 +55,7 @@ public class RaceManager : MonoBehaviour
             }
 
             deerInRaceGO[i].GetComponent<DeerController>().Data = DeerInRace[i];
+            deerInRaceGO[i].GetComponent<DeerController>().GeneCon.VisualizeGenotypes(deerInRaceGO[i].GetComponent<DeerController>().Data);
         }
 
         camFollow.Follow = deerInRaceGO[DeerBetOn].transform;
