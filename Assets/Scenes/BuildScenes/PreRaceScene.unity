@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoverTooltip
   offset: {x: 0, y: -350}
   buying: 0
+  canvas: {fileID: 621028502}
   ui: {fileID: 220015750}
 --- !u!1 &283526878
 GameObject:
@@ -242,6 +243,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!223 &621028502 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 4118257373882533472, guid: b8218b428486d194fbab97650979894f, type: 3}
+  m_PrefabInstance: {fileID: 1389406907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &698056332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4317327074438087266, guid: b8218b428486d194fbab97650979894f, type: 3}
@@ -272,6 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoverTooltip
   offset: {x: 0, y: -350}
   buying: 0
+  canvas: {fileID: 621028502}
   ui: {fileID: 698056333}
 --- !u!1 &726655402
 GameObject:
@@ -528,6 +535,10 @@ PrefabInstance:
       propertyPath: buying
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1071173645460671098, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 621028502}
     - target: {fileID: 1167910969292945077, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
