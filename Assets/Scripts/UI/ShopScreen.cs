@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class ShopScreen : BuckScreen
 {
@@ -22,6 +23,9 @@ public class ShopScreen : BuckScreen
         // Fetch shop data
         List<DeerData> bucks = DeerPool.Instance.GetDeerFromPools(DeerPool.PoolType.Good, 
             DeerPool.PoolType.Bad, DeerPool.PoolType.Mid, DeerPool.PoolType.Mid, DeerPool.PoolType.Mid);
+        // Randomize order of bucks in shop.
+        System.Random rand = new System.Random();
+        bucks = bucks.OrderBy(_ => rand.Next()).ToList();
     
         selected = default;
         widgetsToKeep = 2;
