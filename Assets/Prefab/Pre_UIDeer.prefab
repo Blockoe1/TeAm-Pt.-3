@@ -25,16 +25,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772422316444923510}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5156336617471427750}
+  m_Father: {fileID: 2405703206179924358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -46.1, y: 136.5}
+  m_AnchoredPosition: {x: 27.000015, y: 210.00003}
   m_SizeDelta: {x: 177, y: 218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2961712170869658068
@@ -104,13 +104,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 9143127098965657272}
+  m_Children: []
   m_Father: {fileID: 2405703206179924358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: 110}
+  m_AnchoredPosition: {x: 32, y: 110}
   m_SizeDelta: {x: 208.66667, y: 78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6280429162305600560
@@ -331,6 +330,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 9143127098965657272}
   - {fileID: 5156336617471427750}
   m_Father: {fileID: 5244512532854373508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -825,6 +825,18 @@ MonoBehaviour:
       value:
         _alleleA: {fileID: 11400000, guid: 5ecc4433d9a2a474683a96d7fffc61d3, type: 2}
         _alleleB: {fileID: 11400000, guid: c7598cb0d2b149e4fb8c37b99654a552, type: 2}
+    - key: {fileID: 11400000, guid: 8a70b69245e9d9d408676581665065a5, type: 2}
+      value:
+        _alleleA: {fileID: 11400000, guid: 91592c13de8559c49961f559fc2812c3, type: 2}
+        _alleleB: {fileID: 11400000, guid: 91592c13de8559c49961f559fc2812c3, type: 2}
+    - key: {fileID: 11400000, guid: b7030b099c1fc1643a950b03d910d685, type: 2}
+      value:
+        _alleleA: {fileID: 11400000, guid: 94d66cb3468d353429b16f229c1f69c2, type: 2}
+        _alleleB: {fileID: 11400000, guid: 94d66cb3468d353429b16f229c1f69c2, type: 2}
+    - key: {fileID: 11400000, guid: 5b74077c2e6827e419e9d004be7000d1, type: 2}
+      value:
+        _alleleA: {fileID: 11400000, guid: ef629f2b8b4f30d4e877dbc242848295, type: 2}
+        _alleleB: {fileID: 11400000, guid: ef629f2b8b4f30d4e877dbc242848295, type: 2}
   _simBreedingPartner: {fileID: 0}
   references:
     version: 2
