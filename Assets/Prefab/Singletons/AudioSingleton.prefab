@@ -64,8 +64,8 @@ MonoBehaviour:
   dontDestroyMePlease: 0
   audioLookup:
   - Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -885734013
+      Data2: 1292302060
+      Data3: -469314123
+      Data4: 814136389
+    Path: event:/Idle Music

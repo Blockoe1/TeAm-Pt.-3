@@ -8,11 +8,11 @@ public class AudioManager : Manager
 {
     public enum AudioID
     {
-        NONE = 0,
-        IDLEMUSIC = 1,
-        RACEMUSIC = 2,
-        SFX1 = 3,
-        SFX2 = 4
+        NONE = -1,
+        IDLEMUSIC = 0,
+        RACEMUSIC = 1,
+        SFX1 = 2,
+        SFX2 = 3
     }
     [SerializeField] private EventReference[] audioLookup;
 
@@ -41,6 +41,11 @@ public class AudioManager : Manager
     /// <param name="audioID">The audio to be played</param>
     public void PlayOneShot(AudioID audioID)
     {
+        if (audioID == AudioID.NONE)
+        {
+            return;
+        }
+
         RuntimeManager.PlayOneShot(audioLookup[(int)audioID]);
     }
 
@@ -51,6 +56,11 @@ public class AudioManager : Manager
     public void PlayLoopedEvent(AudioID audioID)
     {
         bgMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+        if (audioID == AudioID.NONE)
+        {
+            return;
+        }
 
         bgMusic = RuntimeManager.CreateInstance(audioLookup[(int)audioID]);
 
