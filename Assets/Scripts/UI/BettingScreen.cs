@@ -105,7 +105,7 @@ public class BettingScreen : BuckScreen
 
     public void BetDown(bool big)
     {
-        if (bet - _betIncrement <= 0) return;
+        if (bet - _betIncrement < 0) return;
         bet -= _betIncrement * (big ? 5 : 1);
         _betText.text = FormatDoe(bet);
     }
