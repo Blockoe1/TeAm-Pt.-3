@@ -43,7 +43,18 @@ public abstract class DeerViewer : MonoBehaviour
                 _costText.gameObject.SetActive(true);
                 _costText.text = "<u>Buy Price:</u> " + MoneyManager.FormatCents(deerData.CalculatePrice());
                 break;
+            case CostParams.Bet:
+                _costText.gameObject.SetActive(true);
+                _costText.text = "Betting Odds: 1:" + ProcessBetMult(deerData);
+                break;
         }
+    }
+
+    public string ProcessBetMult(DeerData deerData)
+    {
+        string multString = "";
+        multString += deerData.BetMultiplier;
+        return multString;
     }
 
     public abstract string ProcessStats(DeerData deerData);
@@ -52,5 +63,7 @@ public enum CostParams
 { 
     None,
     Buy,
-    Sell
+    Sell,
+    Bet
 }
+
