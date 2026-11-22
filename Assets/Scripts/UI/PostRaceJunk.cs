@@ -24,7 +24,7 @@ public class PostRaceJunk : MonoBehaviour
     {
         int moneyToGive = Mathf.RoundToInt(MoneyManager.CurrentBet * RaceManager.DeerBetOnDeer.PreviousBetMultiplier() * (1 + (RaceManager.DeerBetOnDeer.Charisma / 100f)));
         winLostTXT.text = winText;
-        moneyGainLossTXT.text = "+" + moneyToGive.ToString();
+        moneyGainLossTXT.text = "+$" + (moneyToGive / 100f).ToString();
         MoneyManager.Instance.EarnMoney(moneyToGive);
     }
 
@@ -32,6 +32,6 @@ public class PostRaceJunk : MonoBehaviour
     {
         int moneyToLose = MoneyManager.CurrentBet;
         winLostTXT.text = lossText;
-        moneyGainLossTXT.text = "-" + moneyToLose.ToString();
+        moneyGainLossTXT.text = "-$" + (moneyToLose / 100f).ToString();
     }
 }
