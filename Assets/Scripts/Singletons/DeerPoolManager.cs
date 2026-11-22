@@ -164,6 +164,8 @@ public class DeerPool : Manager
 
     public void AgeAllDeer()
     {
+        foreach (KeyValuePair<DeerData, DeerController> kvp in PlayerManager.Instance.OwnedDeer)
+            kvp.Key.IncrementAge();
         foreach (DeerData dd in GetPool(PoolType.Good))
             dd.IncrementAge();
         foreach (DeerData dd in GetPool(PoolType.Bad))
