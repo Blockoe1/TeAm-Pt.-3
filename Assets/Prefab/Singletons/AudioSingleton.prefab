@@ -76,14 +76,14 @@ MonoBehaviour:
       Data4: -435342662
     Path: event:/Deer Race Music
   - Guid:
-      Data1: -1493398711
-      Data2: 1207862232
-      Data3: 730798742
-      Data4: 1827556725
-    Path: event:/Starting Bell SFX
-  - Guid:
       Data1: 322331294
       Data2: 1302736115
       Data3: 228136583
       Data4: -708440546
     Path: event:/Call To Post SFX
+  - Guid:
+      Data1: -1493398711
+      Data2: 1207862232
+      Data3: 730798742
+      Data4: 1827556725
+    Path: event:/Starting Bell SFX

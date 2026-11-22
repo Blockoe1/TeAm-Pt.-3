@@ -428,17 +428,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &986942764 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2080917728671367034, guid: b8218b428486d194fbab97650979894f, type: 3}
-  m_PrefabInstance: {fileID: 1389406907}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1140533148
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +718,7 @@ PrefabInstance:
     - target: {fileID: 1753527656126311670, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1366597138539398221, guid: 3336688b8875cf0488bca6294fbe82b9, type: 3}
+      objectReference: {fileID: 1366597138539398221, guid: e2b8414c9ed4e39428a57538d562e9fd, type: 3}
     - target: {fileID: 1753527656126311670, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
@@ -946,6 +935,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3443810335421062709, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: _firstTutorial
+      value: 
+      objectReference: {fileID: 1366597138539398221, guid: 278c2c51aba029d4e820638138e3559f, type: 3}
     - target: {fileID: 3744260402320157295, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1032,7 +1025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3949245707438684551, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3985552948945532252, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1077,7 +1070,7 @@ PrefabInstance:
     - target: {fileID: 4048985936752632018, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1366597138539398221, guid: 3336688b8875cf0488bca6294fbe82b9, type: 3}
+      objectReference: {fileID: 1366597138539398221, guid: f987087169f50844596095e56a29e22c, type: 3}
     - target: {fileID: 4048985936752632018, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
@@ -1345,7 +1338,7 @@ PrefabInstance:
     - target: {fileID: 5832566570382500080, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: _breedButton
       value: 
-      objectReference: {fileID: 986942764}
+      objectReference: {fileID: 1890292206}
     - target: {fileID: 5911474725244991997, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_Value
       value: 0
@@ -1859,6 +1852,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3f686967f002e4391d55e2d5c29271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tutorial
+--- !u!114 &1890292206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8258819665879907687, guid: b8218b428486d194fbab97650979894f, type: 3}
+  m_PrefabInstance: {fileID: 1389406907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &2095279845
 GameObject:
   m_ObjectHideFlags: 0
