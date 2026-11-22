@@ -69,6 +69,7 @@ public class RaceSelectionScreen : BuckScreen
 
         // Copy of InitializeWidget
         var entry = _preview.GetComponent<BuckUI>();
+        entry.FixReferences();
         entry.gameObject.SetActive(true);
         if (entry.BuckName != null) entry.BuckName.text = buck.Name;
         entry.BuckName.ForceMeshUpdate();

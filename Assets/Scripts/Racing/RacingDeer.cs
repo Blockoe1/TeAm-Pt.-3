@@ -79,9 +79,7 @@ public class RacingDeer : MonoBehaviour
             if (currentState == STATES.TRIPPED && !deerController.Data.HasTrait<Pegasus>())
             {
                 currentState = STATES.NONE;
-                TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(2, 4f));
-                TraitManager.TraitEvent(trigger, deerController);
-                Trip();
+                TripWithTrigger();
             }
             else
             {
@@ -228,12 +226,22 @@ public class RacingDeer : MonoBehaviour
             isTripped = UnityEngine.Random.Range(0, 101) > DeerBalance;
         }
 
-        TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(1f, 2f));
-        TraitManager.TraitEvent(trigger, deerController);
-        Trip();
+        TripWithTrigger();
     }
 
-    public void Trip()
+    public void TripWithoutEvent()
+    {
+        Trip(UnityEngine.Random.Range(1f, 2f));
+    }
+
+    public void TripWithTrigger()
+    {
+        TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(1f, 2f));
+        TraitManager.TraitEvent(trigger, deerController);
+        Trip(trigger.TripTime);
+    }
+
+    public void Trip(float tripTime)
     {
         if (!deerController.Data.HasTrait<Pegasus>() && currentState != STATES.TRIPPED)
         {
