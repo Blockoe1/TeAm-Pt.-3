@@ -77,6 +77,6 @@ public class DeerTooltip : DeerViewer
     private string GetStatDescription(int statValue)
     {
         int index = (statValue - 1) / (DeerData.STAT_MAX / _statDescriptions.Length);
-        return _statDescriptions[index];
+        return _statDescriptions[Mathf.Clamp(index, 0, _statDescriptions.Length - 1)];
     }
 }
