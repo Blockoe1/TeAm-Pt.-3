@@ -40,7 +40,7 @@ public class MoneyManager : MonoBehaviour
         OnBalanceChanged?.Invoke(totalCents);
     }
 
-    public bool CanAfford(float amount)
+    public bool CanAfford(int amount)
     {
         return totalCents >= amount;
     }
