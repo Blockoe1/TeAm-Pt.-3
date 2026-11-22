@@ -80,37 +80,37 @@ public class DeerData
     {
         get
         {
-            if (BettingScore >= 110)
+            if (BettingScore >= 100)
             {
-                return 1.5f;
+                return 3f;
             }
 
             if (BettingScore >= 90)
             {
-                return 2f;
+                return 4f;
+            }
+
+            if(BettingScore >= 80)
+            {
+                return 5f;
             }
 
             if(BettingScore >= 70)
             {
-                return 2.5f;
+                return 6f;
+            }
+
+            if(BettingScore >= 60)
+            {
+                return 7f;
             }
 
             if(BettingScore >= 50)
             {
-                return 3;
+                return 8;
             }
 
-            if(BettingScore >= 30)
-            {
-                return 3.5f;
-            }
-
-            if(BettingScore >= 10)
-            {
-                return 4;
-            }
-
-            return 5f;
+            return 10f;
         }
     }
 
@@ -262,7 +262,7 @@ public class DeerData
     public float CalculateBaseValue()
     {
         int goodTraitCount = Traits.Count(x => x != null && (x.Alignment == Trait.TraitAlignment.Good || x.Alignment == Trait.TraitAlignment.Special));
-        return GetTotalStats() * ((goodTraitCount + 1f) / 2f);
+        return (GetTotalStats() * ((goodTraitCount + 1f) / 2f) / 2);
     }
 
     public int CalculatePrice()
