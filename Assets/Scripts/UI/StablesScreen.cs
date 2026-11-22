@@ -49,7 +49,6 @@ public class StablesScreen : BuckScreen
         _adjacentViewer.gameObject.SetActive(false);
         if (_breedModeButtons != null) _breedModeButtons.SetActive(false);
         InitializeWidgets(bucks);
-        print("uhh" + gameObject.name);
     }
 
     public override void BuckSelected(DeerData buck, BuckUI ui)
