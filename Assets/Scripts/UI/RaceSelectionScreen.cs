@@ -42,6 +42,7 @@ public class RaceSelectionScreen : BuckScreen
         InitializeWidgets(bucks);
         _emptyPreview.SetActive(true);
         _preview.gameObject.SetActive(false);
+        CheckButtonDisabled();
     }
 
     public override void Continue()

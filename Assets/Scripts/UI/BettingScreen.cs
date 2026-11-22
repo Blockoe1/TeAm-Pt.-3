@@ -9,6 +9,8 @@ public class BettingScreen : BuckScreen
     [SerializeField] private TMP_Text _betText;
     [SerializeField] private int _defaultBet;
     [SerializeField] private int _betIncrement;
+    [SerializeField] private BuckUI _preview;
+    [SerializeField] private GameObject _emptyPreview;
     private int bet;
 
     private List<DeerData> deerGoingToRace;
@@ -49,9 +51,13 @@ public class BettingScreen : BuckScreen
 
         selected = default;
         InitializeWidgets(bucks);
+        _emptyPreview.SetActive(true);
+        _preview.gameObject.SetActive(false);
 
         bet = _defaultBet;
         _betText.text = FormatDoe(bet);
+
+        CheckButtonDisabled();
     }
 
     public override void BuckSelected(DeerData buck, BuckUI ui)
@@ -64,6 +70,16 @@ public class BettingScreen : BuckScreen
         selected = (buck, ui);
         CheckButtonDisabled();
         selected.Item2.BuckName.fontStyle = FontStyles.Normal;
+        _emptyPreview.SetActive(false);
+
+        // Copy of InitializeWidget
+        var entry = _preview.GetComponent<BuckUI>();
+        entry.gameObject.SetActive(true);
+        if (entry.BuckName != null) entry.BuckName.text = buck.Name;
+        entry.BuckName.ForceMeshUpdate();
+        if (entry.BuckName.preferredWidth > entry.BuckName.rectTransform.rect.width) entry.BuckName.characterHorizontalScale = 0.7f;
+        if (entry.BuckAppearance != null) entry.BuckAppearance.texture = buck.Controller.Rt;
+        entry.Data = buck;
     }
 
     public override void Continue()
@@ -78,19 +94,19 @@ public class BettingScreen : BuckScreen
         SceneManager.LoadScene("RaceScene");
     }
 
-    public void BetUp()
+    public void BetUp(bool big)
     {
-        if(MoneyManager.Instance.CanAfford(bet + _betIncrement))
+        if(MoneyManager.Instance.CanAfford(bet + _betIncrement * (big ? 5 : 1)))
         {
-            bet += _betIncrement;
+            bet += _betIncrement * (big ? 5 : 1);
             _betText.text = FormatDoe(bet);
         }
     }
 
-    public void BetDown()
+    public void BetDown(bool big)
     {
         if (bet - _betIncrement < 0) return;
-        bet -= _betIncrement;
+        bet -= _betIncrement * (big ? 5 : 1);
         _betText.text = FormatDoe(bet);
     }
 
