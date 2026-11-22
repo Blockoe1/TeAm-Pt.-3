@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class RaceSelectionScreen : BuckScreen
 {
     [SerializeField] private BettingScreen _bettingScreen;
+    [SerializeField] private BuckUI _preview;
+    [SerializeField] private GameObject _emptyPreview;
 
     protected override void Start()
     {
@@ -34,7 +37,10 @@ public class RaceSelectionScreen : BuckScreen
 
         selected = default;
         InitializeWidgets(bucks);
+        _emptyPreview.SetActive(true);
+        _preview.gameObject.SetActive(false);
     }
+
     public override void Continue()
     {
         // TODO: place selected horse in race
@@ -54,5 +60,16 @@ public class RaceSelectionScreen : BuckScreen
         selected = (buck, ui);
         CheckButtonDisabled();
         ui.Background.color = Color.orange;
+
+        _emptyPreview.SetActive(false);
+
+        // Copy of InitializeWidget
+        var entry = _preview.GetComponent<BuckUI>();
+        entry.gameObject.SetActive(true);
+        if (entry.BuckName != null) entry.BuckName.text = buck.Name;
+        entry.BuckName.ForceMeshUpdate();
+        if (entry.BuckName.preferredWidth > entry.BuckName.rectTransform.rect.width) entry.BuckName.characterHorizontalScale = 0.7f;
+        if (entry.BuckAppearance != null) entry.BuckAppearance.texture = buck.Controller.Rt;
+        entry.Data = buck;
     }
 }

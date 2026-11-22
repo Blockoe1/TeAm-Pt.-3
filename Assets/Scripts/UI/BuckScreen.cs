@@ -59,8 +59,10 @@ public class BuckScreen : MonoBehaviour
         var entry = Instantiate(_buckTemplate, _buckParent).GetComponent<BuckUI>();
         entry.gameObject.SetActive(true);
         if (entry.BuckName != null) entry.BuckName.text = buck.Name;
+        entry.BuckName.ForceMeshUpdate();
+        if (entry.BuckName.preferredWidth > entry.BuckName.rectTransform.rect.width) entry.BuckName.characterHorizontalScale = 0.7f;
         if (entry.BuckAppearance != null) entry.BuckAppearance.texture = buck.Controller.Rt;
-        entry.SelectButton.onClick.AddListener(() => BuckSelected(buck, entry));
+        if (entry.SelectButton != null) entry.SelectButton.onClick.AddListener(() => BuckSelected(buck, entry));
         entry.Data = buck;
 
         var child = entry.transform.GetComponentInChildren<FullDeerViewer>();

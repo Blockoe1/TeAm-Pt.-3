@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966919d4ae5c3fa4daa3e31148ca975f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoverTooltip
-  offset: {x: 0, y: -350}
+  offset: {x: 400, y: -350}
   buying: 0
   betting: 1
   canvas: {fileID: 621028502}
@@ -244,6 +244,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &600669181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4252594072719683825, guid: b8218b428486d194fbab97650979894f, type: 3}
+  m_PrefabInstance: {fileID: 1389406907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01a96d5d0e900d4b827b7f2fa0fe459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuckUI
 --- !u!223 &621028502 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 4118257373882533472, guid: b8218b428486d194fbab97650979894f, type: 3}
@@ -1264,6 +1275,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6178323383217319411, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 600669181}
+    - target: {fileID: 6178323383217319411, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 621028502}
     - target: {fileID: 6219097702347826063, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
