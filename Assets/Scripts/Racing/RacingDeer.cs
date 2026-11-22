@@ -48,7 +48,13 @@ public class RacingDeer : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        EditStats();
         RaceManager.Broadcast_StartRace += StartRace;
+    }
+
+    private void EditStats()
+    {
+        name = deerController.Data.Name;
     }
 
     public void Initialize(int placementIndex, float[] placements)
