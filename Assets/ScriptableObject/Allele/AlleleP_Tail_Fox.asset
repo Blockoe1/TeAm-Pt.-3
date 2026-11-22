@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_PartAllele
   _name: Fox
   _parts:
-  - key: ConPt_Tail
+  - key: Tail
     value: {fileID: 21300000, guid: c361e4296ac05e14c8b23b46929aec4b, type: 3}

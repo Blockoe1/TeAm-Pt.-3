@@ -27,11 +27,7 @@ public class ColorRegionHandler : Manager
     private SpriteRenderer[] _spriteRens;
     private Image[] _imageRens;
 
-    //[SerializeField, ShowIf("_renderType", ERendererType.SPRITE), BoxGroup("Renderer")]
-    //private SpriteRenderer _spriteRen;
-
-    //[SerializeField, ShowIf("_renderType", ERendererType.IMAGE), BoxGroup("Renderer")]
-    //private Image _imageRen;
+    public ERendererType RenderType { get => _renderType; }
 
     public override void Initialize()
     {

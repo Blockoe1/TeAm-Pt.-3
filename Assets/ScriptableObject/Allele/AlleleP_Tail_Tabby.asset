@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_PartAllele
   _name: Tabby
   _parts:
-  - key: ConPt_Tail
+  - key: Tail
     value: {fileID: 21300000, guid: 1b2919c8ea3015f4fb97a25c601947e0, type: 3}
