@@ -198,10 +198,20 @@ public class DeerPool : Manager
         foreach (KeyValuePair<DeerData, DeerController> kvp in PlayerManager.Instance.OwnedDeer)
             kvp.Key.IncrementAge();
         foreach (DeerData dd in GetPool(PoolType.Good))
-            dd.IncrementAge();
+            AgeDeer(dd);
         foreach (DeerData dd in GetPool(PoolType.Bad))
-            dd.IncrementAge();
+            AgeDeer(dd);
         foreach (DeerData dd in GetPool(PoolType.Mid))
-            dd.IncrementAge();
+            AgeDeer(dd);
+    }
+    
+    private void AgeDeer(DeerData dd)
+    {
+        dd.IncrementAge();
+        DeerAge ageBracket = dd.GetAgeBracket();
+        if (ageBracket == DeerAge.Retired || ageBracket == DeerAge.Dead)
+        {
+            RemoveDeer(dd);
+        }
     }
 }

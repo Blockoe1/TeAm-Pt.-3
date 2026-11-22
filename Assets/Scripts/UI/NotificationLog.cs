@@ -28,12 +28,15 @@ public class NotificationLog : MonoBehaviour
 
     private void Notify(ActNotifcation actN)
     {
-        TriggerNotification notifyObj = _notifcationPool.GetObject();
-        notifyObj.notifyText.text = ($"{actN.deerData.Name}: {actN.message}");
+        if (PlayerManager.Instance.OwnedDeer.ContainsKey(actN.deerData))
+        {
+            TriggerNotification notifyObj = _notifcationPool.GetObject();
+            notifyObj.notifyText.text = ($"{actN.deerData.Name}: {actN.message}");
 
-        // Sprite Head
-        notifyObj.geneController.VisualizePartGenome(actN.deerData, headGene);
-        notifyObj.geneController.VisualizeColorGenotype(actN.deerData);
+            // Sprite Head
+            notifyObj.geneController.VisualizePartGenome(actN.deerData, headGene);
+            notifyObj.geneController.VisualizeColorGenotype(actN.deerData);
+        }
     }
 
     public static void QueueNotification(string message, DeerData data)

@@ -39,6 +39,7 @@ public class MoneyManager : Manager
     public void ModifyMoney(int amount)
     {
         totalCents += amount;
+        totalCents = Mathf.Max(0, totalCents);
         OnBalanceChanged?.Invoke(totalCents);
     }
 
@@ -53,6 +54,7 @@ public class MoneyManager : Manager
             return false;
 
         totalCents -= amount;
+        totalCents = Mathf.Max(0, totalCents);
         OnBalanceChanged?.Invoke(totalCents);
         return true;
     }
@@ -60,6 +62,7 @@ public class MoneyManager : Manager
     public void EarnMoney(int amount)
     {
         totalCents += amount;
+        totalCents = Mathf.Max(0, totalCents);
         OnBalanceChanged?.Invoke(totalCents);
     }
 
