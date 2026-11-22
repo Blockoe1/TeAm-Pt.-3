@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Mocha
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Mocha
-  _color: {r: 0.509434, g: 0.3641281, b: 0.16500527, a: 100}
-  _shadedColor: {r: 0.28930807, g: 0.22194345, b: 0.12463899, a: 100}
+  _color: {r: 0.4811321, g: 0.3599464, b: 0.19290674, a: 100}
+  _shadedColor: {r: 0.4056604, g: 0.2197819, b: 0.15881987, a: 100}

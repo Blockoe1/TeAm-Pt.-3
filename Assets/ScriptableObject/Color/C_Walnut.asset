@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Walnut
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Walnut
-  _color: {r: 0.8238993, g: 0.68469846, b: 0.31349617, a: 100}
-  _shadedColor: {r: 0.55345905, g: 0.44191283, b: 0.14445627, a: 100}
+  _color: {r: 0.6981132, g: 0.61437726, b: 0.40503737, a: 100}
+  _shadedColor: {r: 0.5660378, g: 0.5347369, b: 0.32840872, a: 100}
