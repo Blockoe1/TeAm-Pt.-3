@@ -283,7 +283,7 @@ MonoBehaviour:
     - rid: 7479278826202333297
       type: {class: TripTimeModifier, ns: , asm: Assembly-CSharp}
       data:
-        _name: Embaressed
+        _name: Embarrassed
         _description: Takes twice as long to recover when tripped.
         _priority: 0
         _randomlySelectable: 1
