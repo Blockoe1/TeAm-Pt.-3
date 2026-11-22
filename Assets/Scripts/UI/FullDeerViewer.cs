@@ -26,16 +26,16 @@ public class FullDeerViewer : DeerViewer
         _ageText.text = "Age: " + deerData.Age.ToString();
 
         // Process Traits
-        for(int i = 0; i < deerData.Traits.Length; i++)
+        for (int i = 0; i < deerData.Traits.Length; i++)
         {
-            if (_traitNamesText.Length > i)
+            /*if (_traitNamesText.Length > i)
             {
                 _traitNamesText[i].text = deerData.Traits[i].Name;
             }
             if (_traitDescriptionsText.Length > i)
             {
                 _traitDescriptionsText[i].text = deerData.Traits[i].Description;
-            }
+            }*/
         }
     }
 

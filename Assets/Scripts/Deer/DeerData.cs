@@ -40,7 +40,7 @@ public class DeerData
 
     public int Wins { get; private set; }
     public int Races { get; private set; }
-
+    public DeerController Controller { get; set; }
 
     #region GS
     public Dictionary<SO_ColorGene, ColorGenotype> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }

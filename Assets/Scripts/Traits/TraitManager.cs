@@ -84,7 +84,7 @@ public class TraitManager : Manager
         }
 
         // Loop through deer owned.
-        foreach (DeerData deer in PlayerManager.Instance.OwnedDeer)
+        foreach (DeerData deer in PlayerManager.Instance.OwnedDeer.Keys)
         {
             // Trigger each trait in those deer.
             foreach(Trait trait in deer.Traits)
