@@ -36,7 +36,7 @@ public class FullDeerViewer : DeerViewer
             if (_traitDescriptionsText.Length > i)
             {
                 _traitDescriptionsText[i].text = deerData.Traits[i].Description;
-            }*/
+            }
         }
     }
 
