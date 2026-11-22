@@ -40,41 +40,44 @@ public class GeneController : Manager
     {
         //Debug.Log("Ran");
         foreach (KeyValuePair<SO_PartGene, PartGenome> genome in dd.PartGenotype)
+            VisualizePartGenome(dd, genome.Key);
+    }
+
+    public void VisualizePartGenome(DeerData dd, SO_PartGene gene)
+    {
+        SO_PartAllele dominant = dd.GetDominantAllele(gene);
+        foreach (KeyValuePair<string, Sprite> kvp in dominant.Parts)
         {
-            SO_PartAllele dominant = dd.GetDominantAllele(genome.Key);
-            foreach (KeyValuePair<string, Sprite> kvp in dominant.Parts)
+            Transform conPt = MarData.FindChildWithName(_colorRegHan.transform, kvp.Key);
+            if (conPt == null)
             {
-                Transform conPt = MarData.FindChildWithName(_colorRegHan.transform, kvp.Key);
-                if (conPt == null)
-                {
-                    Debug.LogError($"No child under {_colorRegHan.gameObject.name} has the name {kvp.Key}.");
-                    continue;
-                }
-                
-                switch (_colorRegHan.RenderType)
-                {
-                    case ERendererType.SPRITE: 
-                        SpriteRenderer sr = conPt.GetComponent<SpriteRenderer>(); 
-                        if (sr == null)
-                        {
-                            Debug.LogError($"{conPt.gameObject.name} does not have a SpriteRenderer component.");
-                            break;
-                        }
-                        sr.sprite = kvp.Value;
-                        sr.material.SetTexture("_" + genome.Key.MatTextureID, kvp.Value.texture);
+                Debug.LogError($"No child under {_colorRegHan.gameObject.name} has the name {kvp.Key}.");
+                continue;
+            }
+
+            switch (_colorRegHan.RenderType)
+            {
+                case ERendererType.SPRITE:
+                    SpriteRenderer sr = conPt.GetComponent<SpriteRenderer>();
+                    if (sr == null)
+                    {
+                        Debug.LogError($"{conPt.gameObject.name} does not have a SpriteRenderer component.");
                         break;
-                    case ERendererType.IMAGE:
-                        Image i = conPt.GetComponent<Image>();
-                        if (i == null)
-                        {
-                            Debug.LogError($"{conPt.gameObject.name} does not have a Image component.");
-                            break;
-                        }
-                        i.sprite = kvp.Value;
-                        i.material.SetTexture("_" + genome.Key.MatTextureID, kvp.Value.texture);
-                        i.SetNativeSize();
+                    }
+                    sr.sprite = kvp.Value;
+                    sr.material.SetTexture("_" + gene.MatTextureID, kvp.Value.texture);
+                    break;
+                case ERendererType.IMAGE:
+                    Image i = conPt.GetComponent<Image>();
+                    if (i == null)
+                    {
+                        Debug.LogError($"{conPt.gameObject.name} does not have a Image component.");
                         break;
-                }
+                    }
+                    i.sprite = kvp.Value;
+                    i.material.SetTexture("_" + gene.MatTextureID, kvp.Value.texture);
+                    i.SetNativeSize();
+                    break;
             }
         }
     }
