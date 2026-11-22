@@ -45,16 +45,16 @@ public class GeneticsMaster : Manager
 
     #region Breeding
     //Spawns an offspring with the combined genotypes of parentA and parentB.
-    public void Breed(DeerController parentA, DeerController parentB)
+    public DeerController Breed(DeerController parentA, DeerController parentB)
     {
-        GameObject osGO = Instantiate(_racerPrefab, parentA.transform.parent);
+        GameObject osGO = Instantiate(_racerPrefab, PlayerManager.Instance.transform);
         DeerController osDeerCon = osGO.GetComponent<DeerController>();
         GeneController osGenCon = osGO.GetComponent<GeneController>();
 
         if (osGenCon == null)
         {
             Debug.LogError("Racer prefab does not have a GeneController.");
-            return;
+            return null;
         }
 
         osDeerCon.Data = BreedStats(parentA.Data, parentB.Data);
@@ -63,6 +63,8 @@ public class GeneticsMaster : Manager
 
         osGenCon.Initialize();
         osGenCon.VisualizeGenotypes(osDeerCon.Data.PartGenotype, osDeerCon.Data.ColorGenotype);//VisualizeColorGenotype(osDeerCon.Data.ColorGenotype);
+
+        return osDeerCon;
     }
 
     //Combines the stats of the parents with the breeding stat formula.

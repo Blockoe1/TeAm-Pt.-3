@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RaceSelectionScreen : BuckScreen
@@ -29,12 +30,11 @@ public class RaceSelectionScreen : BuckScreen
     public void InitializeSelection()
     {
         // Fetch stable data
-        List<DeerData> bucks = PlayerManager.Instance.OwnedDeer;
+        List<DeerData> bucks = PlayerManager.Instance.OwnedDeer.Keys.ToList();
 
         selected = default;
         InitializeWidgets(bucks);
     }
-
     public override void Continue()
     {
         // TODO: place selected horse in race
