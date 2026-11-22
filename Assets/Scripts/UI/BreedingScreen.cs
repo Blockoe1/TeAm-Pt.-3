@@ -27,7 +27,7 @@ public class BreedingScreen : BuckScreen
 
     public override void BuckSelected(DeerData buck, BuckUI ui)
     {
-        // TODO: add deer to stables
+        PlayerManager.Instance.NewBaby(buck);
         _stablesScreen.InitializeStables();
         _screen.SetActive(false);
     }

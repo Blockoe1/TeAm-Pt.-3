@@ -61,7 +61,7 @@ public class BuckScreen : MonoBehaviour
         entry.SelectButton.onClick.AddListener(() => BuckSelected(buck, entry));
         entry.Data = buck;
 
-        var child = GetComponentInChildren<FullDeerViewer>();
+        var child = entry.transform.GetComponentInChildren<FullDeerViewer>();
         if (child != null) child.SetDeer(buck);
     }
 
