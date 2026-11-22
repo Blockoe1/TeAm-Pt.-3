@@ -14,6 +14,7 @@ using UnityEngine;
 public class DeerController : Manager
 {
     [SerializeField] private DeerData data;
+    private RenderTexture rt;
 
     private int[] statModifiers;
 
@@ -26,6 +27,7 @@ public class DeerController : Manager
     #region GS
     public GeneController GeneCon { get => geneCon; }
     public DeerData Data { get => data; set => data = value; }
+    public RenderTexture Rt { get => rt; set => rt = value; }
     #endregion
 
     public override void Initialize()

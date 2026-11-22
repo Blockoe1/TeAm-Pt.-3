@@ -26,6 +26,7 @@ public class PlayerManager : Manager
     public static event Action<DeerData, bool> OnDeerChanged;
 
     [SerializeField] private GameObject _deerPrefab;
+    private int newDeerHeight = 500;
 
     public override void Initialize()
     {
@@ -76,12 +77,19 @@ public class PlayerManager : Manager
 
     public DeerController GenerateControllerForNewDeer(DeerData data)
     {
-        var go = Instantiate(_deerPrefab, transform);
+        var go = Instantiate(_deerPrefab, new Vector3(0, newDeerHeight, 0), Quaternion.identity, transform);
+        newDeerHeight += 10;
         go.name = data.Name;
         var controller = go.GetComponent<DeerController>();
         controller.Data = data;
         controller.Initialize();
         data.Controller = controller;
+
+        var rt = new RenderTexture(1000, 1000, 16);
+        rt.Create();
+        data.Controller.GetComponentInChildren<Camera>().targetTexture = rt;
+        data.Controller.Rt = rt;
+
         return controller;
     }
 }

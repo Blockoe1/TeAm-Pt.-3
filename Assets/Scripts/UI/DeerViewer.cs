@@ -9,6 +9,7 @@
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class DeerViewer : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public abstract class DeerViewer : MonoBehaviour
     [SerializeField, BoxGroup("References")] protected TMP_Text _winLossText;
     [SerializeField, BoxGroup("References")] protected TMP_Text _statsText;
     [SerializeField, BoxGroup("References")] protected TMP_Text _costText;
+    [SerializeField, BoxGroup("References")] protected RawImage _deerView;
 
     private DeerData loadedData;
 
@@ -26,8 +28,9 @@ public abstract class DeerViewer : MonoBehaviour
         _nameText.text = deerData.Name;
         _winLossText.text = deerData.Wins.ToString() + " / " + deerData.Races.ToString();
         _statsText.text = ProcessStats(deerData);
+        if (_deerView != null) _deerView.texture = deerData.Controller.Rt;
 
-        switch(cost)
+        switch (cost)
         { 
             case CostParams.None:
                 if (_costText != null) _costText.gameObject.SetActive(false);
