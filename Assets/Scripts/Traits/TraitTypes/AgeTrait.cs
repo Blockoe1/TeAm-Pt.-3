@@ -6,7 +6,7 @@
 //
 // Brief Description : Trait that triggers when a deer ages.
 *****************************************************************************/
-public abstract class AgeTrait : TraitTrigger
+public class AgeTrait : TraitTrigger
 {
     public int Age { get; set; }
 }

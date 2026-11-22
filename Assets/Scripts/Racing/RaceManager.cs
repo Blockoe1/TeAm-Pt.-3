@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RaceManager : MonoBehaviour
 {
@@ -56,7 +57,11 @@ public class RaceManager : MonoBehaviour
             //Insert graphics or sound here?
             yield return new WaitForSeconds(1);
         }
-
+        
+        foreach(GameObject go in deerInRaceGO)
+        {
+            TraitManager.TraitEvent(new StartRaceTrait(), go.GetComponent<DeerController>());
+        }
         Broadcast_StartRace?.Invoke();
     }
 
@@ -64,6 +69,7 @@ public class RaceManager : MonoBehaviour
     {
         //Deer Has Crossed
         WinningDeer = deer;
+        SceneManager.LoadScene("PostRaceScene");
     }
 
     private void OnDestroy()
