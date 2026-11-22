@@ -1,8 +1,4 @@
-using System;
 using System.Collections;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class RacingDeer : MonoBehaviour
@@ -55,6 +51,12 @@ public class RacingDeer : MonoBehaviour
     {
         EditStats();
         RaceManager.Broadcast_StartRace += StartRace;
+    }
+
+    private void FixedUpdate()
+    {
+        deerController.Anim.SetSpeed(rigidbody.linearVelocityX);
+        Debug.Log(deerController.Data.Name + ": " + rigidbody.linearVelocityX);
     }
 
     private void EditStats()
@@ -164,6 +166,7 @@ public class RacingDeer : MonoBehaviour
             return;
         }
         rigidbody.linearVelocity = Vector2.zero;
+        deerController.Anim.TriggerTrip();
 
         currentState = STATES.NONE;
     }

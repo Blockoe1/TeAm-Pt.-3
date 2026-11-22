@@ -21,6 +21,9 @@ public class DeerController : Manager
     private GeneController geneCon;
     private ColorRegionHandler colorRegHan;
 
+    [SerializeField]
+    private DeerAnimator anim;
+
     [SerializeField, BoxGroup("Simulation")]
     private DeerController _simBreedingPartner;
 
@@ -28,6 +31,7 @@ public class DeerController : Manager
     public GeneController GeneCon { get => geneCon; }
     public DeerData Data { get => data; set => data = value; }
     public RenderTexture Rt { get => rt; set => rt = value; }
+    public DeerAnimator Anim { get => anim; set => anim = value; }
     #endregion
 
     public override void Initialize()
