@@ -71,7 +71,6 @@ public class StablesScreen : BuckScreen
             if (!_secondStableScreen) CancelBreeding();
         }
 
-        Debug.Log("Hi");
         selected = (buck, ui);
         selected.Item2.BuckName.fontStyle = FontStyles.Underline;
         _adjacentViewer.gameObject.SetActive(true);
