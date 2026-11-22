@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2b75a893fdab44a204e0dee9f478f, type: 3}
+  m_Name: C_Peanut
+  m_EditorClassIdentifier: Assembly-CSharp::SO_Color
+  _name: Peanut
+  _color: {r: 0.4745098, g: 0.36078432, b: 0.20392157, a: 100}
+  _shadedColor: {r: 0.35220122, g: 0.28191185, b: 0.184961, a: 100}

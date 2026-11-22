@@ -109,7 +109,7 @@ public class GeneticsMaster : Manager
 
     //Calculates a possible bred stat for a deer.
     private int CalculateBredStat(StatType stat, DeerData parent)
-        => parent.GetStat(stat) + Random.Range(-3, 4);
+        => parent.GetStat(stat) + Random.Range(-2, 3);
 
     //Combines parentA and parentB color genotypes.
     private Dictionary<SO_ColorGene, ColorGenome> CombineColorGenotype(DeerController parentA, DeerController parentB)

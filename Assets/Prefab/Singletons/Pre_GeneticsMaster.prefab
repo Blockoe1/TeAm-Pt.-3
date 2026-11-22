@@ -51,6 +51,8 @@ MonoBehaviour:
   _colorGenes:
   - {fileID: 11400000, guid: f31f71ea7b96bc3408e5271abe613d9a, type: 2}
   - {fileID: 11400000, guid: 3d15a8c2682c8784e88e27b422d8ae9c, type: 2}
+  - {fileID: 11400000, guid: 930dbcbca76e36949b70b3f6dfd7b565, type: 2}
+  - {fileID: 11400000, guid: 151a946cbc5082e4db020a1335ea48cb, type: 2}
   _partGenes:
   - {fileID: 11400000, guid: 9b973cff93eb64440b551b4d5b1cea57, type: 2}
   - {fileID: 11400000, guid: 3f1cf2ed82dd1054ca3b9102052dbd23, type: 2}
