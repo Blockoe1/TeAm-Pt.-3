@@ -1,8 +1,4 @@
-using System;
 using System.Collections;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class RacingDeer : MonoBehaviour
@@ -81,9 +77,10 @@ public class RacingDeer : MonoBehaviour
             Debug.Log(currentState);
             if (currentState == STATES.TRIPPED)
             {
+                currentState = STATES.NONE;
                 TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(2, 4f));
                 TraitManager.TraitEvent(trigger, deerController);
-                StartCoroutine(UnTripCoroutine(trigger.TripTime));
+                Trip();
             }
             else
             {
@@ -228,13 +225,12 @@ public class RacingDeer : MonoBehaviour
 
         TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(2, 4f));
         TraitManager.TraitEvent(trigger, deerController);
-        StartCoroutine(UnTripCoroutine(trigger.TripTime));
-        currentState = STATES.TRIPPED;
+        Trip();
     }
 
     public void Trip()
     {
-        if (currentState != STATES.TRIPPED)
+        if (!deerController.Data.HasTrait<Pegasus>() && currentState != STATES.TRIPPED)
         {
             StopCoroutine(TripCoroutine());
             CurrentState = RacingDeer.STATES.TRIPPED;
