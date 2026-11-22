@@ -32,8 +32,8 @@ public class ShopScreen : BuckScreen
         // TODO: add deer to stables
         ReplaceWithBlank(ui);
         purchaseConfirm.SetActive(true);
-        fullDeerViewer.SetDeer(buck.Data);
-        fullDeerViewer.ProcessStats(buck.Data);
+        fullDeerViewer.SetDeer(buck);
+        fullDeerViewer.ProcessStats(buck);
     }
 
     public void Confirm()
