@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using NUnit.Framework;
 using System;
 using System.Collections;
+using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,6 +18,7 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private CinemachineCamera camFollow;
 
     public static DeerData[] DeerInRace = null;
+    private float[] distancesFromEnd;
 
     [SerializeField] private bool debugMode = false;
     [SerializeField, ShowIf("debugMode")] private DeerData[] debugDeerData;
@@ -33,7 +35,10 @@ public class RaceManager : MonoBehaviour
         {
             DeerInRace = debugDeerData;
         }
+
+
         //Spawn Deer w/ Stats
+        distancesFromEnd = new float[DeerInRace.Length];
         for(int i = 0; i < deerStartPositions.Length; i++)
         {
             deerInRaceGO[i] = Instantiate(deerPrefab, deerStartPositions[i].transform.position, Quaternion.identity, 
@@ -42,6 +47,8 @@ public class RaceManager : MonoBehaviour
             if(DeerInRace != null && DeerInRace[i] != null)
             {
                 deerInRaceGO[i].GetComponent<DeerController>().Data = DeerInRace[i];
+                deerInRaceGO[i].GetComponent<RacingDeer>().Initialize(i, distancesFromEnd);
+
             }
         }
 
@@ -58,17 +65,21 @@ public class RaceManager : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
         
-        foreach(GameObject go in deerInRaceGO)
+        for(int i = 0; i < deerInRaceGO.Length; ++i)
         {
-            TraitManager.TraitEvent(new StartRaceTrait(), go.GetComponent<DeerController>());
+            TraitManager.TraitEvent(new StartRaceTrigger(i == DeerBetOn), deerInRaceGO[i].GetComponent<DeerController>());
         }
         Broadcast_StartRace?.Invoke();
     }
 
-    public void DeerCrossedLine(DeerData deer)
+    public void DeerCrossedLine(DeerController deer)
     {
         //Deer Has Crossed
-        WinningDeer = deer;
+        WinningDeer = deer.Data;
+        for (int i = 0; i < deerInRaceGO.Length; ++i)
+        {
+            TraitManager.TraitEvent(new EndRaceTrigger(deer), deerInRaceGO[i].GetComponent<DeerController>());
+        }
         SceneManager.LoadScene("PostRaceScene");
     }
 

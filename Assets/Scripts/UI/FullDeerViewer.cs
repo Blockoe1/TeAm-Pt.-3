@@ -28,7 +28,8 @@ public class FullDeerViewer : DeerViewer
         // Process Traits
         for (int i = 0; i < deerData.Traits.Length; i++)
         {
-            /*if (_traitNamesText.Length > i)
+            if (deerData.Traits[i] == null) { continue; }
+            if (_traitNamesText.Length > i)
             {
                 _traitNamesText[i].text = deerData.Traits[i].Name;
             }

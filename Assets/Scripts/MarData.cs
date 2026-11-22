@@ -1,0 +1,210 @@
+/*
+ * Marlow Greenan
+ * Created: 04/19/2026 by Marlow Greenan
+ * Last Updated: 09/27/2026
+ * 
+ * Contains various reuable enums.
+ */
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace MarUtility
+{
+    public class MarData 
+    {
+        //DIRECTIONS
+        private static Vector2[] direction2DVec2 = { Vector2.up, Vector2.down, Vector2.right, Vector2.left };
+        private static Vector2Int[] direction2DVec2Int = { Vector2Int.up, Vector2Int.down, Vector2Int.right, Vector2Int.left };
+
+        private static Vector3[] direction2DVec3 = { Vector3.up, Vector3.down, Vector3.right, Vector3.left };
+        private static Vector3Int[] direction2DVec3Int = { Vector3Int.up, Vector3Int.down, Vector3Int.right, Vector3Int.left };
+
+        private static Vector3[] direction3DVec3 = { Vector3.up, Vector3.down, Vector3.right, Vector3.left, Vector3.forward, Vector3.back };
+        private static Vector3Int[] direction3DVec3Int = { Vector3Int.up, Vector3Int.down, Vector3Int.right, Vector3Int.left, Vector3Int.forward, Vector3Int.back };
+
+        #region GS
+        public static Vector2[] Direction2DVec2 { get => direction2DVec2; }
+        public static Vector2Int[] Direction2DVec2Int { get => direction2DVec2Int; }
+        public static Vector3[] Direction2DVec3 { get => direction2DVec3; }
+        public static Vector3Int[] Direction2DVec3Int { get => direction2DVec3Int; }
+        public static Vector3[] Direction3DVec3 { get => direction3DVec3; }
+        public static Vector3Int[] Direction3DVec3Int { get => direction3DVec3Int; }
+        #endregion
+
+        //Returns the string without "(Clone)" if it was at the end. Else returns the original string.
+        public static string WithoutClone(string text)
+            => (text.Substring(text.Length - 7, 7).Equals("(Clone)")) ? text.Substring(0, text.Length - 7) : text;
+
+        //Returns true if the index is within the bounds of a collection count.
+        public static bool InRange(int index, int count)
+            => (index < 0 || index >= count)? false : true;
+
+        #region Children
+        //Returns all children of a transform.
+        public static List<Transform> GetAllChildren(Transform parent)
+        {
+            List<Transform> children = new List<Transform>();
+            foreach (Transform child in parent)
+            {
+                if (child.childCount == 0)
+                    children.Add(child);
+                else
+                {
+                    foreach (Transform c in GetAllChildren(child))
+                        children.Add(c);
+                }
+            }
+            return children;
+        }
+
+        //Returns the child of parent that has the name. If none exists, returns null.
+        public static Transform FindChildWithName(Transform parent, string name)
+        {
+            foreach (Transform child in parent)
+            {
+                if (child.name == name)
+                    return child;
+                else
+                {
+                    Transform found = FindChildWithName(child, name);
+                    if (found != null)
+                        return found;
+                }
+            }
+            return null;
+        }
+
+        //Returns children of the parent with the name given.
+        public static List<Transform> FindChildrenWithName(Transform parent, string name)
+        {
+            List<Transform> children = new List<Transform>();
+            foreach (Transform child in parent)
+            {
+                if (child.name == name)
+                    children.Add(child);
+                else
+                {
+                    foreach (Transform c in FindChildrenWithName(child, name))
+                        children.Add(c);
+                }
+            }
+            return children;
+        }
+        #endregion
+
+        #region List
+        //Adds the transforms from addition into the reference list.
+        public static void CombineTransformLists(ref List<Transform> list, List<Transform> addition)
+        {
+            foreach (Transform t in addition)
+                list.Add(t);
+        }
+        #endregion
+
+        #region ToVector2
+        public static Vector2 ToVector2(EDirection2D dir)
+        {
+            switch (dir)
+            {
+                case EDirection2D.UP: return Vector2.up;
+                case EDirection2D.DOWN: return Vector2.down;
+                case EDirection2D.LEFT: return Vector2.left;
+                case EDirection2D.RIGHT: return Vector2.right;
+            }
+            return Vector2.zero;
+        }
+        #endregion
+
+        #region ToVector2Int
+        public static Vector2Int ToVector2Int(Vector2 value)
+            => new Vector2Int((int)value.x, (int)value.y);
+        public static Vector2Int ToVector2Int(Vector3 value)
+            => new Vector2Int((int)value.x, (int)value.y);
+        public static Vector2Int ToVector2Int(Vector3Int value)
+            => new Vector2Int(value.x, value.y);
+        #endregion
+
+        #region ToVector3
+        public static Vector3 ToVector3(EDirection3D dir)
+        {
+            switch (dir)
+            {
+                case EDirection3D.UP: return Vector3.up;
+                case EDirection3D.DOWN: return Vector3.down;
+                case EDirection3D.LEFT: return Vector3.left;
+                case EDirection3D.RIGHT: return Vector3.right;
+                case EDirection3D.FORWARD: return Vector3.forward;
+                case EDirection3D.BACKWARD: return Vector3.back;
+            }
+            return Vector2.zero;
+        }
+        #endregion
+
+        #region ToString
+        public static string ToString(Vector2 value)
+            => "[" + value.x + "," + value.y + "]";
+        public static string ToString(Vector2Int value)
+            => "[" + value.x + "," + value.y + "]";
+
+        public static string ToString(Vector3Int value)
+            => "[" + value.x + "," + value.y + "," + value.z + "]";
+        public static string ToString(Vector3 value)
+            => "[" + value.x + "," + value.y + "," + value.z + "]";
+        #endregion
+
+        #region Material
+        //Sets the texture of a material. If the textureID is missing sends an error and returns.
+        public static void SetTexture(MeshRenderer mr, string texID, Texture tex)
+        {
+            if (!DebugMessages.MaterialHasTexture(mr, texID)) return;
+            mr.material.SetTexture(texID, tex);
+        }
+
+        //Sets the color of a material. If the colorID is missing sends an error and returns.
+        public static void SetColor(MeshRenderer mr, string colorID, Color color)
+        {
+            if (!DebugMessages.MaterialHasColor(mr, colorID)) return;
+            mr.material.SetColor(colorID, color);
+        }
+        #endregion
+    }
+
+    #region Enums
+    public enum EDirection3D
+    {
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT,
+        FORWARD,
+        BACKWARD,
+    }
+
+    public enum EDirection2D
+    {
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT,
+    }
+
+    public enum EFrontBack
+    {
+        FRONT,
+        BACK,
+    }
+
+    public enum EDimension
+    {
+        _2D,
+        _3D,
+    }
+
+    public enum ESetValue
+    {
+        NULL,
+        THIS,
+    }
+    #endregion
+}
+

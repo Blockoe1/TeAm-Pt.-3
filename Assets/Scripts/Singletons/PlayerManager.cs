@@ -31,8 +31,9 @@ public class PlayerManager : Manager
         SingletonUtil.SetSingleton(ref instance, this);
     }
 
-    public void PurchaseDeer(DeerController toAdd)
+    public bool PurchaseDeer(DeerController toAdd)
     {
+        Debug.Log(toAdd);
         int price = toAdd.Data.CalculatePrice();
         if (_ownedDeer.Count < MAX_OWNED_DEER && MoneyManager.Instance.CanAfford(price))
         {
@@ -40,7 +41,12 @@ public class PlayerManager : Manager
             DeerPool.Instance.RemoveDeer(toAdd.Data);
             MoneyManager.Instance.SpendMoney(price);
             OnDeerChanged?.Invoke(toAdd.Data, true);
+            return true;
         }
+        else
+        {
+            return false;
+        }    
     }
 
     public void SellDeer(DeerData toSell)

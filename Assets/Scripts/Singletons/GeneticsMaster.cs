@@ -19,10 +19,14 @@ public class GeneticsMaster : Manager
 
     [SerializeField]
     private SO_ColorGene[] _colorGenes;
+
+    [SerializeField]
+    private SO_PartGene[] _partGenes;
  
     #region GS
     public static GeneticsMaster INST { get => inst; }
     public SO_ColorGene[] ColorGenes { get => _colorGenes; }
+    public SO_PartGene[] PartGenes { get => _partGenes; }
     #endregion
 
     public override void Initialize()
@@ -54,10 +58,11 @@ public class GeneticsMaster : Manager
         }
 
         osDeerCon.Data = BreedStats(parentA.Data, parentB.Data);
-        osDeerCon.Data.ColorGenotype = CombineColorGenotypes(parentA, parentB);
+        osDeerCon.Data.ColorGenotype = CombineColorGenotype(parentA, parentB);
+        osDeerCon.Data.PartGenotype = CombinePartGenotype(parentA, parentB);
 
         osGenCon.Initialize();
-        osGenCon.VisualizeColorGenotype(osDeerCon.Data.ColorGenotype);
+        osGenCon.VisualizeGenotypes(osDeerCon.Data.PartGenotype, osDeerCon.Data.ColorGenotype);//VisualizeColorGenotype(osDeerCon.Data.ColorGenotype);
 
         return osDeerCon;
     }
@@ -89,7 +94,7 @@ public class GeneticsMaster : Manager
         => parent.GetStat(stat) + Random.Range(-3, 4);
 
     //Combines parentA and parentB color genotypes.
-    private Dictionary<SO_ColorGene, ColorGenotype> CombineColorGenotypes(DeerController parentA, DeerController parentB)
+    private Dictionary<SO_ColorGene, ColorGenome> CombineColorGenotype(DeerController parentA, DeerController parentB)
     {
         if (parentA.Data.ColorGenotype.Count != parentB.Data.ColorGenotype.Count)
         {
@@ -97,17 +102,37 @@ public class GeneticsMaster : Manager
             return null;
         }
 
-        Dictionary<SO_ColorGene, ColorGenotype> combinedGenotype = new Dictionary<SO_ColorGene, ColorGenotype>();
+        Dictionary<SO_ColorGene, ColorGenome> combinedGenotype = new Dictionary<SO_ColorGene, ColorGenome>();
 
-        foreach (KeyValuePair<SO_ColorGene, ColorGenotype> kvp in parentA.Data.ColorGenotype)
-            combinedGenotype.TryAdd(kvp.Key, CombineColorGenotype(parentA, parentB, kvp.Key));
+        foreach (KeyValuePair<SO_ColorGene, ColorGenome> kvp in parentA.Data.ColorGenotype)
+            combinedGenotype.TryAdd(kvp.Key, CombineColorGenome(parentA, parentB, kvp.Key));
 
         return combinedGenotype;
     }
-
     //Creates a genotype with 1 random allele from both parents.
-    private ColorGenotype CombineColorGenotype(DeerController parentA, DeerController parentB, SO_ColorGene gene)
-        => new ColorGenotype(parentA.GeneCon.GetRandomAlleleFromGenotype(gene, parentA.Data.ColorGenotype), parentB.GeneCon.GetRandomAlleleFromGenotype(gene, parentB.Data.ColorGenotype));
+    private ColorGenome CombineColorGenome(DeerController parentA, DeerController parentB, SO_ColorGene gene)
+        => new ColorGenome(parentA.GeneCon.GetRandomAlleleFromGenotype(gene, parentA.Data.ColorGenotype), parentB.GeneCon.GetRandomAlleleFromGenotype(gene, parentB.Data.ColorGenotype));
+
+
+    private Dictionary<SO_PartGene, PartGenome> CombinePartGenotype(DeerController parentA, DeerController parentB)
+    {
+        if (parentA.Data.PartGenotype.Count != parentB.Data.PartGenotype.Count)
+        {
+            Debug.LogError($"{parentA.Data.Name} does not have the same amount of genes in the color genotype as {parentB.Data.Name}.\nCheck for missing genotypes.");
+            return null;
+        }
+
+        Dictionary<SO_PartGene, PartGenome> combinedGenotype = new Dictionary<SO_PartGene, PartGenome>();
+
+        foreach (KeyValuePair<SO_PartGene, PartGenome> kvp in parentA.Data.PartGenotype)
+            combinedGenotype.TryAdd(kvp.Key, CombinePartGenome(parentA, parentB, kvp.Key));
+
+        return combinedGenotype;
+    }
+    //Creates a genotype with 1 random allele from both parents.
+    private PartGenome CombinePartGenome(DeerController parentA, DeerController parentB, SO_PartGene gene)
+        => new PartGenome(parentA.GeneCon.GetRandomAlleleFromGenotype(gene, parentA.Data.PartGenotype), parentB.GeneCon.GetRandomAlleleFromGenotype(gene, parentB.Data.PartGenotype));
+
     #endregion
 
 }
