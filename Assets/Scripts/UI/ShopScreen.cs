@@ -46,7 +46,7 @@ public class ShopScreen : BuckScreen
 
     public void Confirm()
     {
-        bool wasPurchased = PlayerManager.Instance.PurchaseDeer(selected.Item1);
+        bool wasPurchased = PlayerManager.Instance.PurchaseDeer(selected.Item1.Controller);
         if (wasPurchased)
         {
             ReplaceWithBlank(selected.Item2);

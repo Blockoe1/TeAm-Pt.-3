@@ -50,6 +50,8 @@ public class RaceManager : MonoBehaviour
                 deerInRaceGO[i].GetComponent<RacingDeer>().Initialize(i, distancesFromEnd);
 
             }
+
+            deerInRaceGO[i].GetComponent<DeerController>().Data = DeerInRace[i];
         }
 
         camFollow.Follow = deerInRaceGO[DeerBetOn].transform;

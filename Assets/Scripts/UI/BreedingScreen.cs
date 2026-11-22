@@ -10,13 +10,13 @@ public class BreedingScreen : BuckScreen
         base.Start();
     }
 
-    public void InitializeBreeding()
+    public void InitializeBreeding(DeerData mom, DeerData dad)
     {
         // Fetch new baby data
         List<DeerData> bucks = new List<DeerData>();
         for (int i = 0; i < 3; i++)
         {
-            bucks.Add(DeerData.NewRandomDeer());
+            bucks.Add(GeneticsMaster.INST.Breed(mom.Controller, dad.Controller).Data);
         }
 
         selected = default;

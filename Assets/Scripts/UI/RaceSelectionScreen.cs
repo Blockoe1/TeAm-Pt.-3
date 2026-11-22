@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RaceSelectionScreen : BuckScreen
@@ -20,7 +21,6 @@ public class RaceSelectionScreen : BuckScreen
 
     private void Handle_OnDeerChanged(DeerData changedDeer, bool wasAdded)
     {
-        Debug.Log(changedDeer.Name);
         InitializeSelection();
     }
 
@@ -30,19 +30,18 @@ public class RaceSelectionScreen : BuckScreen
     public void InitializeSelection()
     {
         // Fetch stable data
-        List<DeerData> bucks = PlayerManager.Instance.OwnedDeer;
+        List<DeerData> bucks = PlayerManager.Instance.OwnedDeer.Keys.ToList();
 
         selected = default;
         InitializeWidgets(bucks);
     }
-
     public override void Continue()
     {
         // TODO: place selected horse in race
 
         _screen.SetActive(false);
 
-        _bettingScreen.InitializeBetting();
+        _bettingScreen.InitializeBetting(selected.Item1);
     }
 
     public override void BuckSelected(DeerData buck, BuckUI ui)
