@@ -1844,7 +1844,7 @@
     "m_ShaderOutputName": "Range",
     "m_StageCapability": 3,
     "m_CustomBinding": "",
-    "m_Value": 0.10000000149011612,
+    "m_Value": 0.05000000074505806,
     "m_DefaultValue": 0.0,
     "m_Labels": [],
     "m_LiteralMode": false
@@ -4719,7 +4719,7 @@
     "m_ShaderOutputName": "Range",
     "m_StageCapability": 3,
     "m_CustomBinding": "",
-    "m_Value": 0.10000000149011612,
+    "m_Value": 0.05000000074505806,
     "m_DefaultValue": 0.0,
     "m_Labels": [],
     "m_LiteralMode": false
@@ -5683,7 +5683,7 @@
     "m_ShaderOutputName": "Range",
     "m_StageCapability": 3,
     "m_CustomBinding": "",
-    "m_Value": 0.10000000149011612,
+    "m_Value": 0.05000000074505806,
     "m_DefaultValue": 0.0,
     "m_Labels": [],
     "m_LiteralMode": false
