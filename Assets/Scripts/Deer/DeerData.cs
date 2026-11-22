@@ -15,7 +15,7 @@ using UnityEngine;
 [System.Serializable]
 public class DeerData
 {
-    private const int BASE_TRAIT_NUM = 2;
+    public const int BASE_TRAIT_NUM = 2;
 
     public const int STAT_MIN = 1;
     public const int STAT_MAX = 20;
@@ -32,7 +32,7 @@ public class DeerData
 
     [field: SerializeField, Min(1)] public int Age { get; set; } = 1;
 
-    [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; private set; } = new Trait[BASE_TRAIT_NUM];
+    [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; set; } = new Trait[BASE_TRAIT_NUM];
 
     [SerializeField]
     private Dictionary<SO_ColorGene, ColorGenome> _colorGenotype = new Dictionary<SO_ColorGene, ColorGenome>();

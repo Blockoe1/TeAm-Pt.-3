@@ -8,6 +8,7 @@
 using MarUtility.ExecutionManagement;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GeneticsMaster : Manager
@@ -62,10 +63,26 @@ public class GeneticsMaster : Manager
         osDeerCon.Data.PartGenotype = CombinePartGenotype(parentA, parentB);
         osDeerCon.Data.Name = DeerNames.GetRandomName();
 
+        // Inherit Traits
+        osDeerCon.Data.Traits = BreedTraits(parentA.Data, parentB.Data);
+
         osGenCon.Initialize();
         osGenCon.VisualizeGenotypes(osDeerCon.Data.PartGenotype, osDeerCon.Data.ColorGenotype);//VisualizeColorGenotype(osDeerCon.Data.ColorGenotype);
 
         return osDeerCon;
+    }
+
+    private Trait[] BreedTraits(DeerData parentA, DeerData parentB)
+    {
+        Trait[] traits = new Trait[DeerData.BASE_TRAIT_NUM];
+        for(int i = 0; i < traits.Length; i++)
+        {
+            // Assumes that only 2 traits are used.
+            DeerData inheritedParent = i % 2 == 0 ? parentA : parentB;
+            int index = Random.Range(0, inheritedParent.Traits.Length);
+            traits[i] = TraitManager.TraitDatabase[inheritedParent.Traits[index].GetInheritedTraitIndex()];
+        }
+        return traits;
     }
 
     //Combines the stats of the parents with the breeding stat formula.
