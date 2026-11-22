@@ -161,4 +161,14 @@ public class DeerPool : Manager
         PlayerManager.Instance.GenerateControllerForNewDeer(randomizedDeer);
         return randomizedDeer;
     }
+
+    public void AgeAllDeer()
+    {
+        foreach (DeerData dd in GetPool(PoolType.Good))
+            dd.IncrementAge();
+        foreach (DeerData dd in GetPool(PoolType.Bad))
+            dd.IncrementAge();
+        foreach (DeerData dd in GetPool(PoolType.Mid))
+            dd.IncrementAge();
+    }
 }

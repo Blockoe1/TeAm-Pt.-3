@@ -160,7 +160,7 @@ public class DeerData
         }
     }
 
-    public void InrementAge()
+    public void IncrementAge()
     {
         AgeTrigger trigger = new AgeTrigger(Age + 1);
         TriggerTraits(trigger, null, this, this, Trait.TriggerFlags.None);
