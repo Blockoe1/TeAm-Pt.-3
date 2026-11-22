@@ -56,7 +56,7 @@ public class RacingDeer : MonoBehaviour
     private void FixedUpdate()
     {
         deerController.Anim.SetSpeed(rigidbody.linearVelocityX);
-        Debug.Log(deerController.Data.Name + ": " + rigidbody.linearVelocityX);
+        //Debug.Log(deerController.Data.Name + ": " + rigidbody.linearVelocityX);
     }
 
     private void EditStats()
@@ -81,16 +81,19 @@ public class RacingDeer : MonoBehaviour
                 currentState = STATES.RUNNING;
             }
             Debug.Log(currentState);
-            if (currentState == STATES.TRIPPED)
+            if (!deerController.Data.HasTrait<Pegasus>())
             {
-                currentState = STATES.NONE;
-                TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(2, 4f));
-                TraitManager.TraitEvent(trigger, deerController);
-                Trip();
-            }
-            else
-            {
-                StartCoroutine(TripCoroutine());
+                if (currentState == STATES.TRIPPED)
+                {
+                    currentState = STATES.NONE;
+                    TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(2, 4f));
+                    TraitManager.TraitEvent(trigger, deerController);
+                    Trip();
+                }
+                else
+                {
+                    StartCoroutine(TripCoroutine());
+                }
             }
             StartCoroutine(DisciplineCoroutine());
             StartCoroutine(SpeedLower());
