@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091cc359405d68943a446b83d60a2cb6, type: 3}
   m_Name: AlleleC_Brown
   m_EditorClassIdentifier: Assembly-CSharp::SO_ColorAllele
-  _name: 
-  _color: {fileID: 0}
+  _name: Brown
+  _color: {fileID: 11400000, guid: 261d2867e665729488984c87e9bb7854, type: 2}
