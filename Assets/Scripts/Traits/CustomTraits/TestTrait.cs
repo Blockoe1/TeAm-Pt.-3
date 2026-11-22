@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [System.Serializable]
-public class TestTrait : Trait, ITraitTrigger<TripTrait>
+public class TestTrait : Trait, ITriggeredTrait<TripTrigger>
 {
-    public void TriggerTrait(TripTrait trait, DeerController deer)
+    public void TriggerTrait(TripTrigger trait, DeerController deer, bool isSelf)
     {
         Debug.Log("Trait called for " + deer.name);
     }

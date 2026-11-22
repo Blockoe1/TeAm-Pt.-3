@@ -9,6 +9,12 @@
 using AriUtils;
 using UnityEngine;
 
-public class StartRaceTrait : TraitTrigger
+public class StartRaceTrigger : TraitTrigger
 {
+    public bool WasBetOn {  get; private set; }
+
+    public StartRaceTrigger(bool wasBetOn)
+    {
+        WasBetOn = wasBetOn;
+    }
 }
