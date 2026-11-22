@@ -280,7 +280,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Click on Examine to views stats, age, and traits of deer.\n\nBetter stats and traits will cost you more though. \n\nOnce you buy a deer it will show up in your barn. Make sure you have enough \"doe\" to buy one. \n\nP.S. I don't apologize for my jokes. Sorry."
+  m_text: "Click on Examine to views stats, age, and traits of deer.\n\nBetter stats and traits will cost you more though. \n\nOnce you buy a deer it will show up in your barn. Make sure you have enough \"doe\" to buy one. \n\nIf you have 0 deer and can't afford one, you're stuck and will have to return to menu."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 84fa5b9ed35190747b0de4771ce31aba, type: 2}
   m_sharedMaterial: {fileID: 8546471492613727954, guid: 84fa5b9ed35190747b0de4771ce31aba, type: 2}
@@ -307,8 +307,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 47
+  m_fontSizeBase: 47
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
