@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StablesScreen : BuckScreen
 {
@@ -13,6 +14,8 @@ public class StablesScreen : BuckScreen
     [SerializeField] private BreedingScreen _breedingScreen;
     [SerializeField] private GameObject _viewScreen;
     [SerializeField] private GameObject _viewBG;
+    [SerializeField]
+    private Button _breedButton;
 
     protected override void Start()
     {
@@ -44,7 +47,7 @@ public class StablesScreen : BuckScreen
     {
         if (bucks == null)
         {
-            bucks = PlayerManager.Instance.GetDeerOfAge(DeerAge.Breeder).Keys.ToList();//PlayerManager.Instance.OwnedDeer.Keys.ToList();
+            bucks = PlayerManager.Instance.OwnedDeer.Keys.ToList();
         }
         currentDeer = bucks;
 
@@ -52,6 +55,10 @@ public class StablesScreen : BuckScreen
         _selectedButtons.SetActive(false);
         _adjacentViewer.gameObject.SetActive(false);
         if (_breedModeButtons != null) _breedModeButtons.SetActive(false);
+
+        if (selected.Item1 != null)
+            _breedButton.gameObject.SetActive(selected.Item1.GetAgeBracket() == DeerAge.Breeder);
+
         InitializeWidgets(bucks);
     }
 
@@ -63,12 +70,17 @@ public class StablesScreen : BuckScreen
             if (!_secondStableScreen) CancelBreeding();
         }
 
+        Debug.Log("Hi");
+
         selected = (buck, ui);
         ui.Background.color = Color.orange;
         _adjacentViewer.gameObject.SetActive(true);
         _adjacentViewer.SetDeer(buck, CostParams.Sell);
 
         _selectedButtons.SetActive(true);
+
+        if (buck != null)
+            _breedButton.gameObject.SetActive(selected.Item1.GetAgeBracket() == DeerAge.Breeder);
     }
 
     /// <summary>
@@ -85,7 +97,7 @@ public class StablesScreen : BuckScreen
         else
         {
             List<DeerData> segment = new List<DeerData>();
-            foreach (var deer in PlayerManager.Instance.GetDeerOfAge(DeerAge.Breeder).Keys.ToList())//OwnedDeer.Keys) 
+            foreach (var deer in PlayerManager.Instance.OwnedDeer.Keys.ToList())//OwnedDeer.Keys) 
             { if (selected.Item1 != deer) segment.Add(deer); }
 
             _otherStableScreen.InitializeStables(segment);
