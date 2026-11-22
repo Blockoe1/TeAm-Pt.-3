@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class EndScreenBehavior : MonoBehaviour
 {
-    public static int RoundsToEnd = 1;
+    public static int RoundsToEnd = 10;
 
     [SerializeField]
     private TMP_Text _moneyText;
