@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 
@@ -54,12 +55,12 @@ public class RaceSelectionScreen : BuckScreen
     {
         if (selected != default)
         {
-            selected.Item2.Background.color = Color.wheat;
+            selected.Item2.BuckName.fontStyle = FontStyles.Normal;
         }
 
         selected = (buck, ui);
         CheckButtonDisabled();
-        ui.Background.color = Color.orange;
+        selected.Item2.BuckName.fontStyle = FontStyles.Underline;
 
         _emptyPreview.SetActive(false);
 

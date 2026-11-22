@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: _bettingScreen
       value: 
       objectReference: {fileID: 2616221581136294848}
+    - target: {fileID: 1086754593251873883, guid: 0eb5310fdf646f743a18bfe76dd5cc5f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -200
+      objectReference: {fileID: 0}
     - target: {fileID: 2444575341330418248, guid: 0eb5310fdf646f743a18bfe76dd5cc5f, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -186,6 +190,10 @@ PrefabInstance:
     - target: {fileID: 3290640829117944520, guid: 0eb5310fdf646f743a18bfe76dd5cc5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3391071334180249062, guid: 0eb5310fdf646f743a18bfe76dd5cc5f, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4612080920325929847, guid: 0eb5310fdf646f743a18bfe76dd5cc5f, type: 3}
       propertyPath: m_Name
@@ -375,15 +383,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8677373432848802932, guid: 27fe48a03568dee4f9305f3e8295da33, type: 3}
       propertyPath: m_Color.b
-      value: 0.5395576
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8677373432848802932, guid: 27fe48a03568dee4f9305f3e8295da33, type: 3}
       propertyPath: m_Color.g
-      value: 0.5372549
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8677373432848802932, guid: 27fe48a03568dee4f9305f3e8295da33, type: 3}
       propertyPath: m_Color.r
-      value: 0.6117647
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
