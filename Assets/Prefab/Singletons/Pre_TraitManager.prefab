@@ -48,26 +48,191 @@ MonoBehaviour:
   _subManagers: []
   dontDestroyMePlease: 0
   _traitDatabase:
-  - rid: 7479278803429884011
-  - rid: 2790609388217565320
+  - rid: 7479278809097961806
+  - rid: 7479278809097961807
+  - rid: 7479278809097961808
+  - rid: 7479278809097961809
+  - rid: 7479278809097961810
+  - rid: 7479278809097961811
+  - rid: 7479278809097961826
+  - rid: 7479278809097961827
+  - rid: 7479278809097961829
+  - rid: 7479278809097961834
+  - rid: 7479278809097961837
+  - rid: 7479278809097961839
+  - rid: 7479278809097961840
+  - rid: 7479278809097961841
+  - rid: 7479278809097961849
+  - rid: 7479278809097961855
   references:
     version: 2
     RefIds:
-    - rid: 2790609388217565320
-      type: {class: TestTrait, ns: , asm: Assembly-CSharp}
+    - rid: 7479278809097961806
+      type: {class: RandomBetBoost, ns: , asm: Assembly-CSharp}
       data:
-        _name: EVIL TRAIT
-        _description: EVILY Increases acceleration by +5
-        _priority: 0
-        _randomlySelectable: 1
-        _traitAlignment: 1
-        _triggerFlags: 1
-    - rid: 7479278803429884011
-      type: {class: TestTrait, ns: , asm: Assembly-CSharp}
-      data:
-        _name: Test Trait
-        _description: Increases acceleration by +5.
+        _name: Inspired
+        _description: 'Permanent +1 in 3 random stats when this deer is bet on. '
         _priority: 0
         _randomlySelectable: 1
         _traitAlignment: 0
         _triggerFlags: 1
+        numStats: 3
+        statChange: 1
+    - rid: 7479278809097961807
+      type: {class: RaceEndStatChange, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Poor Health
+        _description: 'Permanent -1 Speed after every race. '
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 1
+        _triggerFlags: 1
+        stat: 0
+        statChange: -1
+        requirements: 2
+    - rid: 7479278809097961808
+      type: {class: StartsTripped, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Dirty Tricks
+        _description: Opposing deer start each race tripped.
+        _priority: -1
+        _randomlySelectable: 1
+        _traitAlignment: 0
+        _triggerFlags: 5
+        ignoreSelf: 1
+    - rid: 7479278809097961809
+      type: {class: StartsTripped, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Dazed
+        _description: Starts each race tripped.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 1
+        _triggerFlags: 1
+        ignoreSelf: 0
+    - rid: 7479278809097961810
+      type: {class: RaceEndStatChange, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Stardom
+        _description: Permanent +2 Charisma after winning a race.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 0
+        _triggerFlags: 1
+        stat: 5
+        statChange: 2
+        requirements: 1
+    - rid: 7479278809097961811
+      type: {class: RaceEndStatChange, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Washed Out
+        _description: Permanent -2 Charisma after losing a race.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 1
+        _triggerFlags: 1
+        stat: 5
+        statChange: -2
+        requirements: 2
+    - rid: 7479278809097961826
+      type: {class: HiddenGenes1, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Hidden Genes 1
+        _description: Gives Hidden Genes 2 to offspring.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 0
+        _triggerFlags: 0
+    - rid: 7479278809097961827
+      type: {class: HiddenGenes2, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Hidden Genes 2
+        _description: Gives Champion to offspring.
+        _priority: 0
+        _randomlySelectable: 0
+        _traitAlignment: 0
+        _triggerFlags: 0
+    - rid: 7479278809097961829
+      type: {class: Champion, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Champion
+        _description: Gives +4 to all stats.
+        _priority: 0
+        _randomlySelectable: 0
+        _traitAlignment: 0
+        _triggerFlags: 0
+        allStatsBoost: 4
+    - rid: 7479278809097961834
+      type: {class: PurchaseModifierTrait, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Negotiator
+        _description: 25% off all deer.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 0
+        _triggerFlags: 6
+        moneyModifier: -0.25
+    - rid: 7479278809097961837
+      type: {class: RaceEndMoneyChange, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Law Breaker
+        _description: Lose $0.25 after every round.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 1
+        _triggerFlags: 2
+        moneyChange: -25
+        requirements: 0
+    - rid: 7479278809097961839
+      type: {class: Wildcard, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Wildcard
+        _description: Random -3 to +3 to every stat at the beginning of each race.
+        _priority: 2
+        _randomlySelectable: 1
+        _traitAlignment: 2
+        _triggerFlags: 1
+        randomizedRange: {x: -3, y: 3}
+    - rid: 7479278809097961840
+      type: {class: AgingModifier, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Immortal
+        _description: Doesn't age once it hits breeding age.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 0
+        _triggerFlags: 2
+        ageChange: -1
+        minAge: 5
+    - rid: 7479278809097961841
+      type: {class: AgingModifier, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Warped
+        _description: Ages twice as fast.
+        _priority: -1
+        _randomlySelectable: 1
+        _traitAlignment: 1
+        _triggerFlags: 2
+        ageChange: 1
+        minAge: 0
+    - rid: 7479278809097961849
+      type: {class: BenjaminButton, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Benjamin Button
+        _description: This deer ages backwards.
+        _priority: 5
+        _randomlySelectable: 1
+        _traitAlignment: 2
+        _triggerFlags: 0
+        startingAge: 10
+    - rid: 7479278809097961855
+      type: {class: OneTimeWonder, ns: , asm: Assembly-CSharp}
+      data:
+        _name: One Time Wonder
+        _description: 'Gives +5 in all stats, but lose permanent -3 in all stats after each race. '
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 2
+        _triggerFlags: 1
+        boost: 5
+        statDrop: -3

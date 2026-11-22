@@ -9,4 +9,9 @@
 public class AgeTrigger : TraitTrigger
 {
     public int Age { get; set; }
+
+    public AgeTrigger(int age)
+    {
+        Age = age;
+    }
 }
