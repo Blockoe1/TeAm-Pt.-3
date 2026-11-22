@@ -92,5 +92,18 @@ public class PlayerManager : Manager
 
         return controller;
     }
+
+    public Dictionary<DeerData, DeerController> GetDeerOfAge(DeerAge age)
+    {
+        Dictionary<DeerData, DeerController> deerOfAge = new Dictionary<DeerData, DeerController>();
+
+        foreach (KeyValuePair<DeerData, DeerController> kvp in OwnedDeer)
+        {
+            if (kvp.Key.GetAgeBracket() == age)
+                deerOfAge.TryAdd(kvp.Key, kvp.Value);
+        }
+
+        return deerOfAge;
+    }
 }
  
