@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 091cc359405d68943a446b83d60a2cb6, type: 3}
-  m_Name: ColorA_SecondaryColor_Orange
+  m_Name: AlleleC_SecondaryColor_Orange
   m_EditorClassIdentifier: Assembly-CSharp::SO_ColorAllele
   _name: Orange
   _color: {fileID: 11400000, guid: b9fb961ad517de74093fe6edfc3ec826, type: 2}

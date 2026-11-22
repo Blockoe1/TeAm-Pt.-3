@@ -33,7 +33,7 @@ public class DeerController : Manager
         base.Initialize();
 
         geneCon = GetComponent<GeneController>();
-        geneCon.VisualizeColorGenotype(data.ColorGenotype);
+        geneCon.VisualizeGenotypes(data.PartGenotype, data.ColorGenotype);//VisualizeColorGenotype(data.ColorGenotype);
 
         statModifiers = new int[Enum.GetValues(typeof(StatType)).Length];
     }
@@ -74,7 +74,7 @@ public class DeerController : Manager
     public void Randomize()
     {
         data = DeerData.NewRandomDeer();
-        geneCon.VisualizeColorGenotype(data.ColorGenotype);
+        geneCon.VisualizeGenotypes(data.PartGenotype, data.ColorGenotype);//.VisualizeColorGenotype(data.ColorGenotype);
     }
     #endregion
 }
