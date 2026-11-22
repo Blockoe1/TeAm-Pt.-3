@@ -56,7 +56,7 @@ public class RacingDeer : MonoBehaviour
     private void FixedUpdate()
     {
         deerController.Anim.SetSpeed(rigidbody.linearVelocityX);
-        Debug.Log(deerController.Data.Name + ": " + rigidbody.linearVelocityX);
+        //Debug.Log(deerController.Data.Name + ": " + rigidbody.linearVelocityX);
     }
 
     private void EditStats()
@@ -75,20 +75,18 @@ public class RacingDeer : MonoBehaviour
     {
         if (inRace)
         {
-            Debug.Log(currentState);
-            if (currentState == STATES.NONE)
+            //Debug.Log(currentState);
+            if (currentState == STATES.TRIPPED && !deerController.Data.HasTrait<Pegasus>())
             {
-                currentState = STATES.RUNNING;
-            }
-            Debug.Log(currentState);
-            if (currentState == STATES.TRIPPED)
-            {
+                currentState = STATES.NONE;
                 TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(2, 4f));
                 TraitManager.TraitEvent(trigger, deerController);
-                StartCoroutine(UnTripCoroutine(trigger.TripTime));
+                Trip();
             }
             else
             {
+                
+                currentState = STATES.RUNNING;
                 StartCoroutine(TripCoroutine());
             }
             StartCoroutine(DisciplineCoroutine());
@@ -218,6 +216,7 @@ public class RacingDeer : MonoBehaviour
 
     private IEnumerator TripCoroutine()
     {
+        if (deerController.Data.HasTrait<Pegasus>()) { yield break; }
         bool isTripped = false;
         while (!isTripped)
         {
@@ -231,13 +230,12 @@ public class RacingDeer : MonoBehaviour
 
         TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(1f, 2f));
         TraitManager.TraitEvent(trigger, deerController);
-        StartCoroutine(UnTripCoroutine(trigger.TripTime));
-        currentState = STATES.TRIPPED;
+        Trip();
     }
 
     public void Trip()
     {
-        if (currentState != STATES.TRIPPED)
+        if (!deerController.Data.HasTrait<Pegasus>() && currentState != STATES.TRIPPED)
         {
             StopCoroutine(TripCoroutine());
             CurrentState = RacingDeer.STATES.TRIPPED;

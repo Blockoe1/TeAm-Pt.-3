@@ -198,11 +198,11 @@ public class DeerPool : Manager
     {
         foreach (KeyValuePair<DeerData, DeerController> kvp in PlayerManager.Instance.OwnedDeer)
             kvp.Key.IncrementAge();
-        foreach (DeerData dd in GetPool(PoolType.Good))
+        foreach (DeerData dd in GetPool(PoolType.Good).ToList())
             AgeDeer(dd);
-        foreach (DeerData dd in GetPool(PoolType.Bad))
+        foreach (DeerData dd in GetPool(PoolType.Bad).ToList())
             AgeDeer(dd);
-        foreach (DeerData dd in GetPool(PoolType.Mid))
+        foreach (DeerData dd in GetPool(PoolType.Mid).ToList())
             AgeDeer(dd);
     }
     

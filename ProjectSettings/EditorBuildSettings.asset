@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/BuildScenes/PersistentData.unity
-    guid: eacde7dbb28502841a4832acdfb4ac76
-  - enabled: 1
     path: Assets/Scenes/BuildScenes/MainMenu.unity
     guid: 1c68b4c56b978a0419cad980f2e4744d
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/PersistentData.unity
+    guid: eacde7dbb28502841a4832acdfb4ac76
   - enabled: 1
     path: Assets/Scenes/BuildScenes/PreRaceScene.unity
     guid: 6945a6b2ea875464cbf125dbcc098b3b
@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BuildScenes/PostRaceScene.unity
     guid: c388cb6c546e7484db9dd91dad1b12f6
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/EndScene.unity
+    guid: 99f29dc3007d52e4597614de82cd44aa
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: ffec85a5228d4484db9d62e2d48a2c81, type: 3}

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PostRaceJunk : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class PostRaceJunk : MonoBehaviour
 
     [SerializeField] private string winText = "You Won!";
     [SerializeField] private string lossText = "Poor Luck!";
+
+    
+    [SerializeField]
+    private int _ownedWinnerPayout = 50;
     private void Start()
     {
         if (RaceManager.DeerBetOnDeer == RaceManager.WinningDeer)
@@ -43,9 +48,20 @@ public class PostRaceJunk : MonoBehaviour
 
     private void EndRound()
     {
+        if (PlayerManager.Instance.OwnsDeer(RaceManager.WinningDeer))
+            MoneyManager.Instance.EarnMoney(_ownedWinnerPayout);
+
         DeerPool.Instance.AgeAllDeer();
         PlayerManager.Instance.Round++;
         PlayerManager.Instance.ResetBredOnRound();
         MoneyManager.Instance.EarnMoney(10);
+    }
+
+    public void ContinueButton()
+    {
+        if (PlayerManager.Instance.Round >= EndScreenBehavior.RoundsToEnd)
+            SceneManager.LoadScene("EndScene");
+        else
+            SceneManager.LoadScene("PreRaceScene");
     }
 }

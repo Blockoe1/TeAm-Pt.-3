@@ -2,6 +2,7 @@ using AriUtils;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NotificationLog : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class NotificationLog : MonoBehaviour
         while(notificationQueue.Count > 0)
             Notify(notificationQueue.Dequeue());
         notificationQueue.Clear();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(_notificationHolder as RectTransform);
     }
 
     private void Notify(ActNotifcation actN)
