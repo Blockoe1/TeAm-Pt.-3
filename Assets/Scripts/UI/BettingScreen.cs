@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BettingScreen : BuckScreen
 {
@@ -53,7 +54,9 @@ public class BettingScreen : BuckScreen
         _screen.SetActive(false);
 
         // TODO: store bet
+        RaceManager.DeerBetOn = selected.Item2.transform.GetSiblingIndex() - widgetsToKeep;
         // TODO: start race
+        SceneManager.LoadScene("RaceScene");
     }
 
     public void BetUp()
