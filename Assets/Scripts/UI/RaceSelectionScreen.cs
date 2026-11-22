@@ -30,7 +30,7 @@ public class RaceSelectionScreen : BuckScreen
     public void InitializeSelection()
     {
         // Fetch stable data
-        List<DeerData> bucks = PlayerManager.Instance.OwnedDeer.Keys.ToList();
+        List<DeerData> bucks = PlayerManager.Instance.OwnedDeer.Keys.Where(d => d.Age > 1 && d.Age < 8).ToList();
 
         selected = default;
         InitializeWidgets(bucks);
