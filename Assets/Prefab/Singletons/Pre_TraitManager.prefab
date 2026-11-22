@@ -262,7 +262,7 @@ MonoBehaviour:
         _randomlySelectable: 1
         _traitAlignment: 0
         _triggerFlags: 1
-        statBoost: 0
+        statBoost: 3
     - rid: 7479278826202333281
       type: {class: Contrarian, ns: , asm: Assembly-CSharp}
       data:

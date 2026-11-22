@@ -71,6 +71,8 @@ public class GeneticsMaster : Manager
         osGenCon.Initialize();
         osGenCon.VisualizeGenotypes(osDeerCon.Data);//VisualizeColorGenotype(osDeerCon.Data.ColorGenotype);
 
+        osDeerCon.Data.TriggerTraits(new BornTrigger(), osDeerCon, osDeerCon.Data, osDeerCon.Data, Trait.TriggerFlags.None);
+
         // Change to use TraitManager if we have things that trigger when other deer breed.
         parentA.Data.TriggerTraits(new BreedTrigger(osDeerCon.Data, inheritedA), parentA, parentA.Data, parentA.Data, Trait.TriggerFlags.None);
         parentB.Data.TriggerTraits(new BreedTrigger(osDeerCon.Data, inheritedB), parentB, parentB.Data, parentB.Data, Trait.TriggerFlags.None);
@@ -121,7 +123,6 @@ public class GeneticsMaster : Manager
             combinedData.SetStat(pool[i], CalculateBredStat(pool[i], parentB));
             inheritedB[i] = pool[i];
         }
-
 
         return combinedData;
     }
