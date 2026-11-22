@@ -6,7 +6,7 @@
 //
 // Brief Description : Adds generic support for trait triggers
 *****************************************************************************/
-public interface ITraitTrigger<T> where T: TraitTrigger
+public interface ITriggeredTrait<T> where T: TraitTrigger
 {
-    public abstract void TriggerTrait(T trait, DeerController deer);
+    public abstract void TriggerTrait(T trait, DeerController deer, bool isSelf);
 }

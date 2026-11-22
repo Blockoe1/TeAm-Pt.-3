@@ -9,6 +9,12 @@
 using AriUtils;
 using UnityEngine;
 
-public class StopTrait : TraitTrigger
+public class TripTrigger : TraitTrigger
 {
+    public float TripTime { get; set; }
+
+    public TripTrigger(float tripTime)
+    {
+        TripTime = tripTime;
+    }
 }

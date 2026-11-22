@@ -9,6 +9,14 @@
 using AriUtils;
 using UnityEngine;
 
-public class TripTrait : TraitTrigger
+public class DisobeyTrigger : TraitTrigger
 {
+    public bool IsReversed {  get; private set; }
+    public float DisobeyTime { get; set; }
+
+    public DisobeyTrigger(bool isReversed, float disobeyTime)
+    {
+        IsReversed = isReversed;
+        DisobeyTime = disobeyTime;
+    }
 }
