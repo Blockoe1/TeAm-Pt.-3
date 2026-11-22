@@ -13,7 +13,7 @@ public class PauseMenu : Manager
     public override void Initialize()
     {
         pause = InputSystem.actions.FindAction("Pause");
-        //pause.started += Pause_started;
+        pause.started += Pause_started;
         base.Initialize();
 
         pauseMenu.SetActive(false);
