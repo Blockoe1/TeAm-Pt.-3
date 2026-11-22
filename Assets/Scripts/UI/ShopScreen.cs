@@ -7,6 +7,7 @@ using System.Linq;
 public class ShopScreen : BuckScreen
 {
     [SerializeField] private GameObject purchaseConfirm;
+    [SerializeField] private GameObject background;
     [SerializeField] private FullDeerViewer fullDeerViewer;
     private BuckUI UI;
     protected override void Start()
@@ -30,6 +31,8 @@ public class ShopScreen : BuckScreen
         selected = default;
         widgetsToKeep = 2;
         InitializeWidgets(bucks);
+        purchaseConfirm.SetActive(false);
+        background.SetActive(false);
     }
 
     public override void BuckSelected(DeerData buck, BuckUI ui)
@@ -37,11 +40,12 @@ public class ShopScreen : BuckScreen
         selected = (buck, ui);
         CheckButtonDisabled();
 
-        // TODO: add deer to stables
         UI = ui;
         purchaseConfirm.SetActive(true);
+        background.SetActive(true);
         fullDeerViewer.SetDeer(buck, CostParams.Buy);
         fullDeerViewer.ProcessStats(buck);
+        AllowNavigation(false);
     }
 
     public void Confirm()
@@ -57,6 +61,9 @@ public class ShopScreen : BuckScreen
     public void Back()
     {
         purchaseConfirm.SetActive(false);
+        background.SetActive(false);
         selected = default;
+        AllowNavigation(true);
+
     }
 }

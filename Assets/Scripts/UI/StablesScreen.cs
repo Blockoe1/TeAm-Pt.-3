@@ -11,6 +11,8 @@ public class StablesScreen : BuckScreen
     [SerializeField] private GameObject _selectedButtons;
     [SerializeField] private GameObject _breedModeButtons;
     [SerializeField] private BreedingScreen _breedingScreen;
+    [SerializeField] private GameObject _viewScreen;
+    [SerializeField] private GameObject _viewBG;
 
     protected override void Start()
     {
@@ -19,6 +21,8 @@ public class StablesScreen : BuckScreen
         if (_breedModeButtons != null) _breedModeButtons.SetActive(false);
         if (!_secondStableScreen) InitializeStables();
         else _screen.SetActive(false);
+        if (_viewScreen != null) _viewScreen.SetActive(false);
+        if (_viewBG != null) _viewBG.SetActive(false);
         PlayerManager.OnDeerChanged += Handle_OnDeerChanged;
     }
 
@@ -62,7 +66,7 @@ public class StablesScreen : BuckScreen
         selected = (buck, ui);
         ui.Background.color = Color.orange;
         _adjacentViewer.gameObject.SetActive(true);
-        _adjacentViewer.SetDeer(buck, CostParams.None);
+        _adjacentViewer.SetDeer(buck, CostParams.Sell);
 
         _selectedButtons.SetActive(true);
     }
@@ -112,5 +116,25 @@ public class StablesScreen : BuckScreen
             _breedModeButtons.SetActive(false);
             _otherStableScreen.CancelBreeding();
         }
+    }
+
+    public void Sell()
+    {
+        PlayerManager.Instance.SellDeer(selected.Item1);
+    }
+
+    public void View()
+    {
+        AllowNavigation(false);
+        _viewBG.SetActive(true);
+        _viewScreen.SetActive(true);
+        _viewScreen.GetComponentInChildren<DeerViewer>().SetDeer(selected.Item1, CostParams.None);
+    }
+
+    public void StopViewing()
+    {
+        AllowNavigation(true);
+        _viewBG.SetActive(false);
+        _viewScreen.SetActive(false);
     }
 }

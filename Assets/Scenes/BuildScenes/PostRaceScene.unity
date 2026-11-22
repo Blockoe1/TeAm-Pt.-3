@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a08545069f5145932335506c17772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonUIScript
+  pauseMenu: {fileID: 0}
 --- !u!1 &164535209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,6 +1245,7 @@ GameObject:
   - component: {fileID: 1174561471}
   - component: {fileID: 1174561473}
   - component: {fileID: 1174561472}
+  - component: {fileID: 1174561474}
   m_Layer: 5
   m_Name: WinnerArea
   m_TagString: Untagged
@@ -1310,6 +1312,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174561470}
   m_CullTransparentMesh: 1
+--- !u!114 &1174561474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174561470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697806eeb44a88240a01877787caa37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PostRaceJunk
+  winLostTXT: {fileID: 235764405}
+  moneyGainLossTXT: {fileID: 1673669630}
+  winText: You Won!
+  lossText: Poor Luck!
 --- !u!1001 &1365270285
 PrefabInstance:
   m_ObjectHideFlags: 0

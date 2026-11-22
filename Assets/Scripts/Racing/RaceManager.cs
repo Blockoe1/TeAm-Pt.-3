@@ -23,11 +23,14 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private bool debugMode = false;
     [SerializeField, ShowIf("debugMode")] private DeerData[] debugDeerData;
     public static int DeerBetOn = 0;
+    public static DeerData DeerBetOnDeer;
 
     public static Action Broadcast_StartRace;
 
     public static RaceManager Instance = null;
     public static DeerData WinningDeer = null;
+
+    public GameObject[] GameObjectsInRace => deerInRaceGO;
     private void Start()
     {
         Instance = this;
@@ -55,6 +58,7 @@ public class RaceManager : MonoBehaviour
         }
 
         camFollow.Follow = deerInRaceGO[DeerBetOn].transform;
+        DeerBetOnDeer = deerInRaceGO[DeerBetOn].GetComponent<DeerController>().Data;
         //Race Countdown
         StartCoroutine(StartRace());
     }
@@ -81,6 +85,9 @@ public class RaceManager : MonoBehaviour
         for (int i = 0; i < deerInRaceGO.Length; ++i)
         {
             TraitManager.TraitEvent(new EndRaceTrigger(deer), deerInRaceGO[i].GetComponent<DeerController>());
+
+            DeerController dc = deerInRaceGO[i].GetComponent<DeerController>();
+            dc.Data.LogRace(dc == deer);
         }
         SceneManager.LoadScene("PostRaceScene");
     }

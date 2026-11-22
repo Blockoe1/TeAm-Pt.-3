@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class TestTrait : Trait, ITriggeredTrait<TripTrigger>
 {
-    public void TriggerTrait(TripTrigger trait, DeerController deer, bool isSelf)
+    public void TriggerTrait(TripTrigger trait, DeerController deer, DeerData data, bool isSelf)
     {
         Debug.Log("Trait called for " + deer.name);
     }

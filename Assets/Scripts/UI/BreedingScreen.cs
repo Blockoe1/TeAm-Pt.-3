@@ -23,7 +23,7 @@ public class BreedingScreen : BuckScreen
         selected = default;
         InitializeWidgets(bucks);
 
-        // TODO: disable screen navigation
+        AllowNavigation(false);
     }
 
     public override void BuckSelected(DeerData buck, BuckUI ui)
@@ -31,5 +31,6 @@ public class BreedingScreen : BuckScreen
         PlayerManager.Instance.NewBaby(buck);
         _stablesScreen.InitializeStables();
         _screen.SetActive(false);
+        AllowNavigation(true);
     }
 }

@@ -68,12 +68,20 @@ MonoBehaviour:
     _colorGenotype:
     - key: {fileID: 11400000, guid: f31f71ea7b96bc3408e5271abe613d9a, type: 2}
       value:
-        _alleleA: {fileID: 11400000, guid: 46ced1b299c00154e8ad970252a16a1c, type: 2}
-        _alleleB: {fileID: 11400000, guid: 967cfcdb286dbe74d9f03427f0bf1068, type: 2}
+        _alleleA: {fileID: 11400000, guid: 650d8ae4f9d0bdd4f8ca72bafd8bbd6a, type: 2}
+        _alleleB: {fileID: 11400000, guid: b25aff2b28dd35841956f7c4199fc409, type: 2}
     - key: {fileID: 11400000, guid: 3d15a8c2682c8784e88e27b422d8ae9c, type: 2}
       value:
-        _alleleA: {fileID: 11400000, guid: dca397d5ea696f84da7fc377a8c166b2, type: 2}
-        _alleleB: {fileID: 11400000, guid: ffd95f83cd0637f4b98a80f3c7e6b28a, type: 2}
+        _alleleA: {fileID: 11400000, guid: d93d81735c6499e4fad5d59afa9966f7, type: 2}
+        _alleleB: {fileID: 11400000, guid: 8985cf6003badc94aa1ce8e9522d2073, type: 2}
+    - key: {fileID: 11400000, guid: 930dbcbca76e36949b70b3f6dfd7b565, type: 2}
+      value:
+        _alleleA: {fileID: 11400000, guid: e34a93c80b38a8641868316ff56d24b4, type: 2}
+        _alleleB: {fileID: 11400000, guid: 09203ee0705ee9248ab31a63da51d643, type: 2}
+    - key: {fileID: 11400000, guid: 151a946cbc5082e4db020a1335ea48cb, type: 2}
+      value:
+        _alleleA: {fileID: 11400000, guid: e34a93c80b38a8641868316ff56d24b4, type: 2}
+        _alleleB: {fileID: 11400000, guid: 09203ee0705ee9248ab31a63da51d643, type: 2}
     _partGenotype:
     - key: {fileID: 11400000, guid: 3f1cf2ed82dd1054ca3b9102052dbd23, type: 2}
       value:
@@ -161,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RacingDeer
   rigidbody: {fileID: 5331172042761468525}
   deerController: {fileID: 4221163196402487758}
+  placement: 0
 --- !u!95 &4653172186294980002
 Animator:
   serializedVersion: 7
@@ -285,6 +294,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
+    - target: {fileID: 3230696094811201514, guid: d369e9727360dc34b943642267c1b46f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230696094811201514, guid: d369e9727360dc34b943642267c1b46f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3621229115141026012, guid: d369e9727360dc34b943642267c1b46f, type: 3}
       propertyPath: m_Name
       value: BLLeg

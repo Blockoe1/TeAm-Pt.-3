@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0579bdd8a2e705d429e4e728d284bf3e, type: 3}
+  m_Name: GeneC_Underbelly
+  m_EditorClassIdentifier: Assembly-CSharp::SO_ColorGene
+  _name: Underbelly
+  _alleles:
+  - {fileID: 11400000, guid: ad80bf147ee6fac4a893763056342924, type: 2}
+  - {fileID: 11400000, guid: bac9b4338b491c44898692cfc1357c21, type: 2}
+  - {fileID: 11400000, guid: a6ff42ce847f91442b29a4db69314748, type: 2}
+  - {fileID: 11400000, guid: 426602305de5ae946898693cc5e8e4ac, type: 2}
+  - {fileID: 11400000, guid: b25aff2b28dd35841956f7c4199fc409, type: 2}
+  - {fileID: 11400000, guid: 71495708f072b8840a2155a77367656a, type: 2}
+  - {fileID: 11400000, guid: 25931d300b13bef45bb08c554d3bb93b, type: 2}
+  - {fileID: 11400000, guid: 26673c3fb708c95409f2dd8b80dc6c65, type: 2}
+  - {fileID: 11400000, guid: eeab9dea094a0da4d9d3d4a7c3dfe1a8, type: 2}
+  - {fileID: 11400000, guid: 510675d6db277b34292b7c0b0c0efdf2, type: 2}
+  - {fileID: 11400000, guid: e34a93c80b38a8641868316ff56d24b4, type: 2}
+  - {fileID: 11400000, guid: 650d8ae4f9d0bdd4f8ca72bafd8bbd6a, type: 2}
+  - {fileID: 11400000, guid: 266e3a78962c6f7408a561b676566612, type: 2}
+  - {fileID: 11400000, guid: 7b9890cf6a90f4d4fb4c1e756bb24e2b, type: 2}
+  - {fileID: 11400000, guid: 99340839590c23540bafca67d00c01c9, type: 2}
+  - {fileID: 11400000, guid: 09203ee0705ee9248ab31a63da51d643, type: 2}
+  - {fileID: 11400000, guid: 8985cf6003badc94aa1ce8e9522d2073, type: 2}
+  - {fileID: 11400000, guid: 54f1eb495edfce94f8419ee4fde7e00e, type: 2}
+  - {fileID: 11400000, guid: ca2ac448cac01f5468f145fd138df310, type: 2}
+  - {fileID: 11400000, guid: d93d81735c6499e4fad5d59afa9966f7, type: 2}
+  _matColorID: Color2
+  _matColorShadedID: 

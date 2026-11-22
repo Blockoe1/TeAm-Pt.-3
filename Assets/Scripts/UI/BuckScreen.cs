@@ -10,6 +10,7 @@ public class BuckScreen : MonoBehaviour
     [SerializeField] private BuckUI _buckTemplate;
     [SerializeField] private GameObject _blankTemplate;
     [SerializeField] private Button disabledButton;
+    [SerializeField] private Button[] _navigationButtons;
     protected (DeerData, BuckUI) selected;
     protected int widgetsToKeep = 1;
     protected List<DeerData> currentDeer;
@@ -58,11 +59,12 @@ public class BuckScreen : MonoBehaviour
         var entry = Instantiate(_buckTemplate, _buckParent).GetComponent<BuckUI>();
         entry.gameObject.SetActive(true);
         if (entry.BuckName != null) entry.BuckName.text = buck.Name;
+        if (entry.BuckAppearance != null) entry.BuckAppearance.texture = buck.Controller.Rt;
         entry.SelectButton.onClick.AddListener(() => BuckSelected(buck, entry));
         entry.Data = buck;
 
-        var child = GetComponentInChildren<FullDeerViewer>();
-        //if (child != null) child.SetDeer(buck);
+        var child = entry.transform.GetComponentInChildren<FullDeerViewer>();
+        if (child != null) child.SetDeer(buck, CostParams.None);
     }
 
     public void ReplaceWithBlank(BuckUI ui)
@@ -83,5 +85,10 @@ public class BuckScreen : MonoBehaviour
         if (s.Length == 2) s = "0" + s;
         s = s.Substring(0, s.Length - 2) + "." + s.Substring(s.Length - 2);
         return "$" + s;
+    }
+
+    public void AllowNavigation(bool val)
+    {
+        foreach (var button in _navigationButtons) button.gameObject.SetActive(val);
     }
 }
