@@ -38,7 +38,7 @@ public class GeneController : Manager
 
     public void VisualizePartGenotype(Dictionary<SO_PartGene, PartGenome> partGenotype)
     {
-        Debug.Log("Ran");
+        //Debug.Log("Ran");
         foreach (KeyValuePair<SO_PartGene, PartGenome> genome in partGenotype)
         {
             SO_PartAllele dominant = GetDominantAllele(genome.Key, partGenotype);

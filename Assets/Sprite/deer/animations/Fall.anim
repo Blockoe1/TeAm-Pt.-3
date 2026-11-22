@@ -1325,18 +1325,7 @@ AnimationClip:
       m_RotationOrder: 4
     path: Body/BackLeg2
   m_FloatCurves: []
-  m_PPtrCurves:
-  - serializedVersion: 2
-    curve:
-    - time: 0
-      value: {fileID: 21300000, guid: 46c0492044dec3046845a36228b59a9f, type: 3}
-    - time: 2.4
-      value: {fileID: 21300000, guid: 46c0492044dec3046845a36228b59a9f, type: 3}
-    attribute: m_Sprite
-    path: Body/Neck/Head
-    classID: 212
-    script: {fileID: 0}
-    flags: 2
+  m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -1545,16 +1534,6 @@ AnimationClip:
       isSerializeReferenceCurve: 0
       metaData: 0
     - serializedVersion: 2
-      path: 2074134380
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-      metaData: 0
-    - serializedVersion: 2
       path: 4248649212
       attribute: 3
       script: {fileID: 0}
@@ -1564,9 +1543,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
       metaData: 0
-    pptrCurveMapping:
-    - {fileID: 21300000, guid: 46c0492044dec3046845a36228b59a9f, type: 3}
-    - {fileID: 21300000, guid: 46c0492044dec3046845a36228b59a9f, type: 3}
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

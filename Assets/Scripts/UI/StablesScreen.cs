@@ -30,13 +30,7 @@ public class StablesScreen : BuckScreen
         // or disable the one you've already selected
         if (bucks == null)
         {
-            bucks = new List<DeerData>();
-            for (int i = 0; i < 8; i++)
-            {
-                bucks.Add(DeerData.NewRandomDeer());
-                //bucks[^1].Data = DeerData.NewRandomDeer();
-                //bucks[^1].Data.Name = (i + 1).ToString();
-            }
+            bucks = PlayerManager.Instance.OwnedDeer.Keys.ToList();
         }
         currentDeer = bucks;
 
@@ -73,7 +67,7 @@ public class StablesScreen : BuckScreen
         else
         {
             List<DeerData> segment = new List<DeerData>();
-            foreach (var deer in currentDeer) { if (selected.Item1 != deer) segment.Add(deer); }
+            foreach (var deer in PlayerManager.Instance.OwnedDeer.Keys) { if (selected.Item1 != deer) segment.Add(deer); }
 
             _otherStableScreen.InitializeStables(segment);
 

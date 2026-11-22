@@ -63,6 +63,12 @@ public class PlayerManager : Manager
         }
     }
 
+    public void NewBaby(DeerData googooGaga)
+    {
+        _ownedDeer?.Add(googooGaga, googooGaga.Controller);
+        OnDeerChanged?.Invoke(googooGaga, true);
+    }
+
     public DeerController GenerateControllerForNewDeer(DeerData data)
     {
         var go = Instantiate(_deerPrefab, transform);
