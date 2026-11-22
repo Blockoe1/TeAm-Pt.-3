@@ -75,25 +75,19 @@ public class RacingDeer : MonoBehaviour
     {
         if (inRace)
         {
-            Debug.Log(currentState);
-            if (currentState == STATES.NONE)
+            //Debug.Log(currentState);
+            if (currentState == STATES.TRIPPED && !deerController.Data.HasTrait<Pegasus>())
             {
-                currentState = STATES.RUNNING;
+                currentState = STATES.NONE;
+                TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(2, 4f));
+                TraitManager.TraitEvent(trigger, deerController);
+                Trip();
             }
-            Debug.Log(currentState);
-            if (!deerController.Data.HasTrait<Pegasus>())
+            else
             {
-                if (currentState == STATES.TRIPPED)
-                {
-                    currentState = STATES.NONE;
-                    TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(2, 4f));
-                    TraitManager.TraitEvent(trigger, deerController);
-                    Trip();
-                }
-                else
-                {
-                    StartCoroutine(TripCoroutine());
-                }
+                
+                currentState = STATES.RUNNING;
+                StartCoroutine(TripCoroutine());
             }
             StartCoroutine(DisciplineCoroutine());
             StartCoroutine(SpeedLower());
@@ -222,6 +216,7 @@ public class RacingDeer : MonoBehaviour
 
     private IEnumerator TripCoroutine()
     {
+        if (deerController.Data.HasTrait<Pegasus>()) { yield break; }
         bool isTripped = false;
         while (!isTripped)
         {
