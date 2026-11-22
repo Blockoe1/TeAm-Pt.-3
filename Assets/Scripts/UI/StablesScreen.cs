@@ -7,7 +7,8 @@ public class StablesScreen : BuckScreen
     [SerializeField] private bool _secondStableScreen;
     [SerializeField] private StablesScreen _otherStableScreen;
     [SerializeField] private GameObject _selectedButtons;
-    [SerializeField, HideIf("_otherStableScreen")] private GameObject _breedModeButtons;
+    [SerializeField] private GameObject _breedModeButtons;
+    [SerializeField] private BreedingScreen _breedingScreen;
 
     protected override void Start()
     {
@@ -64,7 +65,10 @@ public class StablesScreen : BuckScreen
     {
         if (_secondStableScreen)
         {
-            // initiate breeding
+            _breedingScreen.InitializeBreeding();
+            _screen.SetActive(false);
+            _selectedButtons.SetActive(false);
+            _otherStableScreen.StartBreeding();
         }
         else
         {
@@ -79,6 +83,12 @@ public class StablesScreen : BuckScreen
             _selectedButtons.SetActive(false);
             _breedModeButtons.SetActive(true);
         }
+    }
+
+    public void StartBreeding()
+    {
+        _screen.SetActive(false);
+        _breedModeButtons.SetActive(false);
     }
 
     public void CancelBreeding()

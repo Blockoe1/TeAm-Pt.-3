@@ -39,9 +39,12 @@ public class BuckScreen : MonoBehaviour
     {
         var entry = Instantiate(_buckTemplate, _buckParent).GetComponent<BuckUI>();
         entry.gameObject.SetActive(true);
-        entry.BuckName.text = buck.Data.Name;
+        if (entry.BuckName != null) entry.BuckName.text = buck.Data.Name;
         entry.SelectButton.onClick.AddListener(() => BuckSelected(buck, entry));
         entry.Data = buck.Data;
+
+        var child = GetComponentInChildren<FullDeerViewer>();
+        //if (child != null) child.SetDeer(buck.Data);
     }
 
     public void ReplaceWithBlank(BuckUI ui)
