@@ -19,7 +19,7 @@ public class MoneyManager : Manager
 
     public int TotalCents => totalCents;
 
-    public event Action<int> OnBalanceChanged;
+    public static event Action<int> OnBalanceChanged;
 
     public override void Initialize()
     {
