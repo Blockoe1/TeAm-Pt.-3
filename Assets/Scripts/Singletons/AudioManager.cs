@@ -3,6 +3,7 @@ using FMODUnity;
 using System.Collections.Generic;
 using FMOD.Studio;
 using MarUtility.ExecutionManagement;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : Manager
 {
@@ -14,6 +15,8 @@ public class AudioManager : Manager
         SFX1 = 2,
         SFX2 = 3
     }
+    private AudioID currentMusicID = AudioID.NONE;
+
     [SerializeField] private EventReference[] audioLookup;
 
     public static AudioManager Instance = null;
@@ -27,14 +30,33 @@ public class AudioManager : Manager
             base.Initialize();
             Instance = this;
 
-
+            SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
+            PlayLoopedEvent(AudioID.IDLEMUSIC);
+            Debug.Log(audioLookup.Length);
             return;
         }
 
         Debug.LogError("How did we get here?\nWe have an extra copy of AudioManager, deleting the copy...");
         Destroy(gameObject);
     }
-    
+
+    private void SceneManager_activeSceneChanged(Scene arg0, Scene arg1)
+    {
+        if(arg1.name == "RaceScene")
+        {
+            PlayLoopedEvent(AudioID.RACEMUSIC);
+        }
+        else
+        {
+            PlayLoopedEvent(AudioID.IDLEMUSIC);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.activeSceneChanged -= SceneManager_activeSceneChanged;
+    }
+
     /// <summary>
     /// Plays a 1shot FMOD sound. Don't make this a piece of music we can't stop it
     /// </summary>
@@ -57,7 +79,8 @@ public class AudioManager : Manager
     {
         bgMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
-        if (audioID == AudioID.NONE)
+
+        if (audioID == AudioID.NONE || currentMusicID == audioID)
         {
             return;
         }
@@ -65,5 +88,6 @@ public class AudioManager : Manager
         bgMusic = RuntimeManager.CreateInstance(audioLookup[(int)audioID]);
 
         bgMusic.start();
+        currentMusicID = audioID;
     }
 }

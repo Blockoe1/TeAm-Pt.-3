@@ -1100,6 +1100,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8505874600614851323, guid: aaa1920bcb7e9554c9c5f63e098e8a89, type: 3}
   m_PrefabInstance: {fileID: 860681466}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &860681468 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8986178178259690779, guid: aaa1920bcb7e9554c9c5f63e098e8a89, type: 3}
+  m_PrefabInstance: {fileID: 860681466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e83f996b6828da438f9202d88da6199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
 --- !u!114 &966128650 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8474483097073318994, guid: 4b4c153fb7cf69a4e9f61d6662ef3a1c, type: 3}
@@ -1489,7 +1500,7 @@ MonoBehaviour:
   - {fileID: 464655204}
   - {fileID: 966128650}
   - {fileID: 2007568643}
-  - {fileID: 0}
+  - {fileID: 860681468}
   - {fileID: 86007713}
   - {fileID: 86880680}
   - {fileID: 4684265086736790756}
