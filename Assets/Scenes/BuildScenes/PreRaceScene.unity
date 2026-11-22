@@ -428,6 +428,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &986942764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2080917728671367034, guid: b8218b428486d194fbab97650979894f, type: 3}
+  m_PrefabInstance: {fileID: 1389406907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1140533148
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +483,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1215919457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8572536449023440850, guid: b8218b428486d194fbab97650979894f, type: 3}
+  m_PrefabInstance: {fileID: 1389406907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1001 &1389406907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -660,6 +682,10 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1624283079804237258, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: _breedButton
+      value: 
+      objectReference: {fileID: 1215919457}
     - target: {fileID: 1641396467261216691, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1240,6 +1266,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5832566570382500080, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: _breedButton
+      value: 
+      objectReference: {fileID: 986942764}
     - target: {fileID: 5911474725244991997, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_Value
       value: 1
