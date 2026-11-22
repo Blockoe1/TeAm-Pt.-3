@@ -21,7 +21,6 @@ public class RaceSelectionScreen : BuckScreen
 
     private void Handle_OnDeerChanged(DeerData changedDeer, bool wasAdded)
     {
-        Debug.Log(changedDeer.Name);
         InitializeSelection();
     }
 
@@ -42,7 +41,7 @@ public class RaceSelectionScreen : BuckScreen
 
         _screen.SetActive(false);
 
-        _bettingScreen.InitializeBetting();
+        _bettingScreen.InitializeBetting(selected.Item1);
     }
 
     public override void BuckSelected(DeerData buck, BuckUI ui)

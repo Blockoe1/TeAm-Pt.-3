@@ -29,7 +29,7 @@ public class DeerTooltip : DeerViewer
         SingletonUtil.SetSingleton(ref instance, this);
     }
 
-    public override void SetDeer(DeerData deerData)
+    public override void SetDeer(DeerData deerData, CostParams costParams)
     {
         if (deerData == null)
         {
@@ -40,7 +40,7 @@ public class DeerTooltip : DeerViewer
         {
             cg.alpha = 1;
         }
-        base.SetDeer(deerData);
+        base.SetDeer(deerData, costParams);
 
         // Traits
         string traitsString = "Traits: ";
