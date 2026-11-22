@@ -1015,6 +1015,7 @@ MonoBehaviour:
   _buckParent: {fileID: 2444575341330418248}
   _buckTemplate: {fileID: 1470301785899936562}
   _blankTemplate: {fileID: 0}
+  disabledButton: {fileID: 20345789056522224}
   _bettingScreen: {fileID: 0}
 --- !u!1 &8985629200592905075
 GameObject:

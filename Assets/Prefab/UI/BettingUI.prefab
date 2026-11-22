@@ -395,6 +395,7 @@ MonoBehaviour:
   _buckParent: {fileID: 2357971268099471312}
   _buckTemplate: {fileID: 8111884692431796695}
   _blankTemplate: {fileID: 0}
+  disabledButton: {fileID: 3632593266533062683}
   _selectionScreen: {fileID: 0}
   _betText: {fileID: 6636988411697237572}
   _defaultBet: 10
