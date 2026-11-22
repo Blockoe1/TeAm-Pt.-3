@@ -27,4 +27,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 052747442cfa14e478d0aec7a8f5f27f, type: 2}
   - {fileID: 11400000, guid: 535194a1d7abdec45bac6eac9d13985a, type: 2}
   - {fileID: 11400000, guid: c7598cb0d2b149e4fb8c37b99654a552, type: 2}
+  - {fileID: 11400000, guid: a77841670df140a4fbab5066ef72fe77, type: 2}
+  - {fileID: 11400000, guid: a757bab6b8b3f8c4db13adf023518bc5, type: 2}
+  - {fileID: 11400000, guid: 0df9378da92d0d9409e318770408316a, type: 2}
+  - {fileID: 11400000, guid: 315655b3a844d1a4185c55640ecedbc7, type: 2}
+  - {fileID: 11400000, guid: fca73635df2eb9341ac32e95007a01b3, type: 2}
   _matTextureID: MainTexture

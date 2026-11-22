@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Syrup
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Syrup
-  _color: {r: 0.5283019, g: 0.3144317, b: 0.041533057, a: 100}
-  _shadedColor: {r: 0.38993704, g: 0.28147936, b: 0.14837222, a: 100}
+  _color: {r: 0.49056602, g: 0.2801608, b: 0.016197944, a: 100}
+  _shadedColor: {r: 0.3018868, g: 0.20797321, b: 0.089711644, a: 100}
