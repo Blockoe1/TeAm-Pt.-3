@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5da594b7b8cc6d44a4043b1b13ecb54, type: 3}
+  m_Name: AlleleP_Leg_Detail
+  m_EditorClassIdentifier: Assembly-CSharp::SO_PartAllele
+  _name: Basic
+  _parts:
+  - key: BLLeg
+    value: {fileID: 21300000, guid: 3cc1d77f7bb0c7e4eb8fab7ecf0e5c94, type: 3}
+  - key: BRLeg
+    value: {fileID: 21300000, guid: 24e6cc83901a25d4686250b68ae7c112, type: 3}
+  - key: FLLeg
+    value: {fileID: 21300000, guid: 9cd04475cb0e4964ca8c5367ad2e64e4, type: 3}
+  - key: FRLeg
+    value: {fileID: 21300000, guid: ab89dbecce005b349af74fb944bf093f, type: 3}

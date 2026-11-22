@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_PartGene
   _name: Tail
   _alleles:
-  - {fileID: 11400000, guid: 019b4f31146692843b320edddb484e5b, type: 2}
   - {fileID: 11400000, guid: 79439190ee3eba04b8235f791ba1db4f, type: 2}
-  - {fileID: 11400000, guid: a8acb3c347a276f42ae3da37cc628745, type: 2}
-  - {fileID: 11400000, guid: 07b9b9e212c9bad4f9044ca79ac5ed8d, type: 2}
-  - {fileID: 11400000, guid: be608dc385f329b4b92117a738b64ad0, type: 2}
   - {fileID: 11400000, guid: eb40ef2146b16274cbe0a859be59eb95, type: 2}
   - {fileID: 11400000, guid: 644f4ff0a2e190743a4ca60a26568a1b, type: 2}
+  - {fileID: 11400000, guid: be608dc385f329b4b92117a738b64ad0, type: 2}
+  - {fileID: 11400000, guid: 019b4f31146692843b320edddb484e5b, type: 2}
+  - {fileID: 11400000, guid: 07b9b9e212c9bad4f9044ca79ac5ed8d, type: 2}
   - {fileID: 11400000, guid: f7bdedf66056301498722c17c8485c92, type: 2}
   - {fileID: 11400000, guid: ca34741767a4c134db0f0886c6d44f7d, type: 2}
+  - {fileID: 11400000, guid: a8acb3c347a276f42ae3da37cc628745, type: 2}
   _matTextureID: MainTexture

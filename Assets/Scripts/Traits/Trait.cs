@@ -45,7 +45,7 @@ public abstract class Trait
     }
 
     // Specialized trait functions for traits that modify specific info on this deer only.
-    public virtual int GetInheritedTraitIndex(TraitManager tm)
+    public virtual int GetInheritedTraitIndex()
     {
         return TraitIndex;
     }

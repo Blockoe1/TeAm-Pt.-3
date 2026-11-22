@@ -46,29 +46,38 @@ public class ColorRegionHandler : Manager
         }
     }
 
-    public void VisualizeColor(string colorID, SO_Color color)
+    public void VisualizeColor(string colorID, string shadedColorID, SO_Color color)
     {
         switch (_renderType)
         {
             case ERendererType.SPRITE:
                 foreach (SpriteRenderer sr in _spriteRens)
-                    sr.material.SetColor("_" + colorID, color.Color); break;
+                {
+                    sr.material.SetColor("_" + colorID, color.Color);
+                    sr.material.SetColor("_" + shadedColorID, color.Color);
+                }
+
+                break;
             case ERendererType.IMAGE:
                 foreach (Image i in _imageRens)
-                    i.material.SetColor("_" + colorID, color.Color); break;
+                {
+                    i.material.SetColor("_" + colorID, color.Color);
+                    i.material.SetColor("_" + shadedColorID, color.Color);
+                }
+                break;
         }
     }
 
-    private void VisualizeColors(SO_Color[] colors)
-    {
-        for (int i = 0; i < colors.Length; i++)
-            VisualizeColor("_" + _colorIDs[i], colors[i]);
-    }
+    //private void VisualizeColors(SO_Color[] colors)
+    //{
+    //    for (int i = 0; i < colors.Length; i++)
+    //        VisualizeColor("_" + _colorIDs[i], colors[i]);
+    //}
 
     #region Inspector
-    [Button]
-    private void VisualizeColors()
-        => VisualizeColors(_simColors);
+    //[Button]
+    //private void VisualizeColors()
+    //    => VisualizeColors(_simColors);
     #endregion
 }
 

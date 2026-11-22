@@ -16,9 +16,12 @@ public class SO_Color : ScriptableObject
 
     [SerializeField]
     private Color _color = new Color(255, 255, 255, 100);
+    [SerializeField]
+    private Color _shadedColor = new Color(155, 155, 155, 100);
 
     #region GS
     public string Name { get => _name;}
     public Color Color { get => _color;}
+    public Color ShadedColor { get => _shadedColor; }
     #endregion
 }
