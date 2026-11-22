@@ -35,7 +35,9 @@ public class DeerData
     [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; private set; } = new Trait[BASE_TRAIT_NUM];
 
     [SerializeField]
-    private Dictionary<SO_ColorGene, ColorGenotype> _colorGenotype;
+    private Dictionary<SO_ColorGene, ColorGenome> _colorGenotype = new Dictionary<SO_ColorGene, ColorGenome>();
+    [SerializeField]
+    private Dictionary<SO_PartGene, PartGenome> _partGenotype = new Dictionary<SO_PartGene, PartGenome>();
 
 
     public int Wins { get; private set; }
@@ -43,7 +45,8 @@ public class DeerData
 
 
     #region GS
-    public Dictionary<SO_ColorGene, ColorGenotype> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
+    public Dictionary<SO_ColorGene, ColorGenome> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
+    public Dictionary<SO_PartGene, PartGenome> PartGenotype { get => _partGenotype; set => _partGenotype = value; }
     #endregion
 
     public void LogRace(bool wasWin)
@@ -242,19 +245,31 @@ public class DeerData
         }
 
         data.ColorGenotype = NewRandomColorGenotype();
+        data.PartGenotype = NewRandomPartGenotype();
 
         return data;
     }
 
     //Randomize color genotype.
-    public static Dictionary<SO_ColorGene, ColorGenotype> NewRandomColorGenotype()
+    public static Dictionary<SO_ColorGene, ColorGenome> NewRandomColorGenotype()
     {
-        Dictionary<SO_ColorGene, ColorGenotype> newColorGenotype = new Dictionary<SO_ColorGene, ColorGenotype>();
+        Dictionary<SO_ColorGene, ColorGenome> newGenotype = new Dictionary<SO_ColorGene, ColorGenome>();
 
         foreach (SO_ColorGene gene in GeneticsMaster.INST.ColorGenes)
-            newColorGenotype.TryAdd(gene, new ColorGenotype(gene.GetRandomAllele(), gene.GetRandomAllele()));
+            newGenotype.TryAdd(gene, new ColorGenome(gene.GetRandomAllele(), gene.GetRandomAllele()));
 
-        return newColorGenotype;
+        return newGenotype;
+    }
+
+    //Randomize part genotype.
+    public static Dictionary<SO_PartGene, PartGenome> NewRandomPartGenotype()
+    {
+        Dictionary<SO_PartGene, PartGenome> newGenotype = new Dictionary<SO_PartGene, PartGenome>();
+
+        foreach (SO_PartGene gene in GeneticsMaster.INST.PartGenes)
+            newGenotype.TryAdd(gene, new PartGenome(gene.GetRandomAllele(), gene.GetRandomAllele()));
+
+        return newGenotype;
     }
 }
 

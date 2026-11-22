@@ -1987,7 +1987,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "4c53a4b522c7451591a48292818e1220",
     "m_Id": 0,
-    "m_DisplayName": "RegionTexture",
+    "m_DisplayName": "MainTexture",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_HideConnector": false,
@@ -2549,9 +2549,9 @@
     "m_StageCapability": 3,
     "m_CustomBinding": "",
     "m_Value": {
-        "x": 1.0,
+        "x": 0.0,
         "y": 0.0,
-        "z": 1.0000001192092896
+        "z": 0.0
     },
     "m_DefaultValue": {
         "x": 0.0,
@@ -2692,9 +2692,9 @@
     "m_StageCapability": 3,
     "m_CustomBinding": "",
     "m_Value": {
-        "x": 1.1920928955078125e-7,
+        "x": 0.3921568989753723,
         "y": 0.0,
-        "z": 1.0
+        "z": 0.0
     },
     "m_DefaultValue": {
         "x": 0.0,
@@ -2956,10 +2956,10 @@
     "promotedFromAssetID": "",
     "promotedFromCategoryName": "",
     "promotedOrdering": -1,
-    "m_Name": "RegionTexture",
+    "m_Name": "MainTexture",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "RegionTexture",
-    "m_DefaultReferenceName": "_RegionTexture",
+    "m_RefNameGeneratedByDisplayName": "MainTexture",
+    "m_DefaultReferenceName": "_MainTexture",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -2973,7 +2973,7 @@
     "m_PerRendererData": false,
     "m_customAttributes": [],
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"dd54f96684a40474599859deff9c9067\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"efcfa76eaf39347419ac07790cbbab01\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -3154,9 +3154,9 @@
     "m_StageCapability": 3,
     "m_CustomBinding": "",
     "m_Value": {
-        "x": 0.0,
+        "x": 1.0,
         "y": 1.0,
-        "z": 5.960464477539063e-8
+        "z": 1.0
     },
     "m_DefaultValue": {
         "x": 0.0,
@@ -4047,8 +4047,8 @@
     "m_StageCapability": 3,
     "m_CustomBinding": "",
     "m_Value": {
-        "x": 1.0,
-        "y": 1.0,
+        "x": 0.6980392336845398,
+        "y": 0.0,
         "z": 0.0
     },
     "m_DefaultValue": {
@@ -4215,7 +4215,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "d35d4f17d4c44cd6889beb3bc1addb64",
     "m_Id": 0,
-    "m_DisplayName": "RegionTexture",
+    "m_DisplayName": "MainTexture",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_HideConnector": false,

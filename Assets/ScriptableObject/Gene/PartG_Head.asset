@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5d13dff2d716c499ada437ef8f7bd1, type: 3}
+  m_Name: PartG_Head
+  m_EditorClassIdentifier: Assembly-CSharp::SO_PartGene
+  _name: Head
+  _alleles:
+  - {fileID: 11400000, guid: 976747068f38c5d4886c4aa7109d67d9, type: 2}
+  - {fileID: 11400000, guid: 5ecc4433d9a2a474683a96d7fffc61d3, type: 2}
+  - {fileID: 11400000, guid: fbb466a39540a924eb4cbe97fef4ae27, type: 2}
+  - {fileID: 11400000, guid: 93d5d520b187719498e78aae611de210, type: 2}
+  - {fileID: 11400000, guid: c4859fe45e4c3e1419c1d7a2b1166426, type: 2}
+  - {fileID: 11400000, guid: 3d002a4ea7e5ad24199895946ed3d2b8, type: 2}
+  - {fileID: 11400000, guid: c671e76c613ad2a4a94eec480a480131, type: 2}
+  - {fileID: 11400000, guid: c7598cb0d2b149e4fb8c37b99654a552, type: 2}
+  _matTextureID: MainTexture
