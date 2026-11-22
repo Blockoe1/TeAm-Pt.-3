@@ -7,6 +7,7 @@ public class ShopScreen : BuckScreen
 {
     [SerializeField] private GameObject purchaseConfirm;
     [SerializeField] private FullDeerViewer fullDeerViewer;
+    private BuckUI UI;
     protected override void Start()
     {
         base.Start();
@@ -30,7 +31,7 @@ public class ShopScreen : BuckScreen
     public override void BuckSelected(DeerData buck, BuckUI ui)
     {
         // TODO: add deer to stables
-        ReplaceWithBlank(ui);
+        UI = ui;
         purchaseConfirm.SetActive(true);
         fullDeerViewer.SetDeer(buck);
         fullDeerViewer.ProcessStats(buck);
@@ -39,6 +40,7 @@ public class ShopScreen : BuckScreen
     public void Confirm()
     {
         purchaseConfirm.SetActive(false);
+        ReplaceWithBlank(UI);
     }
 
     public void Back()

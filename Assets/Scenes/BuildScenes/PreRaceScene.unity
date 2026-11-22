@@ -1515,6 +1515,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3434489076169049581, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434489076169049581, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3752383495143689900, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1619,8 +1627,24 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6348758574048260393, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348758574048260393, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6426140841769282514, guid: b8218b428486d194fbab97650979894f, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625206736501805271, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625206736501805271, guid: b8218b428486d194fbab97650979894f, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7907408924414910508, guid: b8218b428486d194fbab97650979894f, type: 3}
@@ -1655,10 +1679,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 352121371832089507, guid: b8218b428486d194fbab97650979894f, type: 3}
-      insertIndex: 0
+      insertIndex: -1
       addedObject: {fileID: 778275840}
     - targetCorrespondingSourceObject: {fileID: 352121371832089507, guid: b8218b428486d194fbab97650979894f, type: 3}
-      insertIndex: 1
+      insertIndex: -1
       addedObject: {fileID: 1292586582}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8218b428486d194fbab97650979894f, type: 3}
