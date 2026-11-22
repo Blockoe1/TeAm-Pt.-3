@@ -16,8 +16,6 @@ using UnityEngine;
 public class DeerData
 {
     private const int BASE_TRAIT_NUM = 2;
-    private const int BREEDING_AGE = 5;
-    private const int RETIRED_AGE = 8;
 
     public const int STAT_MIN = 1;
     public const int STAT_MAX = 20;
@@ -54,6 +52,30 @@ public class DeerData
         if (wasWin)
         {
             Wins++;
+        }
+    }
+
+    public DeerAge GetAgeBracket()
+    {
+        if(Age >= 11)
+        {
+            return DeerAge.Dead;
+        }
+        else if (Age >= 8)
+        {
+            return DeerAge.Retired;
+        }
+        else if (Age >= 5)
+        {
+            return DeerAge.Breeder;
+        }
+        else if (Age >= 2)
+        {
+            return DeerAge.Racer;
+        }
+        else
+        {
+            return DeerAge.Baby;
         }
     }
 
@@ -155,14 +177,16 @@ public class DeerData
     {
         float value = CalculateBaseValue();
 
-        if (Age >= RETIRED_AGE)
+        if (GetAgeBracket() == DeerAge.Retired)
         {
             value *= 0.5f;
         }
-        else if (Age >= BREEDING_AGE)
+        else if (GetAgeBracket() == DeerAge.Retired)
         {
             value *= 1.25f;
         }
+
+        // TODO: Call Trait CalcualtePriceTrait
             
 
         return Mathf.RoundToInt(value);
@@ -172,11 +196,11 @@ public class DeerData
     {
         float value = CalculateBaseValue();
 
-        if (Age >= RETIRED_AGE)
+        if (GetAgeBracket() == DeerAge.Retired)
         {
             value *= 0.5f;
         }
-        else if (Age >= BREEDING_AGE)
+        else if (GetAgeBracket() == DeerAge.Retired)
         {
             value *= 1.25f;
         } 
@@ -232,4 +256,13 @@ public class DeerData
 
         return newColorGenotype;
     }
+}
+
+public enum DeerAge
+{
+    Baby,
+    Racer,
+    Breeder,
+    Retired,
+    Dead
 }

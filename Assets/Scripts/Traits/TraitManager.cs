@@ -29,8 +29,6 @@ public class TraitManager : Manager
         {
             _traitDatabase[i].TraitIndex = i;
         }
-
-        // Subscribe to relevant events.
     }
 
     public static int GetTraitIndex<T>()

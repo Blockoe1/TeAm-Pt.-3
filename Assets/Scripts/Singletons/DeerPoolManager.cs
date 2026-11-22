@@ -6,6 +6,7 @@
 //
 // Brief Description : Stores data relevant to the player, such as owned deer.
 *****************************************************************************/
+using AriUtils;
 using MarUtility.ExecutionManagement;
 using System;
 using System.Collections.Generic;
@@ -35,8 +36,13 @@ public class DeerPool : Manager
     private List<DeerData> midPool;
     private List<DeerData> badPool;
 
+    private static DeerPool instance;
+
+    public static DeerPool Instance => instance;
+
     public override void Initialize()
     {
+        SingletonUtil.SetSingleton(ref instance, this);
         goodPool = CreateStartingPool(goodPoolData);
         midPool = CreateStartingPool(midPoolData);
         badPool = CreateStartingPool(badPoolData);
@@ -66,6 +72,25 @@ public class DeerPool : Manager
             pool.Add(CreateDeerForPool(data));
         }
     }
+
+    public DeerData GetRandomGoodDeer()
+    {
+        return GetRandomDeer(goodPool);
+    }
+    public DeerData GetRandomBadDeer()
+    {
+        return GetRandomDeer(badPool);
+    }
+    public DeerData GetRandomMidDeer()
+    {
+        return GetRandomDeer(midPool);
+    }
+
+    private DeerData GetRandomDeer(List<DeerData> deerPool)
+    {
+        return deerPool[UnityEngine.Random.Range(0, deerPool.Count)];
+    }
+
 
     private List<DeerData> GetPool(DeerData deer, out PoolData data)
     {
