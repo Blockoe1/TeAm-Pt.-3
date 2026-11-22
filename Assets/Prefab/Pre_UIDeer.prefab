@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2961712170869658068}
   - component: {fileID: 7378424883735824740}
   m_Layer: 5
-  m_Name: Antlers
+  m_Name: Antler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -817,6 +817,14 @@ MonoBehaviour:
       value:
         _alleleA: {fileID: 11400000, guid: 07b9b9e212c9bad4f9044ca79ac5ed8d, type: 2}
         _alleleB: {fileID: 11400000, guid: be608dc385f329b4b92117a738b64ad0, type: 2}
+    - key: {fileID: 11400000, guid: 3f1cf2ed82dd1054ca3b9102052dbd23, type: 2}
+      value:
+        _alleleA: {fileID: 11400000, guid: 83e0b4b6c77312e4fa97583d96504fa7, type: 2}
+        _alleleB: {fileID: 11400000, guid: fc1fe228442a1884c91e5f51fff4b9cc, type: 2}
+    - key: {fileID: 11400000, guid: 59a20fa4ce1bd024eb4cc6ebc9ba7e4b, type: 2}
+      value:
+        _alleleA: {fileID: 11400000, guid: 5ecc4433d9a2a474683a96d7fffc61d3, type: 2}
+        _alleleB: {fileID: 11400000, guid: c7598cb0d2b149e4fb8c37b99654a552, type: 2}
   _simBreedingPartner: {fileID: 0}
   references:
     version: 2

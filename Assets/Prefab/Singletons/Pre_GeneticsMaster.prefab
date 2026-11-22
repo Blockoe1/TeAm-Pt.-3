@@ -53,3 +53,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d15a8c2682c8784e88e27b422d8ae9c, type: 2}
   _partGenes:
   - {fileID: 11400000, guid: 9b973cff93eb64440b551b4d5b1cea57, type: 2}
+  - {fileID: 11400000, guid: 3f1cf2ed82dd1054ca3b9102052dbd23, type: 2}
+  - {fileID: 11400000, guid: 59a20fa4ce1bd024eb4cc6ebc9ba7e4b, type: 2}
+  - {fileID: 11400000, guid: 8a70b69245e9d9d408676581665065a5, type: 2}
+  - {fileID: 11400000, guid: b7030b099c1fc1643a950b03d910d685, type: 2}
+  - {fileID: 11400000, guid: 5b74077c2e6827e419e9d004be7000d1, type: 2}

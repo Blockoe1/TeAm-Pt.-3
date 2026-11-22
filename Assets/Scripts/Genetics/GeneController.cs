@@ -72,6 +72,7 @@ public class GeneController : Manager
                         }
                         i.sprite = kvp.Value;
                         i.material.SetTexture("_" + genome.Key.MatTextureID, kvp.Value.texture);
+                        i.SetNativeSize();
                         break;
                 }
             }
