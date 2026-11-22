@@ -77,7 +77,7 @@ public class TraitManager : Manager
                         && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Race)
                         && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer)) // Global traits trigger even when the event was not on this deer.
                     {
-                        triggered.TriggerTrait(eventData, triggeredDeer);
+                        triggered.TriggerTrait(eventData, triggeredDeer, triggeredDeer.Data == deer);
                     }
                 }
             }
@@ -93,7 +93,7 @@ public class TraitManager : Manager
                     && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Owned)
                     && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer))
                 {
-                    triggered.TriggerTrait(eventData, triggeredDeer);
+                    triggered.TriggerTrait(eventData, triggeredDeer, triggeredDeer.Data == deer);
                 }
             }
         }

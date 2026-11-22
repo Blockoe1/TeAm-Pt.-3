@@ -11,4 +11,10 @@ using UnityEngine;
 
 public class TripTrigger : TraitTrigger
 {
+    public float TripTime { get; set; }
+
+    public TripTrigger(float tripTime)
+    {
+        TripTime = tripTime;
+    }
 }

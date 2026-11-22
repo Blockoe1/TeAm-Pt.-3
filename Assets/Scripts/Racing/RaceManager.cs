@@ -72,10 +72,14 @@ public class RaceManager : MonoBehaviour
         Broadcast_StartRace?.Invoke();
     }
 
-    public void DeerCrossedLine(DeerData deer)
+    public void DeerCrossedLine(DeerController deer)
     {
         //Deer Has Crossed
-        WinningDeer = deer;
+        WinningDeer = deer.Data;
+        for (int i = 0; i < deerInRaceGO.Length; ++i)
+        {
+            TraitManager.TraitEvent(new EndRaceTrigger(deer), deerInRaceGO[i].GetComponent<DeerController>());
+        }
         SceneManager.LoadScene("PostRaceScene");
     }
 
