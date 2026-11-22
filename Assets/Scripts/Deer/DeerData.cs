@@ -82,6 +82,13 @@ public class DeerData
         }
     }
 
+    public void InrementAge()
+    {
+        AgeTrigger trigger = new AgeTrigger(Age + 1);
+        TriggerTraits(trigger, null, this, this, Trait.TriggerFlags.None);
+        Age = trigger.Age;
+    }
+
     #region Stats
     public void SetStat(StatType stat, int value)
     {
@@ -224,6 +231,21 @@ public class DeerData
     }
     #endregion
 
+    public void TriggerTraits<T>(T eventTrigger, DeerController triggeredDeerController, DeerData triggeredData, 
+        DeerData thisDeer, Trait.TriggerFlags requireFlags) where T : TraitTrigger
+    {
+        // Trigger each trait in those deer.
+        foreach (Trait trait in thisDeer.Traits)
+        {
+            if (trait is ITriggeredTrait<T> triggered
+                && ((trait.TrigFlags & requireFlags) == requireFlags)
+                && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredData == thisDeer)) // Global traits trigger even when the event was not on this deer.
+            {
+                triggered.TriggerTrait(eventTrigger, triggeredDeerController, triggeredData, triggeredData == thisDeer);
+            }
+        }
+    }
+
     public static DeerData NewRandomDeer(params Trait.TraitAlignment[] requireddTraits)
     {
         DeerData data = new DeerData();
@@ -249,6 +271,8 @@ public class DeerData
 
         data.ColorGenotype = NewRandomColorGenotype();
         data.PartGenotype = NewRandomPartGenotype();
+
+        data.TriggerTraits(new BornTrigger(), null, data, data, Trait.TriggerFlags.None);
 
         return data;
     }
