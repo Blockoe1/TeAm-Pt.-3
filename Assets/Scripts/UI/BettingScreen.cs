@@ -58,12 +58,12 @@ public class BettingScreen : BuckScreen
     {
         if (selected != default)
         {
-            selected.Item2.Background.color = Color.wheat;
+            selected.Item2.BuckName.fontStyle = FontStyles.Underline;
         }
 
         selected = (buck, ui);
         CheckButtonDisabled();
-        ui.Background.color = Color.orange;
+        selected.Item2.BuckName.fontStyle = FontStyles.Normal;
     }
 
     public override void Continue()
@@ -89,7 +89,7 @@ public class BettingScreen : BuckScreen
 
     public void BetDown()
     {
-        if (bet - _betIncrement <= 0) return;
+        if (bet - _betIncrement < 0) return;
         bet -= _betIncrement;
         _betText.text = FormatDoe(bet);
     }
