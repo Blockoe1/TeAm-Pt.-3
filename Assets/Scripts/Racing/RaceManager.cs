@@ -66,13 +66,20 @@ public class RaceManager : MonoBehaviour
 
     private IEnumerator StartRace()
     {
+        AudioManager.Instance.PlayOneShot(AudioManager.AudioID.SFX1);
+        yield return new WaitForSeconds(0.5f);
+
         for (int i = 0; i < countdownSeconds; i++)
         {
             //Insert graphics or sound here?
             yield return new WaitForSeconds(1);
         }
-        
-        for(int i = 0; i < deerInRaceGO.Length; ++i)
+        AudioManager.Instance.PlayOneShot(AudioManager.AudioID.SFX2);
+        AudioManager.Instance.PlayOneShot(AudioManager.AudioID.RACEMUSIC);
+
+
+
+        for (int i = 0; i < deerInRaceGO.Length; ++i)
         {
             TraitManager.TraitEvent(new StartRaceTrigger(i == DeerBetOn), deerInRaceGO[i].GetComponent<DeerController>());
         }

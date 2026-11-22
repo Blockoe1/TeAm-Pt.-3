@@ -44,7 +44,7 @@ public class AudioManager : Manager
     {
         if(arg1.name == "RaceScene")
         {
-            PlayLoopedEvent(AudioID.RACEMUSIC);
+            PlayLoopedEvent(AudioID.NONE);
         }
         else
         {
