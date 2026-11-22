@@ -77,8 +77,11 @@ public class BettingScreen : BuckScreen
 
     public void BetUp()
     {
-        bet += _betIncrement;
-        _betText.text = FormatDoe(bet);
+        if(MoneyManager.Instance.CanAfford(bet + 5))
+        {
+            bet += _betIncrement;
+            _betText.text = FormatDoe(bet);
+        }
     }
 
     public void BetDown()

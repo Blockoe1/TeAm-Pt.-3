@@ -81,6 +81,9 @@ public class RaceManager : MonoBehaviour
         for (int i = 0; i < deerInRaceGO.Length; ++i)
         {
             TraitManager.TraitEvent(new EndRaceTrigger(deer), deerInRaceGO[i].GetComponent<DeerController>());
+
+            DeerController dc = deerInRaceGO[i].GetComponent<DeerController>();
+            dc.Data.LogRace(dc == deer);
         }
         SceneManager.LoadScene("PostRaceScene");
     }
