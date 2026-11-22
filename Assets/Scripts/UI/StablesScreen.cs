@@ -70,8 +70,6 @@ public class StablesScreen : BuckScreen
             if (!_secondStableScreen) CancelBreeding();
         }
 
-        Debug.Log("Hi");
-
         selected = (buck, ui);
         ui.Background.color = Color.orange;
         _adjacentViewer.gameObject.SetActive(true);
