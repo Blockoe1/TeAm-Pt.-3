@@ -9,7 +9,7 @@ public class RacingDeer : MonoBehaviour
 {
     const float SPEED_MULT = 8.8f;
     const float ACCEL_MULT = 0.022f;
-    const float STAMINA_MULT = 0.0165f;
+    const float STAMINA_MULT = 0.0034f;
 
     const float TRIP_SPEED = 2f;
     private const float ENDING_POSITION = 88;
@@ -234,9 +234,12 @@ public class RacingDeer : MonoBehaviour
 
     public void Trip()
     {
-        StopCoroutine(TripCoroutine());
-        CurrentState = RacingDeer.STATES.TRIPPED;
-        StartCoroutine(UnTripCoroutine(UnityEngine.Random.Range(2, 4f)));
+        if (currentState != STATES.TRIPPED)
+        {
+            StopCoroutine(TripCoroutine());
+            CurrentState = RacingDeer.STATES.TRIPPED;
+            StartCoroutine(UnTripCoroutine(UnityEngine.Random.Range(2, 4f)));
+        }
     }
 
     private IEnumerator UnTripCoroutine(float time)

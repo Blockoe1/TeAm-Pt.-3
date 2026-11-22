@@ -9,7 +9,7 @@ public class Wildcard : Trait, ITriggeredTrait<StartRaceTrigger>
     {
         foreach(StatType type in Enum.GetValues(typeof(StatType)))
         {
-            deer.ApplyStatModifier(type, UnityEngine.Random.Range(randomizedRange.x, randomizedRange.y));
+            data.ModifyStat(type, UnityEngine.Random.Range(randomizedRange.x, randomizedRange.y));
         }
     }
 }
