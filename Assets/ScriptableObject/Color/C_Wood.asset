@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Wood
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Wood
-  _color: {r: 0.24705882, g: 0.1882353, b: 0.11372549, a: 100}
-  _shadedColor: {r: 0.18867922, g: 0.15072349, b: 0.10264623, a: 100}
+  _color: {r: 0.5597484, g: 0.39426768, b: 0.15313865, a: 100}
+  _shadedColor: {r: 0.35220122, g: 0.25979796, b: 0.12515324, a: 100}

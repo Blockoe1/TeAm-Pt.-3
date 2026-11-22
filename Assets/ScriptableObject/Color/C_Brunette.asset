@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Brunette
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Brunette
-  _color: {r: 0.23137255, g: 0.11764706, b: 0.03137255, a: 100}
-  _shadedColor: {r: 0.18867922, g: 0.099272385, b: 0.031446517, a: 100}
+  _color: {r: 0.42138356, g: 0.24571563, b: 0.1126339, a: 100}
+  _shadedColor: {r: 0.27672952, g: 0.14412995, b: 0.04612156, a: 100}

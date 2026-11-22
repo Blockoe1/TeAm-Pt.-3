@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Umber
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Umber
-  _color: {r: 0.20784314, g: 0.13725491, b: 0.08235294, a: 100}
-  _shadedColor: {r: 0.1509434, g: 0.10582058, b: 0.070725046, a: 100}
+  _color: {r: 0.42138356, g: 0.2878207, b: 0.2239428, a: 100}
+  _shadedColor: {r: 0.33962262, g: 0.24777497, b: 0.20185114, a: 100}
