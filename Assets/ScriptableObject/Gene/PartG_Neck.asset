@@ -15,4 +15,9 @@ MonoBehaviour:
   _name: Neck
   _alleles:
   - {fileID: 11400000, guid: 91592c13de8559c49961f559fc2812c3, type: 2}
+  - {fileID: 11400000, guid: b227f0d2f7aa877429191b1597b1e35e, type: 2}
+  - {fileID: 11400000, guid: 85a7afafc7de8fc498c78b5627335de1, type: 2}
+  - {fileID: 11400000, guid: cd6d753b70b64ad47802c14882abe163, type: 2}
+  - {fileID: 11400000, guid: 285bc32a91c666f479e87a8cb1ff4489, type: 2}
+  - {fileID: 11400000, guid: f31cb20f005e73f4a81c49b560c8f45f, type: 2}
   _matTextureID: MainTexture
