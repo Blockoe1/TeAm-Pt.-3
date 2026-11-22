@@ -34,6 +34,9 @@ public class ShopScreen : BuckScreen
 
     public override void BuckSelected(DeerData buck, BuckUI ui)
     {
+        selected = (buck, ui);
+        CheckButtonDisabled();
+
         // TODO: add deer to stables
         UI = ui;
         purchaseConfirm.SetActive(true);
@@ -43,18 +46,17 @@ public class ShopScreen : BuckScreen
 
     public void Confirm()
     {
-        purchaseConfirm.SetActive(false);
-        ReplaceWithBlank(UI);
+        bool wasPurchased = PlayerManager.Instance.PurchaseDeer(selected.Item1);
+        if (wasPurchased)
+        {
+            ReplaceWithBlank(selected.Item2);
+        }
+        Back();
     }
 
     public void Back()
     {
         purchaseConfirm.SetActive(false);
-    }
-
-    public override void Continue()
-    {
-        PlayerManager.Instance.PurchaseDeer(selected.Item1);
-        ReplaceWithBlank(selected.Item2);
+        selected = default;
     }
 }
