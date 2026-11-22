@@ -1,7 +1,12 @@
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ShopScreen : BuckScreen
 {
+    [SerializeField] private GameObject purchaseConfirm;
+    [SerializeField] private FullDeerViewer fullDeerViewer;
     protected override void Start()
     {
         base.Start();
@@ -26,6 +31,19 @@ public class ShopScreen : BuckScreen
     {
         // TODO: add deer to stables
         ReplaceWithBlank(ui);
+        purchaseConfirm.SetActive(true);
+        fullDeerViewer.SetDeer(buck.Data);
+        fullDeerViewer.ProcessStats(buck.Data);
+    }
+
+    public void Confirm()
+    {
+        purchaseConfirm.SetActive(false);
+    }
+
+    public void Back()
+    {
+        purchaseConfirm.SetActive(false);
     }
 
     public override void Continue()
