@@ -46,7 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GeneticsMaster
   _initializeTime: 0
   _subManagers: []
+  dontDestroyMePlease: 0
   _racerPrefab: {fileID: 8925991716084878897, guid: b3d81412139968940a4925b12316e929, type: 3}
   _colorGenes:
   - {fileID: 11400000, guid: f31f71ea7b96bc3408e5271abe613d9a, type: 2}
   - {fileID: 11400000, guid: 3d15a8c2682c8784e88e27b422d8ae9c, type: 2}
+  _partGenes:
+  - {fileID: 11400000, guid: 9b973cff93eb64440b551b4d5b1cea57, type: 2}

@@ -35,9 +35,9 @@ public class DeerData
     [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; private set; } = new Trait[BASE_TRAIT_NUM];
 
     [SerializeField]
-    private Dictionary<SO_ColorGene, ColorGenome> _colorGenotype;
+    private Dictionary<SO_ColorGene, ColorGenome> _colorGenotype = new Dictionary<SO_ColorGene, ColorGenome>();
     [SerializeField]
-    private Dictionary<SO_PartGene, PartGenome> _partGenotype;
+    private Dictionary<SO_PartGene, PartGenome> _partGenotype = new Dictionary<SO_PartGene, PartGenome>();
 
 
     public int Wins { get; private set; }
@@ -245,6 +245,7 @@ public class DeerData
         }
 
         data.ColorGenotype = NewRandomColorGenotype();
+        data.PartGenotype = NewRandomPartGenotype();
 
         return data;
     }
@@ -252,12 +253,23 @@ public class DeerData
     //Randomize color genotype.
     public static Dictionary<SO_ColorGene, ColorGenome> NewRandomColorGenotype()
     {
-        Dictionary<SO_ColorGene, ColorGenome> newColorGenotype = new Dictionary<SO_ColorGene, ColorGenome>();
+        Dictionary<SO_ColorGene, ColorGenome> newGenotype = new Dictionary<SO_ColorGene, ColorGenome>();
 
         foreach (SO_ColorGene gene in GeneticsMaster.INST.ColorGenes)
-            newColorGenotype.TryAdd(gene, new ColorGenome(gene.GetRandomAllele(), gene.GetRandomAllele()));
+            newGenotype.TryAdd(gene, new ColorGenome(gene.GetRandomAllele(), gene.GetRandomAllele()));
 
-        return newColorGenotype;
+        return newGenotype;
+    }
+
+    //Randomize part genotype.
+    public static Dictionary<SO_PartGene, PartGenome> NewRandomPartGenotype()
+    {
+        Dictionary<SO_PartGene, PartGenome> newGenotype = new Dictionary<SO_PartGene, PartGenome>();
+
+        foreach (SO_PartGene gene in GeneticsMaster.INST.PartGenes)
+            newGenotype.TryAdd(gene, new PartGenome(gene.GetRandomAllele(), gene.GetRandomAllele()));
+
+        return newGenotype;
     }
 }
 

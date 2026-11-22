@@ -24,9 +24,10 @@ public class GeneController : Manager
         base.Initialize();
     }
 
-    public void InitializeGenotypes(Dictionary<SO_ColorGene, ColorGenome> colorGenotype)
+    public void VisualizeGenotypes(Dictionary<SO_PartGene, PartGenome> partGenotype, Dictionary<SO_ColorGene, ColorGenome> colorGenotype)
     {
         VisualizeColorGenotype(colorGenotype);
+        VisualizePartGenotype(partGenotype);
     }
 
     public void VisualizeColorGenotype(Dictionary<SO_ColorGene, ColorGenome> colorGenotype)
@@ -37,6 +38,7 @@ public class GeneController : Manager
 
     public void VisualizePartGenotype(Dictionary<SO_PartGene, PartGenome> partGenotype)
     {
+        Debug.Log("Ran");
         foreach (KeyValuePair<SO_PartGene, PartGenome> genome in partGenotype)
         {
             SO_PartAllele dominant = GetDominantAllele(genome.Key, partGenotype);
@@ -69,16 +71,11 @@ public class GeneController : Manager
                             break;
                         }
                         i.sprite = kvp.Value;
-                        i.material.SetTexture(kvp.Key, kvp.Value.texture);
+                        i.material.SetTexture("_" + genome.Key.MatTextureID, kvp.Value.texture);
                         break;
                 }
             }
         }
-    }
-
-    public void VisualizePart()
-    {
-
     }
 
     #region Get Allele
