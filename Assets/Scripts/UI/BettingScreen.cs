@@ -71,6 +71,8 @@ public class BettingScreen : BuckScreen
 
         // TODO: store bet
         RaceManager.DeerBetOn = selected.Item2.transform.GetSiblingIndex() - widgetsToKeep;
+        MoneyManager.CurrentBet = bet;
+        MoneyManager.Instance.EarnMoney(-MoneyManager.CurrentBet);
         // TODO: start race
         SceneManager.LoadScene("RaceScene");
     }

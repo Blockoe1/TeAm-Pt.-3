@@ -108,7 +108,6 @@ public class DeerData
                 return 4;
             }
 
-
             return 5f;
         }
     }
@@ -117,6 +116,16 @@ public class DeerData
     public Dictionary<SO_ColorGene, ColorGenome> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
     public Dictionary<SO_PartGene, PartGenome> PartGenotype { get => _partGenotype; set => _partGenotype = value; }
     #endregion
+
+    public float PreviousBetMultiplier()
+    {
+        Wins--;
+        Races--;
+        float previousBet = BetMultiplier;
+        Wins++;
+        Races++;
+        return BetMultiplier;
+    }
 
     public void LogRace(bool wasWin)
     {
@@ -241,7 +250,7 @@ public class DeerData
     #region Purchasing
     public float CalculateBaseValue()
     {
-        int goodTraitCount = Traits.Count(x => x.Alignment == Trait.TraitAlignment.Good);
+        int goodTraitCount = Traits.Count(x => x != null && x.Alignment == Trait.TraitAlignment.Good);
         return GetTotalStats() * ((goodTraitCount + 1f) / 2f);
     }
 

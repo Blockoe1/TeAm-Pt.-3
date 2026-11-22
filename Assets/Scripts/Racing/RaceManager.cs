@@ -23,6 +23,7 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private bool debugMode = false;
     [SerializeField, ShowIf("debugMode")] private DeerData[] debugDeerData;
     public static int DeerBetOn = 0;
+    public static DeerData DeerBetOnDeer;
 
     public static Action Broadcast_StartRace;
 
@@ -55,6 +56,7 @@ public class RaceManager : MonoBehaviour
         }
 
         camFollow.Follow = deerInRaceGO[DeerBetOn].transform;
+        DeerBetOnDeer = deerInRaceGO[DeerBetOn].GetComponent<DeerController>().Data;
         //Race Countdown
         StartCoroutine(StartRace());
     }
