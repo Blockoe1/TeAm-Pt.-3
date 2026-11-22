@@ -71,7 +71,10 @@ public class RacingDeer : MonoBehaviour
     {
         if (inRace)
         {
-            currentState = STATES.RUNNING;
+            if (currentState == STATES.NONE)
+            {
+                currentState = STATES.RUNNING;
+            }
             StartCoroutine(Movement());
             StartCoroutine(TripCoroutine());
             StartCoroutine(DisciplineCoroutine());
