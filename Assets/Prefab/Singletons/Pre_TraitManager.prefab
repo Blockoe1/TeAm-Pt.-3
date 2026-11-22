@@ -69,6 +69,9 @@ MonoBehaviour:
   - rid: 7479278826202333281
   - rid: 7479278826202333284
   - rid: 7479278826202333292
+  - rid: 7479278826202333296
+  - rid: 7479278826202333297
+  - rid: 7479278826202333303
   references:
     version: 2
     RefIds:
@@ -288,3 +291,32 @@ MonoBehaviour:
         _traitAlignment: 1
         _triggerFlags: 2
         statModifier: -2
+    - rid: 7479278826202333296
+      type: {class: TripTimeModifier, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Pegasus
+        _description: Flies, and cannot trip.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 0
+        _triggerFlags: 1
+        tripTimeMultiplier: 0
+    - rid: 7479278826202333297
+      type: {class: TripTimeModifier, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Embaressed
+        _description: Takes twice as long to recover when tripped.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 1
+        _triggerFlags: 1
+        tripTimeMultiplier: 2
+    - rid: 7479278826202333303
+      type: {class: WithMeEveryone, ns: , asm: Assembly-CSharp}
+      data:
+        _name: With Me Everyone!
+        _description: When this deer trips, everyone trips.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 0
+        _triggerFlags: 1
