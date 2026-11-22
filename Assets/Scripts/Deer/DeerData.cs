@@ -35,15 +35,18 @@ public class DeerData
     [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; private set; } = new Trait[BASE_TRAIT_NUM];
 
     [SerializeField]
-    private Dictionary<SO_ColorGene, ColorGenotype> _colorGenotype;
+    private Dictionary<SO_ColorGene, ColorGenome> _colorGenotype = new Dictionary<SO_ColorGene, ColorGenome>();
+    [SerializeField]
+    private Dictionary<SO_PartGene, PartGenome> _partGenotype = new Dictionary<SO_PartGene, PartGenome>();
 
 
     public int Wins { get; private set; }
     public int Races { get; private set; }
-
+    public DeerController Controller { get; set; }
 
     #region GS
-    public Dictionary<SO_ColorGene, ColorGenotype> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
+    public Dictionary<SO_ColorGene, ColorGenome> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
+    public Dictionary<SO_PartGene, PartGenome> PartGenotype { get => _partGenotype; set => _partGenotype = value; }
     #endregion
 
     public void LogRace(bool wasWin)
@@ -52,6 +55,30 @@ public class DeerData
         if (wasWin)
         {
             Wins++;
+        }
+    }
+
+    public DeerAge GetAgeBracket()
+    {
+        if(Age >= 11)
+        {
+            return DeerAge.Dead;
+        }
+        else if (Age >= 8)
+        {
+            return DeerAge.Retired;
+        }
+        else if (Age >= 5)
+        {
+            return DeerAge.Breeder;
+        }
+        else if (Age >= 2)
+        {
+            return DeerAge.Racer;
+        }
+        else
+        {
+            return DeerAge.Baby;
         }
     }
 
@@ -142,6 +169,58 @@ public class DeerData
     }
     #endregion
 
+    #region Purchasing
+    public float CalculateBaseValue()
+    {
+        int goodTraitCount = Traits.Count(x => x.Alignment == Trait.TraitAlignment.Good);
+        return GetTotalStats() * ((goodTraitCount + 1f) / 2f);
+    }
+
+    public int CalculatePrice()
+    {
+        float value = CalculateBaseValue();
+
+        if (GetAgeBracket() == DeerAge.Retired)
+        {
+            value *= 0.5f;
+        }
+        else if (GetAgeBracket() == DeerAge.Retired)
+        {
+            value *= 1.25f;
+        }
+
+        // TODO: Call Trait CalcualtePriceTrait
+            
+
+        return Mathf.RoundToInt(value);
+    }
+
+    public int CalculateSellPrice()
+    {
+        float value = CalculateBaseValue();
+
+        if (GetAgeBracket() == DeerAge.Retired)
+        {
+            value *= 0.5f;
+        }
+        else if (GetAgeBracket() == DeerAge.Retired)
+        {
+            value *= 1.25f;
+        } 
+
+        if (Traits != null && Traits.Length > 0)
+        {
+            Trait[] sellTraits = Traits.Where(x => x != null).OrderBy(x => x.Priority).ToArray();
+            foreach (Trait trait in sellTraits)
+            {
+                value = trait.ModifySellPrice(value);
+            }
+        }
+
+        return Mathf.RoundToInt(value);
+    }
+    #endregion
+
     public static DeerData NewRandomDeer(params Trait.TraitAlignment[] requireddTraits)
     {
         DeerData data = new DeerData();
@@ -166,18 +245,39 @@ public class DeerData
         }
 
         data.ColorGenotype = NewRandomColorGenotype();
+        data.PartGenotype = NewRandomPartGenotype();
 
         return data;
     }
 
     //Randomize color genotype.
-    public static Dictionary<SO_ColorGene, ColorGenotype> NewRandomColorGenotype()
+    public static Dictionary<SO_ColorGene, ColorGenome> NewRandomColorGenotype()
     {
-        Dictionary<SO_ColorGene, ColorGenotype> newColorGenotype = new Dictionary<SO_ColorGene, ColorGenotype>();
+        Dictionary<SO_ColorGene, ColorGenome> newGenotype = new Dictionary<SO_ColorGene, ColorGenome>();
 
         foreach (SO_ColorGene gene in GeneticsMaster.INST.ColorGenes)
-            newColorGenotype.TryAdd(gene, new ColorGenotype(gene.GetRandomAllele(), gene.GetRandomAllele()));
+            newGenotype.TryAdd(gene, new ColorGenome(gene.GetRandomAllele(), gene.GetRandomAllele()));
 
-        return newColorGenotype;
+        return newGenotype;
     }
+
+    //Randomize part genotype.
+    public static Dictionary<SO_PartGene, PartGenome> NewRandomPartGenotype()
+    {
+        Dictionary<SO_PartGene, PartGenome> newGenotype = new Dictionary<SO_PartGene, PartGenome>();
+
+        foreach (SO_PartGene gene in GeneticsMaster.INST.PartGenes)
+            newGenotype.TryAdd(gene, new PartGenome(gene.GetRandomAllele(), gene.GetRandomAllele()));
+
+        return newGenotype;
+    }
+}
+
+public enum DeerAge
+{
+    Baby,
+    Racer,
+    Breeder,
+    Retired,
+    Dead
 }

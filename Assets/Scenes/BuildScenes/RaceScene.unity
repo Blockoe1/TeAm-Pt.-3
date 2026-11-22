@@ -773,7 +773,62 @@ MonoBehaviour:
   - {fileID: 0}
   camFollow: {fileID: 2016117922}
   debugMode: 0
-  debugDeerData: []
+  debugDeerData:
+  - <Name>k__BackingField: 
+    <Speed>k__BackingField: 1
+    <Acceleration>k__BackingField: 1
+    <Stamina>k__BackingField: 1
+    <Balance>k__BackingField: 1
+    <Discipline>k__BackingField: 1
+    <Charisma>k__BackingField: 1
+    <Age>k__BackingField: 1
+    <Traits>k__BackingField: []
+    _colorGenotype: []
+    _partGenotype: []
+  - <Name>k__BackingField: 
+    <Speed>k__BackingField: 1
+    <Acceleration>k__BackingField: 1
+    <Stamina>k__BackingField: 1
+    <Balance>k__BackingField: 1
+    <Discipline>k__BackingField: 1
+    <Charisma>k__BackingField: 1
+    <Age>k__BackingField: 1
+    <Traits>k__BackingField: []
+    _colorGenotype: []
+    _partGenotype: []
+  - <Name>k__BackingField: 
+    <Speed>k__BackingField: 1
+    <Acceleration>k__BackingField: 1
+    <Stamina>k__BackingField: 1
+    <Balance>k__BackingField: 1
+    <Discipline>k__BackingField: 1
+    <Charisma>k__BackingField: 1
+    <Age>k__BackingField: 1
+    <Traits>k__BackingField: []
+    _colorGenotype: []
+    _partGenotype: []
+  - <Name>k__BackingField: 
+    <Speed>k__BackingField: 1
+    <Acceleration>k__BackingField: 1
+    <Stamina>k__BackingField: 1
+    <Balance>k__BackingField: 1
+    <Discipline>k__BackingField: 1
+    <Charisma>k__BackingField: 1
+    <Age>k__BackingField: 1
+    <Traits>k__BackingField: []
+    _colorGenotype: []
+    _partGenotype: []
+  - <Name>k__BackingField: 
+    <Speed>k__BackingField: 1
+    <Acceleration>k__BackingField: 1
+    <Stamina>k__BackingField: 1
+    <Balance>k__BackingField: 1
+    <Discipline>k__BackingField: 1
+    <Charisma>k__BackingField: 1
+    <Age>k__BackingField: 1
+    <Traits>k__BackingField: []
+    _colorGenotype: []
+    _partGenotype: []
   references:
     version: 2
     RefIds: []

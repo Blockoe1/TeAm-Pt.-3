@@ -6,10 +6,11 @@
 //
 // Brief Description : Handles the player's money, loans, and interest rates.
 *****************************************************************************/
+using MarUtility.ExecutionManagement;
 using System;
 using UnityEngine;
 
-public class MoneyManager : MonoBehaviour
+public class MoneyManager : Manager
 {
     public static MoneyManager Instance { get; private set; }
 
@@ -20,7 +21,7 @@ public class MoneyManager : MonoBehaviour
 
     public event Action<int> OnBalanceChanged;
 
-    private void Awake()
+    public override void Initialize()
     {
         if (Instance != null && Instance != this)
         {
@@ -29,7 +30,6 @@ public class MoneyManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
 
         totalCents = startingMoney;
     }
@@ -40,7 +40,7 @@ public class MoneyManager : MonoBehaviour
         OnBalanceChanged?.Invoke(totalCents);
     }
 
-    public bool CanAfford(float amount)
+    public bool CanAfford(int amount)
     {
         return totalCents >= amount;
     }

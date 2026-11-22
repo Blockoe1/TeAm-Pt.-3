@@ -11,25 +11,40 @@ public class BettingScreen : BuckScreen
     [SerializeField] private int _betIncrement;
     private int bet;
 
+    private List<DeerData> deerGoingToRace;
+
     protected override void Start()
     {
         base.Start();
         _screen.SetActive(false);
+        deerGoingToRace = new();
+
+        deerGoingToRace = DeerPool.Instance.GetDeerFromPools(DeerPool.PoolType.Mid, DeerPool.PoolType.Mid, DeerPool.PoolType.Bad, DeerPool.PoolType.Good);
     }
 
     /// <summary>
     /// Run when you hit continue on selection screen
     /// </summary>
-    public void InitializeBetting()
+    public void InitializeBetting(DeerData deer)
     {
         // Fetch relevant deer for the race
-        List<DeerController> bucks = new List<DeerController>();
-        for (int i = 0; i < 5; i++)
+        List<DeerData> bucks = new List<DeerData>();
+        //for (int i = 0; i < 5; i++)
+        //{
+        //    bucks.Add(DeerData.NewRandomDeer());
+        //    //bucks[^1].Data = new DeerData();
+        //    //bucks[^1].Data.Name = (i + 1).ToString();
+        //}
+        int playerPos = Random.Range(0, 5);
+        foreach (DeerData enemyDeer in deerGoingToRace)
         {
-            bucks.Add(new DeerController());
-            bucks[^1].Data = new DeerData();
-            bucks[^1].Data.Name = (i + 1).ToString();
+            bucks.Add(enemyDeer);
         }
+
+        bucks.Insert(playerPos, deer);
+
+        RaceManager.DeerInRace = bucks.ToArray();
+
 
         selected = default;
         InitializeWidgets(bucks);
@@ -38,7 +53,7 @@ public class BettingScreen : BuckScreen
         _betText.text = FormatDoe(bet);
     }
 
-    public override void BuckSelected(DeerController buck, BuckUI ui)
+    public override void BuckSelected(DeerData buck, BuckUI ui)
     {
         if (selected != default)
         {
@@ -46,6 +61,7 @@ public class BettingScreen : BuckScreen
         }
 
         selected = (buck, ui);
+        CheckButtonDisabled();
         ui.Background.color = Color.orange;
     }
 

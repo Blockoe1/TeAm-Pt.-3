@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RaceSelectionScreen : BuckScreen
@@ -10,6 +11,17 @@ public class RaceSelectionScreen : BuckScreen
     {
         base.Start();
         InitializeSelection();
+        PlayerManager.OnDeerChanged += Handle_OnDeerChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerManager.OnDeerChanged -= Handle_OnDeerChanged;
+    }
+
+    private void Handle_OnDeerChanged(DeerData changedDeer, bool wasAdded)
+    {
+        InitializeSelection();
     }
 
     /// <summary>
@@ -18,28 +30,21 @@ public class RaceSelectionScreen : BuckScreen
     public void InitializeSelection()
     {
         // Fetch stable data
-        List<DeerController> bucks = new List<DeerController>();
-        for (int i = 0; i < 8; i++)
-        {
-            bucks.Add(new DeerController());
-            bucks[^1].Data = DeerData.NewRandomDeer();
-            bucks[^1].Data.Name = (i + 1).ToString();
-        }
+        List<DeerData> bucks = PlayerManager.Instance.OwnedDeer.Keys.ToList();
 
         selected = default;
         InitializeWidgets(bucks);
     }
-
     public override void Continue()
     {
         // TODO: place selected horse in race
 
         _screen.SetActive(false);
 
-        _bettingScreen.InitializeBetting();
+        _bettingScreen.InitializeBetting(selected.Item1);
     }
 
-    public override void BuckSelected(DeerController buck, BuckUI ui)
+    public override void BuckSelected(DeerData buck, BuckUI ui)
     {
         if (selected != default)
         {
@@ -47,6 +52,7 @@ public class RaceSelectionScreen : BuckScreen
         }
 
         selected = (buck, ui);
+        CheckButtonDisabled();
         ui.Background.color = Color.orange;
     }
 }

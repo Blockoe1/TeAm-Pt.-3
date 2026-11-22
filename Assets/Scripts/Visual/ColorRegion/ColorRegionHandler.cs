@@ -24,11 +24,10 @@ public class ColorRegionHandler : Manager
     [SerializeField, BoxGroup("Renderer")]
     private ERendererType _renderType;
 
-    [SerializeField, ShowIf("_renderType", ERendererType.SPRITE), BoxGroup("Renderer")]
-    private SpriteRenderer _spriteRen;
+    private SpriteRenderer[] _spriteRens;
+    private Image[] _imageRens;
 
-    [SerializeField, ShowIf("_renderType", ERendererType.IMAGE), BoxGroup("Renderer")]
-    private Image _imageRen;
+    public ERendererType RenderType { get => _renderType; }
 
     public override void Initialize()
     {
@@ -36,8 +35,14 @@ public class ColorRegionHandler : Manager
 
         switch (_renderType)
         {
-            case ERendererType.SPRITE: _spriteRen.material = new Material(_spriteRen.material); break;
-            case ERendererType.IMAGE: _imageRen.material = new Material(_imageRen.material); break;
+            case ERendererType.SPRITE:
+                _spriteRens = GetComponentsInChildren<SpriteRenderer>();
+                foreach (SpriteRenderer sr in _spriteRens)
+                    sr.material = new Material(sr.material); break;
+            case ERendererType.IMAGE:
+                _imageRens = GetComponentsInChildren<Image>();
+                foreach (Image i in _imageRens)
+                    i.material = new Material(i.material); break;
         }
     }
 
@@ -45,8 +50,12 @@ public class ColorRegionHandler : Manager
     {
         switch (_renderType)
         {
-            case ERendererType.SPRITE: _spriteRen.material.SetColor("_" + colorID, color.Color); break;
-            case ERendererType.IMAGE: _imageRen.material.SetColor("_" + colorID, color.Color); break;
+            case ERendererType.SPRITE:
+                foreach (SpriteRenderer sr in _spriteRens)
+                    sr.material.SetColor("_" + colorID, color.Color); break;
+            case ERendererType.IMAGE:
+                foreach (Image i in _imageRens)
+                    i.material.SetColor("_" + colorID, color.Color); break;
         }
     }
 

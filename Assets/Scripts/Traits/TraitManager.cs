@@ -29,8 +29,6 @@ public class TraitManager : Manager
         {
             _traitDatabase[i].TraitIndex = i;
         }
-
-        // Subscribe to relevant events.
     }
 
     public static int GetTraitIndex<T>()
@@ -75,27 +73,27 @@ public class TraitManager : Manager
                 // Trigger each trait in those deer.
                 foreach (Trait trait in deer.Traits)
                 {
-                    if (trait is ITraitTrigger<T> triggered
+                    if (trait is ITriggeredTrait<T> triggered
                         && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Race)
                         && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer)) // Global traits trigger even when the event was not on this deer.
                     {
-                        triggered.TriggerTrait(eventData, triggeredDeer);
+                        triggered.TriggerTrait(eventData, triggeredDeer, triggeredDeer.Data == deer);
                     }
                 }
             }
         }
 
         // Loop through deer owned.
-        foreach (DeerData deer in PlayerManager.Instance.OwnedDeer)
+        foreach (DeerData deer in PlayerManager.Instance.OwnedDeer.Keys)
         {
             // Trigger each trait in those deer.
             foreach(Trait trait in deer.Traits)
             {
-                if (trait is ITraitTrigger<T> triggered
+                if (trait is ITriggeredTrait<T> triggered
                     && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Owned)
                     && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer))
                 {
-                    triggered.TriggerTrait(eventData, triggeredDeer);
+                    triggered.TriggerTrait(eventData, triggeredDeer, triggeredDeer.Data == deer);
                 }
             }
         }

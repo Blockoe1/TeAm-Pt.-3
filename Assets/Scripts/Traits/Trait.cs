@@ -55,7 +55,7 @@ public abstract class Trait
         return currentValue;
     }
 
-    public virtual int ModifySellPrice(int currentPrice)
+    public virtual float ModifySellPrice(float currentPrice)
     {
         return currentPrice;
     }
