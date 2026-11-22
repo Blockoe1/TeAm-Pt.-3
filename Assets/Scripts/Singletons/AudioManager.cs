@@ -77,10 +77,15 @@ public class AudioManager : Manager
     /// <param name="audioID">The passed Audio. Please don't make this a sound effect</param>
     public void PlayLoopedEvent(AudioID audioID)
     {
+        if(currentMusicID != AudioID.NONE && currentMusicID == audioID)
+        {
+            return;
+        }
+
         bgMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
 
-        if (audioID == AudioID.NONE || currentMusicID == audioID)
+        if (audioID == AudioID.NONE)
         {
             return;
         }
