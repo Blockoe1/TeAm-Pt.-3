@@ -23,6 +23,7 @@ public class PlayerManager : Manager
     public Dictionary<DeerData, DeerController> OwnedDeer => _ownedDeer;
     public static PlayerManager Instance => instance;
 
+
     public static event Action<DeerData, bool> OnDeerChanged;
 
     [SerializeField] private GameObject _deerPrefab;
@@ -120,6 +121,16 @@ public class PlayerManager : Manager
     {
         foreach (KeyValuePair<DeerData, DeerController> kvp in OwnedDeer)
             kvp.Key.BredThisRound = false;
+    }
+
+    public bool OwnsDeer(DeerData dd)
+    {
+        foreach (DeerData d in OwnedDeer.Keys)
+        {
+            if (dd == d)
+                return true;
+        }
+        return false;
     }
 }
  
