@@ -583,7 +583,7 @@ PrefabInstance:
     - target: {fileID: 7232657158090959832, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1005205820}
     - target: {fileID: 7232657158090959832, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -607,7 +607,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5468540949305147349, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1005205820}
   m_SourcePrefab: {fileID: 100100000, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
 --- !u!224 &1005205817 stripped
 RectTransform:
@@ -619,12 +622,30 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1156667694502454832, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
   m_PrefabInstance: {fileID: 1005205816}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1005205819}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!1 &1005205819 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5468540949305147349, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
+  m_PrefabInstance: {fileID: 1005205816}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1005205820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005205819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021a08545069f5145932335506c17772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonUIScript
+  pauseMenu: {fileID: 0}
 --- !u!1 &1041849665
 GameObject:
   m_ObjectHideFlags: 0
