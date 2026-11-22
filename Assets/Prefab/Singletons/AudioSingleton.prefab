@@ -59,4 +59,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e83f996b6828da438f9202d88da6199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  audioLookup: []
+  _initializeTime: 0
+  _subManagers: []
+  dontDestroyMePlease: 0
+  audioLookup:
+  - Guid:
+      Data1: -885734013
+      Data2: 1292302060
+      Data3: -469314123
+      Data4: 814136389
+    Path: event:/Idle Music
+  - Guid:
+      Data1: -1378445719
+      Data2: 1208573325
+      Data3: -760144478
+      Data4: -435342662
+    Path: event:/Deer Race Music
+  - Guid:
+      Data1: -1493398711
+      Data2: 1207862232
+      Data3: 730798742
+      Data4: 1827556725
+    Path: event:/Starting Bell SFX
+  - Guid:
+      Data1: 322331294
+      Data2: 1302736115
+      Data3: 228136583
+      Data4: -708440546
+    Path: event:/Call To Post SFX
