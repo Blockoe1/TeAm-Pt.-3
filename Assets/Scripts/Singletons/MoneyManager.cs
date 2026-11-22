@@ -14,7 +14,7 @@ public class MoneyManager : Manager
 {
     public static MoneyManager Instance { get; private set; }
 
-    [SerializeField] private int startingMoney = 100;
+    [SerializeField] private int startingMoney = 50;
     [SerializeField] private int totalCents = 0;
 
     public int TotalCents => totalCents;
