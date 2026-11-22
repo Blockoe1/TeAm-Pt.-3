@@ -60,10 +60,18 @@ MonoBehaviour:
   - rid: 7479278809097961834
   - rid: 7479278809097961837
   - rid: 7479278809097961839
-  - rid: 7479278809097961840
+  - rid: 7479278826202333271
   - rid: 7479278809097961841
   - rid: 7479278809097961849
   - rid: 7479278809097961855
+  - rid: 7479278826202333273
+  - rid: 7479278826202333275
+  - rid: 7479278826202333281
+  - rid: 7479278826202333284
+  - rid: 7479278826202333292
+  - rid: 7479278826202333296
+  - rid: 7479278826202333297
+  - rid: 7479278826202333303
   references:
     version: 2
     RefIds:
@@ -193,17 +201,6 @@ MonoBehaviour:
         _traitAlignment: 2
         _triggerFlags: 1
         randomizedRange: {x: -3, y: 3}
-    - rid: 7479278809097961840
-      type: {class: AgingModifier, ns: , asm: Assembly-CSharp}
-      data:
-        _name: Immortal
-        _description: Doesn't age once it hits breeding age.
-        _priority: 0
-        _randomlySelectable: 1
-        _traitAlignment: 0
-        _triggerFlags: 2
-        ageChange: -1
-        minAge: 5
     - rid: 7479278809097961841
       type: {class: AgingModifier, ns: , asm: Assembly-CSharp}
       data:
@@ -236,3 +233,90 @@ MonoBehaviour:
         _triggerFlags: 1
         boost: 5
         statDrop: -3
+    - rid: 7479278826202333271
+      type: {class: Immortal, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Immortal
+        _description: Prevents aging once this deer reaches breeding age.
+        _priority: 5
+        _randomlySelectable: 1
+        _traitAlignment: 0
+        _triggerFlags: 2
+        minAge: 5
+    - rid: 7479278826202333273
+      type: {class: SellPriceModifier, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Common
+        _description: Sells for half as much.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 1
+        _triggerFlags: 0
+        sellModifier: -0.5
+    - rid: 7479278826202333275
+      type: {class: Learner, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Learner
+        _description: Permanent +3 in lowest stat after losing a race.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 0
+        _triggerFlags: 1
+        statBoost: 0
+    - rid: 7479278826202333281
+      type: {class: Contrarian, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Contrarian
+        _description: All stats are reversed.
+        _priority: 6
+        _randomlySelectable: 1
+        _traitAlignment: 2
+        _triggerFlags: 0
+    - rid: 7479278826202333284
+      type: {class: Mutation, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Evil Mutation
+        _description: Gives a random bad trait to offspring.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 1
+        _triggerFlags: 0
+    - rid: 7479278826202333292
+      type: {class: BreedStatModifier, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Spoiled Child
+        _description: Passes down stats with permanent -2.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 1
+        _triggerFlags: 2
+        statModifier: -2
+    - rid: 7479278826202333296
+      type: {class: TripTimeModifier, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Pegasus
+        _description: Flies, and cannot trip.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 0
+        _triggerFlags: 1
+        tripTimeMultiplier: 0
+    - rid: 7479278826202333297
+      type: {class: TripTimeModifier, ns: , asm: Assembly-CSharp}
+      data:
+        _name: Embaressed
+        _description: Takes twice as long to recover when tripped.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 1
+        _triggerFlags: 1
+        tripTimeMultiplier: 2
+    - rid: 7479278826202333303
+      type: {class: WithMeEveryone, ns: , asm: Assembly-CSharp}
+      data:
+        _name: With Me Everyone!
+        _description: When this deer trips, everyone trips.
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 0
+        _triggerFlags: 1

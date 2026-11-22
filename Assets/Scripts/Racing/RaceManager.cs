@@ -29,6 +29,8 @@ public class RaceManager : MonoBehaviour
 
     public static RaceManager Instance = null;
     public static DeerData WinningDeer = null;
+
+    public GameObject[] GameObjectsInRace => deerInRaceGO;
     private void Start()
     {
         Instance = this;

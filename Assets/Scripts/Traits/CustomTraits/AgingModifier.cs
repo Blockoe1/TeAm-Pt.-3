@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class AgingModifier : Trait, ITriggeredTrait<AgeTrigger>
 {
     [SerializeField] private int ageChange;

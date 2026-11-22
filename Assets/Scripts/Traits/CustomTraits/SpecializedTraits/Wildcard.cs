@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[System.Serializable]
 public class Wildcard : Trait, ITriggeredTrait<StartRaceTrigger>
 {
     [SerializeField] private Vector2Int randomizedRange;

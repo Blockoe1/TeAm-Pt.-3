@@ -240,7 +240,7 @@ public class DeerData
         {
             statValue = trait.ModifyStat(stat, statValue);
         }
-        return statValue;
+        return Mathf.Max(statValue, STAT_MIN);
     }
 
     public int GetTotalStats()

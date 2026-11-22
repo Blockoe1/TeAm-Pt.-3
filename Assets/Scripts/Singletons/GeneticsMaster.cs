@@ -60,7 +60,7 @@ public class GeneticsMaster : Manager
             return null;
         }
 
-        osDeerCon.Data = BreedStats(parentA.Data, parentB.Data);
+        osDeerCon.Data = BreedStats(parentA.Data, parentB.Data, out StatType[] inheritedA, out StatType[] inheritedB);
         osDeerCon.Data.ColorGenotype = CombineColorGenotype(parentA, parentB);
         osDeerCon.Data.PartGenotype = CombinePartGenotype(parentA, parentB);
         osDeerCon.Data.Name = DeerNames.GetRandomName();
@@ -70,6 +70,10 @@ public class GeneticsMaster : Manager
 
         osGenCon.Initialize();
         osGenCon.VisualizeGenotypes(osDeerCon.Data.PartGenotype, osDeerCon.Data.ColorGenotype);//VisualizeColorGenotype(osDeerCon.Data.ColorGenotype);
+
+        // Change to use TraitManager if we have things that trigger when other deer breed.
+        parentA.Data.TriggerTraits(new BreedTrigger(osDeerCon.Data, inheritedA), parentA, parentA.Data, parentA.Data, Trait.TriggerFlags.None);
+        parentB.Data.TriggerTraits(new BreedTrigger(osDeerCon.Data, inheritedB), parentB, parentB.Data, parentB.Data, Trait.TriggerFlags.None);
 
         return osDeerCon;
     }
@@ -82,12 +86,12 @@ public class GeneticsMaster : Manager
             // Assumes that only 2 traits are used.
             DeerData inheritedParent = i % 2 == 0 ? parentA : parentB;
             int index = Random.Range(0, inheritedParent.Traits.Length);
-            Trait inheritedTrait = TraitManager.TraitDatabase[inheritedParent.Traits[index].GetInheritedTraitIndex()];
+            Trait inheritedTrait = inheritedParent.Traits[index].GetInheritedTrait();
             while (traits.Contains(inheritedTrait))
             {
                 index++;
                 CollectionUtil.LoopIndex(inheritedParent.Traits, ref index);
-                inheritedTrait = TraitManager.TraitDatabase[inheritedParent.Traits[index].GetInheritedTraitIndex()];
+                inheritedTrait = inheritedParent.Traits[index].GetInheritedTrait();
             }
             traits[i] = inheritedTrait;
         }
@@ -95,23 +99,29 @@ public class GeneticsMaster : Manager
     }
 
     //Combines the stats of the parents with the breeding stat formula.
-    private DeerData BreedStats(DeerData parentA, DeerData parentB)
+    private DeerData BreedStats(DeerData parentA, DeerData parentB, out StatType[] inheritedA, out StatType[] inheritedB)
     {
         DeerData combinedData = new DeerData();
 
         List<StatType> pool = new List<StatType>{ StatType.Acceleration, StatType.Balance, StatType.Speed, StatType.Stamina, StatType.Discipline, StatType.Charisma };
-
+        inheritedA = new StatType[3];
         //Set stats received from parentA.
         for (int i = 0; i < 3; i++)
         {
             int ran = Random.Range(0, pool.Count);
             combinedData.SetStat(pool[ran], CalculateBredStat(pool[ran], parentA));
+            inheritedA[i] = pool[ran];
             pool.RemoveAt(ran);
         }
 
+        inheritedB = new StatType[3];
         //Set stats received from parentB.
         for (int i = 0; i < pool.Count; i++)
+        {
             combinedData.SetStat(pool[i], CalculateBredStat(pool[i], parentB));
+            inheritedB[i] = pool[i];
+        }
+
 
         return combinedData;
     }
