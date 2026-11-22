@@ -190,6 +190,9 @@ public class DeerData
         }
 
         // TODO: Call Trait CalcualtePriceTrait
+        BuyModifierTrigger trigger = new BuyModifierTrigger(value);
+        TraitManager.TraitEvent(trigger, this);
+        value = trigger.Price;
             
 
         return Mathf.RoundToInt(value);

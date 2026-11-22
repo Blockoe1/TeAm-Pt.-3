@@ -77,7 +77,7 @@ public class TraitManager : Manager
                         && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Race)
                         && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer)) // Global traits trigger even when the event was not on this deer.
                     {
-                        triggered.TriggerTrait(eventData, triggeredDeer, triggeredDeer.Data == deer);
+                        triggered.TriggerTrait(eventData, triggeredDeer, triggeredDeer.Data, triggeredDeer.Data == deer);
                     }
                 }
             }
@@ -93,7 +93,49 @@ public class TraitManager : Manager
                     && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Owned)
                     && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer))
                 {
-                    triggered.TriggerTrait(eventData, triggeredDeer, triggeredDeer.Data == deer);
+                    triggered.TriggerTrait(eventData, triggeredDeer, triggeredDeer.Data, triggeredDeer.Data == deer);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Notifies all relevant deer that an event for a given trait has been triggered.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="eventData"></param>
+    /// <param name="triggeredDeer"></param>
+    public static void TraitEvent<T>(T eventData, DeerData triggeredDeer) where T : TraitTrigger
+    {
+        // Loop through deer in current race.
+        if (RaceManager.DeerInRace != null)
+        {
+            foreach (DeerData deer in RaceManager.DeerInRace)
+            {
+                // Trigger each trait in those deer.
+                foreach (Trait trait in deer.Traits)
+                {
+                    if (trait is ITriggeredTrait<T> triggered
+                        && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Race)
+                        && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer == deer)) // Global traits trigger even when the event was not on this deer.
+                    {
+                        triggered.TriggerTrait(eventData, null, triggeredDeer, triggeredDeer == deer);
+                    }
+                }
+            }
+        }
+
+        // Loop through deer owned.
+        foreach (DeerData deer in PlayerManager.Instance.OwnedDeer.Keys)
+        {
+            // Trigger each trait in those deer.
+            foreach (Trait trait in deer.Traits)
+            {
+                if (trait is ITriggeredTrait<T> triggered
+                    && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Owned)
+                    && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer == deer))
+                {
+                    triggered.TriggerTrait(eventData, null, triggeredDeer, triggeredDeer == deer);
                 }
             }
         }
