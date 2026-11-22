@@ -18,12 +18,12 @@ public class RaceSelectionScreen : BuckScreen
     public void InitializeSelection()
     {
         // Fetch stable data
-        List<DeerController> bucks = new List<DeerController>();
+        List<DeerData> bucks = new List<DeerData>();
         for (int i = 0; i < 8; i++)
         {
-            bucks.Add(new DeerController());
-            bucks[^1].Data = DeerData.NewRandomDeer();
-            bucks[^1].Data.Name = (i + 1).ToString();
+            bucks.Add(DeerData.NewRandomDeer());
+            //bucks[^1].Data = DeerData.NewRandomDeer();
+            //bucks[^1].Data.Name = (i + 1).ToString();
         }
 
         selected = default;
@@ -39,7 +39,7 @@ public class RaceSelectionScreen : BuckScreen
         _bettingScreen.InitializeBetting();
     }
 
-    public override void BuckSelected(DeerController buck, BuckUI ui)
+    public override void BuckSelected(DeerData buck, BuckUI ui)
     {
         if (selected != default)
         {
