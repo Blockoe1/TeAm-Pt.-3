@@ -1010,7 +1010,7 @@ MonoBehaviour:
   _nameText: {fileID: 5558719099776339941}
   _winLossText: {fileID: 5709359575225609372}
   _statsText: {fileID: 3536871055353727802}
-  _costText: {fileID: 0}
+  _costText: {fileID: 7236049849008281524}
   _ageText: {fileID: 7668407597959925220}
   _traitNamesText:
   - {fileID: 5443442041856643109}

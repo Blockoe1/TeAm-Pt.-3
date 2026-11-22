@@ -47,4 +47,4 @@ MonoBehaviour:
   _initializeTime: 0
   _subManagers: []
   dontDestroyMePlease: 0
-  _deerPrefab: {fileID: 1499996538223426227, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
+  _deerPrefab: {fileID: 8925991716084878897, guid: b3d81412139968940a4925b12316e929, type: 3}

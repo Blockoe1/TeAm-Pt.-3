@@ -30,7 +30,7 @@ public abstract class DeerViewer : MonoBehaviour
         switch(cost)
         { 
             case CostParams.None:
-                _costText.gameObject.SetActive(false);
+                if (_costText != null) _costText.gameObject.SetActive(false);
                 break;
             case CostParams.Sell:
                 _costText.gameObject.SetActive(true);

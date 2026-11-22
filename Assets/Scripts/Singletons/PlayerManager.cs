@@ -10,6 +10,7 @@ using AriUtils;
 using MarUtility.ExecutionManagement;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerManager : Manager
@@ -59,6 +60,10 @@ public class PlayerManager : Manager
             if (!(toSell.GetAgeBracket() == DeerAge.Retired))
             {
                 DeerPool.Instance.AddDeer(toSell);
+            }
+            else
+            {
+                Destroy(toSell.Controller.gameObject);
             }
         }
     }
