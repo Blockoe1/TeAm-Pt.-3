@@ -14,13 +14,13 @@ public class RaceEndStatChange : Trait, ITriggeredTrait<EndRaceTrigger>
     [SerializeField] private StatType stat;
     [SerializeField] private int statChange;
     [SerializeField] private Requirements requirements;
-    public void TriggerTrait(EndRaceTrigger trigger, DeerController deer, bool isSelf)
+    public void TriggerTrait(EndRaceTrigger trigger, DeerController deer, DeerData data, bool isSelf)
     {
         if (requirements == Requirements.None
             || (requirements == Requirements.Winner && deer == trigger.Winner)
             || (requirements == Requirements.Loser && deer != trigger.Winner))
         {
-            deer.Data.ModifyStat(stat, statChange);
+            data.ModifyStat(stat, statChange);
         }
     }
 }

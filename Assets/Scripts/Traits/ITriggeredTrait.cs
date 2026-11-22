@@ -8,5 +8,5 @@
 *****************************************************************************/
 public interface ITriggeredTrait<T> where T: TraitTrigger
 {
-    public abstract void TriggerTrait(T trigger, DeerController deer, bool isSelf);
+    public abstract void TriggerTrait(T trigger, DeerController deer, DeerData data, bool isSelf);
 }

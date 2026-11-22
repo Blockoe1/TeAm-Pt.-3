@@ -4,7 +4,7 @@ using UnityEngine;
 public class StartsTripped : Trait, ITriggeredTrait<StartRaceTrigger>
 {
     [SerializeField] private bool ignoreSelf;
-    public void TriggerTrait(StartRaceTrigger trigger, DeerController deer, bool isSelf)
+    public void TriggerTrait(StartRaceTrigger trigger, DeerController deer, DeerData data, bool isSelf)
     {
         if (!(ignoreSelf && isSelf))
         {
