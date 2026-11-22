@@ -25,6 +25,12 @@ public class DeerPool : Manager
 
         internal int StatThreshold => statBonus * 6;
     }
+    public enum PoolType
+    {
+        Good,
+        Bad,
+        Mid
+    }
     #endregion
 
     [Header("Pools")]
@@ -59,12 +65,12 @@ public class DeerPool : Manager
 
     public void AddDeer(DeerData addedDeer)
     {
-        GetPool(addedDeer, out PoolData _).Add(addedDeer);
+        GetPoolForDeer(addedDeer, out PoolData _).Add(addedDeer);
     }
 
     public void RemoveDeer(DeerData removedDeer)
     {
-        List<DeerData> pool = GetPool(removedDeer, out PoolData data);
+        List<DeerData> pool = GetPoolForDeer(removedDeer, out PoolData data);
         pool.Remove(removedDeer);
 
         while (pool.Count < data.minCount)
@@ -73,26 +79,23 @@ public class DeerPool : Manager
         }
     }
 
-    public DeerData GetRandomGoodDeer()
+    public List<DeerData> GetPool(PoolType pool)
     {
-        return GetRandomDeer(goodPool);
-    }
-    public DeerData GetRandomBadDeer()
-    {
-        return GetRandomDeer(badPool);
-    }
-    public DeerData GetRandomMidDeer()
-    {
-        return GetRandomDeer(midPool);
-    }
-
-    private DeerData GetRandomDeer(List<DeerData> deerPool)
-    {
-        return deerPool[UnityEngine.Random.Range(0, deerPool.Count)];
+        switch(pool)
+        {
+            case PoolType.Good:
+                return goodPool;
+            case PoolType.Bad:
+                return badPool;
+            case PoolType.Mid:
+                return midPool;
+            default:
+                return null;
+        }
     }
 
 
-    private List<DeerData> GetPool(DeerData deer, out PoolData data)
+    private List<DeerData> GetPoolForDeer(DeerData deer, out PoolData data)
     {
         int totalStats = deer.GetTotalStats();
         if (totalStats >= 60 && HasTraits(deer, goodPoolData.requireTraits))
@@ -125,6 +128,22 @@ public class DeerPool : Manager
         }
 
         return matchedTraits.Count == 0;
+    }
+
+    public List<DeerData> GetDeerFromPools(params PoolType[] pools)
+    {
+        List<DeerData> deer = new List<DeerData>();
+        foreach (PoolType pool in Enum.GetValues(typeof(PoolType)))
+        {
+            List<DeerData> poolCopy = GetPool(pool).ToList();
+            for (int i = 0; i < (pool == PoolType.Mid ? 3 : 1); i++)
+            {
+                int index = UnityEngine.Random.Range(0, poolCopy.Count);
+                deer.Add(poolCopy[index]);
+                poolCopy.RemoveAt(index);
+            }
+        }
+        return deer;
     }
 
     private DeerData CreateDeerForPool(PoolData poolData)
