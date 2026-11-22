@@ -7,11 +7,12 @@ using UnityEngine;
 
 public class RacingDeer : MonoBehaviour
 {
-    const float SPEED_MULT = 4;
-    const float ACCEL_MULT = 0.01f;
-    const float STAMINA_MULT = 0.0075f;
+    const float SPEED_MULT = 8.8f;
+    const float ACCEL_MULT = 0.022f;
+    const float STAMINA_MULT = 0.0034f;
 
     const float TRIP_SPEED = 2f;
+    private const float ENDING_POSITION = 88;
 
     //I apologize in advance
     public enum STATES
@@ -121,7 +122,7 @@ public class RacingDeer : MonoBehaviour
                     break;
             }
             UpdatePlacement();
-            if (transform.position.x > 40)
+            if (transform.position.x > ENDING_POSITION)
             {
                 RaceManager.Instance.DeerCrossedLine(deerController);
             }
@@ -131,7 +132,7 @@ public class RacingDeer : MonoBehaviour
 
     private void UpdatePlacement()
     {
-        float distance = 40 - transform.position.x;
+        float distance = ENDING_POSITION - transform.position.x;
         placements[placementIndex] = distance;
         int newPlacement = 1;
         for(int i = 0; i < placements.Length; i++)
@@ -144,7 +145,6 @@ public class RacingDeer : MonoBehaviour
 
         if (newPlacement != placement)
         {
-            Debug.Log("Placement changed");
             placement = newPlacement;
             TraitManager.TraitEvent(new PlacementChangeTrigger(placement), deerController);
         }
@@ -234,9 +234,12 @@ public class RacingDeer : MonoBehaviour
 
     public void Trip()
     {
-        StopCoroutine(TripCoroutine());
-        CurrentState = RacingDeer.STATES.TRIPPED;
-        StartCoroutine(UnTripCoroutine(UnityEngine.Random.Range(2, 4f)));
+        if (currentState != STATES.TRIPPED)
+        {
+            StopCoroutine(TripCoroutine());
+            CurrentState = RacingDeer.STATES.TRIPPED;
+            StartCoroutine(UnTripCoroutine(UnityEngine.Random.Range(2, 4f)));
+        }
     }
 
     private IEnumerator UnTripCoroutine(float time)

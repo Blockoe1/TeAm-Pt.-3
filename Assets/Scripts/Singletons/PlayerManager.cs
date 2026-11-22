@@ -36,7 +36,6 @@ public class PlayerManager : Manager
 
     public bool PurchaseDeer(DeerController toAdd)
     {
-        Debug.Log(toAdd);
         int price = toAdd.Data.CalculatePrice();
         if (_ownedDeer.Count < MAX_OWNED_DEER && MoneyManager.Instance.CanAfford(price))
         {
@@ -50,6 +49,16 @@ public class PlayerManager : Manager
         {
             return false;
         }    
+    }
+
+    public void KillDeer(DeerData toKill)
+    {
+        if (_ownedDeer != null)
+        {
+            _ownedDeer.Remove(toKill);
+            OnDeerChanged?.Invoke(toKill, false);
+            Destroy(toKill.Controller.gameObject);
+        }
     }
 
     public void SellDeer(DeerData toSell)
@@ -105,6 +114,12 @@ public class PlayerManager : Manager
         }
 
         return deerOfAge;
+    }
+
+    public void ResetBredOnRound()
+    {
+        foreach (KeyValuePair<DeerData, DeerController> kvp in OwnedDeer)
+            kvp.Key.BredThisRound = false;
     }
 }
  

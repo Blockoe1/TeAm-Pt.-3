@@ -9,7 +9,7 @@ Lemonade
 Muncher
 Enthusiast
 Dynamite
-Laundreybasket
+Laundrybasket
 Thirstquencher
 Trucker
 Rockgobbler
@@ -18,7 +18,7 @@ Bandit
 Cockroach
 Clopper
 Thunderer
-Dissapointment
+Disappointment
 Orphan
 Doorbell
 Spinewrangler
@@ -35,10 +35,10 @@ Doe
 Defenestrator
 Monorail
 Ladder
-Ship
+Magician
 Slop
-Holden
-Frankenfurter
+Crimestopper
+Tumbleweed
 Schadenfreude
 Two Shoes
 Freddy
@@ -47,7 +47,7 @@ Egg
 Starwalker
 Landlubber
 Showstopper
-Knight
+Shoelace
 Monday
 Deer
 Wheels
@@ -57,9 +57,69 @@ One Shoe
 Rizz
 Pancake
 Waffle
-Chocolate
-Candy
+Lawbreaker
+Doppelganger
 Thief
 Johnson
 Nerd
 Maniac
+Goblin
+Turtle
+Robber
+Peeler
+Vampire
+Glowstar
+Pickler
+Dishwasher
+Glitter
+Lightning
+Pasta
+Dining Hall
+Glue
+Wrongdoer
+Engine
+Doctor
+Four Legs
+Anarch
+Plagiarism
+Redditor
+Cultist
+Hunter
+Beast
+Happenstance
+Collector
+Dude
+Mispelling
+Performance
+Developer
+Racer
+Winedrinker
+Bonehoarder
+Chomper
+Bedwetter
+Crusher
+Escapist
+Achiever
+Whippersnapper
+Extinguisher
+Teethsnatcher
+Butterfly
+Appetizer
+Braincells
+Headache
+Fairy
+Mouthwash
+Notetaker
+Sleepwalker
+Birthday Party
+Taste Tester
+Spork
+Mouthbreather
+Skinwalker
+Drawing
+Boxcutter
+Dust Bunny
+Crayon
+Ninja
+Triangle
+Consumer

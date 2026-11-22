@@ -62,7 +62,6 @@ MonoBehaviour:
   - rid: 7479278809097961839
   - rid: 7479278826202333271
   - rid: 7479278809097961841
-  - rid: 7479278809097961849
   - rid: 7479278809097961855
   - rid: 7479278826202333273
   - rid: 7479278826202333275
@@ -195,7 +194,7 @@ MonoBehaviour:
       type: {class: Wildcard, ns: , asm: Assembly-CSharp}
       data:
         _name: Wildcard
-        _description: Random -3 to +3 to every stat at the beginning of each race.
+        _description: Random permanent -3 to +3 to every stat at the beginning of each race.
         _priority: 2
         _randomlySelectable: 1
         _traitAlignment: 2
@@ -212,16 +211,6 @@ MonoBehaviour:
         _triggerFlags: 2
         ageChange: 1
         minAge: 0
-    - rid: 7479278809097961849
-      type: {class: BenjaminButton, ns: , asm: Assembly-CSharp}
-      data:
-        _name: Benjamin Button
-        _description: This deer ages backwards.
-        _priority: 5
-        _randomlySelectable: 1
-        _traitAlignment: 2
-        _triggerFlags: 0
-        startingAge: 10
     - rid: 7479278809097961855
       type: {class: OneTimeWonder, ns: , asm: Assembly-CSharp}
       data:
