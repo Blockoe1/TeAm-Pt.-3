@@ -10,6 +10,7 @@ public class BuckScreen : MonoBehaviour
     [SerializeField] private GameObject _blankTemplate;
     protected (DeerController, BuckUI) selected;
     protected int widgetsToKeep = 1;
+    protected List<DeerController> currentDeer;
 
     protected virtual void Start()
     {
