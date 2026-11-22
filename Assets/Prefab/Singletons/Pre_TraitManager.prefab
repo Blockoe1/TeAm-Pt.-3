@@ -46,11 +46,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TraitManager
   _initializeTime: 0
   _subManagers: []
+  dontDestroyMePlease: 0
   _traitDatabase:
   - rid: 7479278803429884011
+  - rid: 2790609388217565320
   references:
     version: 2
     RefIds:
+    - rid: 2790609388217565320
+      type: {class: TestTrait, ns: , asm: Assembly-CSharp}
+      data:
+        _name: EVIL TRAIT
+        _description: EVILY Increases acceleration by +5
+        _priority: 0
+        _randomlySelectable: 1
+        _traitAlignment: 1
+        _triggerFlags: 1
     - rid: 7479278803429884011
       type: {class: TestTrait, ns: , asm: Assembly-CSharp}
       data:
