@@ -60,6 +60,7 @@ public class GeneticsMaster : Manager
         osDeerCon.Data = BreedStats(parentA.Data, parentB.Data);
         osDeerCon.Data.ColorGenotype = CombineColorGenotype(parentA, parentB);
         osDeerCon.Data.PartGenotype = CombinePartGenotype(parentA, parentB);
+        osDeerCon.Data.Name = DeerNames.GetRandomName();
 
         osGenCon.Initialize();
         osGenCon.VisualizeGenotypes(osDeerCon.Data.PartGenotype, osDeerCon.Data.ColorGenotype);//VisualizeColorGenotype(osDeerCon.Data.ColorGenotype);
