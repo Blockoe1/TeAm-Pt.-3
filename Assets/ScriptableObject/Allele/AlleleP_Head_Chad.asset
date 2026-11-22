@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Chad
   _parts:
   - key: Head
-    value: {fileID: 21300000, guid: 428ef02a080c20f4fa41cc1992a648d2, type: 3}
+    value: {fileID: 21300000, guid: ce48aae554dcbcf45ac0f16e717cce88, type: 3}
