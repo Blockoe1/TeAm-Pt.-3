@@ -209,7 +209,7 @@ public class DeerPool : Manager
     {
         dd.IncrementAge();
         DeerAge ageBracket = dd.GetAgeBracket();
-        if ((ageBracket == DeerAge.Retired || ageBracket == DeerAge.Dead) & !dd.HasTrait<BenjaminButton>())
+        if (ageBracket == DeerAge.Retired || ageBracket == DeerAge.Dead)
         {
             RemoveDeer(dd);
         }
