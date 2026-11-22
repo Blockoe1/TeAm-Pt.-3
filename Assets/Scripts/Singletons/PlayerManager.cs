@@ -51,6 +51,16 @@ public class PlayerManager : Manager
         }    
     }
 
+    public void KillDeer(DeerData toKill)
+    {
+        if (_ownedDeer != null)
+        {
+            _ownedDeer.Remove(toKill);
+            OnDeerChanged?.Invoke(toKill, false);
+            Destroy(toKill.Controller.gameObject);
+        }
+    }
+
     public void SellDeer(DeerData toSell)
     {
         if (_ownedDeer.ContainsKey(toSell))
