@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Peanut
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Peanut
-  _color: {r: 0.4745098, g: 0.36078432, b: 0.20392157, a: 100}
-  _shadedColor: {r: 0.35220122, g: 0.28191185, b: 0.184961, a: 100}
+  _color: {r: 0.8301887, g: 0.6475486, b: 0.39420903, a: 100}
+  _shadedColor: {r: 0.654088, g: 0.55355793, b: 0.4093192, a: 100}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Tawny
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Tawny
-  _color: {r: 0.5019608, g: 0.2784314, b: 0.10980392, a: 100}
-  _shadedColor: {r: 0.3962264, g: 0.23642752, b: 0.11587748, a: 100}
+  _color: {r: 0.74213827, g: 0.5908599, b: 0.37573662, a: 100}
+  _shadedColor: {r: 0.5471698, g: 0.4480376, b: 0.30455673, a: 100}

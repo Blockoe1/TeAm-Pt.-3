@@ -294,6 +294,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: -876546973899608171, guid: e28695acfff0d344481e283c79baf07d, type: 3}
+    - target: {fileID: 3230696094811201514, guid: d369e9727360dc34b943642267c1b46f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230696094811201514, guid: d369e9727360dc34b943642267c1b46f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3621229115141026012, guid: d369e9727360dc34b943642267c1b46f, type: 3}
       propertyPath: m_Name
       value: BLLeg

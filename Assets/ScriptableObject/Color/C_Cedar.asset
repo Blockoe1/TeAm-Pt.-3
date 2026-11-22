@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Cedar
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Cedar
-  _color: {r: 0.2901961, g: 0.21568628, b: 0.15686275, a: 100}
-  _shadedColor: {r: 0.23270428, g: 0.17668048, b: 0.13245116, a: 100}
+  _color: {r: 0.66666657, g: 0.34615007, b: 0.21173994, a: 100}
+  _shadedColor: {r: 0.48427665, g: 0.25210622, b: 0.15685682, a: 100}

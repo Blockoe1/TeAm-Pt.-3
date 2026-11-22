@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Hickory
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Hickory
-  _color: {r: 0.21568628, g: 0.11372549, b: 0.0627451, a: 100}
-  _shadedColor: {r: 0.13836467, g: 0.07541889, b: 0.043945998, a: 100}
+  _color: {r: 0.6415094, g: 0.55478346, b: 0.20374978, a: 100}
+  _shadedColor: {r: 0.41509432, g: 0.36602363, b: 0.15011264, a: 100}

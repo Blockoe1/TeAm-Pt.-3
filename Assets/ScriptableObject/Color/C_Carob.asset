@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Carob
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Carob
-  _color: {r: 0.21176471, g: 0.14509805, b: 0.06666667, a: 100}
-  _shadedColor: {r: 0.14465404, g: 0.10180861, b: 0.05140221, a: 100}
+  _color: {r: 0.3584906, g: 0.25127247, b: 0.12513347, a: 100}
+  _shadedColor: {r: 0.25157225, g: 0.17333734, b: 0.083066285, a: 100}
