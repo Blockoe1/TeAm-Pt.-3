@@ -351,6 +351,7 @@ public class DeerData
         return data;
     }
 
+    #region Genetics
     //Randomize color genotype.
     public static Dictionary<SO_ColorGene, ColorGenome> NewRandomColorGenotype()
     {
@@ -372,6 +373,12 @@ public class DeerData
 
         return newGenotype;
     }
+
+    public SO_ColorAllele GetDominantAllele(SO_ColorGene gene)
+    => (gene.FindIndex(_colorGenotype[gene].AlleleA) < gene.FindIndex(_colorGenotype[gene].AlleleB)) ? _colorGenotype[gene].AlleleA : _colorGenotype[gene].AlleleB;
+    public SO_PartAllele GetDominantAllele(SO_PartGene gene)
+    => (gene.FindIndex(_partGenotype[gene].AlleleA) < gene.FindIndex(_partGenotype[gene].AlleleB)) ? _partGenotype[gene].AlleleA : _partGenotype[gene].AlleleB;
+    #endregion
 }
 
 public enum DeerAge

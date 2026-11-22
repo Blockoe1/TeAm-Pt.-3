@@ -24,24 +24,24 @@ public class GeneController : Manager
         base.Initialize();
     }
 
-    public void VisualizeGenotypes(Dictionary<SO_PartGene, PartGenome> partGenotype, Dictionary<SO_ColorGene, ColorGenome> colorGenotype)
+    public void VisualizeGenotypes(DeerData dd)
     {
-        VisualizeColorGenotype(colorGenotype);
-        VisualizePartGenotype(partGenotype);
+        VisualizeColorGenotype(dd);
+        VisualizePartGenotype(dd);
     }
 
-    public void VisualizeColorGenotype(Dictionary<SO_ColorGene, ColorGenome> colorGenotype)
+    public void VisualizeColorGenotype(DeerData dd)
     {
-        foreach (KeyValuePair<SO_ColorGene, ColorGenome> genome in colorGenotype)
-            _colorRegHan.VisualizeColor(genome.Key.MatColorID, genome.Key.MatColorShadedID, GetDominantAllele(genome.Key, colorGenotype).Color);
+        foreach (KeyValuePair<SO_ColorGene, ColorGenome> genome in dd.ColorGenotype)
+            _colorRegHan.VisualizeColor(genome.Key.MatColorID, genome.Key.MatColorShadedID, dd.GetDominantAllele(genome.Key).Color);
     }
 
-    public void VisualizePartGenotype(Dictionary<SO_PartGene, PartGenome> partGenotype)
+    public void VisualizePartGenotype(DeerData dd)
     {
         //Debug.Log("Ran");
-        foreach (KeyValuePair<SO_PartGene, PartGenome> genome in partGenotype)
+        foreach (KeyValuePair<SO_PartGene, PartGenome> genome in dd.PartGenotype)
         {
-            SO_PartAllele dominant = GetDominantAllele(genome.Key, partGenotype);
+            SO_PartAllele dominant = dd.GetDominantAllele(genome.Key);
             foreach (KeyValuePair<string, Sprite> kvp in dominant.Parts)
             {
                 Transform conPt = MarData.FindChildWithName(_colorRegHan.transform, kvp.Key);
@@ -81,10 +81,10 @@ public class GeneController : Manager
 
     #region Get Allele
     //Returns the dominant allele.
-    private SO_ColorAllele GetDominantAllele(SO_ColorGene gene, Dictionary<SO_ColorGene, ColorGenome> colorGenotype)
-        => (gene.FindIndex(colorGenotype[gene].AlleleA) < gene.FindIndex(colorGenotype[gene].AlleleB)) ? colorGenotype[gene].AlleleA : colorGenotype[gene].AlleleB;
-    private SO_PartAllele GetDominantAllele(SO_PartGene gene, Dictionary<SO_PartGene, PartGenome> partGenotype)
-    => (gene.FindIndex(partGenotype[gene].AlleleA) < gene.FindIndex(partGenotype[gene].AlleleB)) ? partGenotype[gene].AlleleA : partGenotype[gene].AlleleB;
+    //private SO_ColorAllele GetDominantAllele(SO_ColorGene gene, Dictionary<SO_ColorGene, ColorGenome> colorGenotype)
+    //    => (gene.FindIndex(colorGenotype[gene].AlleleA) < gene.FindIndex(colorGenotype[gene].AlleleB)) ? colorGenotype[gene].AlleleA : colorGenotype[gene].AlleleB;
+    //private SO_PartAllele GetDominantAllele(SO_PartGene gene, Dictionary<SO_PartGene, PartGenome> partGenotype)
+    //=> (gene.FindIndex(partGenotype[gene].AlleleA) < gene.FindIndex(partGenotype[gene].AlleleB)) ? partGenotype[gene].AlleleA : partGenotype[gene].AlleleB;
 
     //Returns a random allele.
     public SO_ColorAllele GetRandomAlleleFromGenotype(SO_ColorGene gene, Dictionary<SO_ColorGene, ColorGenome> colorGenotype)
