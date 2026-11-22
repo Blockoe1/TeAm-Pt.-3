@@ -9,6 +9,7 @@ public class AudioManager : Manager
 {
     public enum AudioID
     {
+        SILENT = -2,
         NONE = -1,
         IDLEMUSIC = 0,
         RACEMUSIC = 1,
@@ -44,7 +45,7 @@ public class AudioManager : Manager
     {
         if(arg1.name == "RaceScene")
         {
-            PlayLoopedEvent(AudioID.RACEMUSIC);
+            PlayLoopedEvent(AudioID.SILENT);
         }
         else
         {
@@ -85,7 +86,7 @@ public class AudioManager : Manager
         bgMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
 
-        if (audioID == AudioID.NONE)
+        if (audioID == AudioID.NONE || audioID == AudioID.SILENT)
         {
             return;
         }
