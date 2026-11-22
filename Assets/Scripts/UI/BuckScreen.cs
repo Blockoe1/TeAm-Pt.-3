@@ -10,6 +10,7 @@ public class BuckScreen : MonoBehaviour
     [SerializeField] private BuckUI _buckTemplate;
     [SerializeField] private GameObject _blankTemplate;
     [SerializeField] private Button disabledButton;
+    [SerializeField] private Button[] _navigationButtons;
     protected (DeerData, BuckUI) selected;
     protected int widgetsToKeep = 1;
     protected List<DeerData> currentDeer;
@@ -84,5 +85,10 @@ public class BuckScreen : MonoBehaviour
         if (s.Length == 2) s = "0" + s;
         s = s.Substring(0, s.Length - 2) + "." + s.Substring(s.Length - 2);
         return "$" + s;
+    }
+
+    public void AllowNavigation(bool val)
+    {
+        foreach (var button in _navigationButtons) button.gameObject.SetActive(val);
     }
 }
