@@ -1,15 +1,11 @@
-using System;
 using System.Collections;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class RacingDeer : MonoBehaviour
 {
     const float SPEED_MULT = 8.8f;
     const float ACCEL_MULT = 0.022f;
-    const float STAMINA_MULT = 0.0034f;
+    const float STAMINA_MULT = 0.0017f;
 
     const float TRIP_SPEED = 2f;
     private const float ENDING_POSITION = 88;
@@ -55,6 +51,12 @@ public class RacingDeer : MonoBehaviour
     {
         EditStats();
         RaceManager.Broadcast_StartRace += StartRace;
+    }
+
+    private void FixedUpdate()
+    {
+        deerController.Anim.SetSpeed(rigidbody.linearVelocityX);
+        Debug.Log(deerController.Data.Name + ": " + rigidbody.linearVelocityX);
     }
 
     private void EditStats()
@@ -164,6 +166,7 @@ public class RacingDeer : MonoBehaviour
             return;
         }
         rigidbody.linearVelocity = Vector2.zero;
+        deerController.Anim.TriggerTrip();
 
         currentState = STATES.NONE;
     }
@@ -186,7 +189,7 @@ public class RacingDeer : MonoBehaviour
             isStopped = UnityEngine.Random.Range(0, 101) > DeerStopChance;
         }
 
-        DisobeyTrigger trigger = new DisobeyTrigger(currentState == STATES.REVERSED, UnityEngine.Random.Range(1, 3f));
+        DisobeyTrigger trigger = new DisobeyTrigger(currentState == STATES.REVERSED, UnityEngine.Random.Range(.5f, 1.5f));
         TraitManager.TraitEvent(trigger, deerController);
         currentState = STATES.STOPPED;
         StartCoroutine(UnStopCoroutine(trigger.DisobeyTime));
@@ -208,7 +211,7 @@ public class RacingDeer : MonoBehaviour
 
     private IEnumerator UnReverseCoroutine()
     {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(1, 3f));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(.5f, 1.5f));
         currentState = STATES.RUNNING;
         StartCoroutine(TripCoroutine());
     }
@@ -226,7 +229,7 @@ public class RacingDeer : MonoBehaviour
             isTripped = UnityEngine.Random.Range(0, 101) > DeerBalance;
         }
 
-        TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(2, 4f));
+        TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(1f, 2f));
         TraitManager.TraitEvent(trigger, deerController);
         StartCoroutine(UnTripCoroutine(trigger.TripTime));
         currentState = STATES.TRIPPED;
@@ -238,7 +241,7 @@ public class RacingDeer : MonoBehaviour
         {
             StopCoroutine(TripCoroutine());
             CurrentState = RacingDeer.STATES.TRIPPED;
-            StartCoroutine(UnTripCoroutine(UnityEngine.Random.Range(2, 4f)));
+            StartCoroutine(UnTripCoroutine(UnityEngine.Random.Range(1f, 2f)));
         }
     }
 

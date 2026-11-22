@@ -18,6 +18,11 @@ public class PostRaceJunk : MonoBehaviour
         {
             Lose();
         }
+        
+        if (RaceSelectionScreen.selectedDeer == RaceManager.WinningDeer)
+        {
+            MoneyManager.Instance.EarnMoney(50);
+        }
         EndRound();
     }
 
@@ -39,6 +44,8 @@ public class PostRaceJunk : MonoBehaviour
     private void EndRound()
     {
         DeerPool.Instance.AgeAllDeer();
+        PlayerManager.Instance.Round++;
         PlayerManager.Instance.ResetBredOnRound();
+        MoneyManager.Instance.EarnMoney(10);
     }
 }

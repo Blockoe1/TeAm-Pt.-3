@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C_Chocolate
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Chocolate
-  _color: {r: 0.32704395, g: 0.15246621, b: 0.027767831, a: 100}
-  _shadedColor: {r: 0.2264151, g: 0.11330574, b: 0.033463847, a: 100}
+  _color: {r: 0.3207547, g: 0.1569532, b: 0.037824843, a: 100}
+  _shadedColor: {r: 0.28235295, g: 0.11630164, b: 0.04313726, a: 100}
