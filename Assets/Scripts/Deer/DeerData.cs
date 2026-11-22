@@ -334,7 +334,6 @@ public class DeerData
             data.SetStat(type, UnityEngine.Random.Range(STAT_MIN, STAT_MAX));
         }
 
-        Debug.Log("Making traits for " + data.Name);
         if (allowedTraits != null && allowedTraits.Length > 0)
         {
             data.Traits = TraitManager.GetRandomTraits(allowedTraits, BASE_TRAIT_NUM);

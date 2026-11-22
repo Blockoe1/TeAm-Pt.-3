@@ -71,13 +71,6 @@ public class TraitManager : Manager
             int index = UnityEngine.Random.Range(0, filteredTraits.Count);
             traits[i] = filteredTraits[index];
             filteredTraits.RemoveAt(index);
-
-            string debugString = "";
-            foreach(Trait t in filteredTraits)
-            {
-                debugString += t.Name + ", ";
-            }
-            Debug.Log(debugString);
         }
         return traits;
     }
