@@ -64,6 +64,7 @@ public class GeneticsMaster : Manager
         osDeerCon.Data.ColorGenotype = CombineColorGenotype(parentA, parentB);
         osDeerCon.Data.PartGenotype = CombinePartGenotype(parentA, parentB);
         osDeerCon.Data.Name = DeerNames.GetRandomName();
+        Debug.Log("Creating " + osDeerCon.Data.Name);
 
         // Inherit Traits
         osDeerCon.Data.Traits = BreedTraits(parentA.Data, parentB.Data);
