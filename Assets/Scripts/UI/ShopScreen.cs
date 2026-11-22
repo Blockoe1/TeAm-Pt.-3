@@ -30,6 +30,7 @@ public class ShopScreen : BuckScreen
 
     public override void Continue()
     {
-        
+        PlayerManager.Instance.PurchaseDeer(selected.Item1);
+        ReplaceWithBlank(selected.Item2);
     }
 }
