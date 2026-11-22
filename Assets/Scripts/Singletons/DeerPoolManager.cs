@@ -53,13 +53,13 @@ public class DeerPool : Manager
         midPool = CreateStartingPool(midPoolData);
         badPool = CreateStartingPool(badPoolData);
 
-        /*for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 8; i++)
         {
             var deer = DeerData.NewRandomDeer();
             deer.Age = 5;
             PlayerManager.Instance.GenerateControllerForNewDeer(deer);
             PlayerManager.Instance.OwnedDeer.Add(deer, deer.Controller);
-        }*/
+        }
     }
 
     private List<DeerData> CreateStartingPool(PoolData poolData)
