@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ public class StablesScreen : BuckScreen
         base.Start();
         if (_selectedButtons != null) _selectedButtons.SetActive(false);
         if (_breedModeButtons != null) _breedModeButtons.SetActive(false);
-        if (!_secondStableScreen) InitializeStables();
+        if (!_secondStableScreen) InitializeStables(PlayerManager.Instance.OwnedDeer.Keys.ToList());
         else _screen.SetActive(false);
     }
 
@@ -65,18 +66,14 @@ public class StablesScreen : BuckScreen
     {
         if (_secondStableScreen)
         {
-            _breedingScreen.InitializeBreeding();
+            _breedingScreen.InitializeBreeding(_otherStableScreen.StartBreeding(), selected.Item1);
             _screen.SetActive(false);
             _selectedButtons.SetActive(false);
-            _otherStableScreen.StartBreeding();
         }
         else
         {
             List<DeerData> segment = new List<DeerData>();
             foreach (var deer in currentDeer) { if (selected.Item1 != deer) segment.Add(deer); }
-
-            //solution to having fake deer rn
-            foreach (var deer in currentDeer) { segment.Add(deer); }
 
             _otherStableScreen.InitializeStables(segment);
 
@@ -85,10 +82,11 @@ public class StablesScreen : BuckScreen
         }
     }
 
-    public void StartBreeding()
+    public DeerData StartBreeding()
     {
         _screen.SetActive(false);
         _breedModeButtons.SetActive(false);
+        return selected.Item1;
     }
 
     public void CancelBreeding()
