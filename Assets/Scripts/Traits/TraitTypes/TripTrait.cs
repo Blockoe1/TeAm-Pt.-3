@@ -9,6 +9,6 @@
 using AriUtils;
 using UnityEngine;
 
-public abstract class TripTrait : TraitTrigger
+public class TripTrait : TraitTrigger
 {
 }
