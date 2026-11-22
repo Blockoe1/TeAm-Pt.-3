@@ -71,16 +71,27 @@ public class RacingDeer : MonoBehaviour
     {
         if (inRace)
         {
+            Debug.Log(currentState);
             if (currentState == STATES.NONE)
             {
                 currentState = STATES.RUNNING;
             }
-            StartCoroutine(Movement());
-            StartCoroutine(TripCoroutine());
+            Debug.Log(currentState);
+            if (currentState == STATES.TRIPPED)
+            {
+                TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(2, 4f));
+                TraitManager.TraitEvent(trigger, deerController);
+                StartCoroutine(UnTripCoroutine(trigger.TripTime));
+            }
+            else
+            {
+                StartCoroutine(TripCoroutine());
+            }
             StartCoroutine(DisciplineCoroutine());
             StartCoroutine(SpeedLower());
             StartCoroutine(SpeedRandom());
             StartCoroutine(AccelRandom());
+            StartCoroutine(Movement());
             inRace = false;
         }
     }
@@ -222,6 +233,7 @@ public class RacingDeer : MonoBehaviour
 
     private IEnumerator UnTripCoroutine(float time)
     {
+        Debug.Log(time);
         yield return new WaitForSeconds(time);
         currentState = STATES.RUNNING;
         StartCoroutine(TripCoroutine());
