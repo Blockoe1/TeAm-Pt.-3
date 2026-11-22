@@ -20,6 +20,7 @@ public class RaceEndMoneyChange : Trait, ITriggeredTrait<EndRaceTrigger>
             || (requirements == Requirements.Loser && deer != trigger.Winner))
         {
             MoneyManager.Instance.ModifyMoney(moneyChange);
+            NotificationLog.QueueNotification($"{(moneyChange < 0 ? '-' : '+')}{MoneyManager.FormatCents(moneyChange)}", data);
         }
     }
 }
