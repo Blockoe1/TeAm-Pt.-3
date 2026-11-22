@@ -36,7 +36,7 @@ public class StablesScreen : BuckScreen
 
     private void Handle_OnDeerChanged(DeerData changedDeer, bool wasAdded)
     {
-        Debug.Log(changedDeer.Name);
+        //Debug.Log(changedDeer.Name);
         if (_screen.activeSelf) InitializeStables();
     }
 

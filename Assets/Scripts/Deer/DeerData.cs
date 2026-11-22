@@ -310,6 +310,11 @@ public class DeerData
     }
     #endregion
 
+    public bool HasTrait<T>()
+    {
+        return Traits.Any(x => x is T);
+    }
+
     public void TriggerTraits<T>(T eventTrigger, DeerController triggeredDeerController, DeerData triggeredData, 
         DeerData thisDeer, Trait.TriggerFlags requireFlags) where T : TraitTrigger
     {

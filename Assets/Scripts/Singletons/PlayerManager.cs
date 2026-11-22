@@ -35,7 +35,6 @@ public class PlayerManager : Manager
 
     public bool PurchaseDeer(DeerController toAdd)
     {
-        Debug.Log(toAdd);
         int price = toAdd.Data.CalculatePrice();
         if (_ownedDeer.Count < MAX_OWNED_DEER && MoneyManager.Instance.CanAfford(price))
         {

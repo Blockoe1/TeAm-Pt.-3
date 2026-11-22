@@ -144,7 +144,6 @@ public class RacingDeer : MonoBehaviour
 
         if (newPlacement != placement)
         {
-            Debug.Log("Placement changed");
             placement = newPlacement;
             TraitManager.TraitEvent(new PlacementChangeTrigger(placement), deerController);
         }
