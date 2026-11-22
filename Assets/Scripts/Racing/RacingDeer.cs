@@ -56,7 +56,7 @@ public class RacingDeer : MonoBehaviour
     private void FixedUpdate()
     {
         deerController.Anim.SetSpeed(rigidbody.linearVelocityX);
-        Debug.Log(deerController.Data.Name + ": " + rigidbody.linearVelocityX);
+        //Debug.Log(deerController.Data.Name + ": " + rigidbody.linearVelocityX);
     }
 
     private void EditStats()
@@ -75,20 +75,16 @@ public class RacingDeer : MonoBehaviour
     {
         if (inRace)
         {
-            Debug.Log(currentState);
-            if (currentState == STATES.NONE)
+            //Debug.Log(currentState);
+            if (currentState == STATES.TRIPPED && !deerController.Data.HasTrait<Pegasus>())
             {
-                currentState = STATES.RUNNING;
-            }
-            Debug.Log(currentState);
-            if (currentState == STATES.TRIPPED)
-            {
-                TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(2, 4f));
-                TraitManager.TraitEvent(trigger, deerController);
-                StartCoroutine(UnTripCoroutine(trigger.TripTime));
+                currentState = STATES.NONE;
+                TripWithTrigger();
             }
             else
             {
+                
+                currentState = STATES.RUNNING;
                 StartCoroutine(TripCoroutine());
             }
             StartCoroutine(DisciplineCoroutine());
@@ -218,6 +214,7 @@ public class RacingDeer : MonoBehaviour
 
     private IEnumerator TripCoroutine()
     {
+        if (deerController.Data.HasTrait<Pegasus>()) { yield break; }
         bool isTripped = false;
         while (!isTripped)
         {
@@ -229,25 +226,35 @@ public class RacingDeer : MonoBehaviour
             isTripped = UnityEngine.Random.Range(0, 101) > DeerBalance;
         }
 
-        TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(1f, 2f));
-        TraitManager.TraitEvent(trigger, deerController);
-        StartCoroutine(UnTripCoroutine(trigger.TripTime));
-        currentState = STATES.TRIPPED;
+        TripWithTrigger();
     }
 
-    public void Trip()
+    public void TripWithoutEvent()
     {
-        if (currentState != STATES.TRIPPED)
+        Trip(UnityEngine.Random.Range(1f, 2f));
+    }
+
+    public void TripWithTrigger()
+    {
+        TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(1f, 2f));
+        Debug.Log(trigger.TripTime + "Before");
+        TraitManager.TraitEvent(trigger, deerController);
+        Debug.Log(trigger.TripTime + "After");
+        Trip(trigger.TripTime);
+    }
+
+    public void Trip(float tripTime)
+    {
+        if (!deerController.Data.HasTrait<Pegasus>() && currentState != STATES.TRIPPED)
         {
             StopCoroutine(TripCoroutine());
             CurrentState = RacingDeer.STATES.TRIPPED;
-            StartCoroutine(UnTripCoroutine(UnityEngine.Random.Range(1f, 2f)));
+            StartCoroutine(UnTripCoroutine(tripTime));
         }
     }
 
     private IEnumerator UnTripCoroutine(float time)
     {
-        Debug.Log(time);
         yield return new WaitForSeconds(time);
         currentState = STATES.RUNNING;
         StartCoroutine(TripCoroutine());

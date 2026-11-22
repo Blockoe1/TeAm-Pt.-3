@@ -23,6 +23,7 @@ public class PlayerManager : Manager
     public Dictionary<DeerData, DeerController> OwnedDeer => _ownedDeer;
     public static PlayerManager Instance => instance;
 
+
     public static event Action<DeerData, bool> OnDeerChanged;
 
     [SerializeField] private GameObject _deerPrefab;
@@ -34,11 +35,12 @@ public class PlayerManager : Manager
         SingletonUtil.SetSingleton(ref instance, this);
     }
 
-    public bool PurchaseDeer(DeerController toAdd)
+    public bool PurchaseDeer(DeerController toAdd, bool justChecking = false)
     {
         int price = toAdd.Data.CalculatePrice();
         if (_ownedDeer.Count < MAX_OWNED_DEER && MoneyManager.Instance.CanAfford(price))
         {
+            if (justChecking) return true;
             _ownedDeer?.Add(toAdd.Data, toAdd);
             DeerPool.Instance.RemoveDeer(toAdd.Data);
             MoneyManager.Instance.SpendMoney(price);
@@ -120,6 +122,16 @@ public class PlayerManager : Manager
     {
         foreach (KeyValuePair<DeerData, DeerController> kvp in OwnedDeer)
             kvp.Key.BredThisRound = false;
+    }
+
+    public bool OwnsDeer(DeerData dd)
+    {
+        foreach (DeerData d in OwnedDeer.Keys)
+        {
+            if (dd == d)
+                return true;
+        }
+        return false;
     }
 }
  

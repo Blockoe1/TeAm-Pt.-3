@@ -57,6 +57,7 @@ public class BuckScreen : MonoBehaviour
     public void InitializeWidget(DeerData buck)
     {
         var entry = Instantiate(_buckTemplate, _buckParent).GetComponent<BuckUI>();
+        entry.FixReferences();
         entry.gameObject.SetActive(true);
         if (entry.BuckName != null) entry.BuckName.text = buck.Name;
         entry.BuckName.ForceMeshUpdate();

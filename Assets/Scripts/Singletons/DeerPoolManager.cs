@@ -53,13 +53,13 @@ public class DeerPool : Manager
         midPool = CreateStartingPool(midPoolData);
         badPool = CreateStartingPool(badPoolData);
 
-        /*for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 8; i++)
         {
             var deer = DeerData.NewRandomDeer();
             deer.Age = 5;
             PlayerManager.Instance.GenerateControllerForNewDeer(deer);
             PlayerManager.Instance.OwnedDeer.Add(deer, deer.Controller);
-        }*/
+        }
     }
 
     private List<DeerData> CreateStartingPool(PoolData poolData)
@@ -198,11 +198,11 @@ public class DeerPool : Manager
     {
         foreach (KeyValuePair<DeerData, DeerController> kvp in PlayerManager.Instance.OwnedDeer)
             kvp.Key.IncrementAge();
-        foreach (DeerData dd in GetPool(PoolType.Good))
+        foreach (DeerData dd in GetPool(PoolType.Good).ToList())
             AgeDeer(dd);
-        foreach (DeerData dd in GetPool(PoolType.Bad))
+        foreach (DeerData dd in GetPool(PoolType.Bad).ToList())
             AgeDeer(dd);
-        foreach (DeerData dd in GetPool(PoolType.Mid))
+        foreach (DeerData dd in GetPool(PoolType.Mid).ToList())
             AgeDeer(dd);
     }
     

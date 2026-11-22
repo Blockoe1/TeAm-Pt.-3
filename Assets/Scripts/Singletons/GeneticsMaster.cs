@@ -7,10 +7,12 @@
  */
 using AriUtils;
 using MarUtility.ExecutionManagement;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Collections;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class GeneticsMaster : Manager
@@ -64,6 +66,7 @@ public class GeneticsMaster : Manager
         osDeerCon.Data.ColorGenotype = CombineColorGenotype(parentA, parentB);
         osDeerCon.Data.PartGenotype = CombinePartGenotype(parentA, parentB);
         osDeerCon.Data.Name = DeerNames.GetRandomName();
+        Debug.Log("Creating " + osDeerCon.Data.Name);
 
         // Inherit Traits
         osDeerCon.Data.Traits = BreedTraits(parentA.Data, parentB.Data);
@@ -72,6 +75,8 @@ public class GeneticsMaster : Manager
         osGenCon.VisualizeGenotypes(osDeerCon.Data);//VisualizeColorGenotype(osDeerCon.Data.ColorGenotype);
 
         osDeerCon.Data.TriggerTraits(new BornTrigger(), osDeerCon, osDeerCon.Data, osDeerCon.Data, Trait.TriggerFlags.None);
+
+
 
         // Change to use TraitManager if we have things that trigger when other deer breed.
         parentA.Data.TriggerTraits(new BreedTrigger(osDeerCon.Data, inheritedA), parentA, parentA.Data, parentA.Data, Trait.TriggerFlags.None);
@@ -87,7 +92,7 @@ public class GeneticsMaster : Manager
         {
             // Assumes that only 2 traits are used.
             DeerData inheritedParent = i % 2 == 0 ? parentA : parentB;
-            int index = Random.Range(0, inheritedParent.Traits.Length);
+            int index = UnityEngine.Random.Range(0, inheritedParent.Traits.Length);
             Trait inheritedTrait = inheritedParent.Traits[index].GetInheritedTrait();
             while (traits.Contains(inheritedTrait))
             {
@@ -110,7 +115,7 @@ public class GeneticsMaster : Manager
         //Set stats received from parentA.
         for (int i = 0; i < 3; i++)
         {
-            int ran = Random.Range(0, pool.Count);
+            int ran = UnityEngine.Random.Range(0, pool.Count);
             combinedData.SetStat(pool[ran], CalculateBredStat(pool[ran], parentA));
             inheritedA[i] = pool[ran];
             pool.RemoveAt(ran);
@@ -129,7 +134,7 @@ public class GeneticsMaster : Manager
 
     //Calculates a possible bred stat for a deer.
     private int CalculateBredStat(StatType stat, DeerData parent)
-        => parent.GetStat(stat) + Random.Range(-2, 3);
+        => parent.GetStat(stat) + UnityEngine.Random.Range(-2, 3);
 
     //Combines parentA and parentB color genotypes.
     private Dictionary<SO_ColorGene, ColorGenome> CombineColorGenotype(DeerController parentA, DeerController parentB)
