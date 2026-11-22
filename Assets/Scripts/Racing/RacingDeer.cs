@@ -237,7 +237,9 @@ public class RacingDeer : MonoBehaviour
     public void TripWithTrigger()
     {
         TripTrigger trigger = new TripTrigger(UnityEngine.Random.Range(1f, 2f));
+        Debug.Log(trigger.TripTime + "Before");
         TraitManager.TraitEvent(trigger, deerController);
+        Debug.Log(trigger.TripTime + "After");
         Trip(trigger.TripTime);
     }
 
@@ -247,13 +249,12 @@ public class RacingDeer : MonoBehaviour
         {
             StopCoroutine(TripCoroutine());
             CurrentState = RacingDeer.STATES.TRIPPED;
-            StartCoroutine(UnTripCoroutine(UnityEngine.Random.Range(1f, 2f)));
+            StartCoroutine(UnTripCoroutine(tripTime));
         }
     }
 
     private IEnumerator UnTripCoroutine(float time)
     {
-        Debug.Log(time);
         yield return new WaitForSeconds(time);
         currentState = STATES.RUNNING;
         StartCoroutine(TripCoroutine());
