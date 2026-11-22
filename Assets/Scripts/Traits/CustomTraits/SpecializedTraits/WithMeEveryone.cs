@@ -9,7 +9,7 @@ public class WithMeEveryone : Trait, ITriggeredTrait<TripTrigger>
         {
             if (goInRace != deer.gameObject && goInRace.TryGetComponent(out RacingDeer racingDeer))
             {
-                racingDeer.CurrentState = RacingDeer.STATES.TRIPPED;
+                racingDeer.Trip();
             }
         }
     }

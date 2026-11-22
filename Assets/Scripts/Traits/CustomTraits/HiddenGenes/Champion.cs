@@ -2,6 +2,7 @@ using AriUtils;
 using UnityEngine;
 
 [DropdownGroup("Hidden Genes")]
+[System.Serializable]
 public class Champion : Trait
 {
     [SerializeField] private int allStatsBoost = 4;

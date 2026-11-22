@@ -257,7 +257,7 @@ public class DeerData
     #region Purchasing
     public float CalculateBaseValue()
     {
-        int goodTraitCount = Traits.Count(x => x != null && x.Alignment == Trait.TraitAlignment.Good);
+        int goodTraitCount = Traits.Count(x => x != null && (x.Alignment == Trait.TraitAlignment.Good || x.Alignment == Trait.TraitAlignment.Special));
         return GetTotalStats() * ((goodTraitCount + 1f) / 2f);
     }
 
