@@ -46,6 +46,7 @@ public class BettingScreen : BuckScreen
         }
 
         selected = (buck, ui);
+        CheckButtonDisabled();
         ui.Background.color = Color.orange;
     }
 

@@ -57,7 +57,11 @@ public class RaceManager : MonoBehaviour
             //Insert graphics or sound here?
             yield return new WaitForSeconds(1);
         }
-
+        
+        foreach(GameObject go in deerInRaceGO)
+        {
+            TraitManager.TraitEvent(new StartRaceTrait(), go.GetComponent<DeerController>());
+        }
         Broadcast_StartRace?.Invoke();
     }
 

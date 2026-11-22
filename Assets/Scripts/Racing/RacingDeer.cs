@@ -122,6 +122,7 @@ public class RacingDeer : MonoBehaviour
             isStopped = UnityEngine.Random.Range(0, 101) > DeerStopChance;
         }
 
+        TraitManager.TraitEvent(new StopTrait(), deerController);
         currentState = STATES.STOPPED;
         StartCoroutine(UnStopCoroutine());
     }
@@ -160,6 +161,7 @@ public class RacingDeer : MonoBehaviour
             isTripped = UnityEngine.Random.Range(0, 101) > DeerBalance;
         }
 
+        TraitManager.TraitEvent(new TripTrait(), deerController);
         StartCoroutine(UnTripCoroutine());
         currentState = STATES.TRIPPED;
     }

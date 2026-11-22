@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuckScreen : MonoBehaviour
 {
@@ -8,12 +9,14 @@ public class BuckScreen : MonoBehaviour
     [SerializeField] private Transform _buckParent;
     [SerializeField] private BuckUI _buckTemplate;
     [SerializeField] private GameObject _blankTemplate;
+    [SerializeField] private Button disabledButton;
     protected (DeerData, BuckUI) selected;
     protected int widgetsToKeep = 1;
     protected List<DeerData> currentDeer;
 
     protected virtual void Start()
     {
+        CheckButtonDisabled();
         _buckTemplate.gameObject.SetActive(false);
         if (_blankTemplate != null) _blankTemplate.SetActive(false);
     }
@@ -35,13 +38,31 @@ public class BuckScreen : MonoBehaviour
         }
     }
 
+    protected void CheckButtonDisabled()
+    {
+        if (disabledButton != null)
+        {
+            if (selected.Item1 == null)
+            {
+                disabledButton.enabled = false;
+            }
+            else
+            {
+                disabledButton.enabled = true;
+            }
+        }
+    }
+
     public void InitializeWidget(DeerData buck)
     {
         var entry = Instantiate(_buckTemplate, _buckParent).GetComponent<BuckUI>();
         entry.gameObject.SetActive(true);
-        entry.BuckName.text = buck.Name;
+        if (entry.BuckName != null) entry.BuckName.text = buck.Name;
         entry.SelectButton.onClick.AddListener(() => BuckSelected(buck, entry));
         entry.Data = buck;
+
+        var child = GetComponentInChildren<FullDeerViewer>();
+        //if (child != null) child.SetDeer(buck);
     }
 
     public void ReplaceWithBlank(BuckUI ui)

@@ -1,10 +1,12 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ShopScreen : BuckScreen
 {
+    [SerializeField] private GameObject purchaseConfirm;
+    [SerializeField] private FullDeerViewer fullDeerViewer;
     protected override void Start()
     {
         base.Start();
@@ -17,9 +19,9 @@ public class ShopScreen : BuckScreen
     public void InitializeShop()
     {
         // Fetch shop data
-        List<DeerData> bucks = new List<DeerData>();
-
-
+        List<DeerData> bucks = DeerPool.Instance.GetDeerFromPools(DeerPool.PoolType.Good, 
+            DeerPool.PoolType.Bad, DeerPool.PoolType.Mid, DeerPool.PoolType.Mid, DeerPool.PoolType.Mid);
+    
         selected = default;
         widgetsToKeep = 2;
         InitializeWidgets(bucks);
@@ -29,10 +31,24 @@ public class ShopScreen : BuckScreen
     {
         // TODO: add deer to stables
         ReplaceWithBlank(ui);
+        purchaseConfirm.SetActive(true);
+        fullDeerViewer.SetDeer(buck);
+        fullDeerViewer.ProcessStats(buck);
+    }
+
+    public void Confirm()
+    {
+        purchaseConfirm.SetActive(false);
+    }
+
+    public void Back()
+    {
+        purchaseConfirm.SetActive(false);
     }
 
     public override void Continue()
     {
-        
+        PlayerManager.Instance.PurchaseDeer(selected.Item1);
+        ReplaceWithBlank(selected.Item2);
     }
 }
