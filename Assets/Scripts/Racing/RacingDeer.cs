@@ -166,6 +166,7 @@ public class RacingDeer : MonoBehaviour
             return;
         }
         rigidbody.linearVelocity = Vector2.zero;
+        deerController.Anim.TriggerTrip();
 
         currentState = STATES.NONE;
     }
