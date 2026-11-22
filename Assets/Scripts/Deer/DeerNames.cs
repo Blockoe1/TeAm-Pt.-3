@@ -40,7 +40,7 @@ public static class DeerNames
                     names[i] = names[i].Replace("\r", "");
                     names[i] = names[i].Replace("\n", "");
                     names[i] = names[i].Replace("\t", "");
-                    names[i] = names[i].Replace(" ", "");
+                    if (i == names.Length - 1) names[i] = names[i].Replace(" ", "");
                 }
             }
         }
