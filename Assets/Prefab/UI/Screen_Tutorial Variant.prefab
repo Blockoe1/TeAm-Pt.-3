@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tutorial
   _overallParent: {fileID: 3674513594683972150}
   _contentParent: {fileID: 5237407083485717965}
-  _firstTutorial: {fileID: 1366597138539398221, guid: 3336688b8875cf0488bca6294fbe82b9, type: 3}
+  _firstTutorial: {fileID: 1366597138539398221, guid: 278c2c51aba029d4e820638138e3559f, type: 3}
 --- !u!224 &7663951389736553868 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8186901073604082428, guid: 27fe48a03568dee4f9305f3e8295da33, type: 3}

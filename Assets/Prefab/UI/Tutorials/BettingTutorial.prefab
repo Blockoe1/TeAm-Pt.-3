@@ -281,7 +281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Afterwards, you can place a bet amount and pick a deer you want to be on. If you don''t want to bet any, set bet to $0.00 and select a deer to bet on.
+  m_text: 'Afterwards, you can place a bet amount between $0 and your current funds, and pick a deer you want to bet on.\n
 
     Your camera will watch the deer you''re betting on. You don''t have to bet on the deer you entered for the race.
 
@@ -505,7 +505,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2632420771285817970, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
       propertyPath: m_text
-      value: Continue
+      value: Back
       objectReference: {fileID: 0}
     - target: {fileID: 5460649352968362336, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
       propertyPath: m_Pivot.x
