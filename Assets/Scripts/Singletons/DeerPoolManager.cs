@@ -52,6 +52,13 @@ public class DeerPool : Manager
         goodPool = CreateStartingPool(goodPoolData);
         midPool = CreateStartingPool(midPoolData);
         badPool = CreateStartingPool(badPoolData);
+
+        /*for (int i = 0; i < 8; i++)
+        {
+            var deer = DeerData.NewRandomDeer();
+            PlayerManager.Instance.GenerateControllerForNewDeer(deer);
+            PlayerManager.Instance.OwnedDeer.Add(deer, deer.Controller);
+        }*/
     }
 
     private List<DeerData> CreateStartingPool(PoolData poolData)
@@ -71,13 +78,37 @@ public class DeerPool : Manager
 
     public void RemoveDeer(DeerData removedDeer)
     {
-        List<DeerData> pool = GetPoolForDeer(removedDeer, out PoolData data);
-        pool.Remove(removedDeer);
+        goodPool.Remove(removedDeer);
+        badPool.Remove(removedDeer);
+        midPool.Remove(removedDeer);
 
-        while (pool.Count < data.minCount)
+        void LogPool(List<DeerData> pool, string prepend)
         {
-            pool.Add(CreateDeerForPool(data));
+            string debugStr = prepend;
+            foreach (DeerData data in pool)
+            {
+                debugStr += data.Name + ", ";
+            }
+            Debug.Log(debugStr);
         }
+
+        /*LogPool(goodPool, "GoodPool: ");
+        LogPool(badPool, "BadPool: ");
+        LogPool(midPool, "MidPool: ");*/
+
+        while (goodPool.Count < goodPoolData.minCount)
+        {
+            goodPool.Add(CreateDeerForPool(goodPoolData));
+        }
+        while (badPool.Count < badPoolData.minCount)
+        {
+            badPool.Add(CreateDeerForPool(badPoolData));
+        }
+        while (midPool.Count < midPoolData.minCount)
+        {
+            midPool.Add(CreateDeerForPool(midPoolData));
+        }
+
     }
 
     public List<DeerData> GetPool(PoolType pool)

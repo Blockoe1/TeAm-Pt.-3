@@ -25,8 +25,8 @@ public abstract class DeerViewer : MonoBehaviour
     {
         loadedData = deerData;
 
-        _nameText.text = deerData.Name;
-        _winLossText.text = deerData.Wins.ToString() + " / " + deerData.Races.ToString();
+        _nameText.text = "<b>" + deerData.Name + "<b>";
+        _winLossText.text = "<u>W/L:</u> " + deerData.Wins.ToString() + " / " + deerData.Races.ToString();
         _statsText.text = ProcessStats(deerData);
         if (_deerView != null) _deerView.texture = deerData.Controller.Rt;
 
@@ -37,13 +37,24 @@ public abstract class DeerViewer : MonoBehaviour
                 break;
             case CostParams.Sell:
                 _costText.gameObject.SetActive(true);
-                _costText.text = "Sell Price: " + MoneyManager.FormatCents(deerData.CalculateSellPrice());
+                _costText.text = "<u>Sell Price:</u> " + MoneyManager.FormatCents(deerData.CalculateSellPrice());
                 break;
             case CostParams.Buy:
                 _costText.gameObject.SetActive(true);
-                _costText.text = "Buy Price: " + MoneyManager.FormatCents(deerData.CalculatePrice());
+                _costText.text = "<u>Buy Price:</u> " + MoneyManager.FormatCents(deerData.CalculatePrice());
+                break;
+            case CostParams.Bet:
+                _costText.gameObject.SetActive(true);
+                _costText.text = "Betting Odds: 1:" + ProcessBetMult(deerData);
                 break;
         }
+    }
+
+    public string ProcessBetMult(DeerData deerData)
+    {
+        string multString = "";
+        multString += deerData.BetMultiplier;
+        return multString;
     }
 
     public abstract string ProcessStats(DeerData deerData);
@@ -52,5 +63,7 @@ public enum CostParams
 { 
     None,
     Buy,
-    Sell
+    Sell,
+    Bet
 }
+

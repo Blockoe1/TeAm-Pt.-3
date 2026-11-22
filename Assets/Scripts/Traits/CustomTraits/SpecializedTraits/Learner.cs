@@ -23,7 +23,7 @@ public class Learner : Trait, ITriggeredTrait<EndRaceTrigger>
             }
 
             data.ModifyStat(lowestStatType, statBoost);
-            NotificationLog.QueueNotification($"{(statBoost < 0 ? '-' : '+')}{statBoost} {lowestStatType.ToString()}", data);
+            NotificationLog.QueueNotification($"{(statBoost < 0 ? "" : '+')}{statBoost} {lowestStatType.ToString()}", data);
         }
     }
 }

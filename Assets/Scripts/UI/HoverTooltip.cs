@@ -14,6 +14,7 @@ public class HoverTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 {
     [SerializeField] private Vector2 offset;
     [SerializeField] private bool buying;
+    [SerializeField] private bool betting;
     [SerializeField] private Canvas canvas;
     [SerializeField, ComponentReference] private BuckUI ui; 
 
@@ -39,6 +40,10 @@ public class HoverTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             if (buying)
             {
                 DeerTooltip.Instance.SetDeer(data, CostParams.Buy);
+            }
+            else if(betting)
+            {
+                DeerTooltip.Instance.SetDeer(data, CostParams.Bet);
             }
             else
             {
