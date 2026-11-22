@@ -9,7 +9,9 @@
 using AriUtils;
 using MarUtility.ExecutionManagement;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.InputSystem.Utilities;
 
@@ -37,24 +39,40 @@ public class TraitManager : Manager
         return Array.FindIndex(instance._traitDatabase, x => x.GetType() == typeof(T));
     }
 
-    public static Trait GetRandomTrait()
+    public static Trait[] GetRandomTraits(int traitNum)
     {
-        Trait[] filteredTraits = instance._traitDatabase.Where(x => x.RandomlySelectable).ToArray();
-        if (filteredTraits.Length == 0)
+        List<Trait> filteredTraits = instance._traitDatabase.Where(x => x.RandomlySelectable).ToList();
+        if (filteredTraits.Count == 0)
         {
             return null;
         }
-        return filteredTraits[UnityEngine.Random.Range(0, filteredTraits.Length)];
+
+        Trait[] traits = new Trait[traitNum];
+        for (int i = 0; i < traits.Length; i++)
+        {
+            int index = UnityEngine.Random.Range(0, filteredTraits.Count);
+            traits[i] = filteredTraits[index];
+            filteredTraits.RemoveAt(i);
+        }
+        return traits;
     }
 
-    public static Trait GetRandomTrait(Trait.TraitAlignment alignment)
+    public static Trait[] GetRandomTraits(Trait.TraitAlignment[] alignment, int traitNum)
     {
-        Trait[] filteredTraits = instance._traitDatabase.Where(x => x.RandomlySelectable && x.Alignment == alignment).ToArray();
-        if (filteredTraits.Length == 0)
+        List<Trait> filteredTraits = instance._traitDatabase.Where(x => x.RandomlySelectable && alignment.Contains(x.Alignment)).ToList();
+        if (filteredTraits.Count == 0)
         {
             return null;
         }
-        return filteredTraits[UnityEngine.Random.Range(0, filteredTraits.Length)];
+
+        Trait[] traits = new Trait[traitNum];
+        for(int i = 0; i < traits.Length; i++)
+        {
+            int index = UnityEngine.Random.Range(0, filteredTraits.Count);
+            traits[i] = filteredTraits[index];
+            filteredTraits.RemoveAt(i);
+        }
+        return traits;
     }
 
     /// <summary>
@@ -70,32 +88,14 @@ public class TraitManager : Manager
         {
             foreach (DeerData deer in RaceManager.DeerInRace)
             {
-                // Trigger each trait in those deer.
-                foreach (Trait trait in deer.Traits)
-                {
-                    if (trait is ITriggeredTrait<T> triggered
-                        && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Race)
-                        && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer)) // Global traits trigger even when the event was not on this deer.
-                    {
-                        triggered.TriggerTrait(eventData, triggeredDeer, triggeredDeer.Data, triggeredDeer.Data == deer);
-                    }
-                }
+                deer.TriggerTraits(eventData, triggeredDeer, triggeredDeer.Data, deer, Trait.TriggerFlags.Race);
             }
         }
 
         // Loop through deer owned.
         foreach (DeerData deer in PlayerManager.Instance.OwnedDeer.Keys)
         {
-            // Trigger each trait in those deer.
-            foreach(Trait trait in deer.Traits)
-            {
-                if (trait is ITriggeredTrait<T> triggered
-                    && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Owned)
-                    && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer))
-                {
-                    triggered.TriggerTrait(eventData, triggeredDeer, triggeredDeer.Data, triggeredDeer.Data == deer);
-                }
-            }
+            deer.TriggerTraits(eventData, triggeredDeer, triggeredDeer.Data, deer, Trait.TriggerFlags.Owned);
         }
     }
 
@@ -112,32 +112,14 @@ public class TraitManager : Manager
         {
             foreach (DeerData deer in RaceManager.DeerInRace)
             {
-                // Trigger each trait in those deer.
-                foreach (Trait trait in deer.Traits)
-                {
-                    if (trait is ITriggeredTrait<T> triggered
-                        && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Race)
-                        && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer == deer)) // Global traits trigger even when the event was not on this deer.
-                    {
-                        triggered.TriggerTrait(eventData, null, triggeredDeer, triggeredDeer == deer);
-                    }
-                }
+                deer.TriggerTraits(eventData, null, triggeredDeer, deer, Trait.TriggerFlags.Race);
             }
         }
 
         // Loop through deer owned.
         foreach (DeerData deer in PlayerManager.Instance.OwnedDeer.Keys)
         {
-            // Trigger each trait in those deer.
-            foreach (Trait trait in deer.Traits)
-            {
-                if (trait is ITriggeredTrait<T> triggered
-                    && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Owned)
-                    && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer == deer))
-                {
-                    triggered.TriggerTrait(eventData, null, triggeredDeer, triggeredDeer == deer);
-                }
-            }
+            deer.TriggerTraits(eventData, null, triggeredDeer, deer, Trait.TriggerFlags.Owned);
         }
     }
 

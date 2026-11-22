@@ -15,7 +15,7 @@ using UnityEngine;
 [System.Serializable]
 public class DeerData
 {
-    private const int BASE_TRAIT_NUM = 2;
+    public const int BASE_TRAIT_NUM = 2;
 
     public const int STAT_MIN = 1;
     public const int STAT_MAX = 20;
@@ -32,7 +32,7 @@ public class DeerData
 
     [field: SerializeField, Min(1)] public int Age { get; set; } = 1;
 
-    [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; private set; } = new Trait[BASE_TRAIT_NUM];
+    [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; set; } = new Trait[BASE_TRAIT_NUM];
 
     [SerializeField]
     private Dictionary<SO_ColorGene, ColorGenome> _colorGenotype = new Dictionary<SO_ColorGene, ColorGenome>();
@@ -44,10 +44,88 @@ public class DeerData
     public int Races { get; private set; }
     public DeerController Controller { get; set; }
 
+    public int BettingScore 
+    { 
+        get 
+        {
+            int score = 0;
+            score += Speed;
+            score += Acceleration;
+            score += Stamina;
+            score += Discipline;
+            score += Balance;
+            
+            foreach(Trait trait in Traits)
+            {
+                if(trait.Alignment == Trait.TraitAlignment.Good)
+                {
+                    score += 20;
+                }
+                if(trait.Alignment == Trait.TraitAlignment.Special)
+                {
+                    score += 10;
+                }
+            }
+
+            score += Wins * 25;
+            score += (Races - Wins) * -5;
+
+            return score;
+        }
+    }
+
+    public float BetMultiplier
+    {
+        get
+        {
+            if (BettingScore >= 110)
+            {
+                return 1.5f;
+            }
+
+            if (BettingScore >= 90)
+            {
+                return 2f;
+            }
+
+            if(BettingScore >= 70)
+            {
+                return 2.5f;
+            }
+
+            if(BettingScore >= 50)
+            {
+                return 3;
+            }
+
+            if(BettingScore >= 30)
+            {
+                return 3.5f;
+            }
+
+            if(BettingScore >= 10)
+            {
+                return 4;
+            }
+
+            return 5f;
+        }
+    }
+
     #region GS
     public Dictionary<SO_ColorGene, ColorGenome> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
     public Dictionary<SO_PartGene, PartGenome> PartGenotype { get => _partGenotype; set => _partGenotype = value; }
     #endregion
+
+    public float PreviousBetMultiplier()
+    {
+        Wins--;
+        Races--;
+        float previousBet = BetMultiplier;
+        Wins++;
+        Races++;
+        return BetMultiplier;
+    }
 
     public void LogRace(bool wasWin)
     {
@@ -80,6 +158,13 @@ public class DeerData
         {
             return DeerAge.Baby;
         }
+    }
+
+    public void InrementAge()
+    {
+        AgeTrigger trigger = new AgeTrigger(Age + 1);
+        TriggerTraits(trigger, null, this, this, Trait.TriggerFlags.None);
+        Age = trigger.Age;
     }
 
     #region Stats
@@ -172,7 +257,7 @@ public class DeerData
     #region Purchasing
     public float CalculateBaseValue()
     {
-        int goodTraitCount = Traits.Count(x => x.Alignment == Trait.TraitAlignment.Good);
+        int goodTraitCount = Traits.Count(x => x != null && x.Alignment == Trait.TraitAlignment.Good);
         return GetTotalStats() * ((goodTraitCount + 1f) / 2f);
     }
 
@@ -224,7 +309,22 @@ public class DeerData
     }
     #endregion
 
-    public static DeerData NewRandomDeer(params Trait.TraitAlignment[] requireddTraits)
+    public void TriggerTraits<T>(T eventTrigger, DeerController triggeredDeerController, DeerData triggeredData, 
+        DeerData thisDeer, Trait.TriggerFlags requireFlags) where T : TraitTrigger
+    {
+        // Trigger each trait in those deer.
+        foreach (Trait trait in thisDeer.Traits)
+        {
+            if (trait is ITriggeredTrait<T> triggered
+                && ((trait.TrigFlags & requireFlags) == requireFlags)
+                && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredData == thisDeer)) // Global traits trigger even when the event was not on this deer.
+            {
+                triggered.TriggerTrait(eventTrigger, triggeredDeerController, triggeredData, triggeredData == thisDeer);
+            }
+        }
+    }
+
+    public static DeerData NewRandomDeer(params Trait.TraitAlignment[] allowedTraits)
     {
         DeerData data = new DeerData();
 
@@ -234,21 +334,19 @@ public class DeerData
             data.SetStat(type, UnityEngine.Random.Range(STAT_MIN, STAT_MAX));
         }
 
-        data.Traits = new Trait[BASE_TRAIT_NUM];
-        for(int i = 0; i < BASE_TRAIT_NUM; i++)
+        if (allowedTraits != null && allowedTraits.Length > 0)
         {
-            if (requireddTraits != null && requireddTraits.Length > i)
-            {
-                data.Traits[i] = TraitManager.GetRandomTrait(requireddTraits[i]);
-            }
-            else
-            {
-                data.Traits[i] = TraitManager.GetRandomTrait();          
-            }
+            data.Traits = TraitManager.GetRandomTraits(allowedTraits, BASE_TRAIT_NUM);
+        }
+        else
+        {
+            data.Traits = TraitManager.GetRandomTraits(BASE_TRAIT_NUM);
         }
 
         data.ColorGenotype = NewRandomColorGenotype();
         data.PartGenotype = NewRandomPartGenotype();
+
+        data.TriggerTraits(new BornTrigger(), null, data, data, Trait.TriggerFlags.None);
 
         return data;
     }

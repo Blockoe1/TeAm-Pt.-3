@@ -154,7 +154,10 @@ public class DeerPool : Manager
         {
             randomizedDeer.ModifyStat(type, poolData.statBonus);
         }
-        randomizedDeer.Age = UnityEngine.Random.Range(2, 5);
+        if (randomizedDeer.Age == 1)
+        {
+            randomizedDeer.Age = UnityEngine.Random.Range(2, 5);
+        }
         PlayerManager.Instance.GenerateControllerForNewDeer(randomizedDeer);
         return randomizedDeer;
     }

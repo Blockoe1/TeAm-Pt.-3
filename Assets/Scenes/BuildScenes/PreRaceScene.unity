@@ -242,6 +242,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &698056332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4317327074438087266, guid: b8218b428486d194fbab97650979894f, type: 3}
+  m_PrefabInstance: {fileID: 1389406907}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &698056333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 649709436750767573, guid: b8218b428486d194fbab97650979894f, type: 3}
+  m_PrefabInstance: {fileID: 1389406907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698056332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01a96d5d0e900d4b827b7f2fa0fe459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuckUI
+--- !u!114 &698056338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698056332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966919d4ae5c3fa4daa3e31148ca975f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverTooltip
+  offset: {x: 0, y: -350}
+  buying: 0
+  ui: {fileID: 698056333}
 --- !u!1 &726655402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1415,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3579205716578352970, guid: b8218b428486d194fbab97650979894f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 220015755}
+    - targetCorrespondingSourceObject: {fileID: 4317327074438087266, guid: b8218b428486d194fbab97650979894f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 698056338}
   m_SourcePrefab: {fileID: 100100000, guid: b8218b428486d194fbab97650979894f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

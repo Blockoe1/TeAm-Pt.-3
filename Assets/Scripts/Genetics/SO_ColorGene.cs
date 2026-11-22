@@ -8,6 +8,8 @@ public class SO_ColorGene : SO_Gene
 
     [SerializeField]
     private string _matColorID;
+    [SerializeField]
+    private string _matColorShadedID;
 
     public override int FindIndex(SO_Allele allele)
         => FindIndex(allele, _alleles);
@@ -16,5 +18,6 @@ public class SO_ColorGene : SO_Gene
         => _alleles[Random.Range(0, _alleles.Length)];
     #region GS
     public string MatColorID { get => _matColorID; }
+    public string MatColorShadedID { get => _matColorShadedID; }
     #endregion
 }

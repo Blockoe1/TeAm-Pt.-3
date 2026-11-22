@@ -15,4 +15,8 @@ MonoBehaviour:
   _name: Body
   _alleles:
   - {fileID: 11400000, guid: 94d66cb3468d353429b16f229c1f69c2, type: 2}
+  - {fileID: 11400000, guid: 66aef7d735a06414f8d9f820680b8e34, type: 2}
+  - {fileID: 11400000, guid: 5d0f0480d8f0cba41a84fb78e262e847, type: 2}
+  - {fileID: 11400000, guid: 681bb9b7a5549424da4eaeedc5dd6b3a, type: 2}
+  - {fileID: 11400000, guid: b6bac14e40e7c5b48be618c00d90d89b, type: 2}
   _matTextureID: MainTexture
