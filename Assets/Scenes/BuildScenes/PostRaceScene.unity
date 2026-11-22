@@ -578,23 +578,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7232657158090959832, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7232657158090959832, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1005205820}
+      objectReference: {fileID: 1174561474}
     - target: {fileID: 7232657158090959832, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7232657158090959832, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SwitchScene
+      value: ContinueButton
       objectReference: {fileID: 0}
     - target: {fileID: 7232657158090959832, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ButtonUIScript, Assembly-CSharp
+      value: PostRaceJunk, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7232657158090959832, guid: f96aea0d364a74647855ef4c7714be2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -845,6 +845,7 @@ MonoBehaviour:
   moneyGainLossTXT: {fileID: 1673669630}
   winText: You Won!
   lossText: Poor Luck!
+  _ownedWinnerPayout: 50
 --- !u!1 &1537904107
 GameObject:
   m_ObjectHideFlags: 0
