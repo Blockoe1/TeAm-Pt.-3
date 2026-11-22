@@ -18,6 +18,7 @@ public class PostRaceJunk : MonoBehaviour
         {
             Lose();
         }
+        EndRound();
     }
 
     private void Win()
@@ -33,5 +34,10 @@ public class PostRaceJunk : MonoBehaviour
         int moneyToLose = MoneyManager.CurrentBet;
         winLostTXT.text = lossText;
         moneyGainLossTXT.text = "-$" + (moneyToLose / 100f).ToString();
+    }
+
+    private void EndRound()
+    {
+        DeerPool.Instance.AgeAllDeer();
     }
 }
