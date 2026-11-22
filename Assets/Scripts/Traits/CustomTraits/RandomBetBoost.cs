@@ -22,7 +22,7 @@ public class RandomBetBoost : Trait, ITriggeredTrait<StartRaceTrigger>
                 {
                     notifyString += ", ";
                 }
-                notifyString += $"{(statChange < 0 ? '-' : '+')}{statChange} {randomTypes[i].ToString()}";
+                notifyString += $"{(statChange < 0 ? "" : '+')}{statChange} {randomTypes[i].ToString()}";
 
             }
             NotificationLog.QueueNotification(notifyString, data);
