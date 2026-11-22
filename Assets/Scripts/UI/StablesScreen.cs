@@ -7,6 +7,7 @@ public class StablesScreen : BuckScreen
 {
     [SerializeField] private bool _secondStableScreen;
     [SerializeField] private StablesScreen _otherStableScreen;
+    [SerializeField] private FullDeerViewer _adjacentViewer;
     [SerializeField] private GameObject _selectedButtons;
     [SerializeField] private GameObject _breedModeButtons;
     [SerializeField] private BreedingScreen _breedingScreen;
@@ -16,8 +17,20 @@ public class StablesScreen : BuckScreen
         base.Start();
         if (_selectedButtons != null) _selectedButtons.SetActive(false);
         if (_breedModeButtons != null) _breedModeButtons.SetActive(false);
-        if (!_secondStableScreen) InitializeStables(PlayerManager.Instance.OwnedDeer.Keys.ToList());
+        if (!_secondStableScreen) InitializeStables();
         else _screen.SetActive(false);
+        PlayerManager.OnDeerChanged += Handle_OnDeerChanged;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerManager.OnDeerChanged -= Handle_OnDeerChanged;
+    }
+
+    private void Handle_OnDeerChanged(DeerData changedDeer, bool wasAdded)
+    {
+        Debug.Log(changedDeer.Name);
+        if (_screen.activeSelf) InitializeStables();
     }
 
     /// <summary>
@@ -25,9 +38,6 @@ public class StablesScreen : BuckScreen
     /// </summary>
     public void InitializeStables(List<DeerData> bucks = null)
     {
-        // Fetch stable data
-        // If this is the second screen, pass in every stable deer except the first one,
-        // or disable the one you've already selected
         if (bucks == null)
         {
             bucks = PlayerManager.Instance.OwnedDeer.Keys.ToList();
@@ -36,8 +46,10 @@ public class StablesScreen : BuckScreen
 
         selected = default;
         _selectedButtons.SetActive(false);
+        _adjacentViewer.gameObject.SetActive(false);
         if (_breedModeButtons != null) _breedModeButtons.SetActive(false);
         InitializeWidgets(bucks);
+        print("uhh" + gameObject.name);
     }
 
     public override void BuckSelected(DeerData buck, BuckUI ui)
@@ -45,10 +57,13 @@ public class StablesScreen : BuckScreen
         if (selected != default)
         {
             selected.Item2.Background.color = Color.wheat;
+            if (!_secondStableScreen) CancelBreeding();
         }
 
         selected = (buck, ui);
         ui.Background.color = Color.orange;
+        _adjacentViewer.gameObject.SetActive(true);
+        _adjacentViewer.SetDeer(buck, CostParams.None);
 
         _selectedButtons.SetActive(true);
     }
@@ -80,6 +95,7 @@ public class StablesScreen : BuckScreen
     {
         _screen.SetActive(false);
         _breedModeButtons.SetActive(false);
+        _adjacentViewer.gameObject.SetActive(false);
         return selected.Item1;
     }
 
@@ -89,6 +105,7 @@ public class StablesScreen : BuckScreen
         {
             _selectedButtons.SetActive(false);
             _screen.gameObject.SetActive(false);
+            _adjacentViewer.gameObject.SetActive(false);
         }
         else
         {
