@@ -114,5 +114,11 @@ public class PlayerManager : Manager
 
         return deerOfAge;
     }
+
+    public void ResetBredOnRound()
+    {
+        foreach (KeyValuePair<DeerData, DeerController> kvp in OwnedDeer)
+            kvp.Key.BredThisRound = false;
+    }
 }
  

@@ -39,5 +39,6 @@ public class PostRaceJunk : MonoBehaviour
     private void EndRound()
     {
         DeerPool.Instance.AgeAllDeer();
+        PlayerManager.Instance.ResetBredOnRound();
     }
 }
