@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_PartAllele
   _name: Base
   _parts:
-  - key: BLLeg
+  - key: BackLeg1
     value: {fileID: 21300000, guid: 3cc1d77f7bb0c7e4eb8fab7ecf0e5c94, type: 3}
-  - key: BRLeg
+  - key: FrontLeg1
     value: {fileID: 21300000, guid: f6d10c870db1d614f959d96d41d81e0e, type: 3}
-  - key: FLLeg
+  - key: BackLeg2
     value: {fileID: 21300000, guid: 9cd04475cb0e4964ca8c5367ad2e64e4, type: 3}
-  - key: FRLeg
+  - key: FrontLeg2
     value: {fileID: 21300000, guid: be9f4a59cd5d12f47804d04c5f54a287, type: 3}
