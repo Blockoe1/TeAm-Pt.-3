@@ -165,6 +165,7 @@ public class DeerData
         AgeTrigger trigger = new AgeTrigger(Age + 1);
         TriggerTraits(trigger, null, this, this, Trait.TriggerFlags.None);
         Age = trigger.Age;
+        Debug.Log(Name + ": " + Age);
     }
 
     #region Stats

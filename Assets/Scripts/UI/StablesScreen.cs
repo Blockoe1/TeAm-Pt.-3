@@ -44,7 +44,7 @@ public class StablesScreen : BuckScreen
     {
         if (bucks == null)
         {
-            bucks = PlayerManager.Instance.OwnedDeer.Keys.ToList();
+            bucks = PlayerManager.Instance.GetDeerOfAge(DeerAge.Breeder).Keys.ToList();//PlayerManager.Instance.OwnedDeer.Keys.ToList();
         }
         currentDeer = bucks;
 
@@ -85,7 +85,8 @@ public class StablesScreen : BuckScreen
         else
         {
             List<DeerData> segment = new List<DeerData>();
-            foreach (var deer in PlayerManager.Instance.OwnedDeer.Keys) { if (selected.Item1 != deer) segment.Add(deer); }
+            foreach (var deer in PlayerManager.Instance.GetDeerOfAge(DeerAge.Breeder).Keys.ToList())//OwnedDeer.Keys) 
+            { if (selected.Item1 != deer) segment.Add(deer); }
 
             _otherStableScreen.InitializeStables(segment);
 
