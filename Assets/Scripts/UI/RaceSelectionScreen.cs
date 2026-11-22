@@ -11,6 +11,8 @@ public class RaceSelectionScreen : BuckScreen
     [SerializeField] private BuckUI _preview;
     [SerializeField] private GameObject _emptyPreview;
 
+    public static DeerData selectedDeer;
+
     protected override void Start()
     {
         base.Start();
@@ -72,5 +74,7 @@ public class RaceSelectionScreen : BuckScreen
         if (entry.BuckName.preferredWidth > entry.BuckName.rectTransform.rect.width) entry.BuckName.characterHorizontalScale = 0.7f;
         if (entry.BuckAppearance != null) entry.BuckAppearance.texture = buck.Controller.Rt;
         entry.Data = buck;
+
+        selectedDeer = buck;
     }
 }

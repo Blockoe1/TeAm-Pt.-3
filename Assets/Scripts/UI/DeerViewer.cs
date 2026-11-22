@@ -45,7 +45,7 @@ public abstract class DeerViewer : MonoBehaviour
                 break;
             case CostParams.Bet:
                 _costText.gameObject.SetActive(true);
-                _costText.text = "Betting Odds: 1:" + ProcessBetMult(deerData);
+                _costText.text = "Betting Odds: " + ProcessBetMult(deerData) + ":1";
                 break;
         }
     }
