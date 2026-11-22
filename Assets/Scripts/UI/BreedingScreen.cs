@@ -13,6 +13,9 @@ public class BreedingScreen : BuckScreen
 
     public void InitializeBreeding(DeerData mom, DeerData dad)
     {
+        mom.BredThisRound = true;
+        dad.BredThisRound = true;
+
         // Fetch new baby data
         List<DeerData> bucks = new List<DeerData>();
         for (int i = 0; i < 3; i++)
