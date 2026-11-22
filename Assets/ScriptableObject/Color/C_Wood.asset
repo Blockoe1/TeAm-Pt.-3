@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Wood
   _color: {r: 0.24705882, g: 0.1882353, b: 0.11372549, a: 100}
+  _shadedColor: {r: 0.18867922, g: 0.15072349, b: 0.10264623, a: 100}

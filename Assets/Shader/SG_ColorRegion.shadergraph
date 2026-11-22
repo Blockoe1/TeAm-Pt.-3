@@ -2550,7 +2550,7 @@
     "m_CustomBinding": "",
     "m_Value": {
         "x": 0.0,
-        "y": 0.0,
+        "y": 0.7058823704719543,
         "z": 0.0
     },
     "m_DefaultValue": {
@@ -2692,8 +2692,8 @@
     "m_StageCapability": 3,
     "m_CustomBinding": "",
     "m_Value": {
-        "x": 0.3921568989753723,
-        "y": 0.0,
+        "x": 0.0,
+        "y": 1.0,
         "z": 0.0
     },
     "m_DefaultValue": {
@@ -2973,7 +2973,7 @@
     "m_PerRendererData": false,
     "m_customAttributes": [],
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"efcfa76eaf39347419ac07790cbbab01\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"ab89dbecce005b349af74fb944bf093f\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -3537,8 +3537,8 @@
     "m_StageCapability": 3,
     "m_CustomBinding": "",
     "m_Value": {
-        "x": 0.0,
-        "y": 1.0,
+        "x": 1.0,
+        "y": 0.0,
         "z": 1.0
     },
     "m_DefaultValue": {

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Cinammon
   _color: {r: 0.39607844, g: 0.16470589, b: 0.05490196, a: 100}
+  _shadedColor: {r: 0.3207547, g: 0.14632562, b: 0.063545704, a: 100}

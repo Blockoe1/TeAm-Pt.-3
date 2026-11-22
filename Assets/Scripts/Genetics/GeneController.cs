@@ -33,7 +33,7 @@ public class GeneController : Manager
     public void VisualizeColorGenotype(Dictionary<SO_ColorGene, ColorGenome> colorGenotype)
     {
         foreach (KeyValuePair<SO_ColorGene, ColorGenome> genome in colorGenotype)
-            _colorRegHan.VisualizeColor(genome.Key.MatColorID, GetDominantAllele(genome.Key, colorGenotype).Color);
+            _colorRegHan.VisualizeColor(genome.Key.MatColorID, genome.Key.MatColorShadedID, GetDominantAllele(genome.Key, colorGenotype).Color);
     }
 
     public void VisualizePartGenotype(Dictionary<SO_PartGene, PartGenome> partGenotype)

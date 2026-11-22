@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Caramel
   _color: {r: 0.39607844, g: 0.20784314, b: 0.05882353, a: 100}
+  _shadedColor: {r: 0.30817598, g: 0.16700187, b: 0.05523906, a: 100}

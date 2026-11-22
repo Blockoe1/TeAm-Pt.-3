@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_Color
   _name: Coffee
   _color: {r: 0.29411766, g: 0.21568628, b: 0.10980392, a: 100}
+  _shadedColor: {r: 0.23270428, g: 0.17385091, b: 0.09439888, a: 100}
