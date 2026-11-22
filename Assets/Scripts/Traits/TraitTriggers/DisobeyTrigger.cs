@@ -9,6 +9,12 @@
 using AriUtils;
 using UnityEngine;
 
-public class StopTrait : TraitTrigger
+public class DisobeyTrigger : TraitTrigger
 {
+    public bool IsReversed {  get; private set; }
+
+    public DisobeyTrigger(bool isReversed)
+    {
+        IsReversed = isReversed;
+    }
 }

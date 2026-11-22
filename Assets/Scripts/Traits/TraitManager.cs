@@ -73,7 +73,7 @@ public class TraitManager : Manager
                 // Trigger each trait in those deer.
                 foreach (Trait trait in deer.Traits)
                 {
-                    if (trait is ITraitTrigger<T> triggered
+                    if (trait is ITriggeredTrait<T> triggered
                         && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Race)
                         && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer)) // Global traits trigger even when the event was not on this deer.
                     {
@@ -89,7 +89,7 @@ public class TraitManager : Manager
             // Trigger each trait in those deer.
             foreach(Trait trait in deer.Traits)
             {
-                if (trait is ITraitTrigger<T> triggered
+                if (trait is ITriggeredTrait<T> triggered
                     && trait.TrigFlags.HasFlag(Trait.TriggerFlags.Owned)
                     && (trait.TrigFlags.HasFlag(Trait.TriggerFlags.Global) || triggeredDeer.Data == deer))
                 {

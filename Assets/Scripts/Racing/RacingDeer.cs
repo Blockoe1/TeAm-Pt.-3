@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RacingDeer : MonoBehaviour
@@ -36,12 +38,23 @@ public class RacingDeer : MonoBehaviour
     private int DeerReverseChance => deerController.GetStat(StatType.Discipline) + 50;
     private float DeerStamina => (30 - deerController.GetStat(StatType.Stamina)) * STAMINA_MULT;
 
+    private int placementIndex;
+    private float[] placements;
+    [SerializeField] private int placement;
+
+
     /// <summary>
     /// Will start when the deer gets started
     /// </summary>
     private void Start()
     {
         RaceManager.Broadcast_StartRace += StartRace;
+    }
+
+    public void Initialize(int placementIndex, float[] placements)
+    {
+        this.placementIndex = placementIndex;
+        this.placements = placements;
     }
 
     private void StartRace()
@@ -78,11 +91,32 @@ public class RacingDeer : MonoBehaviour
                     Reversed();
                     break;
             }
+            UpdatePlacement();
             if (transform.position.x > 40)
             {
                 RaceManager.Instance.DeerCrossedLine(deerController.Data);
             }
             yield return new WaitForFixedUpdate();
+        }
+    }
+
+    private void UpdatePlacement()
+    {
+        float distance = 40 - transform.position.x;
+        placements[placementIndex] = distance;
+        int newPlacement = 1;
+        for(int i = 0; i < placements.Length; i++)
+        {
+            if (placements[i] < 0)
+            {
+                newPlacement++;
+            }
+        }
+
+        if (newPlacement != placement)
+        {
+            placement = newPlacement;
+            TraitManager.TraitEvent(new PlacementChangeTrigger(placement), deerController);
         }
     }
 
@@ -122,7 +156,7 @@ public class RacingDeer : MonoBehaviour
             isStopped = UnityEngine.Random.Range(0, 101) > DeerStopChance;
         }
 
-        TraitManager.TraitEvent(new StopTrait(), deerController);
+        TraitManager.TraitEvent(new DisobeyTrigger(currentState == STATES.REVERSED), deerController);
         currentState = STATES.STOPPED;
         StartCoroutine(UnStopCoroutine());
     }
@@ -161,7 +195,7 @@ public class RacingDeer : MonoBehaviour
             isTripped = UnityEngine.Random.Range(0, 101) > DeerBalance;
         }
 
-        TraitManager.TraitEvent(new TripTrait(), deerController);
+        TraitManager.TraitEvent(new TripTrigger(), deerController);
         StartCoroutine(UnTripCoroutine());
         currentState = STATES.TRIPPED;
     }
