@@ -19,6 +19,8 @@ public class MoneyManager : Manager
 
     public int TotalCents => totalCents;
 
+    public static int CurrentBet = 0;
+
     public static event Action<int> OnBalanceChanged;
 
     public override void Initialize()

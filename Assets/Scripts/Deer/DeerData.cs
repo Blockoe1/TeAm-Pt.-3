@@ -44,10 +44,88 @@ public class DeerData
     public int Races { get; private set; }
     public DeerController Controller { get; set; }
 
+    public int BettingScore 
+    { 
+        get 
+        {
+            int score = 0;
+            score += Speed;
+            score += Acceleration;
+            score += Stamina;
+            score += Discipline;
+            score += Balance;
+            
+            foreach(Trait trait in Traits)
+            {
+                if(trait.Alignment == Trait.TraitAlignment.Good)
+                {
+                    score += 20;
+                }
+                if(trait.Alignment == Trait.TraitAlignment.Special)
+                {
+                    score += 10;
+                }
+            }
+
+            score += Wins * 25;
+            score += (Races - Wins) * -5;
+
+            return score;
+        }
+    }
+
+    public float BetMultiplier
+    {
+        get
+        {
+            if (BettingScore >= 110)
+            {
+                return 1.5f;
+            }
+
+            if (BettingScore >= 90)
+            {
+                return 2f;
+            }
+
+            if(BettingScore >= 70)
+            {
+                return 2.5f;
+            }
+
+            if(BettingScore >= 50)
+            {
+                return 3;
+            }
+
+            if(BettingScore >= 30)
+            {
+                return 3.5f;
+            }
+
+            if(BettingScore >= 10)
+            {
+                return 4;
+            }
+
+            return 5f;
+        }
+    }
+
     #region GS
     public Dictionary<SO_ColorGene, ColorGenome> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
     public Dictionary<SO_PartGene, PartGenome> PartGenotype { get => _partGenotype; set => _partGenotype = value; }
     #endregion
+
+    public float PreviousBetMultiplier()
+    {
+        Wins--;
+        Races--;
+        float previousBet = BetMultiplier;
+        Wins++;
+        Races++;
+        return BetMultiplier;
+    }
 
     public void LogRace(bool wasWin)
     {
@@ -179,7 +257,7 @@ public class DeerData
     #region Purchasing
     public float CalculateBaseValue()
     {
-        int goodTraitCount = Traits.Count(x => x.Alignment == Trait.TraitAlignment.Good);
+        int goodTraitCount = Traits.Count(x => x != null && x.Alignment == Trait.TraitAlignment.Good);
         return GetTotalStats() * ((goodTraitCount + 1f) / 2f);
     }
 
