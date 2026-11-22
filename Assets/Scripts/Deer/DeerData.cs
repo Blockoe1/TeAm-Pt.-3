@@ -55,6 +55,30 @@ public class DeerData
         }
     }
 
+    public DeerAge GetAgeBracket()
+    {
+        if(Age >= 11)
+        {
+            return DeerAge.Dead;
+        }
+        else if (Age >= 8)
+        {
+            return DeerAge.Retired;
+        }
+        else if (Age >= 5)
+        {
+            return DeerAge.Breeder;
+        }
+        else if (Age >= 2)
+        {
+            return DeerAge.Racer;
+        }
+        else
+        {
+            return DeerAge.Baby;
+        }
+    }
+
     #region Stats
     public void SetStat(StatType stat, int value)
     {
@@ -142,6 +166,58 @@ public class DeerData
     }
     #endregion
 
+    #region Purchasing
+    public float CalculateBaseValue()
+    {
+        int goodTraitCount = Traits.Count(x => x.Alignment == Trait.TraitAlignment.Good);
+        return GetTotalStats() * ((goodTraitCount + 1f) / 2f);
+    }
+
+    public int CalculatePrice()
+    {
+        float value = CalculateBaseValue();
+
+        if (GetAgeBracket() == DeerAge.Retired)
+        {
+            value *= 0.5f;
+        }
+        else if (GetAgeBracket() == DeerAge.Retired)
+        {
+            value *= 1.25f;
+        }
+
+        // TODO: Call Trait CalcualtePriceTrait
+            
+
+        return Mathf.RoundToInt(value);
+    }
+
+    public int CalculateSellPrice()
+    {
+        float value = CalculateBaseValue();
+
+        if (GetAgeBracket() == DeerAge.Retired)
+        {
+            value *= 0.5f;
+        }
+        else if (GetAgeBracket() == DeerAge.Retired)
+        {
+            value *= 1.25f;
+        } 
+
+        if (Traits != null && Traits.Length > 0)
+        {
+            Trait[] sellTraits = Traits.Where(x => x != null).OrderBy(x => x.Priority).ToArray();
+            foreach (Trait trait in sellTraits)
+            {
+                value = trait.ModifySellPrice(value);
+            }
+        }
+
+        return Mathf.RoundToInt(value);
+    }
+    #endregion
+
     public static DeerData NewRandomDeer(params Trait.TraitAlignment[] requireddTraits)
     {
         DeerData data = new DeerData();
@@ -180,4 +256,13 @@ public class DeerData
 
         return newColorGenotype;
     }
+}
+
+public enum DeerAge
+{
+    Baby,
+    Racer,
+    Breeder,
+    Retired,
+    Dead
 }

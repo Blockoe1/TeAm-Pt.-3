@@ -8,9 +8,9 @@ public class BuckScreen : MonoBehaviour
     [SerializeField] private Transform _buckParent;
     [SerializeField] private BuckUI _buckTemplate;
     [SerializeField] private GameObject _blankTemplate;
-    protected (DeerController, BuckUI) selected;
+    protected (DeerData, BuckUI) selected;
     protected int widgetsToKeep = 1;
-    protected List<DeerController> currentDeer;
+    protected List<DeerData> currentDeer;
 
     protected virtual void Start()
     {
@@ -18,9 +18,9 @@ public class BuckScreen : MonoBehaviour
         if (_blankTemplate != null) _blankTemplate.SetActive(false);
     }
 
-    public virtual void BuckSelected(DeerController buck, BuckUI ui) { }
+    public virtual void BuckSelected(DeerData buck, BuckUI ui) { }
 
-    public void InitializeWidgets(List<DeerController> bucks)
+    public void InitializeWidgets(List<DeerData> bucks)
     {
         for (int i = widgetsToKeep; i < _buckParent.childCount; i++)
         {
@@ -35,16 +35,16 @@ public class BuckScreen : MonoBehaviour
         }
     }
 
-    public void InitializeWidget(DeerController buck)
+    public void InitializeWidget(DeerData buck)
     {
         var entry = Instantiate(_buckTemplate, _buckParent).GetComponent<BuckUI>();
         entry.gameObject.SetActive(true);
-        if (entry.BuckName != null) entry.BuckName.text = buck.Data.Name;
+        if (entry.BuckName != null) entry.BuckName.text = buck.Name;
         entry.SelectButton.onClick.AddListener(() => BuckSelected(buck, entry));
-        entry.Data = buck.Data;
+        entry.Data = buck;
 
         var child = GetComponentInChildren<FullDeerViewer>();
-        //if (child != null) child.SetDeer(buck.Data);
+        //if (child != null) child.SetDeer(buck);
     }
 
     public void ReplaceWithBlank(BuckUI ui)

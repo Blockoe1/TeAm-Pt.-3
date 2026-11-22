@@ -22,19 +22,19 @@ public class StablesScreen : BuckScreen
     /// <summary>
     /// Run during post-race set-up and when deer inventory changing
     /// </summary>
-    public void InitializeStables(List<DeerController> bucks = null)
+    public void InitializeStables(List<DeerData> bucks = null)
     {
         // Fetch stable data
         // If this is the second screen, pass in every stable deer except the first one,
         // or disable the one you've already selected
         if (bucks == null)
         {
-            bucks = new List<DeerController>();
+            bucks = new List<DeerData>();
             for (int i = 0; i < 8; i++)
             {
-                bucks.Add(new DeerController());
-                bucks[^1].Data = new DeerData();
-                bucks[^1].Data.Name = (i + 1).ToString();
+                bucks.Add(DeerData.NewRandomDeer());
+                //bucks[^1].Data = DeerData.NewRandomDeer();
+                //bucks[^1].Data.Name = (i + 1).ToString();
             }
         }
         currentDeer = bucks;
@@ -45,7 +45,7 @@ public class StablesScreen : BuckScreen
         InitializeWidgets(bucks);
     }
 
-    public override void BuckSelected(DeerController buck, BuckUI ui)
+    public override void BuckSelected(DeerData buck, BuckUI ui)
     {
         if (selected != default)
         {
@@ -72,7 +72,7 @@ public class StablesScreen : BuckScreen
         }
         else
         {
-            List<DeerController> segment = new List<DeerController>();
+            List<DeerData> segment = new List<DeerData>();
             foreach (var deer in currentDeer) { if (selected.Item1 != deer) segment.Add(deer); }
 
             //solution to having fake deer rn

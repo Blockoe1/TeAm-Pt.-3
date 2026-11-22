@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShopScreen : BuckScreen
@@ -15,22 +17,22 @@ public class ShopScreen : BuckScreen
     public void InitializeShop()
     {
         // Fetch shop data
-        List<DeerController> bucks = new List<DeerController>();
-        for (int i = 0; i < 5; i++)
-        {
-            bucks.Add(new DeerController());
-            bucks[^1].Data = new DeerData();
-            bucks[^1].Data.Name = (i + 1).ToString();
-        }
+        List<DeerData> bucks = new List<DeerData>();
+
 
         selected = default;
         widgetsToKeep = 2;
         InitializeWidgets(bucks);
     }
 
-    public override void BuckSelected(DeerController buck, BuckUI ui)
+    public override void BuckSelected(DeerData buck, BuckUI ui)
     {
         // TODO: add deer to stables
         ReplaceWithBlank(ui);
+    }
+
+    public override void Continue()
+    {
+        
     }
 }

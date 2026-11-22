@@ -8,6 +8,7 @@
 *****************************************************************************/
 using AriUtils;
 using MarUtility.ExecutionManagement;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,21 +22,36 @@ public class PlayerManager : Manager
     public IReadOnlyList<DeerData> OwnedDeer => _ownedDeer;
     public static PlayerManager Instance => instance;
 
+    public static event Action<DeerData> OnDeerChanged;
+
     public override void Initialize()
     {
         SingletonUtil.SetSingleton(ref instance, this);
     }
 
-    public void AddDeer(DeerData toAdd)
+    public void PurchaseDeer(DeerData toAdd)
     {
-        if (_ownedDeer.Count <  MAX_OWNED_DEER)
+        int price = toAdd.CalculatePrice();
+        if (_ownedDeer.Count <  MAX_OWNED_DEER && MoneyManager.Instance.CanAfford(price))
         {
             _ownedDeer?.Add(toAdd);
+            DeerPool.Instance.RemoveDeer(toAdd);
+            MoneyManager.Instance.SpendMoney(price);
         }
     }
 
-    public void RemoveDeer(DeerData toRemove)
+    public void SellDeer(DeerData toSell)
     {
-        _ownedDeer?.Remove(toRemove);
+        if (_ownedDeer.Contains(toSell))
+        {
+            _ownedDeer?.Remove(toSell);
+
+            MoneyManager.Instance.EarnMoney(toSell.CalculateSellPrice());
+            if (!(toSell.GetAgeBracket() == DeerAge.Retired))
+            {
+                DeerPool.Instance.AddDeer(toSell);
+            }
+        }
     }
 }
+ 
