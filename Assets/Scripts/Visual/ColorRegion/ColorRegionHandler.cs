@@ -54,7 +54,7 @@ public class ColorRegionHandler : Manager
                 foreach (SpriteRenderer sr in _spriteRens)
                 {
                     sr.material.SetColor("_" + colorID, color.Color);
-                    sr.material.SetColor("_" + shadedColorID, color.Color);
+                    sr.material.SetColor("_" + shadedColorID, color.ShadedColor);
                 }
 
                 break;
@@ -62,7 +62,7 @@ public class ColorRegionHandler : Manager
                 foreach (Image i in _imageRens)
                 {
                     i.material.SetColor("_" + colorID, color.Color);
-                    i.material.SetColor("_" + shadedColorID, color.Color);
+                    i.material.SetColor("_" + shadedColorID, color.ShadedColor);
                 }
                 break;
         }
