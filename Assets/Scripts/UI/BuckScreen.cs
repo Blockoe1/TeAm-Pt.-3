@@ -62,7 +62,7 @@ public class BuckScreen : MonoBehaviour
         entry.Data = buck;
 
         var child = GetComponentInChildren<FullDeerViewer>();
-        if (child != null) child.SetDeer(buck);
+        //if (child != null) child.SetDeer(buck);
     }
 
     public void ReplaceWithBlank(BuckUI ui)
