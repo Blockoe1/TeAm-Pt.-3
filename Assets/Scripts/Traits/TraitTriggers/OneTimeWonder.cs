@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[System.Serializable]
 public class OneTimeWonder : Trait, ITriggeredTrait<EndRaceTrigger>
 {
     [SerializeField] private int boost = 5;

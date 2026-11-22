@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class BenjaminButton : Trait, ITriggeredTrait<BornTrigger>, ITriggeredTrait<AgeTrigger>
 {
     [SerializeField] private int startingAge = 10;

@@ -2,10 +2,11 @@ using AriUtils;
 using UnityEngine;
 
 [DropdownGroup("Hidden Genes")]
+[System.Serializable]
 public class HiddenGenes1 : Trait
 {
-    public override int GetInheritedTraitIndex()
+    public override Trait GetInheritedTrait()
     {
-        return TraitManager.GetTraitIndex<HiddenGenes2>();
+        return TraitManager.TraitDatabase[TraitManager.GetTraitIndex<HiddenGenes2>()];
     }
 }

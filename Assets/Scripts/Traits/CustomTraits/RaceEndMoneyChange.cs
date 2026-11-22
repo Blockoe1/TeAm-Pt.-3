@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class RaceEndMoneyChange : Trait, ITriggeredTrait<EndRaceTrigger>
 {
     private enum Requirements
