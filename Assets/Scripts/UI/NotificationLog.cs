@@ -1,4 +1,4 @@
-using NUnit.Framework;
+using AriUtils;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -9,63 +9,47 @@ public class NotificationLog : MonoBehaviour
     private Transform _notificationHolder;
 
     [SerializeField]
-    private GameObject _notifcationPrefab;
+    private ObjectPool<TriggerNotification> _notifcationPool;
+    [SerializeField] private SO_PartGene headGene;
 
-    public static List<ActNotifcation> Notifications = new List<ActNotifcation>();
+    private static Queue<ActNotifcation> notificationQueue = new Queue<ActNotifcation>();
 
     private void Start()
     {
-        EmptyNotifyQueue();
+        NotifyAll();
     }
 
-    public void EmptyNotifyQueue()
+    public void NotifyAll()
     {
-        foreach (ActNotifcation actN in Notifications)
-            Notify(actN);
-        Notifications.Clear();
+        while(notificationQueue.Count > 0)
+            Notify(notificationQueue.Dequeue());
+        notificationQueue.Clear();
     }
 
-    public void Notify(ActNotifcation actN)
+    private void Notify(ActNotifcation actN)
     {
-        GameObject notifyGO = Instantiate(_notifcationPrefab, _notificationHolder);
-        TMP_Text notifyText = notifyGO.GetComponentInChildren<TMP_Text>();
-        notifyText.color = actN.Notification.TextColor;
-        notifyText.text = ($"{actN.DeerData.Name} {actN.Notification.Message}");
+        TriggerNotification notifyObj = _notifcationPool.GetObject();
+        notifyObj.notifyText.text = ($"{actN.deerData.Name}: {actN.message}");
+
+        // Sprite Head
+        notifyObj.geneController.VisualizePartGenome(actN.deerData, headGene);
+        notifyObj.geneController.VisualizeColorGenotype(actN.deerData);
     }
 
-    public void QueueNotification(ActNotifcation actN)
+    public static void QueueNotification(string message, DeerData data)
     {
-        Notifications.Add(actN);
+        notificationQueue.Enqueue(new ActNotifcation(message, data));
     }
 
-    public class ActNotifcation
+    private struct ActNotifcation
     {
-        private Notifcation notification;
-        private DeerData deerData;
+        internal string message;
+        internal DeerData deerData;
 
-        public ActNotifcation(Notifcation n, DeerData d)
+        public ActNotifcation(string message, DeerData data)
         {
-            notification = n;
-            deerData = d;
+            this.message = message;
+            deerData = data;
         }
-
-        #region GS
-        public Notifcation Notification { get => notification; }
-        public DeerData DeerData { get => deerData; }
-        #endregion
     }
-}
-
-[System.Serializable]
-public class Notifcation
-{
-    [SerializeField]
-    private string _message = "empty";
-    [SerializeField]
-    private Color _textColor = Color.white;
-
-    #region GS
-    public string Message { get => _message; }
-    public Color TextColor { get => _textColor; }
-    #endregion
 }
