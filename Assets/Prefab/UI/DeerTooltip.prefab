@@ -229,8 +229,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -424,6 +424,8 @@ GameObject:
   - component: {fileID: 4870781522428863677}
   - component: {fileID: 4061521465756041083}
   - component: {fileID: 3105821600348184460}
+  - component: {fileID: 1162683149141141184}
+  - component: {fileID: 132210256982401954}
   m_Layer: 5
   m_Name: DeerTooltip
   m_TagString: Untagged
@@ -469,7 +471,15 @@ MonoBehaviour:
   _nameText: {fileID: 4716868131854536146}
   _winLossText: {fileID: 7687615844880845261}
   _statsText: {fileID: 7087227859933017906}
+  _statDescSpacing: 16
+  _statDescriptions:
+  - Very Bad
+  - Bad
+  - Average
+  - Good
+  - Very Good
   _traitsText: {fileID: 2725141604994243498}
+  cg: {fileID: 132210256982401954}
 --- !u!222 &4870781522428863677
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -534,6 +544,32 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1162683149141141184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7229435096205220361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
+--- !u!225 &132210256982401954
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7229435096205220361}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &7714780299341391994
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,8 +662,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

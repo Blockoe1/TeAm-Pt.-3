@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Deer
   - Water
   - UI
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3262975005
+    locked: 0
+  - name: Deer
+    uniqueID: 2012214729
     locked: 0
   m_RenderingLayers:
   - Default

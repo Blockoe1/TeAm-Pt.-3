@@ -136,15 +136,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1711746011}
     m_Modifications:
     - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.27931
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.15052
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -198,21 +198,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd8c80b23c41614d97fa2bc1572bd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorMaster
+--- !u!4 &294358424 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2335219712896828809, guid: 6b3220eba77861e44b66171f24ee6ed1, type: 3}
+  m_PrefabInstance: {fileID: 294358422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &464655203
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1711746011}
     m_Modifications:
     - target: {fileID: 169347224873329944, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.27931
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 169347224873329944, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.15052
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 169347224873329944, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
       propertyPath: m_LocalPosition.z
@@ -246,26 +251,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2018845845240094091, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
-      propertyPath: _racerPrefab
-      value: 
-      objectReference: {fileID: 8925991716084878897, guid: b3d81412139968940a4925b12316e929, type: 3}
-    - target: {fileID: 2018845845240094091, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
-      propertyPath: _initializeTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2018845845240094091, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
-      propertyPath: _colorGenes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2018845845240094091, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
-      propertyPath: '_colorGenes.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: f31f71ea7b96bc3408e5271abe613d9a, type: 2}
-    - target: {fileID: 2018845845240094091, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
-      propertyPath: '_colorGenes.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 3d15a8c2682c8784e88e27b422d8ae9c, type: 2}
     - target: {fileID: 5449676904265897279, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
       propertyPath: m_Name
       value: Pre_GeneticsMaster
@@ -286,6 +271,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9773cc8bfd517c4db8d6dee3de2676c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeneticsMaster
+--- !u!4 &464655205 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 169347224873329944, guid: 7bbe6425364b1b048bbe37131dc03d94, type: 3}
+  m_PrefabInstance: {fileID: 464655203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &573933320 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2164565946562317086, guid: ed12a63c903b82b45ae1dd43f95de786, type: 3}
@@ -303,15 +293,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1711746011}
     m_Modifications:
     - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7305
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25711
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -365,6 +355,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 170dd44969dbc394295a7ad4b62b45d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TraitManager
+--- !u!4 &587150666 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6091249970684380862, guid: 0d2b87749a524a34d940de694542603c, type: 3}
+  m_PrefabInstance: {fileID: 587150664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &866703773
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   _initializeTime: 0
   _subManagers: []
+  dontDestroyMePlease: 0
   audioLookup: []
 --- !u!4 &866703775
 Transform:
@@ -406,11 +402,11 @@ Transform:
   m_GameObject: {fileID: 866703773}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.79518, y: -0.85082, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1711746011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &966128650 stripped
 MonoBehaviour:
@@ -462,6 +458,7 @@ MonoBehaviour:
   - {fileID: 2007568643}
   - {fileID: 866703774}
   - {fileID: 86007713}
+  dontDestroyMePlease: 1
 --- !u!4 &1711746011
 Transform:
   m_ObjectHideFlags: 0
@@ -474,7 +471,15 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 866703775}
+  - {fileID: 464655205}
+  - {fileID: 294358424}
+  - {fileID: 587150666}
+  - {fileID: 1435031208695542220}
+  - {fileID: 2007568644}
+  - {fileID: 7711280986908897736}
+  - {fileID: 2284333059240612392}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2007568642
@@ -483,7 +488,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1711746011}
     m_Modifications:
     - target: {fileID: 7408662288438996595, guid: d4316b495cae3f44b921bedeca0eecb6, type: 3}
       propertyPath: m_Name
@@ -491,11 +496,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7442733159353689460, guid: d4316b495cae3f44b921bedeca0eecb6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 339.55374
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7442733159353689460, guid: d4316b495cae3f44b921bedeca0eecb6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 265.3954
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7442733159353689460, guid: d4316b495cae3f44b921bedeca0eecb6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -545,13 +550,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84bb21c500b116479ec143d010d5402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MarUtility.LerpMaster
+--- !u!4 &2007568644 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7442733159353689460, guid: d4316b495cae3f44b921bedeca0eecb6, type: 3}
+  m_PrefabInstance: {fileID: 2007568642}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1435031208695542219
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1711746011}
     m_Modifications:
     - target: {fileID: 1135740707063952893, guid: 4b4c153fb7cf69a4e9f61d6662ef3a1c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -602,13 +612,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4c153fb7cf69a4e9f61d6662ef3a1c, type: 3}
+--- !u!4 &1435031208695542220 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1135740707063952893, guid: 4b4c153fb7cf69a4e9f61d6662ef3a1c, type: 3}
+  m_PrefabInstance: {fileID: 1435031208695542219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2284333059240612391
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1711746011}
     m_Modifications:
     - target: {fileID: 5645657365854887000, guid: 2e705f485a7336e4d9f8e444ec29a010, type: 3}
       propertyPath: m_Name
@@ -659,13 +674,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e705f485a7336e4d9f8e444ec29a010, type: 3}
+--- !u!4 &2284333059240612392 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6075100223998775603, guid: 2e705f485a7336e4d9f8e444ec29a010, type: 3}
+  m_PrefabInstance: {fileID: 2284333059240612391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7711280986908897735
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1711746011}
     m_Modifications:
     - target: {fileID: 1187562833320769988, guid: ed12a63c903b82b45ae1dd43f95de786, type: 3}
       propertyPath: m_Name
@@ -716,16 +736,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed12a63c903b82b45ae1dd43f95de786, type: 3}
+--- !u!4 &7711280986908897736 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2897161493661955663, guid: ed12a63c903b82b45ae1dd43f95de786, type: 3}
+  m_PrefabInstance: {fileID: 7711280986908897735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1711746011}
-  - {fileID: 866703775}
-  - {fileID: 464655203}
-  - {fileID: 294358422}
-  - {fileID: 587150664}
-  - {fileID: 1435031208695542219}
-  - {fileID: 2007568642}
-  - {fileID: 7711280986908897735}
-  - {fileID: 2284333059240612391}

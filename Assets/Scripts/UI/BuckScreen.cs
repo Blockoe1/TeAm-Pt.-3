@@ -41,6 +41,7 @@ public class BuckScreen : MonoBehaviour
         entry.gameObject.SetActive(true);
         entry.BuckName.text = buck.Data.Name;
         entry.SelectButton.onClick.AddListener(() => BuckSelected(buck, entry));
+        entry.Data = buck.Data;
     }
 
     public void ReplaceWithBlank(BuckUI ui)

@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9773cc8bfd517c4db8d6dee3de2676c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeneticsMaster
-  _racerPrefab: {fileID: 1499996538223426227, guid: 0a4168e21e4f4c94c8a0dd9bf18b5a51, type: 3}
-  _simRacerA: {fileID: 0}
-  _simRacerB: {fileID: 0}
+  _initializeTime: 0
+  _subManagers: []
+  _racerPrefab: {fileID: 8925991716084878897, guid: b3d81412139968940a4925b12316e929, type: 3}
+  _colorGenes:
+  - {fileID: 11400000, guid: f31f71ea7b96bc3408e5271abe613d9a, type: 2}
+  - {fileID: 11400000, guid: 3d15a8c2682c8784e88e27b422d8ae9c, type: 2}

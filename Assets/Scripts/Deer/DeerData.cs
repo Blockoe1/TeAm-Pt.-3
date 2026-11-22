@@ -9,6 +9,7 @@
 using AriUtils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -31,7 +32,7 @@ public class DeerData
 
     [field: SerializeField, Min(1)] public int Age { get; set; } = 1;
 
-    [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; private set; }
+    [field: SerializeReference, ClassDropdown] public Trait[] Traits { get; private set; } = new Trait[BASE_TRAIT_NUM];
 
     [SerializeField]
     private Dictionary<SO_ColorGene, ColorGenotype> _colorGenotype;
@@ -115,6 +116,21 @@ public class DeerData
         }
     }
 
+    public int ApplyTraits(StatType stat, int value)
+    {
+        if (Traits == null || Traits.Length == 0)
+        {
+            return value;
+        }
+        int statValue = value;
+        Trait[] statTraits = Traits.Where(x => x != null).OrderBy(x =>x.Priority).ToArray();
+        foreach (Trait trait in statTraits)
+        {
+            statValue = trait.ModifyStat(stat, statValue);
+        }
+        return statValue;
+    }
+
     public int GetTotalStats()
     {
         int total = 0;
@@ -145,7 +161,7 @@ public class DeerData
             }
             else
             {
-                data.Traits[i] = TraitManager.GetRandomTrait();
+                data.Traits[i] = TraitManager.GetRandomTrait();          
             }
         }
 

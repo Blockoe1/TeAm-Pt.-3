@@ -15,14 +15,16 @@ public abstract class Trait
     [SerializeField] private string _name;
     [SerializeField, TextArea] private string _description;
     [SerializeField] private int _priority;
+    [SerializeField] private bool _randomlySelectable = true;
     [SerializeField] private TraitAlignment _traitAlignment;
-    [SerializeField] private TriggerFlags _triggerFlags;
+    [SerializeField] private TriggerFlags _triggerFlags = TriggerFlags.Race;
 
     public int TraitIndex { get; set; }
 
     public string Name => _name;
     public string Description => _description;
     public int Priority => _priority;
+    public bool RandomlySelectable => _randomlySelectable;
     public TraitAlignment Alignment => _traitAlignment;
     public TriggerFlags TrigFlags => _triggerFlags;
 

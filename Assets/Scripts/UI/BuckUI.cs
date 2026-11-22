@@ -15,4 +15,6 @@ public class BuckUI : MonoBehaviour
     public RenderTexture BuckAppearance { get => _buckAppearance; set => _buckAppearance = value; }
     public Button SelectButton { get => _selectButton; set => _selectButton = value; }
     public Image Background { get => _background; set => _background = value; }
+
+    public DeerData Data { get; set; }
 }

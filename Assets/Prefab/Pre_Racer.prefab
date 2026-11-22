@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1499996538223426227
+--- !u!1 &1345516378717063936
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8405653114225147813}
-  - component: {fileID: 8516643506783585458}
-  - component: {fileID: 4221163196402487758}
-  - component: {fileID: 9152939593008742870}
-  - component: {fileID: 3970921312135314484}
-  - component: {fileID: 5331172042761468525}
-  - component: {fileID: 296943839613641483}
+  - component: {fileID: 7162349643349378126}
+  - component: {fileID: 4379466245806184049}
   m_Layer: 0
-  m_Name: Pre_Racer
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8405653114225147813
+--- !u!4 &7162349643349378126
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499996538223426227}
+  m_GameObject: {fileID: 1345516378717063936}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 8405653114225147813}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8516643506783585458
+--- !u!212 &4379466245806184049
 SpriteRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499996538223426227}
+  m_GameObject: {fileID: 1345516378717063936}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -86,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4060081212662181441, guid: dd54f96684a40474599859deff9c9067, type: 3}
+  m_Sprite: {fileID: -214173521630241165, guid: dd54f96684a40474599859deff9c9067, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,6 +92,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1 &1499996538223426227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8405653114225147813}
+  - component: {fileID: 4221163196402487758}
+  - component: {fileID: 9152939593008742870}
+  - component: {fileID: 3970921312135314484}
+  - component: {fileID: 5331172042761468525}
+  - component: {fileID: 296943839613641483}
+  - component: {fileID: 4653172186294980002}
+  - component: {fileID: 4049111162058906818}
+  m_Layer: 0
+  m_Name: Pre_Racer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8405653114225147813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499996538223426227}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7162349643349378126}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4221163196402487758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +146,8 @@ MonoBehaviour:
   _initializeTime: 100
   _subManagers:
   - {fileID: 9152939593008742870}
+  - {fileID: 4049111162058906818}
+  dontDestroyMePlease: 0
   data:
     <Name>k__BackingField: Frank
     <Speed>k__BackingField: 10
@@ -121,16 +157,12 @@ MonoBehaviour:
     <Discipline>k__BackingField: 10
     <Charisma>k__BackingField: 10
     <Age>k__BackingField: 0
-    <Trait1>k__BackingField:
-      rid: -2
-    <Trait2>k__BackingField:
-      rid: -2
+    <Traits>k__BackingField: []
+    _colorGenotype: []
   _simBreedingPartner: {fileID: 0}
   references:
     version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    RefIds: []
 --- !u!114 &9152939593008742870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,15 +178,7 @@ MonoBehaviour:
   _initializeTime: 0
   _subManagers:
   - {fileID: 3970921312135314484}
-  _colorGenotype:
-  - key: {fileID: 11400000, guid: f31f71ea7b96bc3408e5271abe613d9a, type: 2}
-    value:
-      _alleleA: {fileID: 11400000, guid: 46ced1b299c00154e8ad970252a16a1c, type: 2}
-      _alleleB: {fileID: 11400000, guid: 967cfcdb286dbe74d9f03427f0bf1068, type: 2}
-  - key: {fileID: 11400000, guid: 3d15a8c2682c8784e88e27b422d8ae9c, type: 2}
-    value:
-      _alleleA: {fileID: 11400000, guid: dca397d5ea696f84da7fc377a8c166b2, type: 2}
-      _alleleB: {fileID: 11400000, guid: ffd95f83cd0637f4b98a80f3c7e6b28a, type: 2}
+  dontDestroyMePlease: 0
 --- !u!114 &3970921312135314484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ColorRegionHandler
   _initializeTime: 0
   _subManagers: []
+  dontDestroyMePlease: 0
   _colorIDs:
   - Color0
   - Color1
@@ -183,6 +208,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b9fb961ad517de74093fe6edfc3ec826, type: 2}
   - {fileID: 11400000, guid: 98c6e432c430ca947875efc57d8af491, type: 2}
   - {fileID: 11400000, guid: a7d30ee8bfd002646805afe1262221ad, type: 2}
+  _renderType: 0
+  _spriteRen: {fileID: 4379466245806184049}
+  _imageRen: {fileID: 0}
 --- !u!50 &5331172042761468525
 Rigidbody2D:
   serializedVersion: 5
@@ -224,3 +252,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RacingDeer
   rigidbody: {fileID: 5331172042761468525}
   deerController: {fileID: 4221163196402487758}
+--- !u!95 &4653172186294980002
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499996538223426227}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0b2fe853642d80479d39276f0f6b463, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4049111162058906818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499996538223426227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d23c144ee1d1543aa44f9e7dd7a0ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeerAnimator
+  _initializeTime: 0
+  _subManagers: []
+  dontDestroyMePlease: 0
+  _fDeerSpeedID: F_DeerSpeed
+  _tTripID: T_Trip
+  _tDieID: T_Die
