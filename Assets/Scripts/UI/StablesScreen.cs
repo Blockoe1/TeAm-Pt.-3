@@ -57,7 +57,7 @@ public class StablesScreen : BuckScreen
         if (_breedModeButtons != null) _breedModeButtons.SetActive(false);
 
         if (selected.Item1 != null)
-            _breedButton.gameObject.SetActive(selected.Item1.GetAgeBracket() == DeerAge.Breeder);
+            _breedButton.gameObject.SetActive(selected.Item1.GetAgeBracket() == DeerAge.Breeder && !selected.Item1.BredThisRound);
 
         InitializeWidgets(bucks);
     }
@@ -78,7 +78,7 @@ public class StablesScreen : BuckScreen
         _selectedButtons.SetActive(true);
 
         if (buck != null)
-            _breedButton.gameObject.SetActive(selected.Item1.GetAgeBracket() == DeerAge.Breeder);
+            _breedButton.gameObject.SetActive(selected.Item1.GetAgeBracket() == DeerAge.Breeder && !selected.Item1.BredThisRound);
     }
 
     /// <summary>

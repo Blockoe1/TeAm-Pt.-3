@@ -40,6 +40,8 @@ public class DeerData
     private Dictionary<SO_PartGene, PartGenome> _partGenotype = new Dictionary<SO_PartGene, PartGenome>();
 
 
+    private bool bredThisRound = false;
+
     public int Wins { get; private set; }
     public int Races { get; private set; }
     public DeerController Controller { get; set; }
@@ -115,6 +117,7 @@ public class DeerData
     #region GS
     public Dictionary<SO_ColorGene, ColorGenome> ColorGenotype { get => _colorGenotype; set => _colorGenotype = value; }
     public Dictionary<SO_PartGene, PartGenome> PartGenotype { get => _partGenotype; set => _partGenotype = value; }
+    public bool BredThisRound { get => bredThisRound; set => bredThisRound = value; }
     #endregion
 
     public float PreviousBetMultiplier()
