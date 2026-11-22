@@ -21,7 +21,7 @@ public class RaceEndStatChange : Trait, ITriggeredTrait<EndRaceTrigger>
             || (requirements == Requirements.Loser && deer != trigger.Winner))
         {
             data.ModifyStat(stat, statChange);
-            NotificationLog.QueueNotification($"{(statChange < 0 ? '-' : '+')}{statChange} {stat.ToString()}", data);
+            NotificationLog.QueueNotification($"{(statChange < 0 ? "" : '+')}{statChange} {stat.ToString()}", data);
         }
     }
 }
